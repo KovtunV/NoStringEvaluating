@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace NoStringEvaluating.Functions.Base
+{
+    /// <summary>
+    /// Function
+    /// </summary>
+    public interface IFunction
+    {
+        /// <summary>
+        /// Name
+        /// </summary>
+        string Name { get; }
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        double Execute(IList<double> args);
+    }
+}

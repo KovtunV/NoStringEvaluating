@@ -1,0 +1,830 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NoStringEvaluating</name>
+    </assembly>
+    <members>
+        <member name="T:NoStringEvaluating.Contract.IFormulaCache">
+            <summary>
+            Parsed formula cache
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaCache.GetFormulaNodes(System.String)">
+            <summary>
+            Return cached formula nodes 
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Contract.IFormulaParser">
+            <summary>
+            Parser from string to object sequence
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Contract.IFormulaParser.FunctionsReader">
+            <summary>
+            Function reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaParser.Parse(System.String)">
+            <summary>
+            Return parsed formula nodes
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaParser.Parse(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Return parsed formula nodes
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Contract.IFunctionReader">
+            <summary>
+            Function reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFunctionReader.AddFunction(NoStringEvaluating.Functions.Base.IFunction,System.Boolean)">
+            <summary>
+            Add function
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFunctionReader.TryProceedFunction(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read function name
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Contract.INoStringEvaluator">
+            <summary>
+            Math expression evaluator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String,System.Collections.Generic.IDictionary{System.String,System.Double})">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,System.Double})">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Contract.Variables.IVariable">
+            <summary>
+            Variable model
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Contract.Variables.IVariable.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Contract.Variables.IVariable.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Contract.Variables.IVariablesContainer">
+            <summary>
+            Container with variables
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.Variables.IVariablesContainer.AddOrUpdate(System.String,System.Double)">
+            <summary>
+            Add or update variable
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.Variables.IVariablesContainer.GetValue(System.String)">
+            <summary>
+            Return variable's value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Exceptions.NoStringFunctionException">
+            <summary>
+            Raises when function exception
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Exceptions.NoStringFunctionException.#ctor(System.String)">
+            <summary>
+            Raises when function exception
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
+            <summary>
+            NoStringEvaluator registrar
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.AddNoStringEvaluator(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
+            <summary>
+            Add NoString math evaluator
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Base.IFunction">
+            <summary>
+            Function
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Base.IFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Base.IFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.AndFunction">
+            <summary>
+            Function - add
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.AndFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.AndFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.ConditionFunction">
+            <summary>
+            Function - if
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.ConditionFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.ConditionFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.NotFunction">
+            <summary>
+            Function - not
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.NotFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.NotFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.OrFunction">
+            <summary>
+            Function - or
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.OrFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.OrFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.AddFunction">
+            <summary>
+            Function - add
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.AddFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.AddFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.MeanFunction">
+            <summary>
+            Function - mean
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MeanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.MeanFunction.Execute(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.Bracket">
+            <summary>
+            Bracket enum
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Bracket.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Bracket.Open">
+            <summary>
+            Open
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Bracket.Close">
+            <summary>
+            Close
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.FunctionChar">
+            <summary>
+            Chars used by function
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FunctionChar.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FunctionChar.Semicolon">
+            <summary>
+            Semicolon
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.Operator">
+            <summary>
+            Operators
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Undefined">
+            <summary>
+            Undefined
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Plus">
+            <summary>
+            +
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Minus">
+            <summary>
+            -
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Multiply">
+            <summary>
+            *
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Divide">
+            <summary>
+            /
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Power">
+            <summary>
+            ^
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Less">
+            <summary>
+            Less
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.LessEqual">
+            <summary>
+            Less or equal
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.More">
+            <summary>
+            More
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.MoreEqual">
+            <summary>
+            More or equal
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Equal">
+            <summary>
+            ==
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.NotEqual">
+            <summary>
+            !=
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.And">
+            <summary>
+            And
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Operator.Or">
+            <summary>
+            Or
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.Base.IFormulaNode">
+            <summary>
+            Formula node
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.BracketNode">
+            <summary>
+            Formula node - Bracket
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.BracketNode.Bracket">
+            <summary>
+            Bracket
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.BracketNode.#ctor(NoStringEvaluating.Models.Bracket)">
+            <summary>
+            Formula node - bracket
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.BracketNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.Common.FormulaNodes">
+            <summary>
+            Formula nodes
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.Common.FormulaNodes.Nodes">
+            <summary>
+            Nodes
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.#ctor(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode})">
+            <summary>
+            Formula nodes
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.FunctionCharNode">
+            <summary>
+            Formula node - FunctionChar
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionCharNode.FunctionChar">
+            <summary>
+            FunctionChar
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionCharNode.#ctor(NoStringEvaluating.Models.FunctionChar)">
+            <summary>
+            Formula node - FunctionChar
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionCharNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.FunctionNode">
+            <summary>
+            Formula node - Function
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionNode.Function">
+            <summary>
+            Function
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionNode.IsNegative">
+            <summary>
+            Has unary minus
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionNode.#ctor(NoStringEvaluating.Functions.Base.IFunction,System.Boolean)">
+            <summary>
+            Formula node - Function
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.FunctionWrapperNode">
+            <summary>
+            Formula node - Function wrapper
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionWrapperNode.FunctionNode">
+            <summary>
+            Function node
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionWrapperNode.FunctionArgumentNodes">
+            <summary>
+            Function arguments
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.#ctor(NoStringEvaluating.Nodes.FunctionNode)">
+            <summary>
+            Formula node - Function wrapper
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.OperatorNode">
+            <summary>
+            Formula node - Operator
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.OperatorNode.OperatorKey">
+            <summary>
+            Operator
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.OperatorNode.Priority">
+            <summary>
+            Priority
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.OperatorNode.#ctor(NoStringEvaluating.Models.Operator)">
+            <summary>
+            Formula node - Operator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.OperatorNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.ValueNode">
+            <summary>
+            Formula node - Value
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.ValueNode.Value">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.ValueNode.#ctor(System.Double)">
+            <summary>
+            Formula node - Value
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.ValueNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.VariableNode">
+            <summary>
+            Formula node - Variable
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.VariableNode.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.VariableNode.IsNegative">
+            <summary>
+            Has unary minus
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean)">
+            <summary>
+            Formula node - Variable
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.VariableNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.NoStringEvaluator">
+            <summary>
+            Math expression evaluator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{System.Double}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{System.Double}},NoStringEvaluating.Contract.IFormulaCache)">
+            <summary>
+            Math expression evaluator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,System.Collections.Generic.IDictionary{System.String,System.Double})">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,System.Double})">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
+            <summary>
+            Calculate formula
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.NoStringEvaluatorConstants">
+            <summary>
+            Global constants
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.FloatingTolerance">
+            <summary>
+            Floating tolerance for understanding Zero number
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
+            <summary>
+            Global constants
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.NoStringEvaluatorOptions">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.FloatingTolerance">
+            <summary>
+            Floating tolerance for understanding Zero number
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.#ctor">
+            <summary>
+            Options
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.BorderCounter`1">
+            <summary>
+            Border counter
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.BorderCounter`1.Count">
+            <summary>
+            Border count
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.BorderCounter`1.#ctor(System.Func{`0,System.Boolean})">
+            <summary>
+            Border counter
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.BorderCounter`1.Proceed(`0)">
+            <summary>
+            Proceed border
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Cache.FormulaCache">
+            <summary>
+            Parsed formula cache
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Cache.FormulaCache.#ctor(NoStringEvaluating.Contract.IFormulaParser)">
+            <summary>
+            Parsed formula cache
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Cache.FormulaCache.GetFormulaNodes(System.String)">
+            <summary>
+            Return cached formula nodes 
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.IndexWatcher">
+            <summary>
+            Word index tracker
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.IndexWatcher.StartIndex">
+            <summary>
+            Start word index
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.IndexWatcher.Length">
+            <summary>
+            Word length
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.IndexWatcher.InProcess">
+            <summary>
+            Has start index
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.IndexWatcher.Remember(System.Int32)">
+            <summary>
+            Remember index
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.NameBuilder">
+            <summary>
+            Name builder
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.NameBuilder.ExpectedName">
+            <summary>
+            Expected name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.NameBuilder.Length">
+            <summary>
+            Length
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.NameBuilder.IsFinished">
+            <summary>
+            Is finished
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.NameBuilder.#ctor(System.String)">
+            <summary>
+            Name builder
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.NameBuilder.TryRemember(System.Char)">
+            <summary>
+            Try remembed char
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.NameBuilder.Reset(System.String)">
+            <summary>
+            Reset name
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.FormulaParser">
+            <summary>
+            Parser from string to object sequence
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.Parsing.FormulaParser.FunctionsReader">
+            <summary>
+            Function reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.#ctor(NoStringEvaluating.Contract.IFunctionReader)">
+            <summary>
+            Parser from string to object sequence
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.Parse(System.String)">
+            <summary>
+            Return parsed formula nodes
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.Parse(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Return parsed formula nodes
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader">
+            <summary>
+            Bracket reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedOpenBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@,System.Int32@)">
+            <summary>
+            Read open bracket
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedCloseBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@,System.Int32@)">
+            <summary>
+            Read close bracket
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionCharReader">
+            <summary>
+            Read function's char
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionCharReader.TryProceedFunctionChar(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char)">
+            <summary>
+            Read function's char
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader">
+            <summary>
+            Function reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.#ctor">
+            <summary>
+            Function reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.AddFunction(NoStringEvaluating.Functions.Base.IFunction,System.Boolean)">
+            <summary>
+            Add function
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.TryProceedFunction(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read function name
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader">
+            <summary>
+            Number reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader.TryProceedNumber(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read number
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.OperatorReader">
+            <summary>
+            Operator reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.OperatorReader.TryProceedOperator(System.Collections.Generic.ICollection{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read operator
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader">
+            <summary>
+            Reader for unary minus
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.ReadUnaryMinus(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
+            <summary>
+            Read unary minus and return next index
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.TryProceedUnaryMinus(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char,System.Boolean@)">
+            <summary>
+            Read unary minus
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.VariableReader">
+            <summary>
+            Variable reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.VariableReader.TryProceedVariable(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read variable
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.PolishNotationService">
+            <summary>
+            Reverse Polish notation
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.PolishNotationService.GetReversedNodes(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode})">
+            <summary>
+            Return reversed nodes
+            </summary>
+        </member>
+    </members>
+</doc>
