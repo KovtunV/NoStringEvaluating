@@ -1,5 +1,5 @@
 # NoStringEvaluating
-Fast and easy mathematical evaluation without endless string parsing! Parses string formula one time and use it's object sequence in each evaluation. Moreover, provides user defined functions and variables.
+Fast and easy mathematical evaluation without endless string parsing! Parses string formula one time and use its object sequence in each evaluation. Moreover, provides user defined functions and variables.
 
 [![Build Status](https://travis-ci.org/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.org/KovtunV/NoStringEvaluating)
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
