@@ -1,0 +1,12 @@
+language: csharp
+solution: NoStringEvaluating.sln
+mono: none
+dist: xenial
+os: linux
+dotnet: 3.1
+install:
+ - dotnet restore
+script:
+ - dotnet build --configuration Release
+ - dotnet test NoStringEvaluatingTests/NoStringEvaluatingTests.csproj
+ - dotnet nuget push NoStringEvaluating/bin/Release/*.nupkg -s "https://nuget.org" -k $NUGET_API_KEY --skip-duplicate
