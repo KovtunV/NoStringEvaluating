@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NoStringEvaluating.Contract;
+﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
 
 namespace NoStringEvaluating.Services.Variables

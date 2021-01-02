@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Nodes.Base;

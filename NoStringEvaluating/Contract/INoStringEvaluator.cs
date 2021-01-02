@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Nodes.Common;
-using NoStringEvaluating.Services;
 
 namespace NoStringEvaluating.Contract
 {

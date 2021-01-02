@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NoStringEvaluating.Functions.Base;
+﻿using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Nodes

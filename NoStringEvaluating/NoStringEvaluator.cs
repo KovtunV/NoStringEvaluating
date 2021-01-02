@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
@@ -10,7 +7,6 @@ using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
-using NoStringEvaluating.Services;
 using NoStringEvaluating.Services.Variables;
 
 namespace NoStringEvaluating

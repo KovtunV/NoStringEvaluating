@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NoStringEvaluating.Contract.Variables
+﻿namespace NoStringEvaluating.Contract.Variables
 {
     /// <summary>
     /// Container with variables

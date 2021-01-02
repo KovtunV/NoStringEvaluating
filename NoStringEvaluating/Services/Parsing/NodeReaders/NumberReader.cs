@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Globalization;
 using NoStringEvaluating.Extensions;
-using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 

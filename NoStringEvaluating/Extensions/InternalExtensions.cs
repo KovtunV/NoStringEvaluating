@@ -1,7 +1,4 @@
-﻿using System;
-using NoStringEvaluating.Models;
-
-namespace NoStringEvaluating.Extensions
+﻿namespace NoStringEvaluating.Extensions
 {
     internal static class InternalExtensions
     {

@@ -1,16 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading;
 using Microsoft.Extensions.DependencyInjection;
-using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
-using NoStringEvaluating.Services;
 using org.mariuszgromada.math.mxparser;
 
 namespace ConsoleApp

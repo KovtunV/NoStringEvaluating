@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace NoStringEvaluating.Nodes.Base
+﻿namespace NoStringEvaluating.Nodes.Base
 {
     /// <summary>
     /// Formula node

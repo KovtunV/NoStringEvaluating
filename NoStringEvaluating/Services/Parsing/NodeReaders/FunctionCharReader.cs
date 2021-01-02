@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using NoStringEvaluating.Extensions;
+﻿using System.Collections.Generic;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
