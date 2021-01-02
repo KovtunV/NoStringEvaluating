@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read open bracket
         /// </summary>
-        public static bool TryProceedOpenBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int isNegativeCount, ref int index)
+        public static bool TryProceedOpenBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -34,12 +34,16 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 }
 
                 // Add bracket
-                AddAddOpenBracket(nodes);
+                var bracket = AddAddOpenBracket(nodes);
 
                 // Is unary minus
                 if (isNegativeLocal)
                 {
-                    isNegativeCount++;
+                    negativeBracketCounters.CreateNewCounter();
+                }
+                else
+                {
+                    negativeBracketCounters.Proceed(bracket);
                 }
 
                 index = localIndex;
@@ -52,7 +56,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read close bracket
         /// </summary>
-        public static bool TryProceedCloseBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int isNegativeCount, ref int index)
+        public static bool TryProceedCloseBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
         {
             if (formula[index] != CLOSE_BRACKET_CHAR)
             {
@@ -60,13 +64,12 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             }
 
             // Add bracket
-            AddAddCloseBracket(nodes);
+            var bracket = AddAddCloseBracket(nodes);
 
             // If there is unary minus, we must add close bracket
-            if (isNegativeCount > 0)
+            if (negativeBracketCounters.Proceed(bracket))
             {
                 AddAddCloseBracket(nodes);
-                isNegativeCount--;
             }
 
             return true;
@@ -83,16 +86,20 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             nodes.Add(minus);
         }
 
-        private static void AddAddCloseBracket(ICollection<IFormulaNode> nodes)
+        private static BracketNode AddAddCloseBracket(ICollection<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Close);
             nodes.Add(bracket);
+
+            return bracket;
         }
 
-        private static void AddAddOpenBracket(ICollection<IFormulaNode> nodes)
+        private static BracketNode AddAddOpenBracket(ICollection<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Open);
             nodes.Add(bracket);
+
+            return bracket;
         }
 
         private const char OPEN_BRACKET_CHAR = '(';

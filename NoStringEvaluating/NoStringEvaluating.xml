@@ -625,6 +625,26 @@
             Proceed border
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Services.BracketCounters">
+            <summary>
+            Contains bracket counters
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.BracketCounters.#ctor">
+            <summary>
+            Contains bracket counters
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.BracketCounters.CreateNewCounter">
+            <summary>
+            Create new counter
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.BracketCounters.Proceed(NoStringEvaluating.Nodes.BracketNode)">
+            <summary>
+            Return true, if bracket area is closed
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Services.Cache.FormulaCache">
             <summary>
             Parsed formula cache
@@ -730,12 +750,12 @@
             Bracket reader
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedOpenBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@,System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedOpenBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
             <summary>
             Read open bracket
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedCloseBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@,System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedCloseBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
             <summary>
             Read close bracket
             </summary>

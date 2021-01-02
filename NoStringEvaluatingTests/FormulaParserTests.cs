@@ -91,6 +91,11 @@ namespace NoStringEvaluatingTests
             yield return CreateTestModel("-((5 + 6) * -(9 - 7 - (5 + 3))) * -((5 + 6) * -(9 - 7 - (5 + 3)))", 4356);
             yield return CreateTestModel("5 * -add(1; 3) * -[Arg1] / -(-add(1; 3) *3)", 1480, ("Arg1", 888));
             yield return CreateTestModel("5 * -add(1;3) * -88 / -(-add(1; 16; 23; -(7+12)) *3)", 27.937);
+            yield return CreateTestModel("-(5* -(5 / (6-7)+3))", -10);
+            yield return CreateTestModel("-(5* -(5 * -(5+16) - (6-7 * -(5+16 * -(3+6)))+3))", 4325);
+            yield return CreateTestModel("(5* -(5 * (5+16) - (6-7 * (5+16 * -(3+6)))+3))", 4355);
+            yield return CreateTestModel("(5* -(5 * (5+16) - (6-7 * (5+16 * (3+6)))+3))", -5725);
+            yield return CreateTestModel("(5* (5 * (5+16) - (6-7 * (5+16 * (3+6)))+3))", 5725);
         }
 
         private static IEnumerable<FormulaModel[]> GetDataToParse()

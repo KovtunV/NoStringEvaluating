@@ -41,9 +41,9 @@ namespace NoStringEvaluating.Services.Parsing
         /// </summary>
         public FormulaNodes Parse(ReadOnlySpan<char> formula)
         {
+            var negativeBracketCounters = new BracketCounters();
             var nodes = new List<IFormulaNode>();
 
-            var isNegativeBracketCount = 0;
             for (int i = 0; i < formula.Length; i++)
             {
                 var ch = formula[i];
@@ -54,10 +54,10 @@ namespace NoStringEvaluating.Services.Parsing
                 if (FunctionCharReader.TryProceedFunctionChar(nodes, ch))
                     continue;
 
-                if (BracketReader.TryProceedOpenBracket(nodes, formula, ref isNegativeBracketCount, ref i))
+                if (BracketReader.TryProceedOpenBracket(nodes, formula, negativeBracketCounters, ref i))
                     continue;
 
-                if (BracketReader.TryProceedCloseBracket(nodes, formula, ref isNegativeBracketCount, ref i))
+                if (BracketReader.TryProceedCloseBracket(nodes, formula, negativeBracketCounters, ref i))
                     continue;
 
                 if (VariableReader.TryProceedVariable(nodes, formula, ref i))
