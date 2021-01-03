@@ -249,5 +249,6 @@ For instance, formula = "21 + [my super power variable(mark2)]".
 
 I am going to add these features:
 - Formula analyzer
+- Possibility to use one-word variable without brackets **[]**
 - Add more functions
 - Add default variables, kinda [Pi]
