@@ -31,7 +31,7 @@ namespace NoStringEvaluating.Extensions
             services.TryAddSingleton<IFormulaParser, FormulaParser>();
 
             // Checker
-            services.AddSingleton<IFormulaChecker, FormulaChecker>();
+            services.TryAddSingleton<IFormulaChecker, FormulaChecker>();
             
             // Evaluator
             services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
