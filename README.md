@@ -28,6 +28,7 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
       * [IFormulaParser](#IFormulaParser)
       * [IFunctionReader](#IFunctionReader)
       * [IFormulaCache](#IFormulaCache)
+      * [IFormulaChecker](#IFormulaChecker)
       * [INoStringEvaluator](#INoStringEvaluator)
    * [Сonstraints](#Сonstraints)
    * [TODO](#TODO)
@@ -194,10 +195,11 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 | not |  Negation function |  not(x) |
 
 ## Documentation
-Solution contains four following services:
+Solution contains five following services:
 - IFormulaParser
 - IFunctionReader
 - IFormulaCache
+- IFormulaChecker
 - INoStringEvaluator
 
 One optional interface, you can implement if IDictionary is inconvenient.
@@ -229,6 +231,13 @@ Performs formula caching. It is used by default **INoStringEvaluator** implement
 Contains one method:
 - `FormulaNodes GetFormulaNodes(string formula)`
 
+### IFormulaChecker
+Performs syntax checking.
+
+Contains two methods:
+- `CheckFormulaResult CheckSyntax(string formula)`
+- `CheckFormulaResult CheckSyntax(ReadOnlySpan<char> formula)`
+
 ### INoStringEvaluator
 Performs evaluating :relaxed:
 
@@ -244,11 +253,11 @@ Contains six methods:
 One of the main features is variable with any chars, kinda "my super power variable(mark2)". So you should wrap all variables into brackets **[** and **]**.
 
 For instance, formula = "21 + [my super power variable(mark2)]".
+By the way, it will be improved, look at TODO.
 
 ## TODO
 
 I am going to add these features:
-- Formula analyzer
 - Possibility to use one-word variable without brackets **[]**
 - Add more functions
-- Add default variables, kinda [Pi]
+- Add default variables, kinda Pi

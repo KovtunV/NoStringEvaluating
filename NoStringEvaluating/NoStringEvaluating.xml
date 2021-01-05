@@ -14,6 +14,21 @@
             Return cached formula nodes 
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Contract.IFormulaChecker">
+            <summary>
+            Syntax checker
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaChecker.CheckSyntax(System.String)">
+            <summary>
+            Check syntax
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaChecker.CheckSyntax(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Check syntax
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Contract.IFormulaParser">
             <summary>
             Parser from string to object sequence
@@ -258,6 +273,16 @@
         <member name="F:NoStringEvaluating.Models.Bracket.Close">
             <summary>
             Close
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.op_Implicit(NoStringEvaluating.Models.CheckFormulaResult)~System.Boolean">
+            <summary>
+            Cast to bool
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FunctionChar">
@@ -658,6 +683,26 @@
         <member name="M:NoStringEvaluating.Services.Cache.FormulaCache.GetFormulaNodes(System.String)">
             <summary>
             Return cached formula nodes 
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Checking.FormulaChecker">
+            <summary>
+            Syntax checker
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Checking.FormulaChecker.#ctor(NoStringEvaluating.Contract.IFunctionReader)">
+            <summary>
+            Syntax checker
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Checking.FormulaChecker.CheckSyntax(System.String)">
+            <summary>
+            Check syntax
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Checking.FormulaChecker.CheckSyntax(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Check syntax
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.IndexWatcher">

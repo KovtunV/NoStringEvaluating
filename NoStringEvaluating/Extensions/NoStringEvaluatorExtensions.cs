@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Services.Cache;
+using NoStringEvaluating.Services.Checking;
 using NoStringEvaluating.Services.Parsing;
 using NoStringEvaluating.Services.Parsing.NodeReaders;
 
@@ -28,6 +29,9 @@ namespace NoStringEvaluating.Extensions
             services.TryAddSingleton<IFormulaCache, FormulaCache>();
             services.TryAddSingleton<IFunctionReader, FunctionReader>();
             services.TryAddSingleton<IFormulaParser, FormulaParser>();
+
+            // Checker
+            services.AddSingleton<IFormulaChecker, FormulaChecker>();
             
             // Evaluator
             services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();

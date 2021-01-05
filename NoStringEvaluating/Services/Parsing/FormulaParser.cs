@@ -39,6 +39,13 @@ namespace NoStringEvaluating.Services.Parsing
         /// </summary>
         public FormulaNodes Parse(ReadOnlySpan<char> formula)
         {
+            var nodes = ParseWithoutRpn(formula);
+            var polish = PolishNotationService.GetReversedNodes(nodes);
+            return new FormulaNodes(polish);
+        }
+
+        internal List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
+        {
             var negativeBracketCounters = new BracketCounters();
             var nodes = new List<IFormulaNode>();
 
@@ -71,8 +78,7 @@ namespace NoStringEvaluating.Services.Parsing
                     continue;
             }
 
-            var polish = PolishNotationService.GetReversedNodes(nodes);
-            return new FormulaNodes(polish);
+            return nodes;
         }
     }
 }
