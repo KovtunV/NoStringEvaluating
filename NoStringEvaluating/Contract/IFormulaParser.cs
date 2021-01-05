@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
 
 namespace NoStringEvaluating.Contract

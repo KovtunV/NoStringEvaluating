@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using Microsoft.Extensions.DependencyInjection;
-using NoStringEvaluating.Extensions;
-using NoStringEvaluating.Services.Checking;
 
 namespace ConsoleApp
 {

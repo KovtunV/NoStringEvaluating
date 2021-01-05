@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
-using NoStringEvaluating.Services.Checking;
 using NoStringEvaluatingTests.Formulas;
 using NoStringEvaluatingTests.Model;
 

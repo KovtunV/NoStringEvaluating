@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluatingTests.Model;
+﻿using NoStringEvaluatingTests.Model;
 
 namespace NoStringEvaluatingTests.Formulas
 {

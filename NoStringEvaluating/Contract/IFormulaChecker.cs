@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using NoStringEvaluating.Models;
 
 namespace NoStringEvaluating.Contract

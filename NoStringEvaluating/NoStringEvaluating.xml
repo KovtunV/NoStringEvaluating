@@ -275,6 +275,26 @@
             Close
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Models.CheckFormulaResult">
+            <summary>
+            Syntax checking result
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.CheckFormulaResult.Messages">
+            <summary>
+            Mistakes
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.CheckFormulaResult.Ok">
+            <summary>
+            Is checking OK
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Syntax checking result
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.CheckFormulaResult.ToString">
             <summary>
             ToString

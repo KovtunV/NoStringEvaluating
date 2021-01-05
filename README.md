@@ -253,6 +253,7 @@ Contains six methods:
 One of the main features is variable with any chars, kinda "my super power variable(mark2)". So you should wrap all variables into brackets **[** and **]**.
 
 For instance, formula = "21 + [my super power variable(mark2)]".
+
 By the way, it will be improved, look at TODO.
 
 ## TODO
