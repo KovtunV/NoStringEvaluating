@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Xml;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
@@ -73,16 +74,15 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
 
         private static double GetDouble(ReadOnlySpan<char> value)
         {
-            if (double.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out var res)) 
-                return res;
-
-            if (double.TryParse(value, NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out res))
-                return res;
-
+            if (double.TryParse(value, NumberStyles.Any, RusCulture, out var res))
+                 return res;
+            
             if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
                 return res;
 
             return default;
         }
+
+        private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");
     }
 }
