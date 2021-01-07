@@ -73,12 +73,16 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
 
         private static double GetDouble(ReadOnlySpan<char> value)
         {
-            if (!double.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out var res))
-            {
-                double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out res);
-            }
+            if (double.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out var res)) 
+                return res;
 
-            return res;
+            if (double.TryParse(value, NumberStyles.Any, CultureInfo.GetCultureInfo("en-US"), out res))
+                return res;
+
+            if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
+                return res;
+
+            return default;
         }
     }
 }
