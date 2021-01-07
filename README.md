@@ -30,6 +30,7 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
       * [IFormulaCache](#IFormulaCache)
       * [IFormulaChecker](#IFormulaChecker)
       * [INoStringEvaluator](#INoStringEvaluator)
+   * [Options](#Options)
    * [Сonstraints](#Сonstraints)
    * [TODO](#TODO)
 
@@ -248,6 +249,24 @@ Contains six methods:
 - `double Calc(FormulaNodes formulaNodes, IDictionary<string, double> variables)`
 - `double Calc(string formula)`
 - `double Calc(FormulaNodes formulaNodes)`
+
+## Options
+When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
+
+There are two options:
+
+- FloatingTolerance (default is 0.0001)
+- FloatingPointSymbol (default is FloatingPointSymbol.Dot)
+
+To illustrate, I change floating point from default **dot** to **comma**:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ......
+    services.AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.Comma);
+}
+```
 
 ## Сonstraints
 One of the main features is variable with any chars, kinda "my super power variable(mark2)". So you should wrap all variables into brackets **[** and **]**.

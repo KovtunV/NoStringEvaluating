@@ -1,4 +1,6 @@
-﻿namespace NoStringEvaluating
+﻿using NoStringEvaluating.Models;
+
+namespace NoStringEvaluating
 {
     /// <summary>
     /// Options
@@ -11,16 +13,26 @@
         public double FloatingTolerance { get; set; }
 
         /// <summary>
+        /// Symbol of floating point
+        /// </summary>
+        public FloatingPointSymbol FloatingPointSymbol { get; set; }
+
+        /// <summary>
         /// Options
         /// </summary>
         public NoStringEvaluatorOptions()
         {
             FloatingTolerance = NoStringEvaluatorConstants.FloatingTolerance;
+            FloatingPointSymbol = NoStringEvaluatorConstants.FloatingPointSymbol;
         }
 
-        internal void UpdateConstants()
+        /// <summary>
+        /// Update constants <see cref="NoStringEvaluatorConstants"/>
+        /// </summary>
+        public void UpdateConstants()
         {
             NoStringEvaluatorConstants.FloatingTolerance = FloatingTolerance;
+            NoStringEvaluatorConstants.FloatingPointSymbol = FloatingPointSymbol;
         }
     }
 }

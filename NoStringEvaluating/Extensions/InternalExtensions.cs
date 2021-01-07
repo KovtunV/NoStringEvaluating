@@ -1,10 +1,20 @@
-﻿namespace NoStringEvaluating.Extensions
+﻿using NoStringEvaluating.Models;
+
+namespace NoStringEvaluating.Extensions
 {
     internal static class InternalExtensions
     {
-        internal static bool IsDigitOrPoint(this char ch)
+        internal static bool IsFloatingNumber(this char ch)
         {
-            return ch.IsDigit() || ch == '.';
+            var isDigit = ch.IsDigit();
+
+            return NoStringEvaluatorConstants.FloatingPointSymbol switch
+            {
+                FloatingPointSymbol.Dot => (isDigit || ch == '.'),
+                FloatingPointSymbol.Comma => (isDigit || ch == ','),
+                FloatingPointSymbol.DotComma => (isDigit || ch == '.' || ch == ','),
+                _ => false
+            };
         }
 
         internal static bool IsDigit(this char ch)

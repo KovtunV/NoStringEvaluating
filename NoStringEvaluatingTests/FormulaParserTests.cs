@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models;
 using NoStringEvaluatingTests.Formulas;
 using NoStringEvaluatingTests.Model;
 
@@ -17,7 +18,7 @@ namespace NoStringEvaluatingTests
 
         public FormulaParserTests()
         {
-            _serviceProvider = new ServiceCollection().AddNoStringEvaluator().BuildServiceProvider();
+            _serviceProvider = new ServiceCollection().AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.DotComma).BuildServiceProvider();
 
             var functionReader = _serviceProvider.GetRequiredService<IFunctionReader>();
             functionReader.AddFunction(new Func_kov());
@@ -58,15 +59,15 @@ namespace NoStringEvaluatingTests
 
         #region DataSource
 
-        private static IEnumerable<FormulaModel[]> GetFormulasToCheck() 
+        private static IEnumerable<FormulaModel[]> GetFormulasToCheck()
             => FormulasContainer.GetFormulasToCheck();
 
-        private static IEnumerable<FormulaModel[]> GetFormulasToParse() 
+        private static IEnumerable<FormulaModel[]> GetFormulasToParse()
             => FormulasContainer.GetFormulasToParse();
 
         private static IEnumerable<FormulaModel[]> GetFormulasToCalculate()
             => FormulasContainer.GetFormulasToCalculate();
-      
+
         #endregion
     }
 

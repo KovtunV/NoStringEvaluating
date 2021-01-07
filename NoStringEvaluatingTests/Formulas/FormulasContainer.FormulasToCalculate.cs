@@ -48,6 +48,9 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("(5* -(5 * (5+16) - (6-7 * (5+16 * -(3+6)))+3))", 4355);
             yield return CreateTestModel("(5* -(5 * (5+16) - (6-7 * (5+16 * (3+6)))+3))", -5725);
             yield return CreateTestModel("(5* (5 * (5+16) - (6-7 * (5+16 * (3+6)))+3))", 5725);
+
+            yield return CreateTestModel("1.56 *56.89 +8.3", 97.048);
+            yield return CreateTestModel("1,56 *56,89 +8,3", 97.048);
         }
     }
 }

@@ -26,7 +26,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 var ch = formula[i];
                 var isLastChar = i + 1 == formula.Length;
 
-                if (ch.IsDigitOrPoint())
+                if (ch.IsFloatingNumber())
                 {
                     numberBuilder.Remember(i);
 
@@ -55,7 +55,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             if (nodeBuilder.InProcess)
             {
                 var valueSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
-                var value = double.Parse(valueSpan, NumberStyles.Any, CultureInfo.InvariantCulture);
+                var value = GetDouble(valueSpan);
 
                 if (isNegative)
                 {
@@ -69,6 +69,16 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             }
 
             return false;
+        }
+
+        private static double GetDouble(ReadOnlySpan<char> value)
+        {
+            if (!double.TryParse(value, NumberStyles.Any, CultureInfo.CurrentCulture, out var res))
+            {
+                double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out res);
+            }
+
+            return res;
         }
     }
 }

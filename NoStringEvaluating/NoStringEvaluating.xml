@@ -305,6 +305,26 @@
             Cast to bool
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Models.FloatingPointSymbol">
+            <summary>
+            Symbol of floating point
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FloatingPointSymbol.Dot">
+            <summary>
+            .
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FloatingPointSymbol.Comma">
+            <summary>
+            ,
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FloatingPointSymbol.DotComma">
+            <summary>
+            . or ,
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Models.FunctionChar">
             <summary>
             Chars used by function
@@ -630,6 +650,11 @@
             Floating tolerance for understanding Zero number
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.FloatingPointSymbol">
+            <summary>
+            Symbol of floating point
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
             <summary>
             Global constants
@@ -645,9 +670,19 @@
             Floating tolerance for understanding Zero number
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.FloatingPointSymbol">
+            <summary>
+            Symbol of floating point
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.#ctor">
             <summary>
             Options
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.UpdateConstants">
+            <summary>
+            Update constants <see cref="T:NoStringEvaluating.NoStringEvaluatorConstants"/>
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.BorderCounter`1">
