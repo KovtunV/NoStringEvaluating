@@ -11,14 +11,14 @@ namespace NoStringEvaluating.Nodes.Common
         /// <summary>
         /// Nodes
         /// </summary>
-        public List<IFormulaNode> Nodes { get; }
+        public IReadOnlyList<IFormulaNode> Nodes { get; }
 
         /// <summary>
         /// Formula nodes
         /// </summary>
         public FormulaNodes(List<IFormulaNode> nodes)
         {
-            Nodes = nodes;
+            Nodes = nodes.AsReadOnly();
         }
 
         /// <summary>

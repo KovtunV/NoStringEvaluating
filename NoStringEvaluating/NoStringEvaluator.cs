@@ -91,7 +91,7 @@ namespace NoStringEvaluating
 
         #region Calculating
 
-        private double CalcInternal(List<IFormulaNode> nodes, VariablesSource variables)
+        private double CalcInternal(IReadOnlyList<IFormulaNode> nodes, VariablesSource variables)
         {
             // If no nodes return default value
             if (nodes.Count == 0)
