@@ -27,7 +27,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             RegisterInternalFunctions();
         }
 
-        private void RegisterInternalFunctions()
+        private void RegisterInternalFunctions() // TODO: move to static service with type to look in custom assembly
         {
             var funcInterfaceType = typeof(IFunction);
 
@@ -70,7 +70,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read function name
         /// </summary>
-        public bool TryProceedFunction(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -87,11 +87,10 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 for (int i = localIndex; i < formula.Length; i++)
                 {
                     var ch = formula[i];
-                    var nextCh = (i + 1) < formula.Length ? formula[i + 1] : (char?)null;
 
                     if (functionNameBuilder.TryRemember(ch))
                     {
-                        if (functionNameBuilder.IsFinished && (nextCh == OPEN_BRACKET || nextCh.IsWhiteSpace()))
+                        if (functionNameBuilder.IsFinished && IsBracketNext(formula, i + 1))
                         {
                             var functionNode = new FunctionNode(function, isNegativeLocal);
                             nodes.Add(functionNode);
@@ -105,6 +104,21 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                         break;
                     }
                 }
+            }
+
+            return false;
+        }
+
+        private static bool IsBracketNext(ReadOnlySpan<char> formula, int index)
+        {
+            for (int i = index; i < formula.Length; i++)
+            {
+                var ch = formula[i];
+
+                if (ch.IsWhiteSpace())
+                    continue;
+
+                return ch is OPEN_BRACKET;
             }
 
             return false;

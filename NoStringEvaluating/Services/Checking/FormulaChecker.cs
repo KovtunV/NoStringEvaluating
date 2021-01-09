@@ -49,7 +49,7 @@ namespace NoStringEvaluating.Services.Checking
             return new CheckFormulaResult(messages);
         }
 
-        private void CheckSyntaxInternal(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckSyntaxInternal(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -66,7 +66,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private int GetNextIndex(IList<IFormulaNode> nodes, int start, int end)
+        private int GetNextIndex(List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -79,7 +79,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Function
 
-        private bool TryCheckFunction(ICollection<string> messages, IList<IFormulaNode> nodes, ref int index)
+        private bool TryCheckFunction(List<string> messages, List<IFormulaNode> nodes, ref int index)
         {
             var localIndex = index;
 
@@ -135,7 +135,7 @@ namespace NoStringEvaluating.Services.Checking
             return true;
         }
 
-        private static bool IsNextSemicolon(IList<IFormulaNode> nodes, int index)
+        private static bool IsNextSemicolon(List<IFormulaNode> nodes, int index)
         {
             var nextNode = index + 1 < nodes.Count ? nodes[index + 1] : null;
             var nextFunctionChar = nextNode as FunctionCharNode;
@@ -147,7 +147,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Bracket
 
-        private void CheckBracketsCount(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckBracketsCount(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             var openBracketCount = 0;
             var closeBracketCount = 0;
@@ -169,7 +169,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckEmptyBrackets(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckEmptyBrackets(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start + 1; i < end; i++)
             {
@@ -187,7 +187,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Checkers
 
-        private void CheckMissedOperator(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckMissedOperator(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -209,7 +209,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckNodeBetweenNumbers(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckNodeBetweenNumbers(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -225,7 +225,7 @@ namespace NoStringEvaluating.Services.Checking
         }
 
 
-        private void CheckMissedNumber(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckMissedNumber(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -245,7 +245,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckFunctionBody(ICollection<string> messages, IList<IFormulaNode> nodes, int start, int end)
+        private void CheckFunctionBody(List<string> messages, List<IFormulaNode> nodes, int start, int end)
         {
             if (start + 1 != end)
                 return;

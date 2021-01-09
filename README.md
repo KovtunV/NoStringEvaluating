@@ -19,19 +19,19 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
    * [Quick start](#Quick-start)
       * [Initializing](#Initializing)
       * [Usage](#Usage)
+   * [Variables](#Variables)
    * [Operators](#Operators)
    * [Boolean operators](#Boolean-operators)
    * [Functions](#Functions)
       * [Math](#Math)
       * [Logic](#Logic)
+   * [Options](#Options)
    * [Documentation](#Documentation)
       * [IFormulaParser](#IFormulaParser)
       * [IFunctionReader](#IFunctionReader)
       * [IFormulaCache](#IFormulaCache)
       * [IFormulaChecker](#IFormulaChecker)
       * [INoStringEvaluator](#INoStringEvaluator)
-   * [Options](#Options)
-   * [Сonstraints](#Сonstraints)
    * [TODO](#TODO)
 
 <!--te-->
@@ -70,6 +70,8 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 | 8 | add(add(5; 1) - add(5; 2; 3)) |
 | 9 | if([Arg1]; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
 | 10 | kov(1; 2; 3) - kovt(8; 9)  |
+
+It used to write variables with brackets, but now you can write them without brackets. See more in [Variables](#Variables).
 
 ### 100 000 calculations
 
@@ -154,6 +156,31 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 }
 ```
 
+## Variables
+
+You can use two types of variables:
+- Simple variable
+- Bordered variable
+
+Simple variable means that it named without unique symbols and starts with a letter. Only one extra symbol is possible, it's "_"
+
+Some examples:
+- "25 + myArgument - 1"
+- "25 + myArg1 - 2"
+- "arg5684argArg_arg"
+- "25 + myArgument_newAge - 3"
+
+Bordered variable means that it has difficult name with any symbols, except for square brackets.
+
+Some examples:
+- "25 + [myVariable and some words] - 1"
+- "25 + [Provider("my provider").Month(1).Price] - 2"
+- "[myVariable ♥]"
+- "[simpleVariable]"
+
+Needless to say, you can write simple variable with brackets too.
+
+
 ## Operators
 
 | Key word  |  Description | Example  |
@@ -195,6 +222,25 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 | or |  Logical disjunction (OR) |  or(a1; a2; ...; an) |
 | not |  Negation function |  not(x) |
 
+
+## Options
+When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
+
+There are two options:
+
+- FloatingTolerance (default is 0.0001)
+- FloatingPointSymbol (default is FloatingPointSymbol.Dot)
+
+To illustrate, I change floating point from default **dot** to **comma**:
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    // ......
+    services.AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.Comma);
+}
+```
+
 ## Documentation
 Solution contains five following services:
 - IFormulaParser
@@ -224,7 +270,7 @@ Performs using user defined functions.
 
 Contains two methods:
 - `void AddFunction(IFunction func, bool replace = false)`
-- `bool TryProceedFunction(ICollection<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)`
+- `bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)`
 
 ### IFormulaCache
 Performs formula caching. It is used by default **INoStringEvaluator** implementation. It uses **IFormulaParser** which parses string formula to object sequence.
@@ -250,34 +296,7 @@ Contains six methods:
 - `double Calc(string formula)`
 - `double Calc(FormulaNodes formulaNodes)`
 
-## Options
-When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
-
-There are two options:
-
-- FloatingTolerance (default is 0.0001)
-- FloatingPointSymbol (default is FloatingPointSymbol.Dot)
-
-To illustrate, I change floating point from default **dot** to **comma**:
-
-```csharp
-public void ConfigureServices(IServiceCollection services)
-{
-    // ......
-    services.AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.Comma);
-}
-```
-
-## Сonstraints
-One of the main features is variable with any chars, kinda "my super power variable(mark2)". So you should wrap all variables into brackets **[** and **]**.
-
-For instance, formula = "21 + [my super power variable(mark2)]".
-
-By the way, it will be improved, look at TODO.
-
 ## TODO
-
 I am going to add these features:
-- Possibility to use one-word variable without brackets **[]**
 - Add more functions
 - Add default variables, kinda Pi

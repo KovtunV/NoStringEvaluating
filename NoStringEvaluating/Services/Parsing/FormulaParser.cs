@@ -65,13 +65,16 @@ namespace NoStringEvaluating.Services.Parsing
                 if (BracketReader.TryProceedCloseBracket(nodes, formula, negativeBracketCounters, ref i))
                     continue;
 
-                if (VariableReader.TryProceedVariable(nodes, formula, ref i))
+                if (VariableReader.TryProceedBorderedVariable(nodes, formula, ref i))
                     continue;
 
                 if (NumberReader.TryProceedNumber(nodes, formula, ref i))
                     continue;
 
                 if (FunctionsReader.TryProceedFunction(nodes, formula, ref i))
+                    continue;
+
+                if (VariableReader.TryProceedSimpleVariable(nodes, formula, ref i))
                     continue;
 
                 if (OperatorReader.TryProceedOperator(nodes, formula, ref i))

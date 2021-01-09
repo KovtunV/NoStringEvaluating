@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
@@ -13,7 +14,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read variable
         /// </summary>
-        public static bool TryProceedVariable(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public static bool TryProceedBorderedVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -48,6 +49,59 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 }
 
                 variableBuilder.Remember(i);
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// Read variable
+        /// </summary>
+        public static bool TryProceedSimpleVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        {
+            // Read unary minus
+            var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
+
+            var numberBuilder = new IndexWatcher();
+            for (int i = localIndex; i < formula.Length; i++)
+            {
+                var ch = formula[i];
+                var isLastChar = i + 1 == formula.Length;
+
+                if (ch.IsSimpleVariable())
+                {
+                    numberBuilder.Remember(i);
+
+                    if (isLastChar && TryAddSimpleVariable(nodes, formula, numberBuilder, isNegativeLocal))
+                    {
+                        index = i;
+                        return true;
+                    }
+                }
+                else if (TryAddSimpleVariable(nodes, formula, numberBuilder, isNegativeLocal))
+                {
+                    index = i - 1;
+                    return true;
+                }
+                else
+                {
+                    break;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool TryAddSimpleVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
+        {
+            if (nodeBuilder.InProcess)
+            {
+                var variableSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
+                var variableName = variableSpan.ToString();
+                var valNode = new VariableNode(variableName, isNegative);
+                nodes.Add(valNode);
+
+                return true;
             }
 
             return false;

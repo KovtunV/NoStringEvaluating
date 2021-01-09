@@ -13,7 +13,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read function's char
         /// </summary>
-        public static bool TryProceedFunctionChar(IList<IFormulaNode> nodes, char ch)
+        public static bool TryProceedFunctionChar(List<IFormulaNode> nodes, char ch)
         {
             if (FUNCTION_SEPARATOR == ch)
             {

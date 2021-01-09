@@ -77,7 +77,7 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOV";
 
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             var res = 1d;
 
@@ -94,7 +94,7 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOVT";
 
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             return args[0] - args[1];
         }

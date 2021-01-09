@@ -15,6 +15,6 @@ namespace NoStringEvaluating.Functions.Base
         /// <summary>
         /// Evaluate value
         /// </summary>
-        double Execute(IList<double> args);
+        double Execute(List<double> args);
     }
 }

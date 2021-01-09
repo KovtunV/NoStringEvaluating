@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Functions.Logic
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             return System.Math.Abs(args[0]) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0;
         }

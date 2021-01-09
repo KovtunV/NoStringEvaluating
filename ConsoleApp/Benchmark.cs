@@ -165,31 +165,28 @@ namespace ConsoleApp
         /// </summary>
         public void RunMXParser(string formula)
         {
-            var sourceFormula = formula;
-            formula = KillNoStringBrackets(formula);
-
             // Init
             var expression = new Expression(formula);
 
-            if (sourceFormula == Formula5)
+            if (formula == Formula5)
             {
                 RunMXParser_Formula5(expression);
                 return;
             }
 
-            if (sourceFormula == Formula6)
+            if (formula == Formula6)
             {
                 RunMXParser_Formula6(expression);
                 return;
             }
 
-            if (sourceFormula == Formula9)
+            if (formula == Formula9)
             {
                 RunMXParser_Formula9(expression);
                 return;
             }
 
-            if (sourceFormula == Formula10)
+            if (formula == Formula10)
             {
                 RunMXParser_Formula10(expression);
                 return;
@@ -331,11 +328,6 @@ namespace ConsoleApp
             Console.WriteLine($"GC cycle count (Gen 2): {GC.CollectionCount(2)}\n");
         }
 
-        private string KillNoStringBrackets(string formula)
-        {
-            return formula.Replace("[", string.Empty).Replace("]", string.Empty);
-        }
-
         private const string Arg1 = "arg1";
         private const string Arg2 = "arg2";
         private const string Arg3 = "arg3";
@@ -358,12 +350,12 @@ namespace ConsoleApp
         public static string Formula3 = "3 * (9 / 456 * (32 + 12)) / 17 - 3";
         public static string Formula4 = "(2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) * 345 * ((897 - 323)/ 23)";
 
-        public static string Formula5 = $"[{Arg1}] * [{Arg2}] + [{Arg3}] - [{Arg4}]";
-        public static string Formula6 = $"[{Arg1}] * ([{Arg2}] + [{Arg3}]) - [{Arg4}] / ([{Arg5}] - [{Arg6}]) + 45 * [{Arg7}] + (([{Arg8}] * 56 + (12 + [{Arg9}]))) - [{Arg10}]";
+        public static string Formula5 = $"{Arg1} * {Arg2} + {Arg3} - {Arg4}";
+        public static string Formula6 = $"{Arg1} * ({Arg2} + {Arg3}) - {Arg4} / ({Arg5} - {Arg6}) + 45 * {Arg7} + (({Arg8} * 56 + (12 + {Arg9}))) - {Arg10}";
 
         public static string Formula7 = $"add(1; 2; 3)";
         public static string Formula8 = $"add(add(5; 1) - add(5; 2; 3))";
-        public static string Formula9 = $"if([{Arg1}]; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
+        public static string Formula9 = $"if({Arg1}; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
         public static string Formula10 = $"kov(1; 2; 3) - kovt(8; 9)"; // 6 - -1 = 7
     }
 
@@ -373,7 +365,7 @@ namespace ConsoleApp
     {
         public string Name { get; } = "kov";
 
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             var res = 1d;
 
@@ -390,7 +382,7 @@ namespace ConsoleApp
     {
         public string Name { get; } = "kovt";
 
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             return args[0] - args[1];
         }

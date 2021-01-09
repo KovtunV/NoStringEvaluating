@@ -14,7 +14,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read open bracket
         /// </summary>
-        public static bool TryProceedOpenBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
+        public static bool TryProceedOpenBracket(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -54,7 +54,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read close bracket
         /// </summary>
-        public static bool TryProceedCloseBracket(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
+        public static bool TryProceedCloseBracket(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
         {
             if (formula[index] != CLOSE_BRACKET_CHAR)
             {
@@ -73,7 +73,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return true;
         }
 
-        private static void AddAdditionalNodesForUnaryMinus(ICollection<IFormulaNode> nodes)
+        private static void AddAdditionalNodesForUnaryMinus(List<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Open);
             var value = new ValueNode(0);
@@ -84,7 +84,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             nodes.Add(minus);
         }
 
-        private static BracketNode AddAddCloseBracket(ICollection<IFormulaNode> nodes)
+        private static BracketNode AddAddCloseBracket(List<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Close);
             nodes.Add(bracket);
@@ -92,7 +92,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return bracket;
         }
 
-        private static BracketNode AddAddOpenBracket(ICollection<IFormulaNode> nodes)
+        private static BracketNode AddAddOpenBracket(List<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Open);
             nodes.Add(bracket);

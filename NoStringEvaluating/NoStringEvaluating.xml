@@ -60,7 +60,7 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
         </member>
-        <member name="M:NoStringEvaluating.Contract.IFunctionReader.TryProceedFunction(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+        <member name="M:NoStringEvaluating.Contract.IFunctionReader.TryProceedFunction(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read function name
             </summary>
@@ -160,7 +160,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Base.IFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Base.IFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -175,7 +175,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.AndFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Logic.AndFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -190,7 +190,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.ConditionFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Logic.ConditionFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -205,7 +205,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.NotFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Logic.NotFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -220,7 +220,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.OrFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Logic.OrFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -235,7 +235,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Math.AddFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Math.AddFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -250,7 +250,7 @@
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Math.MeanFunction.Execute(System.Collections.Generic.IList{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Math.MeanFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -850,12 +850,12 @@
             Bracket reader
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedOpenBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedOpenBracket(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
             <summary>
             Read open bracket
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedCloseBracket(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader.TryProceedCloseBracket(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},NoStringEvaluating.Services.BracketCounters,System.Int32@)">
             <summary>
             Read close bracket
             </summary>
@@ -865,7 +865,7 @@
             Read function's char
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionCharReader.TryProceedFunctionChar(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionCharReader.TryProceedFunctionChar(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char)">
             <summary>
             Read function's char
             </summary>
@@ -886,7 +886,7 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.TryProceedFunction(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.TryProceedFunction(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read function name
             </summary>
@@ -896,7 +896,7 @@
             Number reader
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader.TryProceedNumber(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader.TryProceedNumber(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read number
             </summary>
@@ -906,7 +906,7 @@
             Operator reader
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.OperatorReader.TryProceedOperator(System.Collections.Generic.ICollection{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.OperatorReader.TryProceedOperator(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read operator
             </summary>
@@ -916,12 +916,12 @@
             Reader for unary minus
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.ReadUnaryMinus(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.ReadUnaryMinus(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
             <summary>
             Read unary minus and return next index
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.TryProceedUnaryMinus(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char,System.Boolean@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.UnaryMinusReader.TryProceedUnaryMinus(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.Char,System.Boolean@)">
             <summary>
             Read unary minus
             </summary>
@@ -931,7 +931,12 @@
             Variable reader
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.VariableReader.TryProceedVariable(System.Collections.Generic.IList{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.VariableReader.TryProceedBorderedVariable(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read variable
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.VariableReader.TryProceedSimpleVariable(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read variable
             </summary>

@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Functions.Math
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(IList<double> args)
+        public double Execute(List<double> args)
         {
             var sum = 0d;
             for (int i = 0; i < args.Count; i++)

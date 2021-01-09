@@ -33,16 +33,16 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("5*(3-1)", 10);
             yield return CreateTestModel("if(-1; -6; -7)", -6);
             yield return CreateTestModel("5 - -6", 11);
-            yield return CreateTestModel("if ([Arg1] > 0; -[Arg1]; 0)", -16, ("Arg1", 16));
+            yield return CreateTestModel("if ([Arg1] > 0; - [Arg1]; 0)", -16, ("Arg1", 16));
             yield return CreateTestModel("if ([Arg1] != 0; -----[Arg1]; 0)", -16, ("Arg1", 16));
 
             yield return CreateTestModel("-(5+6)", -11);
-            yield return CreateTestModel("-add(1;3) - add(1; 2; 3)", -10);
+            yield return CreateTestModel("- add(1;3) - add(1; 2; 3)", -10);
             yield return CreateTestModel("if(5 > 0; -(5+6); 0)", -11);
             yield return CreateTestModel("-(9 - 7 + -(5 + 3))", 6);
             yield return CreateTestModel("-((5 + 6) * -(9 - 7 - (5 + 3))) * -((5 + 6) * -(9 - 7 - (5 + 3)))", 4356);
             yield return CreateTestModel("5 * -add(1; 3) * -[Arg1] / -(-add(1; 3) *3)", 1480, ("Arg1", 888));
-            yield return CreateTestModel("5 * -add(1;3) * -88 / -(-add(1; 16; 23; -(7+12)) *3)", 27.937);
+            yield return CreateTestModel("5 * -add(1;3) * - 88 / -(-add(1; 16; 23; -(7+12)) *3)", 27.937);
             yield return CreateTestModel("-(5* -(5 / (6-7)+3))", -10);
             yield return CreateTestModel("-(5* -(5 * -(5+16) - (6-7 * -(5+16 * -(3+6)))+3))", 4325);
             yield return CreateTestModel("(5* -(5 * (5+16) - (6-7 * (5+16 * -(3+6)))+3))", 4355);
@@ -51,6 +51,16 @@ namespace NoStringEvaluatingTests.Formulas
 
             yield return CreateTestModel("1.56 *56.89 +8.3", 97.048);
             yield return CreateTestModel("1,56 *56,89 +8,3", 97.048);
+
+            yield return CreateTestModel("add + [add] * add(1; 4)", 18, ("add", 3));
+            yield return CreateTestModel("add * -add(1; 4)", -15, ("add", 3));
+            yield return CreateTestModel("-add", -3, ("add", 3));
+            yield return CreateTestModel("add", 3, ("add", 3));
+            yield return CreateTestModel("add + add(add(5; add))", 11, ("add", 3));
+            yield return CreateTestModel("15+24 == var1 * 2", 0, ("var1", -3));
+            yield return CreateTestModel("15+24 == var_1 * 3", 1, ("var_1", 13));
+            yield return CreateTestModel("- (my_name_is / 15)", -3, ("my_name_is", 45));
+            yield return CreateTestModel("[myVariable ♥]", 30, ("myVariable ♥", 30));
         }
     }
 }

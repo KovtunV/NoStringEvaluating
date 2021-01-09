@@ -4,6 +4,11 @@ namespace NoStringEvaluating.Extensions
 {
     internal static class InternalExtensions
     {
+        internal static bool IsSimpleVariable(this char ch)
+        {
+            return char.IsLetterOrDigit(ch) || ch == '_';
+        }
+
         internal static bool IsFloatingNumber(this char ch)
         {
             var isDigit = ch.IsDigit();

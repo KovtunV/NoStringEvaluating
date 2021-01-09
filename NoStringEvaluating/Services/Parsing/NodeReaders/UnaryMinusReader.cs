@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
@@ -14,13 +15,16 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read unary minus and return next index
         /// </summary>
-        public static int ReadUnaryMinus(IList<IFormulaNode> nodes, ReadOnlySpan<char> formula, int index, out bool isNegative)
+        public static int ReadUnaryMinus(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, int index, out bool isNegative)
         {
             var isNegativeLocal = false;
             var localIndex = index;
             for (; localIndex < formula.Length; localIndex++)
             {
                 var ch = formula[localIndex];
+
+                if (ch.IsWhiteSpace())
+                    continue;
 
                 if (!TryProceedUnaryMinus(nodes, ch, ref isNegativeLocal))
                 {
@@ -35,7 +39,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read unary minus
         /// </summary>
-        private static bool TryProceedUnaryMinus(IList<IFormulaNode> nodes, char ch, ref bool isNegative)
+        private static bool TryProceedUnaryMinus(List<IFormulaNode> nodes, char ch, ref bool isNegative)
         {
             var prevNode = nodes.Count > 0 ? nodes[^1] : null;
 
