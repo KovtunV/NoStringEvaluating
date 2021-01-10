@@ -32,7 +32,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 }
 
                 // Add bracket
-                var bracket = AddAddOpenBracket(nodes);
+                var bracket = AddOpenBracket(nodes);
 
                 // Is unary minus
                 if (isNegativeLocal)
@@ -62,12 +62,12 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             }
 
             // Add bracket
-            var bracket = AddAddCloseBracket(nodes);
+            var bracket = AddCloseBracket(nodes);
 
             // If there is unary minus, we must add close bracket
             if (negativeBracketCounters.Proceed(bracket))
             {
-                AddAddCloseBracket(nodes);
+                AddCloseBracket(nodes);
             }
 
             return true;
@@ -84,7 +84,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             nodes.Add(minus);
         }
 
-        private static BracketNode AddAddCloseBracket(List<IFormulaNode> nodes)
+        private static BracketNode AddCloseBracket(List<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Close);
             nodes.Add(bracket);
@@ -92,7 +92,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return bracket;
         }
 
-        private static BracketNode AddAddOpenBracket(List<IFormulaNode> nodes)
+        private static BracketNode AddOpenBracket(List<IFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Open);
             nodes.Add(bracket);
