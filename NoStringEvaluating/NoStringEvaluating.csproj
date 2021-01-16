@@ -9,12 +9,12 @@
     <Description>Fast and easy mathematical evaluation without endless string parsing! Parses string formula one time and use its object sequence in each evaluation. Moreover, provides user defined functions and variables.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
-    <PackageReleaseNotes>Add a simple variable without brackets, see more on github.</PackageReleaseNotes>
+    <PackageReleaseNotes>Add precompiled variables: pi, tau, e, true, false.</PackageReleaseNotes>
     <PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
     <PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

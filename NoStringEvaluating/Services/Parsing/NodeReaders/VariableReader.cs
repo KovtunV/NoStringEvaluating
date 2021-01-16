@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
+using NoStringEvaluating.Services.Variables;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders
 {
@@ -36,13 +37,12 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             for (int i = localIndex; i < formula.Length; i++)
             {
                 var ch = formula[i];
-   
+
                 if (ch == END_CHAR)
                 {
                     var variableSpan = formula.Slice(variableBuilder.StartIndex.GetValueOrDefault(), variableBuilder.Length);
                     var variableName = variableSpan.ToString();
-                    var valNode = new VariableNode(variableName, isNegativeLocal);
-                    nodes.Add(valNode);
+                    AddFormulaNode(nodes, variableName, isNegativeLocal);
 
                     index = i;
                     return true;
@@ -98,13 +98,32 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             {
                 var variableSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
                 var variableName = variableSpan.ToString();
-                var valNode = new VariableNode(variableName, isNegative);
-                nodes.Add(valNode);
+                AddFormulaNode(nodes, variableName, isNegative);
 
                 return true;
             }
 
             return false;
+        }
+
+        private static void AddFormulaNode(List<IFormulaNode> nodes, string variableName, bool isNegative)
+        {
+            // Known variable kinda Pi, E, etc...
+            if (KnownVariables.TryGetValue(variableName, out var value))
+            {
+                if (isNegative)
+                {
+                    value *= -1;
+                }
+
+                var valNode = new ValueNode(value);
+                nodes.Add(valNode);
+            }
+            else
+            {
+                var varNode = new VariableNode(variableName, isNegative);
+                nodes.Add(varNode);
+            }
         }
 
         private const char START_CHAR = '[';

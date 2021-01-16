@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NoStringEvaluatingTests.Model;
 
 namespace NoStringEvaluatingTests.Formulas
@@ -61,6 +62,11 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("15+24 == var_1 * 3", 1, ("var_1", 13));
             yield return CreateTestModel("- (my_name_is / 15)", -3, ("my_name_is", 45));
             yield return CreateTestModel("[myVariable ♥]", 30, ("myVariable ♥", 30));
+
+            yield return CreateTestModel("Pi*pI/[PI] + -pI", 0);
+            yield return CreateTestModel("if([tau] > 6 == true; 5+6; -9)", 11);
+            yield return CreateTestModel("if(tAu > 6 == false; 5+6; -9)", -9);
+            yield return CreateTestModel("e + [E]", Math.Round(Math.E + Math.E, 3));
         }
     }
 }

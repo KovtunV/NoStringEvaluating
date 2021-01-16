@@ -20,6 +20,9 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
       * [Initializing](#Initializing)
       * [Usage](#Usage)
    * [Variables](#Variables)
+      * [Simple variable](#Simple-variable)
+      * [Bordered variable](#Bordered-variable)
+      * [Precompiled variables](#Precompiled-variables)
    * [Operators](#Operators)
    * [Boolean operators](#Boolean-operators)
    * [Functions](#Functions)
@@ -162,6 +165,8 @@ You can use two types of variables:
 - Simple variable
 - Bordered variable
 
+### Simple variable
+
 Simple variable means that it named without unique symbols and starts with a letter. Only one extra symbol is possible, it's "_"
 
 Some examples:
@@ -170,7 +175,9 @@ Some examples:
 - "arg5684argArg_arg"
 - "25 + myArgument_newAge - 3"
 
-Bordered variable means that it has difficult name with any symbols, except for square brackets.
+### Bordered variable
+
+Bordered variable means that it has a difficult name with any symbols, except for square brackets.
 
 Some examples:
 - "25 + [myVariable and some words] - 1"
@@ -180,6 +187,19 @@ Some examples:
 
 Needless to say, you can write simple variable with brackets too.
 
+### Precompiled variables
+
+There are some known variables, you shouldn't send them to Calc method.
+
+| Key word  |  Description | Value  |
+| ------------ | ------------ | ------------ |
+| pi | Pi, Archimedes' constant or Ludolph's number  | 3.14159265358979323846 |
+| tau | A circle constant equal to 2π | 6.283185307179586476925  |
+| e |  Napier's constant, or Euler's number, base of Natural logarithm |  2.7182818284590452354 |
+| true | Boolean True represented as double  | 1 |
+| false | Boolean False represented as double  | 0 |
+
+These variables are register independent, you can write Pi, [PI], pI, True, etc...
 
 ## Operators
 
@@ -299,4 +319,3 @@ Contains six methods:
 ## TODO
 I am going to add these features:
 - Add more functions
-- Add default variables, kinda Pi
