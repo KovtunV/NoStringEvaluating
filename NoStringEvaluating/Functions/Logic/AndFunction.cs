@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Functions.Logic
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public virtual double Execute(List<double> args)
+        public double Execute(List<double> args)
         {
             for (int i = 0; i < args.Count; i++)
             {

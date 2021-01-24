@@ -27,7 +27,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             RegisterInternalFunctions();
         }
 
-        private void RegisterInternalFunctions() // TODO: move to static service with type to look in custom assembly
+        private void RegisterInternalFunctions() // TODO: move to static service with type to look in a custom assembly
         {
             var funcInterfaceType = typeof(IFunction);
 
@@ -66,6 +66,8 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
 
             _functions.Add(func);
         }
+
+        // TODO: add method RemoveFunction(string functionName){}
 
         /// <summary>
         /// Read function name

@@ -180,17 +180,47 @@
             Evaluate value
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Functions.Logic.ConditionFunction">
+        <member name="T:NoStringEvaluating.Functions.Logic.IffFunction">
             <summary>
-            Function - if
+            Function - iff
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Functions.Logic.ConditionFunction.Name">
+        <member name="P:NoStringEvaluating.Functions.Logic.IffFunction.Name">
             <summary>
             Name
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.ConditionFunction.Execute(System.Collections.Generic.List{System.Double})">
+        <member name="M:NoStringEvaluating.Functions.Logic.IffFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.IfFunction">
+            <summary>
+            Function - if
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.IfFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.IfFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.IsnanFunction">
+            <summary>
+            Function - isNaN
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.IsnanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.IsnanFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>
@@ -225,6 +255,21 @@
             Evaluate value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Math.AbsFunction">
+            <summary>
+            Function - abs
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.AbsFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.AbsFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Math.AddFunction">
             <summary>
             Function - add
@@ -240,6 +285,171 @@
             Evaluate value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Math.CeilFunction">
+            <summary>
+            Function - ceil
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.CeilFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.CeilFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.FactFunction">
+            <summary>
+            Function - fact
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FactFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.FactFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.FibFunction">
+            <summary>
+            Function - fib
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FibFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.FibFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.FloorFunction">
+            <summary>
+            Function - floor
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FloorFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.FloorFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.GcdFunction">
+            <summary>
+            Function - gcd
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.GcdFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.GcdFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.LcmFunction">
+            <summary>
+            Function - lcm
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LcmFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.LcmFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.LnFunction">
+            <summary>
+            Function - ln
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LnFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.LnFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Log10Function">
+            <summary>
+            Function - log10
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Log10Function.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Log10Function.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Log2Function">
+            <summary>
+            Function - log2
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Log2Function.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Log2Function.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.LogFunction">
+            <summary>
+            Function - log
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LogFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.LogFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.MaxFunction">
+            <summary>
+            Function - max
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MaxFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.MaxFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Math.MeanFunction">
             <summary>
             Function - mean
@@ -251,6 +461,1058 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.MeanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.MinFunction">
+            <summary>
+            Function - min
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MinFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.MinFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.ModFunction">
+            <summary>
+            Function - mod
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.ModFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.ModFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.MultiFunction">
+            <summary>
+            Function - multi
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MultiFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.MultiFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.SgnFunction">
+            <summary>
+            Function - sgn
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SgnFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.SgnFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.SignFunction">
+            <summary>
+            Function - sign
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SignFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.SignFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.SqrtFunction">
+            <summary>
+            Function - sqrt
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SqrtFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.SqrtFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate function
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcosechFunction">
+            <summary>
+            Function - acosech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcosechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcosechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction">
+            <summary>
+            Function - acsch
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArccschFunction">
+            <summary>
+            Function - arccsch
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArccschFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArccschFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction">
+            <summary>
+            Function - arcosech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcschFunction">
+            <summary>
+            Function - arcsch
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcschFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcschFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction">
+            <summary>
+            Function - cosec
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosechFunction">
+            <summary>
+            Function - cosech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction">
+            <summary>
+            Function - csc
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CschFunction">
+            <summary>
+            Function - csch
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CschFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CschFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction">
+            <summary>
+            Function - acos
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcoshFunction">
+            <summary>
+            Function - acosh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcoshFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcoshFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction">
+            <summary>
+            Function - arccos
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccoshFunction">
+            <summary>
+            Function - arccosh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccoshFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccoshFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction">
+            <summary>
+            Function - arcos
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcoshFunction">
+            <summary>
+            Function - arcosh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcoshFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcoshFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction">
+            <summary>
+            Function - cos
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate va;ue
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CoshFunction">
+            <summary>
+            Function - cosh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CoshFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CoshFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction">
+            <summary>
+            Function - acot
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcothFunction">
+            <summary>
+            Function - acoth
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcothFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcothFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction">
+            <summary>
+            Function - actan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanhFunction">
+            <summary>
+            Function - actanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction">
+            <summary>
+            Function - actg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActghFunction">
+            <summary>
+            Function - actgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActghFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction">
+            <summary>
+            Function - arccot
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccothFunction">
+            <summary>
+            Function - arccoth
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccothFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccothFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction">
+            <summary>
+            Function - arcctan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanhFunction">
+            <summary>
+            Function - arcctanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction">
+            <summary>
+            Function - arcctg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctghFunction">
+            <summary>
+            Function - arcctgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctghFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction">
+            <summary>
+            Function - cot
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CothFunction">
+            <summary>
+            Function - coth
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CothFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CothFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate function
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction">
+            <summary>
+            Function - ctan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanhFunction">
+            <summary>
+            Function - ctanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction">
+            <summary>
+            Function - ctg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtghFunction">
+            <summary>
+            Function - ctgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtghFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction">
+            <summary>
+            Function - deg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.ExpFunction">
+            <summary>
+            Function - exp
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.ExpFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.ExpFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction">
+            <summary>
+            Function - rad
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsecFunction">
+            <summary>
+            Function - arcsec
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsecFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsecFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction">
+            <summary>
+            Function - arcsech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArsechFunction">
+            <summary>
+            Function - arsech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArsechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArsechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction">
+            <summary>
+            Function - asech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SecFunction">
+            <summary>
+            Function - sec
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SecFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SecFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction">
+            <summary>
+            Function - sech
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinFunction">
+            <summary>
+            Function - arcsin
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction">
+            <summary>
+            Function - arcsinh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinFunction">
+            <summary>
+            Function - arsin
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction">
+            <summary>
+            Function - arsinh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinFunction">
+            <summary>
+            Function - asin
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction">
+            <summary>
+            Function - asinh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinFunction">
+            <summary>
+            Function - sin
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction">
+            <summary>
+            Function - sinh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanFunction">
+            <summary>
+            Function - arctan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction">
+            <summary>
+            Function - arctanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctgFunction">
+            <summary>
+            Function - arctg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction">
+            <summary>
+            Function - arctgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanFunction">
+            <summary>
+            Function - atan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction">
+            <summary>
+            Function - atanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtgFunction">
+            <summary>
+            Function - atg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction">
+            <summary>
+            Function - atgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanFunction">
+            <summary>
+            Function - tan
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction">
+            <summary>
+            Function - tanh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TgFunction">
+            <summary>
+            Function - tg
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TgFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TgFunction.Execute(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TghFunction">
+            <summary>
+            Function - tgh
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TghFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TghFunction.Execute(System.Collections.Generic.List{System.Double})">
             <summary>
             Evaluate value
             </summary>

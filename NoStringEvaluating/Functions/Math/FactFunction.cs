@@ -1,30 +1,32 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Functions.Base;
 
-namespace NoStringEvaluating.Functions.Logic
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Function - or
+    /// Function - fact
     /// </summary>
-    public class OrFunction : IFunction
+    public class FactFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "OR";
+        public virtual string Name { get; } = "FACT";
 
         /// <summary>
         /// Evaluate value
         /// </summary>
         public double Execute(List<double> args)
         {
-            for (int i = 0; i < args.Count; i++)
+            var n = args[0];
+
+            var res = 1d;
+            for (int i = 2; i <= n; i++)
             {
-                if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
-                    return 1;
+                res *= i;
             }
 
-            return 0;
+            return res;
         }
     }
 }

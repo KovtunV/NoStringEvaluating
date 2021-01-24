@@ -4,27 +4,26 @@ using NoStringEvaluating.Functions.Base;
 namespace NoStringEvaluating.Functions.Logic
 {
     /// <summary>
-    /// Function - or
+    /// Function - if
     /// </summary>
-    public class OrFunction : IFunction
+    public class IfFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "OR";
+        public virtual string Name { get; } = "IF";
 
         /// <summary>
         /// Evaluate value
         /// </summary>
         public double Execute(List<double> args)
         {
-            for (int i = 0; i < args.Count; i++)
+            if (System.Math.Abs(args[0]) > NoStringEvaluatorConstants.FloatingTolerance)
             {
-                if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
-                    return 1;
+                return args[1];
             }
-
-            return 0;
+        
+            return args[2];
         }
     }
 }

@@ -4,26 +4,21 @@ using NoStringEvaluating.Functions.Base;
 namespace NoStringEvaluating.Functions.Logic
 {
     /// <summary>
-    /// Function - if
+    /// Function - isNaN
     /// </summary>
-    public class ConditionFunction : IFunction
+    public class IsnanFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "IF";
+        public virtual string Name { get; } = "ISNAN";
 
         /// <summary>
         /// Evaluate value
         /// </summary>
         public double Execute(List<double> args)
         {
-            if (System.Math.Abs(args[0]) > NoStringEvaluatorConstants.FloatingTolerance)
-            {
-                return args[1];
-            }
-        
-            return args[2];
+            return double.IsNaN(args[0]) ? 1 : 0;
         }
     }
 }
