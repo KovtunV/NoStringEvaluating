@@ -1,5 +1,5 @@
 # NoStringEvaluating
-Fast and easy mathematical evaluation without endless string parsing! Parses string formula one time and use its object sequence in each evaluation. Moreover, provides user defined functions and variables.
+Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables.
 
 [![Build Status](https://travis-ci.org/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.org/KovtunV/NoStringEvaluating)
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
@@ -157,6 +157,10 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     // ...
     var functionReader = app.ApplicationServices.GetRequiredService<IFunctionReader>();
     functionReader.AddFunction(new Func_kov());
+
+    // If you don't want to write the each function directly, use this:
+    // Just send type where you have functions
+    // NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(Startup));
 }
 ```
 
@@ -374,8 +378,9 @@ Contains two methods:
 ### IFunctionReader
 Performs using user defined functions.
 
-Contains two methods:
+Contains three methods:
 - `void AddFunction(IFunction func, bool replace = false)`
+- `void RemoveFunction(string functionName)`
 - `bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)`
 
 ### IFormulaCache

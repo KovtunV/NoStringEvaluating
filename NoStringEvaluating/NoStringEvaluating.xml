@@ -60,6 +60,11 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
         </member>
+        <member name="M:NoStringEvaluating.Contract.IFunctionReader.RemoveFunction(System.String)">
+            <summary>
+            Remove function
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Contract.IFunctionReader.TryProceedFunction(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read function name
@@ -1947,6 +1952,16 @@
             Update constants <see cref="T:NoStringEvaluating.NoStringEvaluatorConstants"/>
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.NoStringFunctionsInitializer">
+            <summary>
+            Add functions to reader from your assembly
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringFunctionsInitializer.InitializeFunctions(NoStringEvaluating.Contract.IFunctionReader,System.Type,System.Boolean)">
+            <summary>
+            Initialize functions from assembly
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Services.BorderCounter`1">
             <summary>
             Border counter
@@ -2147,6 +2162,11 @@
             Add function
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.NoStringFunctionException">if exists</exception>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.RemoveFunction(System.String)">
+            <summary>
+            Remove function
+            </summary>
         </member>
         <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.TryProceedFunction(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.IFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>

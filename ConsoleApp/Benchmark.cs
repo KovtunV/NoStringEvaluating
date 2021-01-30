@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using Microsoft.Extensions.DependencyInjection;
+using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
@@ -28,8 +29,7 @@ namespace ConsoleApp
             var evaluator = services.GetRequiredService<INoStringEvaluator>();
 
             var functionReader = services.GetRequiredService<IFunctionReader>();
-            functionReader.AddFunction(new Func_kov());
-            functionReader.AddFunction(new Func_kovt());
+            NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(Benchmark));
 
             if (formula == Formula5)
             {

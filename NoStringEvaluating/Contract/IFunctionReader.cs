@@ -18,6 +18,11 @@ namespace NoStringEvaluating.Contract
         void AddFunction(IFunction func, bool replace = false);
 
         /// <summary>
+        /// Remove function
+        /// </summary>
+        public void RemoveFunction(string functionName);
+
+        /// <summary>
         /// Read function name
         /// </summary>
         bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index);

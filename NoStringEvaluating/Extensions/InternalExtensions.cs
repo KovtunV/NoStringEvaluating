@@ -27,11 +27,6 @@ namespace NoStringEvaluating.Extensions
             return char.IsDigit(ch);
         }
 
-        internal static bool IsWhiteSpace(this char? ch)
-        {
-            return ch.HasValue && char.IsWhiteSpace(ch.Value);
-        }
-
         internal static bool IsWhiteSpace(this char ch)
         {
             return char.IsWhiteSpace(ch);

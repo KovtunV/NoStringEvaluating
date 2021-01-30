@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
+using static NoStringEvaluating.NoStringFunctionsInitializer;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders
 {
@@ -24,25 +24,8 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         {
             _functions = new List<IFunction>();
 
-            RegisterInternalFunctions();
-        }
-
-        private void RegisterInternalFunctions() // TODO: move to static service with type to look in a custom assembly
-        {
-            var funcInterfaceType = typeof(IFunction);
-
-            var types = typeof(FunctionReader).Assembly.GetTypes();
-            var filteredTypes = types
-                .Where(w => w.IsClass)
-                .Where(w => !w.IsAbstract)
-                .Where(w => funcInterfaceType.IsAssignableFrom(w))
-                .ToArray();
-
-            for (int i = 0; i < filteredTypes.Length; i++)
-            {
-                var func = (IFunction)Activator.CreateInstance(filteredTypes[i]);
-                AddFunction(func);
-            }
+            // Initialize functions
+            InitializeFunctions(this, typeof(FunctionReader));
         }
 
         /// <summary>
@@ -67,7 +50,13 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             _functions.Add(func);
         }
 
-        // TODO: add method RemoveFunction(string functionName){}
+        /// <summary>
+        /// Remove function
+        /// </summary>
+        public void RemoveFunction(string functionName)
+        {
+            _functions.RemoveAll(q => string.Equals(q.Name, functionName, StringComparison.InvariantCultureIgnoreCase));
+        }
 
         /// <summary>
         /// Read function name
