@@ -49,6 +49,11 @@
             Return parsed formula nodes
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Contract.IFormulaParser.ParseWithoutRpn(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Return parsed formula nodes without RPN
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Contract.IFunctionReader">
             <summary>
             Function reader
@@ -2022,7 +2027,7 @@
             Syntax checker
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Services.Checking.FormulaChecker.#ctor(NoStringEvaluating.Contract.IFunctionReader)">
+        <member name="M:NoStringEvaluating.Services.Checking.FormulaChecker.#ctor(NoStringEvaluating.Contract.IFormulaParser)">
             <summary>
             Syntax checker
             </summary>
@@ -2120,6 +2125,11 @@
         <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.Parse(System.ReadOnlySpan{System.Char})">
             <summary>
             Return parsed formula nodes
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.ParseWithoutRpn(System.ReadOnlySpan{System.Char})">
+            <summary>
+            Return parsed formula nodes without RPN
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.BracketReader">

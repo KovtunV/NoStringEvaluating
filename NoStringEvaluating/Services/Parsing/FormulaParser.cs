@@ -44,7 +44,10 @@ namespace NoStringEvaluating.Services.Parsing
             return new FormulaNodes(polish);
         }
 
-        internal List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
+        /// <summary>
+        /// Return parsed formula nodes without RPN
+        /// </summary>
+        public List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
         {
             var negativeBracketCounters = new BracketCounters();
             var nodes = new List<IFormulaNode>();

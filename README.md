@@ -371,9 +371,10 @@ Performs two functions:
 - Parsing from char collection to object sequence
 - Reversing sequeance as **Reverse Polish notation**
 
-Contains two methods:
+Contains three methods:
 - `FormulaNodes Parse(string formula)`
 - `FormulaNodes Parse(ReadOnlySpan<char> formula)`
+- `List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)`
 
 ### IFunctionReader
 Performs using user defined functions.

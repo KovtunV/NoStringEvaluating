@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
 
 namespace NoStringEvaluating.Contract
@@ -22,5 +24,10 @@ namespace NoStringEvaluating.Contract
         /// Return parsed formula nodes
         /// </summary>
         FormulaNodes Parse(ReadOnlySpan<char> formula);
+
+        /// <summary>
+        /// Return parsed formula nodes without RPN
+        /// </summary>
+        List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula);
     }
 }

@@ -13,14 +13,14 @@ namespace NoStringEvaluating.Services.Checking
     /// </summary>
     public class FormulaChecker : IFormulaChecker
     {
-        private readonly FormulaParser _formulaParser;
+        private readonly IFormulaParser _formulaParser;
 
         /// <summary>
         /// Syntax checker
         /// </summary>
-        public FormulaChecker(IFunctionReader functionReader)
+        public FormulaChecker(IFormulaParser formulaParser)
         {
-            _formulaParser = new FormulaParser(functionReader);
+            _formulaParser = formulaParser;
         }
 
         /// <summary>
