@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
+using NoStringEvaluating.Exceptions;
 
 namespace NoStringEvaluating.Services.Variables
 {
@@ -16,7 +17,51 @@ namespace NoStringEvaluating.Services.Variables
 
         internal double GetValue(string name)
         {
-            return _variablesContainer?.GetValue(name) ?? _variablesDict[name];
+            // Check null
+            ThrowExceptionIfSourcesAreNull(name);
+
+            // Check an implemented container
+            if (_variablesContainer != null)
+            {
+                return GetValueFromContainer(name);
+            }
+
+            // Check a dictionary
+            return GetValueFromDictionary(name);
+        }
+
+        private double GetValueFromContainer(string name)
+        {
+            if(!_variablesContainer.TryGetValue(name, out var value))
+            {
+                ThrowException(name);
+            }
+
+            return value;
+        }
+
+        private double GetValueFromDictionary(string name)
+        {
+            if (!_variablesDict.TryGetValue(name, out var value))
+            {
+                ThrowException(name);
+            }
+
+            return value;
+        }
+
+        private void ThrowExceptionIfSourcesAreNull(string name)
+        {
+            if (_variablesDict is null && _variablesContainer is null)
+            {
+                ThrowException(name);
+            }
+        }
+
+        private void ThrowException(string name)
+        {
+            var msg = $"Variable \"{name}\" not found";
+            throw new VariableNotFoundException(name, msg);
         }
 
         internal static VariablesSource Create(IVariablesContainer variablesContainer)

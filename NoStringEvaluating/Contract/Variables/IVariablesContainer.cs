@@ -14,5 +14,10 @@
         /// Return variable's value
         /// </summary>
         double GetValue(string name);
+
+        /// <summary>
+        /// Return variable's value if possible
+        /// </summary>
+        bool TryGetValue(string name, out double value);
     }
 }

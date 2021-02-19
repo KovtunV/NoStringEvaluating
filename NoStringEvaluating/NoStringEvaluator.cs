@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
+using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
@@ -35,6 +36,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
@@ -45,6 +47,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
@@ -54,6 +57,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(string formula, IDictionary<string, double> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
@@ -64,6 +68,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(FormulaNodes formulaNodes, IDictionary<string, double> variables)
         {
             var wrapper = VariablesSource.Create(variables);
@@ -73,6 +78,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
@@ -82,6 +88,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
         public double Calc(FormulaNodes formulaNodes)
         {
             return CalcInternal(formulaNodes.Nodes, default);

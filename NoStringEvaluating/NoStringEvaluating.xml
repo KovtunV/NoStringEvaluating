@@ -140,6 +140,11 @@
             Return variable's value
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Contract.Variables.IVariablesContainer.TryGetValue(System.String,System.Double@)">
+            <summary>
+            Return variable's value if possible
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Exceptions.NoStringFunctionException">
             <summary>
             Raises when function exception
@@ -148,6 +153,21 @@
         <member name="M:NoStringEvaluating.Exceptions.NoStringFunctionException.#ctor(System.String)">
             <summary>
             Raises when function exception
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Exceptions.VariableNotFoundException">
+            <summary>
+            Raises when can't find a variable
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Exceptions.VariableNotFoundException.VariableName">
+            <summary>
+            VariableName
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Exceptions.VariableNotFoundException.#ctor(System.String,System.String)">
+            <summary>
+            Raises when can't find a variable
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
@@ -1547,36 +1567,6 @@
             Close
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Models.CheckFormulaResult">
-            <summary>
-            Syntax checking result
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.CheckFormulaResult.Messages">
-            <summary>
-            Mistakes
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.CheckFormulaResult.Ok">
-            <summary>
-            Is checking OK
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.#ctor(System.Collections.Generic.List{System.String})">
-            <summary>
-            Syntax checking result
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.ToString">
-            <summary>
-            ToString
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.CheckFormulaResult.op_Implicit(NoStringEvaluating.Models.CheckFormulaResult)~System.Boolean">
-            <summary>
-            Cast to bool
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Models.FloatingPointSymbol">
             <summary>
             Symbol of floating point
@@ -1595,6 +1585,126 @@
         <member name="F:NoStringEvaluating.Models.FloatingPointSymbol.DotComma">
             <summary>
             . or ,
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult">
+            <summary>
+            Syntax checking result
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.Mistakes">
+            <summary>
+            Mistakes
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.Ok">
+            <summary>
+            Is checking OK
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.#ctor(System.Collections.Generic.List{NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel})">
+            <summary>
+            Syntax checking result
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.op_Implicit(NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult)~System.Boolean">
+            <summary>
+            Cast to bool
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType">
+            <summary>
+            Checker mistake type
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.Unknown">
+            <summary>
+            Unknown
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.WrongBracketsNumber">
+            <summary>
+            Wrong number of brackets
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyBrackets">
+            <summary>
+            Empty brackets
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.OperatorBetweenPrevAndCurrentNode">
+            <summary>
+            Between prevNode and node must be an operator
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.OperatorBetweenCurrentAndNextNode">
+            <summary>
+            Between node and nextNode must be an operator
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.OperatorBetweenPrevAndNextNode">
+            <summary>
+            Between prevNode and nextNode must be an operator, not node"
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.NumberBeforeNode">
+            <summary>
+            Before node must be a number or a closed bracket, not prevNodeName"
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.NumberAfterNode">
+            <summary>
+            After node must be a number or an opened bracket, not nextNodeName"
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyFunctionBody">
+            <summary>
+            Empty function's body
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel">
+            <summary>
+            Formula checker result item
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.MistakeType">
+            <summary>
+            Mistake's type
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.Message">
+            <summary>
+            Message
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.MessageParts">
+            <summary>
+            Important message parts
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.#ctor(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType,System.String,System.String[])">
+            <summary>
+            Formula checker result item
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.#ctor(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType,System.String)">
+            <summary>
+            Formula checker result item
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.op_Implicit(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel)~System.String">
+            <summary>
+            Cast to string
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FunctionChar">
@@ -1886,31 +1996,37 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,System.Collections.Generic.IDictionary{System.String,System.Double})">
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,System.Double})">
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String)">
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorConstants">
             <summary>

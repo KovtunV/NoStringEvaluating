@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
+using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models;
@@ -55,6 +56,46 @@ namespace NoStringEvaluatingTests
             var roundedRes = Math.Round(res, 3);
 
             Assert.AreEqual(model.Result, roundedRes);
+        }
+
+        [TestMethod]
+        public void VariableNotFoundException()
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var vars = new Dictionary<string, double> { ["myVariable1"] = 7 };
+            var formula = "myVariable + 5";
+
+            try
+            {
+                var res = evaluator.Calc(formula, vars);
+            }
+            catch (VariableNotFoundException ex)
+            {
+                // This exception is OK
+                Assert.AreEqual("myVariable", ex.VariableName);
+            }
+
+            // Now it should calculate     
+            vars["myVariable"] = 7;
+            var resOk = evaluator.Calc(formula, vars);
+            Assert.AreEqual(12, resOk);
+        }
+
+        [TestMethod]
+        public void VariableNotFoundExceptionNoDictionary()
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var formula = "[my var!] + 5";
+
+            try
+            {
+                var res = evaluator.Calc(formula);
+            }
+            catch (VariableNotFoundException ex)
+            {
+                // This exception is OK
+                Assert.AreEqual("my var!", ex.VariableName);
+            }
         }
 
         #region DataSource

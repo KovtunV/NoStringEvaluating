@@ -9,12 +9,12 @@
     <Description>Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
-    <PackageReleaseNotes>Open a method ParseWithoutRpn in IFormulaParser</PackageReleaseNotes>
+    <PackageReleaseNotes>Added VariableNotFoundException, as a result, you can react on this event as needed. Moreover, improved IFormulaChecker result model, consequently, you can react on mistakes as you wish.</PackageReleaseNotes>
     <PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
     <PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.4.3</Version>
+    <Version>1.4.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

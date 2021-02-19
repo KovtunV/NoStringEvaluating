@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NoStringEvaluating.Models
+namespace NoStringEvaluating.Models.FormulaChecker
 {
     /// <summary>
     /// Syntax checking result
@@ -10,22 +10,22 @@ namespace NoStringEvaluating.Models
         /// <summary>
         /// Mistakes
         /// </summary>
-        public List<string> Messages { get; }
+        public List<FormulaCheckerModel> Mistakes { get; }
 
         /// <summary>
         /// Is checking OK
         /// </summary>
         public bool Ok
         {
-            get => Messages.Count is 0;
+            get => Mistakes.Count is 0;
         }
 
         /// <summary>
         /// Syntax checking result
         /// </summary>
-        public CheckFormulaResult(List<string> messages)
+        public CheckFormulaResult(List<FormulaCheckerModel> mistakes)
         {
-            Messages = messages;
+            Mistakes = mistakes;
         }
 
         /// <summary>
