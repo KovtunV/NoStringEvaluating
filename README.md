@@ -331,7 +331,7 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | and | Logical conjunction (AND)  |   and(a1; a2; ...; an) |
 | or | Logical disjunction (OR) |  or(a1; a2; ...; an) |
 | not | Negation function |  not(x) |
-| isNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 otherwise |  isNaN(x) |
+| isNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 |  isNaN(x) |
 
 ## Options
 When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
@@ -369,7 +369,7 @@ Furthermore, two object pools:
 ### IFormulaParser
 Performs two functions:
 - Parsing from char collection to object sequence
-- Reversing sequeance as **Reverse Polish notation**
+- Reversing sequence as **Reverse Polish notation**
 
 Contains three methods:
 - `FormulaNodes Parse(string formula)`
