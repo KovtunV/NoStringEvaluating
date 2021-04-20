@@ -28,6 +28,6 @@ namespace NoStringEvaluating.Contract
         /// <summary>
         /// Return parsed formula nodes without RPN
         /// </summary>
-        List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula);
+        List<BaseFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Logic
 {
@@ -16,7 +18,7 @@ namespace NoStringEvaluating.Functions.Logic
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return double.IsNaN(args[0]) ? 1 : 0;
         }

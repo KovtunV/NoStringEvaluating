@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Extensions;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models;
+using NoStringEvaluating.Models.Values;
 using NoStringEvaluatingTests.Formulas;
 using NoStringEvaluatingTests.Model;
 
@@ -48,26 +51,68 @@ namespace NoStringEvaluatingTests
 
         [DynamicData(nameof(GetFormulasToCalculate), DynamicDataSourceType.Method)]
         [TestMethod]
-        public void CalculateFormula(FormulaModel model)
+        public void CalculateNumberFormula(FormulaModel model)
         {
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
 
-            var res = evaluator.Calc(model.Formula, model.Arguments);
+            var res = evaluator.CalcNumber(model.Formula, model.Arguments);
             var roundedRes = Math.Round(res, 3);
 
             Assert.AreEqual(model.Result, roundedRes);
+        }
+
+        [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
+        [TestMethod]
+        public void CalculateWordFormula(FormulaModel model)
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var res = evaluator.CalcWord(model.Formula, model.Arguments);
+  
+            Assert.AreEqual(model.Result, res);
+        }
+
+        [DynamicData(nameof(GetDateTimeFormulas), DynamicDataSourceType.Method)]
+        [TestMethod]
+        public void CalculateDateTimeFormula(FormulaModel model)
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var res = evaluator.CalcDateTime(model.Formula, model.Arguments);
+  
+            Assert.AreEqual(model.Result, res);
+        }
+
+        [DynamicData(nameof(GetWordListFormulas), DynamicDataSourceType.Method)]
+        [TestMethod]
+        public void CalculateWordListFormula(FormulaModel model)
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var res = evaluator.CalcWordList(model.Formula, model.Arguments);
+
+            var sequenceEqual = model.Result.WordList.SequenceEqual(res);
+            Assert.IsTrue(sequenceEqual);
+        }
+
+        [DynamicData(nameof(GetNumberListFormulas), DynamicDataSourceType.Method)]
+        [TestMethod]
+        public void CalculateNumberListFormula(FormulaModel model)
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var res = evaluator.CalcNumberList(model.Formula, model.Arguments);
+
+            var sequenceEqual = model.Result.NumberList.SequenceEqual(res);
+            Assert.IsTrue(sequenceEqual);
         }
 
         [TestMethod]
         public void VariableNotFoundException()
         {
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
-            var vars = new Dictionary<string, double> { ["myVariable1"] = 7 };
+            var vars = new Dictionary<string, EvaluatorValue> { ["myVariable1"] = 7 };
             var formula = "myVariable + 5";
 
             try
             {
-                var res = evaluator.Calc(formula, vars);
+                var res = evaluator.CalcNumber(formula, vars);
             }
             catch (VariableNotFoundException ex)
             {
@@ -77,7 +122,7 @@ namespace NoStringEvaluatingTests
 
             // Now it should calculate     
             vars["myVariable"] = 7;
-            var resOk = evaluator.Calc(formula, vars);
+            var resOk = evaluator.CalcNumber(formula, vars);
             Assert.AreEqual(12, resOk);
         }
 
@@ -89,7 +134,7 @@ namespace NoStringEvaluatingTests
 
             try
             {
-                var res = evaluator.Calc(formula);
+                var res = evaluator.CalcNumber(formula);
             }
             catch (VariableNotFoundException ex)
             {
@@ -109,6 +154,18 @@ namespace NoStringEvaluatingTests
         private static IEnumerable<FormulaModel[]> GetFormulasToCalculate()
             => FormulasContainer.GetFormulasToCalculate();
 
+        private static IEnumerable<FormulaModel[]> GetWordFormulas()
+            => FormulasContainer.GetWordFormulas();
+
+        private static IEnumerable<FormulaModel[]> GetDateTimeFormulas()
+            => FormulasContainer.GetDateTimeFormulas();
+
+        private static IEnumerable<FormulaModel[]> GetWordListFormulas()
+            => FormulasContainer.GetWordListFormulas();
+
+        private static IEnumerable<FormulaModel[]> GetNumberListFormulas()
+            => FormulasContainer.GetNumberListFormulas();
+
         #endregion
     }
 
@@ -118,10 +175,10 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOV";
 
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var res = 1d;
-
+         
             for (int i = 0; i < args.Count; i++)
             {
                 res *= args[i];
@@ -135,7 +192,7 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOVT";
 
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return args[0] - args[1];
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BenchmarkDotNet.Running;
+using ConsoleApp.Benchmark;
 
 namespace ConsoleApp
 {
@@ -6,10 +7,7 @@ namespace ConsoleApp
     {
         static void Main()
         {
-            var bench = new Benchmark(Benchmark.Two);
-            bench.RunNoString(Benchmark.Formula4);
-
-            Console.ReadLine();
+            BenchmarkRunner.Run<BenchmarkNumberService>();
         }
     }
 }

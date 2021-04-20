@@ -5,7 +5,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Variable
     /// </summary>
-    public class VariableNode : IFormulaNode
+    public class VariableNode : BaseFormulaNode
     {
         /// <summary>
         /// Name
@@ -20,7 +20,7 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Formula node - Variable
         /// </summary>
-        public VariableNode(string name, bool isNegative)
+        public VariableNode(string name, bool isNegative) : base(NodeTypeEnum.Variable)
         {
             Name = name;
             IsNegative = isNegative;

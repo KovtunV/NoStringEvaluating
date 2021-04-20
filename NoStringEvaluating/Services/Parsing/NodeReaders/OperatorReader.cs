@@ -22,7 +22,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read operator
         /// </summary>
-        public static bool TryProceedOperator(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public static bool TryProceedOperator(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             var operatorNameBuilder = new NameBuilder();
 

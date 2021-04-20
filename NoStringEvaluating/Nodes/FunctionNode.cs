@@ -6,7 +6,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Function
     /// </summary>
-    public class FunctionNode : IFormulaNode
+    public class FunctionNode : BaseFormulaNode
     {
         /// <summary>
         /// Function
@@ -21,7 +21,7 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Formula node - Function
         /// </summary>
-        public FunctionNode(IFunction function, bool isNegative)
+        public FunctionNode(IFunction function, bool isNegative) : base(NodeTypeEnum.Function)
         {
             Function = function;
             IsNegative = isNegative;

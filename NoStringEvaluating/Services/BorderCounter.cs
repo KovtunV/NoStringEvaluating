@@ -6,7 +6,7 @@ namespace NoStringEvaluating.Services
     /// <summary>
     /// Border counter
     /// </summary>
-    public class BorderCounter<TNode> where TNode : IFormulaNode
+    public class BorderCounter<TNode> where TNode : BaseFormulaNode
     {
         private readonly Func<TNode, bool> _countFunc;
 

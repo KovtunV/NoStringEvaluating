@@ -47,10 +47,10 @@ namespace NoStringEvaluating.Services.Parsing
         /// <summary>
         /// Return parsed formula nodes without RPN
         /// </summary>
-        public List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
+        public List<BaseFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
         {
             var negativeBracketCounters = new BracketCounters();
-            var nodes = new List<IFormulaNode>();
+            var nodes = new List<BaseFormulaNode>();
 
             for (int i = 0; i < formula.Length; i++)
             {
@@ -78,6 +78,9 @@ namespace NoStringEvaluating.Services.Parsing
                     continue;
 
                 if (VariableReader.TryProceedSimpleVariable(nodes, formula, ref i))
+                    continue;
+
+                if (WordReader.TryProceedWord(nodes, formula, ref i))
                     continue;
 
                 if (OperatorReader.TryProceedOperator(nodes, formula, ref i))

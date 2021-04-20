@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
+using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Cache;
 using NoStringEvaluating.Services.Checking;
 using NoStringEvaluating.Services.Parsing;
@@ -22,8 +23,9 @@ namespace NoStringEvaluating.Extensions
         public static IServiceCollection AddNoStringEvaluator(this IServiceCollection services, Action<NoStringEvaluatorOptions> options = null)
         {
             // Pooling
-            services.TryAddSingleton(ObjectPool.Create<Stack<double>>());
-            services.TryAddSingleton(ObjectPool.Create<List<double>>());
+            services.TryAddSingleton(ObjectPool.Create<Stack<InternalEvaluatorValue>>());
+            services.TryAddSingleton(ObjectPool.Create<List<InternalEvaluatorValue>>());
+            services.TryAddSingleton(ObjectPool.Create<ExtraTypeIdContainer>());
 
             // Parser
             services.TryAddSingleton<IFormulaCache, FormulaCache>();

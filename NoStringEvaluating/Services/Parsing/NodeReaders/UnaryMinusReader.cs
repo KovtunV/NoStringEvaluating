@@ -15,7 +15,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read unary minus and return next index
         /// </summary>
-        public static int ReadUnaryMinus(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, int index, out bool isNegative)
+        public static int ReadUnaryMinus(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, int index, out bool isNegative)
         {
             var isNegativeLocal = false;
             var localIndex = index;
@@ -39,12 +39,12 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read unary minus
         /// </summary>
-        private static bool TryProceedUnaryMinus(List<IFormulaNode> nodes, char ch, ref bool isNegative)
+        private static bool TryProceedUnaryMinus(List<BaseFormulaNode> nodes, char ch, ref bool isNegative)
         {
             var prevNode = nodes.Count > 0 ? nodes[^1] : null;
 
             // Unary minus
-            if (ch == MINUS_CHAR && !(prevNode is ValueNode) && !(prevNode is VariableNode) && !(prevNode is BracketNode br && br.Bracket == Bracket.Close))
+            if (ch == MINUS_CHAR && !(prevNode is ValueNode) && !(prevNode is VariableNode)  && !(prevNode is WordNode) && !(prevNode is BracketNode br && br.Bracket == Bracket.Close))
             {
                 isNegative = !(isNegative is true);
                 return true;

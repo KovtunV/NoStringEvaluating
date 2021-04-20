@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Base
 {
@@ -15,6 +17,6 @@ namespace NoStringEvaluating.Functions.Base
         /// <summary>
         /// Evaluate value
         /// </summary>
-        double Execute(List<double> args);
+        InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory);
     }
 }

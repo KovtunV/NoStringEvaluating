@@ -164,6 +164,30 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("IsNaN(0 / 0)", 1);
             yield return CreateTestModel("not(false)", 1);
             yield return CreateTestModel("or(true; false)", 1);
+
+            // Word
+            foreach (var item in GetWordAsNumberFormulas())
+            {
+                yield return item;
+            }
+
+            // DateTime
+            foreach (var item in GetDateTimeAsNumberFormulas())
+            {
+                yield return item;
+            }
+
+            // WordList
+            foreach (var item in GetWordListAsNumberFormulas())
+            {
+                yield return item;
+            }
+
+            // NumberList
+            foreach (var item in GetNumberListAsNumberFormulas())
+            {
+                yield return item;
+            }
         }
     }
 }

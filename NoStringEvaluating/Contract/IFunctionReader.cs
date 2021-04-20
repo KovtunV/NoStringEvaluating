@@ -25,6 +25,6 @@ namespace NoStringEvaluating.Contract
         /// <summary>
         /// Read function name
         /// </summary>
-        bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index);
+        bool TryProceedFunction(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index);
     }
 }

@@ -15,7 +15,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read number
         /// </summary>
-        public static bool TryProceedNumber(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public static bool TryProceedNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -50,7 +50,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return false;
         }
 
-        private static bool TryAddNumber(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
+        private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
         {
             if (nodeBuilder.InProcess)
             {

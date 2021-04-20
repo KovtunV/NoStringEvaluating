@@ -1,4 +1,6 @@
-﻿namespace NoStringEvaluating.Contract.Variables
+﻿using NoStringEvaluating.Models.Values;
+
+namespace NoStringEvaluating.Contract.Variables
 {
     /// <summary>
     /// Variable model
@@ -13,6 +15,6 @@
         /// <summary>
         /// Value
         /// </summary>
-        double Value { get; set; }
+        EvaluatorValue Value { get; set; }
     }
 }

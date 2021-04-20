@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 using static System.Math;
 
 namespace NoStringEvaluating.Functions.Math
@@ -17,7 +19,7 @@ namespace NoStringEvaluating.Functions.Math
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             if (args.Count == 1)
                 return args[0];
@@ -31,12 +33,12 @@ namespace NoStringEvaluating.Functions.Math
             return Abs(res);
         }
 
-        private double GetLcm(double a, double b)
+        private double GetLcm(InternalEvaluatorValue a, InternalEvaluatorValue b)
         {
             return (a * b) / GetGcd(a, b);
         }
 
-        private double GetGcd(double a, double b)
+        private double GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
         {
             while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
             {

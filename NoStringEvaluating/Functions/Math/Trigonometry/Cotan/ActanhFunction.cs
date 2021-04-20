@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
 {
@@ -16,7 +18,7 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var x = args[0];
             return System.Math.Log((x + 1) / (x - 1)) / 2;

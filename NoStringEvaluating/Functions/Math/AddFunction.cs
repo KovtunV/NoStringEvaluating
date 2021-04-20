@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
     /// Function - add
+    /// <para>Add(1; 2; 3) or Add(myList; 1)</para>
     /// </summary>
     public class AddFunction : IFunction
     {
@@ -16,11 +19,24 @@ namespace NoStringEvaluating.Functions.Math
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var sum = 0d;
+
             for (int i = 0; i < args.Count; i++)
             {
+                var arg = args[i];
+                if (arg.IsNumberList)
+                {
+                    var numberList = arg.GetNumberList();
+                    for (int j = 0; j < numberList.Count; j++)
+                    {
+                        sum += numberList[j];
+                    }
+
+                    continue;
+                }
+
                 sum += args[i];
             }
 

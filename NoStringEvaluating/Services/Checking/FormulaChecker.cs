@@ -49,7 +49,7 @@ namespace NoStringEvaluating.Services.Checking
             return new CheckFormulaResult(mistakes);
         }
 
-        private void CheckSyntaxInternal(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckSyntaxInternal(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -66,7 +66,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private int GetNextIndex(List<IFormulaNode> nodes, int start, int end)
+        private int GetNextIndex(List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -79,7 +79,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Function
 
-        private bool TryCheckFunction(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, ref int index)
+        private bool TryCheckFunction(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, ref int index)
         {
             var localIndex = index;
 
@@ -135,7 +135,7 @@ namespace NoStringEvaluating.Services.Checking
             return true;
         }
 
-        private static bool IsNextSemicolon(List<IFormulaNode> nodes, int index)
+        private static bool IsNextSemicolon(List<BaseFormulaNode> nodes, int index)
         {
             var nextNode = index + 1 < nodes.Count ? nodes[index + 1] : null;
             var nextFunctionChar = nextNode as FunctionCharNode;
@@ -147,7 +147,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Bracket
 
-        private void CheckBracketsCount(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckBracketsCount(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             var openBracketCount = 0;
             var closeBracketCount = 0;
@@ -172,7 +172,7 @@ namespace NoStringEvaluating.Services.Checking
 
 
 
-        private void CheckEmptyBrackets(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckEmptyBrackets(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start + 1; i < end; i++)
             {
@@ -194,7 +194,7 @@ namespace NoStringEvaluating.Services.Checking
 
         #region Checkers
 
-        private void CheckMissedOperator(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckMissedOperator(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -220,7 +220,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckNodeBetweenNumbers(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckNodeBetweenNumbers(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -237,7 +237,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckMissedNumber(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckMissedNumber(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             for (int i = start; i < end; i++)
             {
@@ -263,7 +263,7 @@ namespace NoStringEvaluating.Services.Checking
             }
         }
 
-        private void CheckFunctionBody(List<FormulaCheckerModel> mistakes, List<IFormulaNode> nodes, int start, int end)
+        private void CheckFunctionBody(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
         {
             if (start + 1 != end)
                 return;
@@ -288,20 +288,21 @@ namespace NoStringEvaluating.Services.Checking
             return new FormulaCheckerModel(key, message);
         }
 
-        private bool IsOpenBracket(IFormulaNode node)
+        private bool IsOpenBracket(BaseFormulaNode node)
         {
             return node is BracketNode bracketNode && bracketNode.Bracket == Bracket.Open;
         }
 
-        private bool IsCloseBracket(IFormulaNode node)
+        private bool IsCloseBracket(BaseFormulaNode node)
         {
             return node is BracketNode bracketNode && bracketNode.Bracket == Bracket.Close;
         }
 
-        private bool IsOperatorableNode(IFormulaNode node)
+        private bool IsOperatorableNode(BaseFormulaNode node)
         {
             return node is ValueNode
                 || node is VariableNode
+                || node is WordNode
                 || node is FunctionNode;
         }
     }

@@ -6,7 +6,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Operator
     /// </summary>
-    public class OperatorNode : IFormulaNode
+    public class OperatorNode : BaseFormulaNode
     {
         /// <summary>
         /// Operator
@@ -21,7 +21,7 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Formula node - Operator
         /// </summary>
-        public OperatorNode(Operator operatorKey)
+        public OperatorNode(Operator operatorKey) : base(NodeTypeEnum.Operator)
         {
             OperatorKey = operatorKey;
             Priority = GetPriority();

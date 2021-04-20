@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Math.Trigonometry
 {
@@ -16,7 +18,7 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return System.Math.Exp(args[0]);
         }

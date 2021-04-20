@@ -1,21 +1,22 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Services.Variables
 {
     internal readonly struct VariablesSource
     {
         private readonly IVariablesContainer _variablesContainer;
-        private readonly IDictionary<string, double> _variablesDict;
+        private readonly IDictionary<string, EvaluatorValue> _variablesDict;
 
-        private VariablesSource(IVariablesContainer variablesContainer, IDictionary<string, double> variablesDict)
+        private VariablesSource(IVariablesContainer variablesContainer, IDictionary<string, EvaluatorValue> variablesDict)
         {
             _variablesContainer = variablesContainer;
             _variablesDict = variablesDict;
         }
 
-        internal double GetValue(string name)
+        internal EvaluatorValue GetValue(string name)
         {
             // Check null
             ThrowExceptionIfSourcesAreNull(name);
@@ -30,7 +31,7 @@ namespace NoStringEvaluating.Services.Variables
             return GetValueFromDictionary(name);
         }
 
-        private double GetValueFromContainer(string name)
+        private EvaluatorValue GetValueFromContainer(string name)
         {
             if(!_variablesContainer.TryGetValue(name, out var value))
             {
@@ -40,7 +41,7 @@ namespace NoStringEvaluating.Services.Variables
             return value;
         }
 
-        private double GetValueFromDictionary(string name)
+        private EvaluatorValue GetValueFromDictionary(string name)
         {
             if (!_variablesDict.TryGetValue(name, out var value))
             {
@@ -69,7 +70,7 @@ namespace NoStringEvaluating.Services.Variables
             return new VariablesSource(variablesContainer, variablesDict: null);
         }
 
-        internal static VariablesSource Create(IDictionary<string, double> variablesDict)
+        internal static VariablesSource Create(IDictionary<string, EvaluatorValue> variablesDict)
         {
             return new VariablesSource(variablesContainer: null, variablesDict);
         }

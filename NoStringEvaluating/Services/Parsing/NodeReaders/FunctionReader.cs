@@ -34,7 +34,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <exception cref="NoStringFunctionException">if exists</exception>
         public void AddFunction(IFunction func, bool replace = false)
         {
-            var existedFunc = _functions.Find(f => string.Equals(f.Name, func.Name, StringComparison.InvariantCultureIgnoreCase));
+            var existedFunc = _functions.Find(f => string.Equals(f.Name, func.Name, StringComparison.OrdinalIgnoreCase));
             if (existedFunc != null)
             {
                 if (replace)
@@ -55,13 +55,13 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// </summary>
         public void RemoveFunction(string functionName)
         {
-            _functions.RemoveAll(q => string.Equals(q.Name, functionName, StringComparison.InvariantCultureIgnoreCase));
+            _functions.RemoveAll(q => string.Equals(q.Name, functionName, StringComparison.OrdinalIgnoreCase));
         }
 
         /// <summary>
         /// Read function name
         /// </summary>
-        public bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public bool TryProceedFunction(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);

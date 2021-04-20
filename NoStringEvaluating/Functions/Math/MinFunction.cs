@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Math
 {
@@ -16,13 +18,40 @@ namespace NoStringEvaluating.Functions.Math
         /// <summary>
         /// Evaluate value
         /// </summary>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var min = args[0];
+            var firstArg = args[0];
+            var min = firstArg.Number;
+
+            if (firstArg.IsNumberList)
+            {
+                min = Min(firstArg.GetNumberList());
+            }
 
             for (int i = 1; i < args.Count; i++)
             {
-                var current = args[i];
+                var arg = args[i];
+                var current = arg.Number;
+
+                if (arg.IsNumberList)
+                {
+                    current = Min(arg.GetNumberList());
+                }
+
+                if (current < min)
+                    min = current;
+            }
+
+            return min;
+        }
+
+        private double Min(List<double> list)
+        {
+            var min = list[0];
+
+            for (int i = 1; i < list.Count; i++)
+            {
+                var current = list[i];
 
                 if (current < min)
                     min = current;

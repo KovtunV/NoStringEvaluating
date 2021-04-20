@@ -1,4 +1,6 @@
-﻿namespace NoStringEvaluating.Contract.Variables
+﻿using NoStringEvaluating.Models.Values;
+
+namespace NoStringEvaluating.Contract.Variables
 {
     /// <summary>
     /// Container with variables
@@ -13,11 +15,11 @@
         /// <summary>
         /// Return variable's value
         /// </summary>
-        double GetValue(string name);
+        EvaluatorValue GetValue(string name);
 
         /// <summary>
         /// Return variable's value if possible
         /// </summary>
-        bool TryGetValue(string name, out double value);
+        bool TryGetValue(string name, out EvaluatorValue value);
     }
 }

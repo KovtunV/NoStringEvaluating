@@ -1,5 +1,6 @@
 # NoStringEvaluating
 Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables.
+From v2.0 it can evaluate string, DateTime, etc...
 
 [![Build Status](https://travis-ci.org/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.org/KovtunV/NoStringEvaluating)
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
@@ -10,15 +11,14 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
 
    * [Features](#Features)
    * [Performance](#Performance)
-      * [Testing machine](#Testing-machine)
       * [Testing formulas](#Testing-formulas)
-      * [100 000 calculations](#100-000-calculations)
-      * [10 000 000 calculations](#10-000-000-calculations)
-      * [Memory usage](#Memory-usage)
+      * [1 000 000 calculations](#1-000-000-calculations)
+      * [Benchmark results](#Benchmark-results)
       * [Conclusion](#Conclusion)
    * [Quick start](#Quick-start)
       * [Initializing](#Initializing)
       * [Usage](#Usage)
+   * [Extra types](#Extra-types)
    * [Variables](#Variables)
       * [Simple variable](#Simple-variable)
       * [Bordered variable](#Bordered-variable)
@@ -29,6 +29,9 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
       * [Math](#Math)
       * [Trigonometry](#Trigonometry)
       * [Logic](#Logic)
+      * [Excel](#Excel)
+          * [DateTime](#DateTime)
+          * [Word](#Word)
    * [Options](#Options)
    * [Documentation](#Documentation)
       * [IFormulaParser](#IFormulaParser)
@@ -47,17 +50,13 @@ Fast and easy mathematical evaluation without endless string parsing! Parses str
 - Fast math evaluation;
 - Zero-allocation code (object pooling);
 - User defined functions;
-- User defined variables with any chars.
+- User defined variables with any chars;
+- Mixed result type
 
 ## Performance
 Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser "mXparser")
 
-- In general, **x6** faster!
-
-### Testing machine
-- Laptop
-- CPU i7-4710HQ without turbo boost, with fixed 2.5 GHz
-- RAM DDR3 1600 MHz
+- In general, **x7** faster!
 
 ### Testing formulas
 |  № | Formula |
@@ -68,40 +67,40 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 | 2 | 3 \* 9 / 456 \* 32 + 12 / 17 - 3 |
 | 3 | 3 \* (9 / 456 \* (32 + 12)) / 17 - 3  |
 | 4 | (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) \* 345 \* ((897 - 323)/ 23)  |
-| 5 | [Arg1] \* [Arg2] + [Arg3] - [Arg4] |
-| 6 | [Arg1] \* ([Arg2] + [Arg3]) - [Arg4] / ([Arg5] - [Arg6]) + 45 \* [Arg7] + (([Arg8] \* 56 + (12 + [Arg9]))) - [Arg10] |
+| 5 | Arg1 \* Arg2 + Arg3 - Arg4 |
+| 6 | Arg1 \* (Arg2 + Arg3) - Arg4 / (Arg5 - Arg6) + 45 \* Arg7 + ((Arg8 \* 56 + (12 + Arg9))) - Arg10 |
 | 7 | add(1; 2; 3) |
 | 8 | add(add(5; 1) - add(5; 2; 3)) |
-| 9 | if([Arg1]; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
+| 9 | if(Arg1; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
 | 10 | kov(1; 2; 3) - kovt(8; 9)  |
 
-It used to write variables with brackets, but now you can write them without brackets. See more in [Variables](#Variables).
+### 1 000 000 calculations
 
-### 100 000 calculations
+Less is better
 
-Less is better.
+![image graph](Images/Graph.png)
+![image table](Images/Table.png)
 
-![image graph](Images/graph100k.png)
-![image table](Images/table100k.png)
+### Benchmark results
 
+**NoStringEvaluator**
 
-### 10 000 000 calculations
+![NoString](Images/NoString.png)
 
-Less is better.
+**MxParser**
 
-![image graph](Images/graph100m.png)
-![image table](Images/table100m.png)
+![MxParser](Images/MxParser.png)
 
-### Memory usage
+**Both**
 
-![image graph](Images/memory.png)
+![Both](Images/Both.png)
 
 ### Conclusion
-In formulas with variables I update all variables before each evaluation. As you can see, this solution faster in all cases and it doesn't matter how many calculations you have 100 000 or 10 000 000.
+As you can see, this solution faster in all cases, what's more, there isn't any garbage collection.
 
-Benchmark code you can find in **ConsoleApp.Benchmark**.
+Benchmark code you can find in **ConsoleApp.Benchmark.BenchmarkNumberService**.
 
-Benchmark excel sheet you can find here - **Benchmark.xlsx**.
+Benchmark excel sheet you can find here - **BenchResults.Benchmark.xlsx**.
 
 ## Quick start
 ### Initializing
@@ -126,7 +125,17 @@ public class MyService
         _noStringEvaluator = noStringEvaluator;
     }
 
-    public double Calc(string formula)
+    public double CalcNumber(string formula)
+    {
+        return _noStringEvaluator.CalcNumber(formula);
+    }
+    
+    public string CalcWord(string formula)
+    {
+        return _noStringEvaluator.CalcWord(formula);
+    }
+    
+    public EvaluatorValue Calc(string formula)
     {
         return _noStringEvaluator.Calc(formula);
     }
@@ -143,9 +152,9 @@ public class MyService
         _noStringEvaluator = noStringEvaluator;
     }
 
-    public double Calc(string formula, IDictionary<string, double> variables)
+    public double Calc(string formula, IDictionary<string, EvaluatorValue> variables)
     {
-        return _noStringEvaluator.Calc(formula, variables);
+        return _noStringEvaluator.CalcNumber(formula, variables);
     }
 }
 ```
@@ -163,6 +172,9 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     // NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(Startup));
 }
 ```
+
+## Extra types
+From v2.0 you can evaluate some of types. I strongly recommend, if you know a function's result type, use method kinda **CalcNumber** or **CalcWord**. For case if you have no idea about a result's type, use Calc. It returns struct with aggregated types. Just look at property **TypeKey** and you'll know about a type.
 
 ## Variables
 
@@ -190,7 +202,7 @@ Some examples:
 - "[myVariable ♥]"
 - "[simpleVariable]"
 
-Needless to say, you can write simple variable with brackets too.
+Needless to say, you can write simple variable with brackets as well.
 
 ### Precompiled variables
 
@@ -210,7 +222,7 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
-| +  | Addition  | a + b  |
+| +  | Addition | a + b  |
 |  - |  Subtraction |  a - b |
 |  \* | Multiplication  | a \* b  |
 |  / | Division  |  a / b |
@@ -234,11 +246,12 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 ### Math
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
-| add  | Summation operator  | add(a1; a2; ...; an)  |
-| multi | Multiplication | multi(a1; a2; ...; an) |
-| mean |  Mean / average value | mean(a1; a2; ...; an) |
-| min | Minimum function | min(a; b) |
-| max | Maximum function | max(a; b) |
+| add  | Summation operator  | add(a1; a2; ...; an) can include List<double> |
+| multi | Multiplication | multi(a1; a2; ...; an) can include List<double> |
+| mean |  Mean / average value | mean(a1; a2; ...; an) can include List<double> |
+| min | Minimum function | min(a; b) can include List<double> |
+| max | Maximum function | max(a; b) can include List<double> |
+| Rpund | Rounds the designated number to the specified decimals | Round(a; decimals) |
 | ln | Natural logarithm function (base e) | ln(x) |
 | log | Logarithm function (base b) | log(a; b) |
 | log2 | Binary logarithm function (base 2) | log2(x) |
@@ -333,6 +346,43 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | not | Negation function |  not(x) |
 | isNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 |  isNaN(x) |
 
+### Excel
+I've implemented some of excel functions. If you wanna see more, just send me a message.
+
+| Key word  |  Description | Example  |
+| ------------ | ------------ | ------------ |
+| Count | Returns a number of elements | Count(a; b; ...) can include List<T> |
+| Len | Returns the number of characters in a text string| Len("my word")  |
+| Sort | Sorts a List. sortType: 1 - asc, not 1 - desc| Sort(myList; sortType)  |
+
+#### DateTime
+| Key word  |  Description | Example  |
+| ------------ | ------------ | ------------ |
+| DateDif | Calculates the number of days, months, or years between two dates. Can be: Y, M, D, MD, YM, YD | DateDif(date1; date2; 'Y') |
+| Now | Returns Datetime.Now | Now() |
+| Today | Returns the current date | Today() |
+| Day | Returnts a day from dateTime | Day(Now()) |    
+| Month | Returns a month from dateTime | Month(Now()) |
+| Year | Returns a year from dateTime | Year(Now()) |
+| ToDateTime | Returns datetime value from string | ToDateTime('8/15/2002') |
+| WeekDay | Takes a date and returns a number between 1-7 representing the day of week | WeekDay(Today()) |
+
+#### Word
+| Key word  |  Description | Example  |
+| ------------ | ------------ | ------------ |
+| Concat |  Concates values | Concat(56; ' myWord') <br /> Concat(myList; myArg; 45; myList2) |
+| Explode | Returns a text list composed of the elements of a text string. Separator by default is white space " " | Explode(myWord)<br /> Explode(myWord; separator) |
+| Implode |  Concatenates all members of a text list and returns a text string. separator by default is white space " " | Implode(myList) <br /> Implode(myList; separator) <br /> Implode(myList; 5; 'my wordd'; separator) last value is separator |
+| Left | Searches a string from left to right and returns the leftmost characters of the string | Left(myWord)<br /> Left(myWord; numberOfChars) <br /> Left(myWord; wordNeededChars) |
+| Middle | Returns any substring from the middle of a string | Middle(myWord; indexStart; numberChars) <br /> Middle(myWord; indexStart; wordEnd)<br />  Middle(myWord; wordStart; numberChars)<br /> Middle(myWord; wordStart; wordEnd) |
+|  Right | Searches a string from right to left and returns the rightmost characters of the string | Right(myWord)<br /> Right(myWord; numberOfChars)<br /> Right(myWord; wordNeededChars) |
+| Lower | Converts text to lowercase | Lower(myWord)<br /> Lower(myWordList) |
+| Upper |  Converts text to uppercase | Upper(myWord)<br /> Upper(myWordList) |
+| Proper | Capitalizes the first letter in each word of a text | Proper(myWord) |
+| Replace | Replaces characters within text | Replace(myWord; oldPart; newPart) <br /> Replace(myList; oldPart; newPart) |
+| Text | Return text from first argument | Text(26) |    
+|  Unique | If second parameter is true then returns only qnique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
+
 ## Options
 When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
 
@@ -363,8 +413,9 @@ One optional interface, you can implement if IDictionary is inconvenient.
 - IVariablesContainer
 
 Furthermore, two object pools:
-- `ObjectPool.Create<Stack<double>>`
-- `ObjectPool.Create<List<double>>`
+- `ObjectPool.Create<Stack<InternalEvaluatorValue>>`
+- `ObjectPool.Create<List<InternalEvaluatorValue>>`
+- `ObjectPool.Create<ExtraTypeIdContainer>`
 
 ### IFormulaParser
 Performs two functions:
@@ -400,13 +451,20 @@ Contains two methods:
 ### INoStringEvaluator
 Performs evaluating :relaxed:
 
-Contains six methods:
-- `double Calc(string formula, IVariablesContainer variables)`
-- `double Calc(FormulaNodes formulaNodes, IVariablesContainer variables)`
-- `double Calc(string formula, IDictionary<string, double> variables)`
-- `double Calc(FormulaNodes formulaNodes, IDictionary<string, double> variables)`
-- `double Calc(string formula)`
-- `double Calc(FormulaNodes formulaNodes)`
+Contains methods:
+- `double CalcNumber(string formula, IVariablesContainer variables)`
+- `double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables)`
+- `double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables)`
+- `double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)`
+- `double CalcNumber(string formula)`
+- `double CalcNumber(FormulaNodes formulaNodes)`
+- 
+- `string CalcWord(...`
+- `DateTime CalcDateTime(...`
+- `List<string> CalcWordList(...`
+- `List<double> CalcNumberList(...`
+- `EvaluatorValue Calc(...`
 
 ## TODO
+- Add more functions
 - Any idea?

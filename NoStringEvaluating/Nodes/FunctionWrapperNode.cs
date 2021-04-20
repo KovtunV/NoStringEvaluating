@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Function wrapper
     /// </summary>
-    public class FunctionWrapperNode : IFormulaNode
+    public class FunctionWrapperNode : BaseFormulaNode
     {
         /// <summary>
         /// Function node
@@ -17,15 +17,15 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Function arguments
         /// </summary>
-        public List<List<IFormulaNode>> FunctionArgumentNodes { get; }
+        public List<List<BaseFormulaNode>> FunctionArgumentNodes { get; }
 
         /// <summary>
         /// Formula node - Function wrapper
         /// </summary>
-        public FunctionWrapperNode(FunctionNode functionNode)
+        public FunctionWrapperNode(FunctionNode functionNode) : base(NodeTypeEnum.FunctionWrapper)
         {
             FunctionNode = functionNode;
-            FunctionArgumentNodes = new List<List<IFormulaNode>>();
+            FunctionArgumentNodes = new List<List<BaseFormulaNode>>();
         }
 
         /// <summary>

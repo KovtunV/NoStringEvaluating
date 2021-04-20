@@ -6,7 +6,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Value
     /// </summary>
-    public class ValueNode : IFormulaNode
+    public class ValueNode : BaseFormulaNode
     {
         /// <summary>
         /// Value
@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Formula node - Value
         /// </summary>
-        public ValueNode(double value)
+        public ValueNode(double value) : base(NodeTypeEnum.Value)
         {
             Value = value;
         }

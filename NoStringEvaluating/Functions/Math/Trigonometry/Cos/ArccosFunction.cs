@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
 {
@@ -17,8 +19,9 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
         /// Evaluate value
         /// </summary>
         /// <param name="args"></param>
+        /// <param name="factory"></param>
         /// <returns></returns>
-        public double Execute(List<double> args)
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return System.Math.Acos(args[0]);
         }

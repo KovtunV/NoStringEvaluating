@@ -6,7 +6,7 @@ namespace NoStringEvaluating.Nodes
     /// <summary>
     /// Formula node - Bracket
     /// </summary>
-    public class BracketNode : IFormulaNode
+    public class BracketNode : BaseFormulaNode
     {
         /// <summary>
         /// Bracket
@@ -16,7 +16,7 @@ namespace NoStringEvaluating.Nodes
         /// <summary>
         /// Formula node - bracket
         /// </summary>
-        public BracketNode(Bracket bracket)
+        public BracketNode(Bracket bracket) : base(NodeTypeEnum.Bracket)
         {
             Bracket = bracket;
         }

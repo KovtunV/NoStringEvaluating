@@ -14,15 +14,15 @@ namespace NoStringEvaluating.Services.Parsing
         /// <summary>
         /// Return reversed nodes
         /// </summary>
-        public static List<IFormulaNode> GetReversedNodes(List<IFormulaNode> nodes)
+        public static List<BaseFormulaNode> GetReversedNodes(List<BaseFormulaNode> nodes)
         {
             return GetReversedNodes(nodes.ToArray());
         }
 
-        private static List<IFormulaNode> GetReversedNodes(ReadOnlySpan<IFormulaNode> nodes)
+        private static List<BaseFormulaNode> GetReversedNodes(ReadOnlySpan<BaseFormulaNode> nodes)
         {
-            var outExpression = new List<IFormulaNode>();
-            var stack = new Stack<IFormulaNode>();
+            var outExpression = new List<BaseFormulaNode>();
+            var stack = new Stack<BaseFormulaNode>();
 
             for (int i = 0; i < nodes.Length; i++)
             {
@@ -89,7 +89,7 @@ namespace NoStringEvaluating.Services.Parsing
             return outExpression;
         }
 
-        private static bool TryProceedFunction(List<IFormulaNode> outExpression, ReadOnlySpan<IFormulaNode> nodes, ref int index)
+        private static bool TryProceedFunction(List<BaseFormulaNode> outExpression, ReadOnlySpan<BaseFormulaNode> nodes, ref int index)
         {
             var localIndex = index;
 
@@ -151,7 +151,7 @@ namespace NoStringEvaluating.Services.Parsing
             return true;
         }
 
-        private static bool IsNextSemicolon(ReadOnlySpan<IFormulaNode> nodes, int index)
+        private static bool IsNextSemicolon(ReadOnlySpan<BaseFormulaNode> nodes, int index)
         {
             var nextNode = index + 1 < nodes.Length ? nodes[index + 1] : null;
             var nextFunctionChar = nextNode as FunctionCharNode;

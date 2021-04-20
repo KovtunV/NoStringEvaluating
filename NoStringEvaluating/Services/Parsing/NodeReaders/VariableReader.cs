@@ -15,7 +15,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read variable
         /// </summary>
-        public static bool TryProceedBorderedVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public static bool TryProceedBorderedVariable(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -57,7 +57,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         /// <summary>
         /// Read variable
         /// </summary>
-        public static bool TryProceedSimpleVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+        public static bool TryProceedSimpleVariable(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
         {
             // Read unary minus
             var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
@@ -92,7 +92,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return false;
         }
 
-        private static bool TryAddSimpleVariable(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
+        private static bool TryAddSimpleVariable(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
         {
             if (nodeBuilder.InProcess)
             {
@@ -106,7 +106,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             return false;
         }
 
-        private static void AddFormulaNode(List<IFormulaNode> nodes, string variableName, bool isNegative)
+        private static void AddFormulaNode(List<BaseFormulaNode> nodes, string variableName, bool isNegative)
         {
             // Known variable kinda Pi, E, etc...
             if (KnownVariables.TryGetValue(variableName, out var value))

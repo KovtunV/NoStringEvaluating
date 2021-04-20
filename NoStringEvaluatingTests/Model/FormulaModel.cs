@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluatingTests.Model
 {
@@ -6,18 +7,18 @@ namespace NoStringEvaluatingTests.Model
     {
         public string Formula { get; }
         public string ParsedFormula { get; }
-        public double Result { get; }
+        public EvaluatorValue Result { get; }
         public bool ExpectedOkResult { get; }
 
-        public Dictionary<string, double> Arguments { get; }
+        public Dictionary<string, EvaluatorValue> Arguments { get; }
 
-        public FormulaModel(string formula, string parsedFormula, double result, bool expectedOkResult = true)
+        public FormulaModel(string formula, string parsedFormula, EvaluatorValue result, bool expectedOkResult = true)
         {
             Formula = formula;
             ParsedFormula = parsedFormula;
             Result = result;
             ExpectedOkResult = expectedOkResult;
-            Arguments = new Dictionary<string, double>();
+            Arguments = new Dictionary<string, EvaluatorValue>();
         }
 
         public override string ToString()

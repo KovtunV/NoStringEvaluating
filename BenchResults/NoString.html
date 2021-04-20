@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8' />
+<title>ConsoleApp.Benchmark.BenchmarkNumberService-20210420-194622</title>
+
+<style type="text/css">
+	table { border-collapse: collapse; display: block; width: 100%; overflow: auto; }
+	td, th { padding: 6px 13px; border: 1px solid #ddd; text-align: right; }
+	tr { background-color: #fff; border-top: 1px solid #ccc; }
+	tr:nth-child(even) { background: #f8f8f8; }
+</style>
+</head>
+<body>
+<pre><code>
+BenchmarkDotNet=v0.12.1, OS=Windows 10.0.19042
+Intel Core i5-10600 CPU 3.30GHz, 1 CPU, 12 logical and 6 physical cores
+.NET Core SDK=5.0.103
+  [Host]     : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+  Job-IBHXCA : .NET Core 3.1.12 (CoreCLR 4.700.21.6504, CoreFX 4.700.21.6905), X64 RyuJIT
+</code></pre>
+<pre><code>InvocationCount=3  IterationCount=3  RunStrategy=Monitoring  
+UnrollFactor=1  WarmupCount=2  
+</code></pre>
+
+<table>
+<thead><tr><th>       Method</th><th>Mean</th><th>Error</th><th>StdDev</th><th>Gen 0</th><th>Gen 1</th><th>Gen 2</th><th>Allocated</th>
+</tr>
+</thead><tbody><tr><td>Empty_NoString</td><td>66.80 ms</td><td>13.51 ms</td><td>0.741 ms</td><td>-</td><td>-</td><td>-</td><td>45.93 KB</td>
+</tr><tr><td>NumberOnly_NoString</td><td>88.21 ms</td><td>16.29 ms</td><td>0.893 ms</td><td>-</td><td>-</td><td>-</td><td>46.33 KB</td>
+</tr><tr><td>Formula1_NoString</td><td>103.61 ms</td><td>21.82 ms</td><td>1.196 ms</td><td>-</td><td>-</td><td>-</td><td>46.5 KB</td>
+</tr><tr><td>Formula2_NoString</td><td>200.71 ms</td><td>25.42 ms</td><td>1.393 ms</td><td>-</td><td>-</td><td>-</td><td>47.37 KB</td>
+</tr><tr><td>Formula3_NoString</td><td>205.53 ms</td><td>108.68 ms</td><td>5.957 ms</td><td>-</td><td>-</td><td>-</td><td>47.89 KB</td>
+</tr><tr><td>Formula4_NoString</td><td>624.20 ms</td><td>11.62 ms</td><td>0.637 ms</td><td>-</td><td>-</td><td>-</td><td>53.01 KB</td>
+</tr><tr><td>Formula5_NoString</td><td>270.93 ms</td><td>40.46 ms</td><td>2.218 ms</td><td>-</td><td>-</td><td>-</td><td>48.19 KB</td>
+</tr><tr><td>Formula6_NoString</td><td>614.13 ms</td><td>59.83 ms</td><td>3.279 ms</td><td>-</td><td>-</td><td>-</td><td>51.33 KB</td>
+</tr><tr><td>Formula7_NoString</td><td>239.37 ms</td><td>127.26 ms</td><td>6.975 ms</td><td>-</td><td>-</td><td>-</td><td>48.08 KB</td>
+</tr><tr><td>Formula8_NoString</td><td>465.01 ms</td><td>36.67 ms</td><td>2.010 ms</td><td>-</td><td>-</td><td>-</td><td>49.75 KB</td>
+</tr><tr><td>Formula9_NoString</td><td>975.91 ms</td><td>90.64 ms</td><td>4.968 ms</td><td>-</td><td>-</td><td>-</td><td>54.1 KB</td>
+</tr><tr><td>Formula10_NoString</td><td>365.70 ms</td><td>25.68 ms</td><td>1.408 ms</td><td>-</td><td>-</td><td>-</td><td>48.98 KB</td>
+</tr></tbody></table>
+</body>
+</html>
