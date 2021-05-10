@@ -6,9 +6,9 @@
     public enum NodeTypeEnum
     {
         /// <summary>
-        /// Value
+        /// Number
         /// </summary>
-        Value,
+        Number,
 
         /// <summary>
         /// Operator
@@ -29,6 +29,16 @@
         /// Word
         /// </summary>
         Word,
+
+        /// <summary>
+        /// WordList
+        /// </summary>
+        WordList,
+
+        /// <summary>
+        /// NumberList
+        /// </summary>
+        NumberList,
 
         /// <summary>
         /// Bracket

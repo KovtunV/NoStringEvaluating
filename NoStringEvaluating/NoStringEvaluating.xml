@@ -641,7 +641,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.Date.DateDifFunction">
             <summary>
             Calculates the number of days, months, or years between two dates
-            <para>DateDif(date1; date2; 'Y'), can be: Y, M, D, MD, YM, YD</para>
+            <para>DateDif(date1; date2; 'Y'), can be: Y, M, D</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Date.DateDifFunction.Name">
@@ -654,10 +654,25 @@
             Execute value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction">
+            <summary>
+            DateFormat(Now(); 'yyyy MMMM')
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Excel.Date.DayFunction">
             <summary>
             Returnts a day from dateTime
-            <para>Day(Now())</para>
+            <para>Day(Now()) or Day(Now(); 'DD')</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Date.DayFunction.Name">
@@ -673,7 +688,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.Date.MonthFunction">
             <summary>
             Returns a month from dateTime
-            <para>Month(Now())</para>
+            <para>Month(Now()) or Month(Now(); 'MM')</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Date.MonthFunction.Name">
@@ -698,6 +713,22 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.NowFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction">
+            <summary>
+            Calculates the number of hours, minutes, or seconds between two dates
+            <para>TimeDif(dateTime1; dateTime2; 'H'), can be: H, M, S</para>
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
             </summary>
@@ -753,7 +784,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.Date.YearFunction">
             <summary>
             Returns a year from dateTime
-            <para>Year(Now())</para>
+            <para>Year(Now()) or Year(Now(); 'YY')</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Date.YearFunction.Name">
@@ -762,6 +793,36 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.YearFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.IsMemberFunction">
+            <summary>
+            IsMember(myList; item)
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsMemberFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.IsMemberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.IsNumberFunction">
+            <summary>
+            IsNumber(5)
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsNumberFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.IsNumberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
             </summary>
@@ -794,6 +855,21 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.SortFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.ToNumberFunction">
+            <summary>
+            ToNumber('05')
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.ToNumberFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.ToNumberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
             </summary>
@@ -848,10 +924,25 @@
             Execute value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Word.IsTextFunction">
+            <summary>
+            IsText('my text')
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.IsTextFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Word.IsTextFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Excel.Word.LeftFunction">
             <summary>
             Searches a string from left to right and returns the leftmost characters of the string
-            <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; wordNeededChars) </para>
+            <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; subWord) </para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Word.LeftFunction.Name">
@@ -931,7 +1022,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.Word.RightFunction">
             <summary>
             Searches a string from right to left and returns the rightmost characters of the string
-            <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; wordNeededChars) </para>
+            <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; subWord) </para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Word.RightFunction.Name">
@@ -2954,9 +3045,9 @@
             Node type matching
             </summary>
         </member>
-        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Value">
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Number">
             <summary>
-            Value
+            Number
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Operator">
@@ -2977,6 +3068,16 @@
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Word">
             <summary>
             Word
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.WordList">
+            <summary>
+            WordList
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NumberList">
+            <summary>
+            NumberList
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Bracket">
@@ -3104,6 +3205,46 @@
             ToString
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Nodes.NumberListNode">
+            <summary>
+            Formula node - NumberList
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.NumberListNode.NumberList">
+            <summary>
+            NumberList
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NumberListNode.#ctor(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Formula node - NumberList
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NumberListNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.NumberNode">
+            <summary>
+            Formula node - Number
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.NumberNode.Number">
+            <summary>
+            Number
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NumberNode.#ctor(System.Double)">
+            <summary>
+            Formula node - Number
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NumberNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Nodes.OperatorNode">
             <summary>
             Formula node - Operator
@@ -3129,26 +3270,6 @@
             ToString
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Nodes.ValueNode">
-            <summary>
-            Formula node - Value
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Nodes.ValueNode.Value">
-            <summary>
-            Value
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Nodes.ValueNode.#ctor(System.Double)">
-            <summary>
-            Formula node - Value
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Nodes.ValueNode.ToString">
-            <summary>
-            ToString
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Nodes.VariableNode">
             <summary>
             Formula node - Variable
@@ -3170,6 +3291,26 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.VariableNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.WordListNode">
+            <summary>
+            Formula node - WordList
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.WordListNode.WordList">
+            <summary>
+            WordList
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.WordListNode.#ctor(System.Collections.Generic.List{System.String})">
+            <summary>
+            Formula node - WordList
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.WordListNode.ToString">
             <summary>
             ToString
             </summary>
@@ -3543,6 +3684,16 @@
             Symbol of floating point
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.WordQuotationMark">
+            <summary>
+            Quotation mark
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.UseWordQuotationMark">
+            <summary>
+            Use quotation mark
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
             <summary>
             Global constants
@@ -3563,9 +3714,39 @@
             Symbol of floating point
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.WordQuotationMark">
+            <summary>
+            Quotation mark
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.#ctor">
             <summary>
             Options
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetWordQuotationSingleQuote">
+            <summary>
+            Set word quotation mark - '
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetWordQuotationDoubleQuote">
+            <summary>
+            Set word quotation mark - "
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetWordQuotationMark(System.String)">
+            <summary>
+            Set word quotation mark
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetFloatingTolerance(System.Double)">
+            <summary>
+            Set floating tolerance
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetFloatingPointSymbol(NoStringEvaluating.Models.FloatingPointSymbol)">
+            <summary>
+            Set floating point symbol
             </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.UpdateConstants">
@@ -3797,6 +3978,16 @@
         <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.FunctionReader.TryProceedFunction(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read function name
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.ListReader">
+            <summary>
+            List reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.ListReader.TryProceedList(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read list
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader">

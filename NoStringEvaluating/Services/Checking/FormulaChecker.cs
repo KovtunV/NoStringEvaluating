@@ -300,10 +300,12 @@ namespace NoStringEvaluating.Services.Checking
 
         private bool IsOperatorableNode(BaseFormulaNode node)
         {
-            return node is ValueNode
+            return node is NumberNode
                 || node is VariableNode
                 || node is WordNode
-                || node is FunctionNode;
+                || node is FunctionNode
+                || node is WordListNode
+                || node is NumberListNode;
         }
     }
 }

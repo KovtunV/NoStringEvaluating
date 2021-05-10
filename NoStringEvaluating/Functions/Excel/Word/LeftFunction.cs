@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
     /// Searches a string from left to right and returns the leftmost characters of the string
-    /// <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; wordNeededChars) </para>
+    /// <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; subWord) </para>
     /// </summary>
     public class LeftFunction : IFunction
     {
@@ -55,20 +55,13 @@ namespace NoStringEvaluating.Functions.Excel.Word
                 return wordFactory.Empty();
             }
 
-            for (int i = 0; i < word.Length; i++)
+            var subWordIndex = word.IndexOf(patternWord);
+            if(subWordIndex == -1)
             {
-                if (!patternWord.Contains(word[i]))
-                {
-                    return wordFactory.Create(word[..i]);
-                } 
-                
-                if (i + 1 == word.Length)
-                {
-                    return wordFactory.Create(word);
-                }
+                return wordFactory.Create(word);
             }
 
-            return wordFactory.Empty();
+            return wordFactory.Create(word[..subWordIndex]);
         }
     }
 }

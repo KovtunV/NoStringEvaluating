@@ -18,12 +18,61 @@ namespace NoStringEvaluating
         public FloatingPointSymbol FloatingPointSymbol { get; set; }
 
         /// <summary>
+        /// Quotation mark
+        /// </summary>
+        public string WordQuotationMark { get; set; }
+
+        /// <summary>
         /// Options
         /// </summary>
         public NoStringEvaluatorOptions()
         {
             FloatingTolerance = NoStringEvaluatorConstants.FloatingTolerance;
             FloatingPointSymbol = NoStringEvaluatorConstants.FloatingPointSymbol;
+            WordQuotationMark = string.Empty;
+        }
+
+        /// <summary>
+        /// Set word quotation mark - '
+        /// </summary>
+        public NoStringEvaluatorOptions SetWordQuotationSingleQuote()
+        {
+            return SetWordQuotationMark("'");
+        }
+
+        /// <summary>
+        /// Set word quotation mark - "
+        /// </summary>
+        public NoStringEvaluatorOptions SetWordQuotationDoubleQuote()
+        {
+            return SetWordQuotationMark("\"");
+        }
+
+        /// <summary>
+        /// Set word quotation mark
+        /// </summary>
+        public NoStringEvaluatorOptions SetWordQuotationMark(string mark)
+        {
+            WordQuotationMark = mark;
+            return this;
+        }
+
+        /// <summary>
+        /// Set floating tolerance
+        /// </summary>
+        public NoStringEvaluatorOptions SetFloatingTolerance(double floatingTolerance)
+        {
+            FloatingTolerance = floatingTolerance;
+            return this;
+        }
+
+        /// <summary>
+        /// Set floating point symbol
+        /// </summary>
+        public NoStringEvaluatorOptions SetFloatingPointSymbol(FloatingPointSymbol floatingPointSymbol)
+        {
+            FloatingPointSymbol = floatingPointSymbol;
+            return this;
         }
 
         /// <summary>
@@ -33,6 +82,8 @@ namespace NoStringEvaluating
         {
             NoStringEvaluatorConstants.FloatingTolerance = FloatingTolerance;
             NoStringEvaluatorConstants.FloatingPointSymbol = FloatingPointSymbol;
+            NoStringEvaluatorConstants.WordQuotationMark = WordQuotationMark;
+            NoStringEvaluatorConstants.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
         }
     }
 }

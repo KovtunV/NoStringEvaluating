@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
     /// Searches a string from right to left and returns the rightmost characters of the string
-    /// <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; wordNeededChars) </para>
+    /// <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; subWord) </para>
     /// </summary>
     public class RightFunction : IFunction
     {
@@ -58,20 +58,13 @@ namespace NoStringEvaluating.Functions.Excel.Word
                 return wordFactory.Empty();
             }
 
-            for (int i = word.Length - 1; i >= 0; i--)
+            var subWordIndex = word.IndexOf(patternWord);
+            if (subWordIndex == -1)
             {
-                if (!patternWord.Contains(word[i]))
-                {
-                    return wordFactory.Create(word[(i + 1)..]);
-                } 
-                
-                if (i - 1 == 0)
-                {
-                    return wordFactory.Create(word);
-                }
+                return wordFactory.Create(word);
             }
 
-            return wordFactory.Empty();
+            return wordFactory.Create(word[subWordIndex..]);
         }
     }
 }

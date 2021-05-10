@@ -4,21 +4,21 @@ using NoStringEvaluating.Nodes.Base;
 namespace NoStringEvaluating.Nodes
 {
     /// <summary>
-    /// Formula node - Value
+    /// Formula node - Number
     /// </summary>
-    public class ValueNode : BaseFormulaNode
+    public class NumberNode : BaseFormulaNode
     {
         /// <summary>
-        /// Value
+        /// Number
         /// </summary>
-        public double Value { get; }
+        public double Number { get; }
 
         /// <summary>
-        /// Formula node - Value
+        /// Formula node - Number
         /// </summary>
-        public ValueNode(double value) : base(NodeTypeEnum.Value)
+        public NumberNode(double number) : base(NodeTypeEnum.Number)
         {
-            Value = value;
+            Number = number;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace NoStringEvaluating.Nodes
         /// </summary>
         public override string ToString()
         {
-            return Value.ToString(CultureInfo.InvariantCulture);
+            return Number.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

@@ -76,7 +76,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
         private static void AddAdditionalNodesForUnaryMinus(List<BaseFormulaNode> nodes)
         {
             var bracket = new BracketNode(Bracket.Open);
-            var value = new ValueNode(0);
+            var value = new NumberNode(0);
             var minus = new OperatorNode(Operator.Minus);
 
             nodes.Add(bracket);

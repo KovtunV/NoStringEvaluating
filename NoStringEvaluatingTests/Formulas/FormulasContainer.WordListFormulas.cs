@@ -19,22 +19,30 @@ namespace NoStringEvaluatingTests.Formulas
 
             // Lower
             yield return CreateTestModel("Lower(list)", new[] { "one", "two" }.ToList(), ("list", list1));
+            yield return CreateTestModel("Lower({'Mumbai','London','New York'})", new[] { "mumbai", "london", "new york" }.ToList());
 
             // Replace
             yield return CreateTestModel("Replace(list; 'o'; '*')", new[] { "*ne", "tW*" }.ToList(), ("list", list1));
+            yield return CreateTestModel("Replace({'New','York','City'}; 'New'; 'Old')", new[] { "Old", "York", "City"}.ToList());
 
             // Qnique
             yield return CreateTestModel("Unique(list; true)", new[] { "b" }.ToList(), ("list", list3));
             yield return CreateTestModel("Unique(list; false)", new[] { "a", "b", "c" }.ToList(), ("list", list3));
             yield return CreateTestModel("Unique(list)", new[] { "a", "b", "c" }.ToList(), ("list", list3));
+            yield return CreateTestModel("Unique({'NEW','OLD','NEW','HEAVEN','OLD'})", new[] { "NEW", "OLD", "HEAVEN" }.ToList());
+            yield return CreateTestModel("Unique({'NEW','OLD','NEW','HEAVEN','OLD'}; true)", new[] { "HEAVEN" }.ToList());
 
             // Upper
             yield return CreateTestModel("Upper(list)", new[] { "ONE", "TWO" }.ToList(), ("list", list2));
+            yield return CreateTestModel("Upper({'Mumbai','London','New York'})", new[] { "MUMBAI", "LONDON", "NEW YORK" }.ToList());
 
             // Sort
             yield return CreateTestModel("Sort(list)", list3.OrderBy(x => x).ToList(), ("list", list3));
             yield return CreateTestModel("Sort(list; 1)", list3.OrderBy(x => x).ToList(), ("list", list3));
             yield return CreateTestModel("Sort(list; -1)", list3.OrderByDescending(x => x).ToList(), ("list", list3));
+            yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" })", list3.OrderBy(x => x).ToList());
+            yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; ASC)", list3.OrderBy(x => x).ToList());
+            yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; DESC)", list3.OrderByDescending(x => x).ToList());
         }
 
         public static IEnumerable<FormulaModel[]> GetWordListAsNumberFormulas()
@@ -48,6 +56,14 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Count(1; 2)", 2);
             yield return CreateTestModel("Count(1; 'dd'; 2)", 3);
             yield return CreateTestModel("Count(1; 'dd'; 2; list)", 5, ("list", list1));
+            yield return CreateTestModel("Count(1; 2; {1, 5, 6, 3, 7})", 7);
+            yield return CreateTestModel("Count(1; 2; {'one' 'two' 'thrte'})", 5);
+
+            // IsMember
+            yield return CreateTestModel("IsMember({'printer', 'computer', 'monitor'};'computer')", 1);
+            yield return CreateTestModel("IsMember(list; 'one')", 1, ("list", list1));
+            yield return CreateTestModel("IsMember(list; 'onee')", 0, ("list", list1));
+
         }
     }
 }

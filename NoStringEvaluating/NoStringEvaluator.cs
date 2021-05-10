@@ -10,6 +10,7 @@ using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
+using NoStringEvaluating.Services.Value;
 using NoStringEvaluating.Services.Variables;
 
 namespace NoStringEvaluating
@@ -558,7 +559,7 @@ namespace NoStringEvaluating
             // Calculate with internal struct
             string res = CalcInternal(nodes, variables, idContainer);
 
-            return res;
+            return WordFormatter.Format(res);
         }
 
         private DateTime OnCalcDateTime(List<BaseFormulaNode> nodes, VariablesSource variables)
@@ -580,7 +581,7 @@ namespace NoStringEvaluating
             // Calculate with internal struct
             List<string> res = CalcInternal(nodes, variables, idContainer);
 
-            return res;
+            return WordFormatter.Format(res);
         }
 
         private List<double> OnCalcNumberList(List<BaseFormulaNode> nodes, VariablesSource variables)
@@ -748,10 +749,10 @@ namespace NoStringEvaluating
 
                     stack.Push(functionVal);
                 }
-                else if (node.TypeKey == NodeTypeEnum.Value)
+                else if (node.TypeKey == NodeTypeEnum.Number)
                 {
-                    var valNode = (ValueNode)node;
-                    stack.Push(valNode.Value);
+                    var valNode = (NumberNode)node;
+                    stack.Push(valNode.Number);
                 }
                 else if (node.TypeKey == NodeTypeEnum.Word)
                 {
@@ -759,6 +760,20 @@ namespace NoStringEvaluating
                     var wordItem = factory.Word().Create(wordNode.Word);
 
                     stack.Push(wordItem);
+                }
+                else if (node.TypeKey == NodeTypeEnum.WordList)
+                {
+                    var wordListNode = (WordListNode)node;
+                    var wordListItem = factory.WordList().Create(wordListNode.WordList);
+
+                    stack.Push(wordListItem);
+                }
+                else if (node.TypeKey == NodeTypeEnum.NumberList)
+                {
+                    var numberListNode = (NumberListNode)node;
+                    var numberListItem = factory.NumberList().Create(numberListNode.NumberList);
+
+                    stack.Push(numberListItem);
                 }
             }
 

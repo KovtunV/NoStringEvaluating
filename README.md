@@ -19,6 +19,7 @@ From v2.0 it can evaluate string, DateTime, etc...
       * [Initializing](#Initializing)
       * [Usage](#Usage)
    * [Extra types](#Extra-types)
+      * [List description](#List-description)
    * [Variables](#Variables)
       * [Simple variable](#Simple-variable)
       * [Bordered variable](#Bordered-variable)
@@ -176,6 +177,15 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 ## Extra types
 From v2.0 you can evaluate some of types. I strongly recommend, if you know a function's result type, use method kinda **CalcNumber** or **CalcWord**. For case if you have no idea about a result's type, use Calc. It returns struct with aggregated types. Just look at property **TypeKey** and you'll know about a type.
 
+### List description
+From v2.1 you can describe a list inside the formula
+
+| Example  |  Result |
+| ------------ | ------------ |
+| IsMember({'printer', 'computer', 'monitor'}; 'computer') | 1  |
+| Unique({'NEW','OLD','NEW','HEAVEN','OLD'}) | {'NEW','OLD','HEAVEN'} |
+| Add({1, 2, 3, 10, 3}) | 19 |
+
 ## Variables
 
 You can use two types of variables:
@@ -215,6 +225,8 @@ There are some known variables, you shouldn't send them to Calc method.
 | e |  Napier's constant, or Euler's number, base of Natural logarithm |  2.7182818284590452354 |
 | true | Boolean True represented as double  | 1 |
 | false | Boolean False represented as double  | 0 |
+| ASC | Boolean True represented as double  | 1 |
+| DESC | Boolean False represented as double  | 0 |
 
 These variables are register independent, you can write Pi, [PI], pI, True, etc...
 
@@ -354,18 +366,23 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | Count | Returns a number of elements | Count(a; b; ...) can include List<T> |
 | Len | Returns the number of characters in a text string| Len("my word")  |
 | Sort | Sorts a List. sortType: 1 - asc, not 1 - desc| Sort(myList; sortType)  |
+| IsMember | Checks if second argument is a member of list from first | IsMember({'printer', 'computer', 'monitor'}; 'computer')  |
+| IsNumber | Returns 1 if this is a number | IsNumber(256) |    
+| ToNumber | Returns number from word | ToNumber('03') |   
 
 #### DateTime
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
-| DateDif | Calculates the number of days, months, or years between two dates. Can be: Y, M, D, MD, YM, YD | DateDif(date1; date2; 'Y') |
+| DateDif | Calculates the number of days, months, or years between two dates. Can be: Y, M, D | DateDif(date1; date2; 'Y') |
+| TimeDif | Calculates the number of hours, minutes, or seconds between two dates. Can be: H, M, S | DateDif(time1; time2; 'H') |
 | Now | Returns Datetime.Now | Now() |
 | Today | Returns the current date | Today() |
-| Day | Returnts a day from dateTime | Day(Now()) |    
-| Month | Returns a month from dateTime | Month(Now()) |
-| Year | Returns a year from dateTime | Year(Now()) |
+| Day | Returnts a day from dateTime | Day(Now())<br /> Day(Now(); 'DD') |    
+| Month | Returns a month from dateTime | Month(Now())<br /> Month(Now(); 'MM') |
+| Year | Returns a year from dateTime | Year(Now())<br /> Year(Now(); 'YY') |
 | ToDateTime | Returns datetime value from string | ToDateTime('8/15/2002') |
 | WeekDay | Takes a date and returns a number between 1-7 representing the day of week | WeekDay(Today()) |
+| DateFormat | Format dateTime to string | DateFormat(Now(); 'HH:mm:ss') |
 
 #### Word
 | Key word  |  Description | Example  |
@@ -375,21 +392,23 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | Implode |  Concatenates all members of a text list and returns a text string. separator by default is white space " " | Implode(myList) <br /> Implode(myList; separator) <br /> Implode(myList; 5; 'my wordd'; separator) last value is separator |
 | Left | Searches a string from left to right and returns the leftmost characters of the string | Left(myWord)<br /> Left(myWord; numberOfChars) <br /> Left(myWord; wordNeededChars) |
 | Middle | Returns any substring from the middle of a string | Middle(myWord; indexStart; numberChars) <br /> Middle(myWord; indexStart; wordEnd)<br />  Middle(myWord; wordStart; numberChars)<br /> Middle(myWord; wordStart; wordEnd) |
-|  Right | Searches a string from right to left and returns the rightmost characters of the string | Right(myWord)<br /> Right(myWord; numberOfChars)<br /> Right(myWord; wordNeededChars) |
+| Right | Searches a string from right to left and returns the rightmost characters of the string | Right(myWord)<br /> Right(myWord; numberOfChars)<br /> Right(myWord; wordNeededChars) |
 | Lower | Converts text to lowercase | Lower(myWord)<br /> Lower(myWordList) |
 | Upper |  Converts text to uppercase | Upper(myWord)<br /> Upper(myWordList) |
 | Proper | Capitalizes the first letter in each word of a text | Proper(myWord) |
 | Replace | Replaces characters within text | Replace(myWord; oldPart; newPart) <br /> Replace(myList; oldPart; newPart) |
-| Text | Return text from first argument | Text(26) |    
-|  Unique | If second parameter is true then returns only qnique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
+| Text | Returns text from first argument | Text(26) |    
+| Unique | If second parameter is true then returns only qnique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
+| IsText | Returns 1 if this is a word | IsText('my word') |    
 
 ## Options
 When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
 
-There are two options:
+There are several options:
 
 - FloatingTolerance (default is 0.0001)
 - FloatingPointSymbol (default is FloatingPointSymbol.Dot)
+- WordQuotationMark (default is null)
 
 To illustrate, I change floating point from default **dot** to **comma**:
 
@@ -397,7 +416,7 @@ To illustrate, I change floating point from default **dot** to **comma**:
 public void ConfigureServices(IServiceCollection services)
 {
     // ......
-    services.AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.Comma);
+    services.AddNoStringEvaluator(opt => opt.SetFloatingPointSymbol(FloatingPointSymbol.Comma));
 }
 ```
 

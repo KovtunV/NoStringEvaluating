@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using NoStringEvaluatingTests.Model;
 
@@ -11,6 +13,8 @@ namespace NoStringEvaluatingTests.Formulas
             var numberList = new[] { 1d, 2d, 3d }.ToList();
             var wordList = new[] { "one", "Two" }.ToList();
             var word = "one two kovtun loves painting two";
+            var date1 = DateTime.Parse("02/12/2002", CultureInfo.InvariantCulture);
+            var date2 = DateTime.Parse("07/18/2005", CultureInfo.InvariantCulture);
 
             // Word
             yield return CreateTestModel("\"my word\"", "my word");
@@ -35,7 +39,7 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Left('Hello world'; 4)", "Hell");
             yield return CreateTestModel("Left('Hello world'; -4)", "");
             yield return CreateTestModel("Left('Hello world'; 40)", "Hello world");
-            yield return CreateTestModel("Left('Hello world'; 'elHo w')", "Hello wo");
+            yield return CreateTestModel("Left('Hello world'; 'or')", "Hello w");
 
             // Lower
             yield return CreateTestModel("Lower('HellO')", "hello");
@@ -66,7 +70,7 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Right('Hello world'; 4)", "orld");
             yield return CreateTestModel("Right('Hello world'; -4)", "");
             yield return CreateTestModel("Right('Hello world'; 40)", "Hello world");
-            yield return CreateTestModel("Right('Hello world'; 'wo rld')", "llo world");
+            yield return CreateTestModel("Right('Hello world'; 'wo')", "world");
 
             // Text
             yield return CreateTestModel("Text('Hello world')", "Hello world");
@@ -78,6 +82,25 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Upper('he')", "HE");
             yield return CreateTestModel("Upper('ONE tWo')", "ONE TWO");
             yield return CreateTestModel("Upper(Concat(wordList))", "ONETWO", ("wordList", wordList));
+
+            // Day
+            yield return CreateTestModel("Day(date)", "12", ("date", date1));
+            yield return CreateTestModel("Day(date)", "18", ("date", date2));
+            yield return CreateTestModel("Day(date + 6)", "24", ("date", date2));
+
+            // Month
+            yield return CreateTestModel("Month(date)", "2", ("date", date1));
+            yield return CreateTestModel("Month(date)", "7", ("date", date2));
+            yield return CreateTestModel("Month(date + 20)", "8", ("date", date2));
+
+            // Year
+            yield return CreateTestModel("Year(date)", "2002", ("date", date1));
+            yield return CreateTestModel("Year(date)", "2005", ("date", date2));
+            yield return CreateTestModel("Year(date + 320)", "2006", ("date", date2));
+
+            // DateFormat
+            yield return CreateTestModel("DateFormat(date; 'yy')", "02", ("date", date1));
+            yield return CreateTestModel("DateFormat(ToDateTime('2021/01/30 18:05:33');'HH:mm:ss')", "18:05:33");
         }
 
         public static IEnumerable<FormulaModel[]> GetWordAsNumberFormulas()
@@ -85,6 +108,11 @@ namespace NoStringEvaluatingTests.Formulas
             // Len
             yield return CreateTestModel("Len('my word')", 7);
             yield return CreateTestModel("Len('my' + 'ddd')", 5);
+
+            // IsText
+            yield return CreateTestModel("IsText(5)", 0);
+            yield return CreateTestModel("IsText('5')", 1);
+            yield return CreateTestModel("IsText('my word')", 1);
         }
     }
 }

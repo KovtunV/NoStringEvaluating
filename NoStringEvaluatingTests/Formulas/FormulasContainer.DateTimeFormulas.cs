@@ -22,27 +22,22 @@ namespace NoStringEvaluatingTests.Formulas
 
         public static IEnumerable<FormulaModel[]> GetDateTimeAsNumberFormulas()
         {
-            var date1 = DateTime.Parse("02/12/2002", CultureInfo.InvariantCulture);
-            var date2 = DateTime.Parse("07/18/2005", CultureInfo.InvariantCulture);
+            var date1 = DateTime.Parse("02/12/2002 14:18:23", CultureInfo.InvariantCulture);
+            var date2 = DateTime.Parse("07/18/2005 18:30:10", CultureInfo.InvariantCulture);
 
-            //  DateDif
+            var time1 = DateTime.Parse("01/01/2000 14:18:23", CultureInfo.InvariantCulture);
+            var time2 = DateTime.Parse("01/01/2000 18:30:10", CultureInfo.InvariantCulture);
+
+            // DateDif
             yield return CreateTestModel("DateDif(date1; date2; 'Y')", 3, ("date1", date1), ("date2", date2));
             yield return CreateTestModel("DateDif(ToDateTime('12/02/2002'); ToDateTime('02/07/2005'); 'Y')", 2);
             yield return CreateTestModel("DateDif(date1; date2; 'M')", 41, ("date1", date1), ("date2", date2));
             yield return CreateTestModel("DateDif(date1; date2; 'D')", 1252, ("date1", date1), ("date2", date2));
-            yield return CreateTestModel("DateDif(date1; date2; 'MD')", 6, ("date1", date1), ("date2", date2));
-            yield return CreateTestModel("DateDif(date1; date2; 'YM')", 5, ("date1", date1), ("date2", date2));
-            yield return CreateTestModel("DateDif(date1; date2; 'YD')", 156, ("date1", date1), ("date2", date2));
 
-            // Day
-            yield return CreateTestModel("Day(date)", 12, ("date", date1));
-            yield return CreateTestModel("Day(date)", 18, ("date", date2));
-            yield return CreateTestModel("Day(date + 6)", 24, ("date", date2));
-
-            // Month
-            yield return CreateTestModel("Month(date)", 2, ("date", date1));
-            yield return CreateTestModel("Month(date)", 7, ("date", date2));
-            yield return CreateTestModel("Month(date + 20)", 8, ("date", date2));
+            // TimeDif
+            yield return CreateTestModel("Round(TimeDif(date1; date2; 'H'); 0)", 4, ("date1", time1), ("date2", time2));
+            yield return CreateTestModel("Round(TimeDif(date1; date2; 'M'); 0)", 252, ("date1", time1), ("date2", time2));
+            yield return CreateTestModel("Round(TimeDif(date1; date2; 'S'); 0)", 15107, ("date1", time1), ("date2", time2));
 
             // WeekDay
             yield return CreateTestModel("WeekDay(ToDateTime('04/18/2021'))", 1);
@@ -53,11 +48,6 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("WeekDay(ToDateTime('04/23/2021'))", 6);
             yield return CreateTestModel("WeekDay(ToDateTime('04/24/2021'))", 7);
             yield return CreateTestModel("WeekDay(ToDateTime('04/25/2021'))", 1);
-
-            // Year
-            yield return CreateTestModel("Year(date)", 2002, ("date", date1));
-            yield return CreateTestModel("Year(date)", 2005, ("date", date2));
-            yield return CreateTestModel("Year(date + 320)", 2006, ("date", date2));
         }
     }
 }

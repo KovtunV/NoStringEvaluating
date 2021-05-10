@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -22,14 +23,40 @@ namespace NoStringEvaluating.Functions.Excel.Word
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var word = args[0].GetWord();
+            var arg = args[0];
+
+            if (arg.IsWord)
+            {
+                var word = arg.GetWord();
+ 
+                var res = Proper(word);
+                return factory.Word().Create(res);
+            }
+
+            if (arg.IsWordList)
+            {
+                // Copy
+                var wordList = arg.GetWordList().ToList();
+                for (int i = 0; i < wordList.Count; i++)
+                {
+                    wordList[i] = Proper(wordList[i]);
+                }
+
+                return factory.WordList().Create(wordList);
+            }
+
+            return double.NaN;
+        }
+
+        private string Proper(string word)
+        {
             if (HasCapital(word))
             {
                 word = word.ToLowerInvariant();
             }
 
             var res = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(word);
-            return factory.Word().Create(res);
+            return res;
         }
 
         private bool HasCapital(string str)

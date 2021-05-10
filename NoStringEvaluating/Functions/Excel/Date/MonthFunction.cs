@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
     /// Returns a month from dateTime
-    /// <para>Month(Now())</para>
+    /// <para>Month(Now()) or Month(Now(); 'MM')</para>
     /// </summary>
     public class MonthFunction : IFunction
     {
@@ -21,13 +21,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[0];
-            if (arg.IsDateTime)
+            var wordFactory = factory.Word();
+            var dateVal = args[0].GetDateTime();
+
+            if (args.Count > 1 && args[1].IsWord)
             {
-                return arg.GetDateTime().Month;
+                var format = args[1].GetWord();
+                var strRes = dateVal.Month.ToString().PadLeft(format.Length, '0');
+                return wordFactory.Create(strRes);
             }
 
-            return double.NaN;
+            return wordFactory.Create(dateVal.Month.ToString());
         }
     }
 }

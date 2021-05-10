@@ -15,7 +15,9 @@ namespace NoStringEvaluating.Services.Variables
                 ["TAU"] = Math.PI * 2,
                 ["E"] = Math.E,
                 ["TRUE"] = 1,
-                ["FALSE"] = 0
+                ["FALSE"] = 0,
+                ["ASC"] = 1,
+                ["DESC"] = 0
             };
         }
 

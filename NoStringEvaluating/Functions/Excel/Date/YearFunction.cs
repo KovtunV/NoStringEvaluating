@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
     /// Returns a year from dateTime
-    /// <para>Year(Now())</para>
+    /// <para>Year(Now()) or Year(Now(); 'YY')</para>
     /// </summary>
     public class YearFunction : IFunction
     {
@@ -21,13 +21,16 @@ namespace NoStringEvaluating.Functions.Excel.Date
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[0];
-            if (arg.IsDateTime)
-            {
-                return arg.GetDateTime().Year;
+            var wordFactory = factory.Word();
+            var dateVal = args[0].GetDateTime();
+
+            if (args.Count > 1 && args[1].IsWord && args[1].GetWord().Length == 2)
+            {       
+                var strRes = dateVal.ToString("yy");
+                return wordFactory.Create(strRes);
             }
 
-            return double.NaN;
+            return wordFactory.Create(dateVal.Year.ToString());
         }
     }
 }

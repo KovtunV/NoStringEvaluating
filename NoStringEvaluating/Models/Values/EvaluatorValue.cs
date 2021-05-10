@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NoStringEvaluating.Services.Value;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 
@@ -195,7 +196,7 @@ namespace NoStringEvaluating.Models.Values
 
             if (a.IsWord)
             {
-                return new EvaluatorValue(a.GetWord());
+                return new EvaluatorValue(WordFormatter.Format(a.GetWord()));
             }
 
             if (a.IsDateTime)
@@ -205,7 +206,7 @@ namespace NoStringEvaluating.Models.Values
 
             if (a.IsWordList)
             {
-                return new EvaluatorValue(a.GetWordList());
+                return new EvaluatorValue(WordFormatter.Format(a.GetWordList()));
             }
 
             if (a.IsNumberList)

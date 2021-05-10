@@ -83,6 +83,9 @@ namespace NoStringEvaluating.Services.Parsing
                 if (WordReader.TryProceedWord(nodes, formula, ref i))
                     continue;
 
+                if(ListReader.TryProceedList(nodes, formula, ref i))
+                    continue;
+
                 if (OperatorReader.TryProceedOperator(nodes, formula, ref i))
                     continue;
             }

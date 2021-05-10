@@ -62,7 +62,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                     value *= -1;
                 }
 
-                var valNode = new ValueNode(value);
+                var valNode = new NumberNode(value);
                 nodes.Add(valNode);
 
                 return true;

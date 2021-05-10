@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
     /// Returnts a day from dateTime
-    /// <para>Day(Now())</para>
+    /// <para>Day(Now()) or Day(Now(); 'DD')</para>
     /// </summary>
     public class DayFunction : IFunction
     {
@@ -21,13 +21,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[0];
-            if (arg.IsDateTime)
+            var wordFactory = factory.Word();
+            var dateVal = args[0].GetDateTime();
+
+            if (args.Count > 1 && args[1].IsWord)
             {
-                return arg.GetDateTime().Day;
+                var format = args[1].GetWord();
+                var strRes = dateVal.Day.ToString().PadLeft(format.Length, '0');
+                return wordFactory.Create(strRes);
             }
 
-            return double.NaN;
+            return wordFactory.Create(dateVal.Day.ToString());
         }
     }
 }

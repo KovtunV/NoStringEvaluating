@@ -44,13 +44,23 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
             var prevNode = nodes.Count > 0 ? nodes[^1] : null;
 
             // Unary minus
-            if (ch == MINUS_CHAR && !(prevNode is ValueNode) && !(prevNode is VariableNode)  && !(prevNode is WordNode) && !(prevNode is BracketNode br && br.Bracket == Bracket.Close))
+            if (ch == MINUS_CHAR && !IsOperatorableNode(prevNode) && !(prevNode is BracketNode br && br.Bracket == Bracket.Close))
             {
                 isNegative = !(isNegative is true);
                 return true;
             }
 
             return false;
+        }
+
+        private static bool IsOperatorableNode(BaseFormulaNode node)
+        {
+            return node is NumberNode
+                || node is VariableNode
+                || node is WordNode
+                || node is FunctionNode
+                || node is WordListNode
+                || node is NumberListNode;
         }
 
         private const char MINUS_CHAR = '-';
