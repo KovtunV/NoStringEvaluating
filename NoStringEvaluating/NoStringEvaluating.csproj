@@ -9,23 +9,21 @@
     <Description>Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables. From v2.0 it can evaluate string, DateTime, etc...</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>logo.png</PackageIcon>
-    <PackageReleaseNotes>New features:
-1 - List description: IsMember({'printer', 'computer', 'monitor'}; 'computer')
-2 - Option to word quotation in result: .AddNoStringEvaluator(c =&gt; c.SetWordQuotationSingleQuote())
+    <PackageReleaseNotes>New Features:
+1. Added methods CalcBoolean
 
 New functions:
-1 - IsText, IsNumber, IsMember
-2 - TimeDif, DateFormat
-3 - ToNumber
+1. IsError
 
 Fix functions:
-1 - Left, Right, DateDif
-2 - Day, Month, Year</PackageReleaseNotes>
+1. ImplodeFunction, default separator is Empty ""
+2. Right
+3. Left, Middle and Right can work with List</PackageReleaseNotes>
     <PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
     <PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

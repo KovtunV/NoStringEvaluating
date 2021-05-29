@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers;
+using NoStringEvaluating.Services.Keepers.Models;
 
 namespace NoStringEvaluating.Factories
 {
@@ -9,12 +10,12 @@ namespace NoStringEvaluating.Factories
     /// </summary>
     public readonly struct NumberListFactory
     {
-        private readonly List<int> _ids;
+        private readonly List<ValueKeeperId> _ids;
 
         /// <summary>
         /// NumberListFactory
         /// </summary>
-        public NumberListFactory(List<int> ids)
+        public NumberListFactory(List<ValueKeeperId> ids)
         {
             _ids = ids;
         }
@@ -33,13 +34,13 @@ namespace NoStringEvaluating.Factories
         public InternalEvaluatorValue Create(List<double> numberList)
         {
             // Save to keeper
-            var id = NumberListKeeper.Instance.Save(numberList);
+            var idModel = NumberListKeeper.Instance.Save(numberList);
 
             // Save to scouped list
-            _ids.Add(id);
+            _ids.Add(idModel);
 
             // Create value
-            return new InternalEvaluatorValue(id, ValueTypeKey.NumberList);
+            return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
         }
     }
 }

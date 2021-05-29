@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers;
+using NoStringEvaluating.Services.Keepers.Models;
 
 namespace NoStringEvaluating.Factories
 {
@@ -10,12 +11,12 @@ namespace NoStringEvaluating.Factories
     /// </summary>
     public readonly struct DateTimeFactory
     {
-        private readonly List<int> _ids;
+        private readonly List<ValueKeeperId> _ids;
 
         /// <summary>
         /// DateTimeFactory
         /// </summary>
-        public DateTimeFactory(List<int> ids)
+        public DateTimeFactory(List<ValueKeeperId> ids)
         {
             _ids = ids;
         }
@@ -34,13 +35,13 @@ namespace NoStringEvaluating.Factories
         public InternalEvaluatorValue Create(DateTime date)
         {
             // Save to keeper
-            var id = DateTimeKeeper.Instance.Save(date);
+            var idModel = DateTimeKeeper.Instance.Save(date);
 
             // Save to scouped list
-            _ids.Add(id);
+            _ids.Add(idModel);
 
             // Create value
-            return new InternalEvaluatorValue(id, ValueTypeKey.DateTime);
+            return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
         }
     }
 }

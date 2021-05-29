@@ -3,12 +3,13 @@ using ConsoleApp.Benchmark;
 using Microsoft.Extensions.DependencyInjection;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
-using NoStringEvaluating.Models;
+using NoStringEvaluating.Factories;
+using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
+using System.Threading;
 
 namespace ConsoleApp
 {
@@ -25,7 +26,7 @@ namespace ConsoleApp
             //args["date1"] = time1;
             //args["date2"] = time2;
 
-            //var res = eval.Calc("DateDif(ToDateTime('06/01/2001'); ToDateTime('08/15/2002'); 'D')", args);
+            //var res = eval.CalcWord("5 + 'h'", args);
 
             BenchmarkRunner.Run<BenchmarkNumberService>();
         }
@@ -33,8 +34,9 @@ namespace ConsoleApp
 
         static INoStringEvaluator CreateNoString()
         {
-            var container = new ServiceCollection() .AddNoStringEvaluator();
+            var container = new ServiceCollection().AddNoStringEvaluator();
             var services = container.BuildServiceProvider();
+            var functionReader = services.GetRequiredService<IFunctionReader>();
 
             return services.GetRequiredService<INoStringEvaluator>();
         }

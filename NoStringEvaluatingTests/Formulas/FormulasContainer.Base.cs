@@ -5,12 +5,6 @@ namespace NoStringEvaluatingTests.Formulas
 {
     public static partial class FormulasContainer
     {
-        private static FormulaModel[] CreateTestModel(string formula, bool expectedOkresult)
-        {
-            var model = new FormulaModel(formula, "NULL", double.NaN, expectedOkresult);
-            return new[] { model };
-        }
-
         private static FormulaModel[] CreateTestModel(string formula, EvaluatorValue result, params (string, EvaluatorValue)[] arguments)
         {
             return CreateTestModel(formula, "NULL", result, arguments);

@@ -43,6 +43,18 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" })", list3.OrderBy(x => x).ToList());
             yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; ASC)", list3.OrderBy(x => x).ToList());
             yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; DESC)", list3.OrderByDescending(x => x).ToList());
+
+            // Left
+            yield return CreateTestModel("Left({'Analogy', 'Anecdote', 'Anomaly'}; 3)", new []{ "Ana", "Ane", "Ano" }.ToList());
+            yield return CreateTestModel("Left({'Analogy', 'Anecdote', 'Anomaly'}; 'n')", new []{ "A", "A", "A" }.ToList());
+
+            // Middle
+            yield return CreateTestModel("Middle({'Analogy', 'Anecdote', 'Anomaly'}; 3; 2)", new[] { "lo", "cd", "ma" }.ToList());
+            yield return CreateTestModel("Middle({'Analogy', 'Anecdote', 'Anomaly'}; 'n'; 'o')", new[] { "al", "ecd", "" }.ToList());
+
+            // Right
+            yield return CreateTestModel("Right({'Analogy', 'Anecdote', 'Anomaly'}; 3)", new[] { "ogy", "ote", "aly" }.ToList());
+            yield return CreateTestModel("Right({'Analogy', 'Anecdote', 'Anomaly'}; 'n')", new[] { "alogy", "ecdote", "omaly" }.ToList());
         }
 
         public static IEnumerable<FormulaModel[]> GetWordListAsNumberFormulas()

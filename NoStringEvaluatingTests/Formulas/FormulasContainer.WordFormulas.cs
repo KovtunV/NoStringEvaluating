@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading;
 using NoStringEvaluatingTests.Model;
 
 namespace NoStringEvaluatingTests.Formulas
@@ -28,7 +29,9 @@ namespace NoStringEvaluatingTests.Formulas
 
             // Implode
             yield return CreateTestModel("Implode(1; 5; \"-\")", "1-5");
-            yield return CreateTestModel("Implode(wordList)", "one Two", ("wordList", wordList));
+            yield return CreateTestModel("Implode(wordList)", "oneTwo", ("wordList", wordList));
+            yield return CreateTestModel("Implode(wordList; \" \")", "one Two", ("wordList", wordList));
+            yield return CreateTestModel("Implode(wordList; ' ')", "one Two", ("wordList", wordList));
             yield return CreateTestModel("Implode(wordList; ' * ')", "one * Two", ("wordList", wordList));
             yield return CreateTestModel("Implode(wordList; 5; ' * ')", "one * Two * 5", ("wordList", wordList));
             yield return CreateTestModel("Implode(1; wordList; 5; ' * ')", "1 * one * Two * 5", ("wordList", wordList));
@@ -70,7 +73,9 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("Right('Hello world'; 4)", "orld");
             yield return CreateTestModel("Right('Hello world'; -4)", "");
             yield return CreateTestModel("Right('Hello world'; 40)", "Hello world");
-            yield return CreateTestModel("Right('Hello world'; 'wo')", "world");
+            yield return CreateTestModel("Right('Hello world'; 'wo')", "rld");
+            yield return CreateTestModel("Right('my word'; 'w')", "ord");
+            yield return CreateTestModel("Right('my word'; 'wo')", "rd");
 
             // Text
             yield return CreateTestModel("Text('Hello world')", "Hello world");

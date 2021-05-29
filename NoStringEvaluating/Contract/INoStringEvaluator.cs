@@ -302,6 +302,64 @@ namespace NoStringEvaluating.Contract
 
         #endregion
 
+        #region Boolean
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(string formula, IVariablesContainer variables);
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables);
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables);
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(string formula);
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool CalcBoolean(FormulaNodes formulaNodes);
+
+        #endregion
+
         #region Aggregated
 
         /// <summary>

@@ -18,6 +18,7 @@ From v2.0 it can evaluate string, DateTime, etc...
    * [Quick start](#Quick-start)
       * [Initializing](#Initializing)
       * [Usage](#Usage)
+      * [User defined functions](#User-defined-functions)
    * [Extra types](#Extra-types)
       * [List description](#List-description)
    * [Variables](#Variables)
@@ -48,10 +49,10 @@ From v2.0 it can evaluate string, DateTime, etc...
 
 ## Features
 
-- Fast math evaluation;
-- Zero-allocation code (object pooling);
-- User defined functions;
-- User defined variables with any chars;
+- Fast math evaluation
+- Zero-allocation code (object pooling)
+- User defined functions
+- User defined variables with any chars
 - Mixed result type
 
 ## Performance
@@ -115,7 +116,8 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ### Usage
-Add **INoStringEvaluator** to your controller, service, etc..
+Add **INoStringEvaluator** to your controller, service, etc...
+
 And just send **string** or **FormulaNodes** to evaluation:
 ```csharp
 public class MyService
@@ -160,16 +162,40 @@ public class MyService
 }
 ```
 
-If you have custom functions, you shoud use **IFunctionReader** in startup:
+### User defined functions
+If you need your function, just implement the interface **IFunction**
+
+If you want to returnt extra type, use factory.
+
+For instance, usage function "YouAre('Vitaly'; 26)":
+```csharp
+public class MyFunction : IFunction
+{
+    public string Name { get; } = "YouAre";
+
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        var name = args[0].GetWord();
+        var age = args[1];
+
+        var ageAfterDecade = age + 10;
+        var result = $"Hello, {name}. After 10 years you will be {ageAfterDecade} y.o.";
+
+        return factory.Word().Create(result);
+    }
+}
+```
+
+And don't forget to add this function to **IFunctionReader**
 ```csharp
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     // ...
     var functionReader = app.ApplicationServices.GetRequiredService<IFunctionReader>();
-    functionReader.AddFunction(new Func_kov());
+    functionReader.AddFunction(new MyFunction());
 
     // If you don't want to write the each function directly, use this:
-    // Just send type where you have functions
+    // Just send type from assembly where you have functions
     // NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(Startup));
 }
 ```
@@ -356,7 +382,10 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | and | Logical conjunction (AND)  |   and(a1; a2; ...; an) |
 | or | Logical disjunction (OR) |  or(a1; a2; ...; an) |
 | not | Negation function |  not(x) |
-| isNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 |  isNaN(x) |
+| IsNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 |  isNaN(x) |
+| IsError | Returns 1 if this is a double.NaN | IsError(ToNumber('Text')) | 
+| IsMember | Checks if second argument is a member of list from first | IsMember({'printer', 'computer', 'monitor'}; 'computer')  |
+| IsNumber | Returns 1 if this is a number | IsNumber(256) |  
 
 ### Excel
 I've implemented some of excel functions. If you wanna see more, just send me a message.
@@ -365,10 +394,8 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | ------------ | ------------ | ------------ |
 | Count | Returns a number of elements | Count(a; b; ...) can include List<T> |
 | Len | Returns the number of characters in a text string| Len("my word")  |
-| Sort | Sorts a List. sortType: 1 - asc, not 1 - desc| Sort(myList; sortType)  |
-| IsMember | Checks if second argument is a member of list from first | IsMember({'printer', 'computer', 'monitor'}; 'computer')  |
-| IsNumber | Returns 1 if this is a number | IsNumber(256) |    
-| ToNumber | Returns number from word | ToNumber('03') |   
+| Sort | Sorts a List. sortType: 1 - asc, not 1 - desc| Sort(myList; sortType)  |  
+| ToNumber | Returns number from word | ToNumber('03') | 
 
 #### DateTime
 | Key word  |  Description | Example  |
@@ -389,7 +416,7 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | ------------ | ------------ | ------------ |
 | Concat |  Concates values | Concat(56; ' myWord') <br /> Concat(myList; myArg; 45; myList2) |
 | Explode | Returns a text list composed of the elements of a text string. Separator by default is white space " " | Explode(myWord)<br /> Explode(myWord; separator) |
-| Implode |  Concatenates all members of a text list and returns a text string. separator by default is white space " " | Implode(myList) <br /> Implode(myList; separator) <br /> Implode(myList; 5; 'my wordd'; separator) last value is separator |
+| Implode |  Concatenates all members of a text list and returns a text string. separator by default is empty "" | Implode(myList) <br /> Implode(myList; separator) <br /> Implode(myList; 5; 'my wordd'; separator) last value is separator |
 | Left | Searches a string from left to right and returns the leftmost characters of the string | Left(myWord)<br /> Left(myWord; numberOfChars) <br /> Left(myWord; wordNeededChars) |
 | Middle | Returns any substring from the middle of a string | Middle(myWord; indexStart; numberChars) <br /> Middle(myWord; indexStart; wordEnd)<br />  Middle(myWord; wordStart; numberChars)<br /> Middle(myWord; wordStart; wordEnd) |
 | Right | Searches a string from right to left and returns the rightmost characters of the string | Right(myWord)<br /> Right(myWord; numberOfChars)<br /> Right(myWord; wordNeededChars) |
@@ -482,6 +509,7 @@ Contains methods:
 - `DateTime CalcDateTime(...`
 - `List<string> CalcWordList(...`
 - `List<double> CalcNumberList(...`
+- `bool CalcBoolean(...`
 - `EvaluatorValue Calc(...`
 
 ## TODO

@@ -15,7 +15,7 @@ using org.mariuszgromada.math.mxparser;
 namespace ConsoleApp.Benchmark.Base
 {
     [MemoryDiagnoser]
-    [SimpleJob(RunStrategy.Monitoring, warmupCount: 2, invocationCount:3, targetCount: 3)]
+    [SimpleJob(RunStrategy.Monitoring, warmupCount: 2, invocationCount: 10, targetCount: 3)]
     public abstract class BaseBenchmarkService
     {
         public virtual int N { get; set; } = 1_000_000;

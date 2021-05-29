@@ -29,7 +29,7 @@ namespace NoStringEvaluating
         {
             FloatingTolerance = NoStringEvaluatorConstants.FloatingTolerance;
             FloatingPointSymbol = NoStringEvaluatorConstants.FloatingPointSymbol;
-            WordQuotationMark = string.Empty;
+            WordQuotationMark = NoStringEvaluatorConstants.WordQuotationMark;
         }
 
         /// <summary>

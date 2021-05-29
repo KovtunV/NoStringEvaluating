@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
@@ -22,7 +24,9 @@ namespace NoStringEvaluatingTests
 
         public FormulaParserTests()
         {
-            _serviceProvider = new ServiceCollection().AddNoStringEvaluator(opt => opt.FloatingPointSymbol = FloatingPointSymbol.DotComma).BuildServiceProvider();
+            _serviceProvider = new ServiceCollection()
+                .AddNoStringEvaluator(opt => opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma))
+                .BuildServiceProvider();
 
             var functionReader = _serviceProvider.GetRequiredService<IFunctionReader>();
             functionReader.AddFunction(new Func_kov());
@@ -67,7 +71,7 @@ namespace NoStringEvaluatingTests
         {
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
             var res = evaluator.CalcWord(model.Formula, model.Arguments);
-  
+
             Assert.AreEqual(model.Result, res);
         }
 
@@ -77,7 +81,7 @@ namespace NoStringEvaluatingTests
         {
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
             var res = evaluator.CalcDateTime(model.Formula, model.Arguments);
-  
+
             Assert.AreEqual(model.Result, res);
         }
 
@@ -101,6 +105,16 @@ namespace NoStringEvaluatingTests
 
             var sequenceEqual = model.Result.NumberList.SequenceEqual(res);
             Assert.IsTrue(sequenceEqual);
+        }
+
+        [DynamicData(nameof(GetBooleanFormulas), DynamicDataSourceType.Method)]
+        [TestMethod]
+        public void CalculateBooleanFormula(FormulaModel model)
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var res = evaluator.CalcBoolean(model.Formula, model.Arguments);
+
+            Assert.AreEqual(model.Result, res);
         }
 
         [TestMethod]
@@ -140,8 +154,32 @@ namespace NoStringEvaluatingTests
             {
                 // This exception is OK
                 Assert.AreEqual("my var!", ex.VariableName);
+                return;
             }
+
+            Assert.Fail();
         }
+
+        [TestMethod]
+        public async Task ExtraTypeConcurrent()
+        {
+            var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
+            var functionReader = _serviceProvider.GetRequiredService<IFunctionReader>();
+            functionReader.AddFunction(new TestSleepFunction());
+
+            var resTask = Task.Run(() =>
+            {
+                var sleepRes = evaluator.CalcWord("TestSleep('sleep word')");
+                return sleepRes;
+            });
+
+            // Creates extra DateTime, in another thread extra type 'sleep word' must exists
+            var preCalc = evaluator.Calc("Now()"); 
+            var res = await resTask;
+
+            Assert.AreEqual("sleep word", res);
+        }
+
 
         #region DataSource
 
@@ -166,6 +204,9 @@ namespace NoStringEvaluatingTests
         private static IEnumerable<FormulaModel[]> GetNumberListFormulas()
             => FormulasContainer.GetNumberListFormulas();
 
+        private static IEnumerable<FormulaModel[]> GetBooleanFormulas()
+            => FormulasContainer.GetBooleanFormulas();
+
         #endregion
     }
 
@@ -178,7 +219,7 @@ namespace NoStringEvaluatingTests
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var res = 1d;
-         
+
             for (int i = 0; i < args.Count; i++)
             {
                 res *= args[i];
@@ -195,6 +236,22 @@ namespace NoStringEvaluatingTests
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return args[0] - args[1];
+        }
+    }
+
+    public class TestSleepFunction : IFunction
+    {
+        public string Name { get; } = "TestSleep";
+
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            var arg = args[0];
+            var w1 = arg.GetWord();
+            Thread.Sleep(100);
+
+            var w2 = arg.GetWord();
+
+            return factory.Word().Create(w2);
         }
     }
 

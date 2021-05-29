@@ -9,7 +9,7 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// <summary>
     /// Concatenates all members of a text list and returns a text string
     /// <para>Implode(myList) or Implode(myList; separator) or Implode(myList; 5; 'my wordd'; separator) last value is separator</para>
-    /// <para>separator by default is white space " "</para>
+    /// <para>separator by default is empty ""</para>
     /// </summary>
     public class ImplodeFunction : IFunction
     {
@@ -23,7 +23,7 @@ namespace NoStringEvaluating.Functions.Excel.Word
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var separator = args.Count > 1 ? args[^1].GetWord() : " ";
+            var separator = args.Count > 1 ? args[^1].GetWord() : string.Empty;
             var res = string.Join(separator, GetLoop(args));
             return factory.Word().Create(res);
         }

@@ -350,6 +350,60 @@
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Calculate formula
@@ -499,7 +553,7 @@
             DateTimeFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.DateTimeFactory.#ctor(System.Collections.Generic.List{System.Int32})">
+        <member name="M:NoStringEvaluating.Factories.DateTimeFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
             <summary>
             DateTimeFactory
             </summary>
@@ -519,7 +573,7 @@
             NumberListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.NumberListFactory.#ctor(System.Collections.Generic.List{System.Int32})">
+        <member name="M:NoStringEvaluating.Factories.NumberListFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
             <summary>
             NumberListFactory
             </summary>
@@ -564,7 +618,7 @@
             WordFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.WordFactory.#ctor(System.Collections.Generic.List{System.Int32})">
+        <member name="M:NoStringEvaluating.Factories.WordFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
             <summary>
             WordFactory
             </summary>
@@ -583,15 +637,13 @@
             <summary>
             Creates word value
             </summary>
-            <param name="word"></param>
-            <returns></returns>
         </member>
         <member name="T:NoStringEvaluating.Factories.WordListFactory">
             <summary>
             WordListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.WordListFactory.#ctor(System.Collections.Generic.List{System.Int32})">
+        <member name="M:NoStringEvaluating.Factories.WordListFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
             <summary>
             WordListFactory
             </summary>
@@ -797,6 +849,21 @@
             Execute value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.IsErrorFunction">
+            <summary>
+            IsError(ToNumber('Text'))
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsErrorFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.IsErrorFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Excel.IsMemberFunction">
             <summary>
             IsMember(myList; item)
@@ -911,7 +978,7 @@
             <summary>
             Concatenates all members of a text list and returns a text string
             <para>Implode(myList) or Implode(myList; separator) or Implode(myList; 5; 'my wordd'; separator) last value is separator</para>
-            <para>separator by default is white space " "</para>
+            <para>separator by default is empty ""</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.Word.ImplodeFunction.Name">
@@ -2725,6 +2792,11 @@
             Word
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.Boolean">
+            <summary>
+            Boolean
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.DateTime">
             <summary>
             DateTime
@@ -2765,6 +2837,11 @@
             Value
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Boolean)">
+            <summary>
+            Value
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.ToString">
             <summary>
             ToString
@@ -2795,14 +2872,14 @@
             To EvaluatorValue
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~NoStringEvaluating.Models.Values.EvaluatorValue">
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Boolean)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.Equals(NoStringEvaluating.Models.Values.EvaluatorValue)">
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
-            Equals
+            To EvaluatorValue
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.Equals(System.Object)">
@@ -2810,39 +2887,29 @@
             Equals
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.Equals(NoStringEvaluating.Models.Values.EvaluatorValue)">
+            <summary>
+            Equals
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.GetHashCode">
             <summary>
-            HashCode
+            GetHashCode
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ExtraTypeIdContainer">
             <summary>
-            Contains lists of ids for extra types
+            Contains list of ids for extra types
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.WordIds">
+        <member name="P:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.Ids">
             <summary>
-            WordIds
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.DateTimeIds">
-            <summary>
-            DateTimeIds
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.WordListIds">
-            <summary>
-            WordListIds
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.NumberListIds">
-            <summary>
-            NumberListIds
+            Ids
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.#ctor">
             <summary>
-            Contains lists of ids for extra types
+            Contains list of ids for extra types
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.Dispose">
@@ -2985,6 +3052,11 @@
             To double List
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Boolean">
+            <summary>
+            To boolean
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.InternalEvaluatorValue">
             <summary>
             To InternalEvaluatorValue
@@ -3023,6 +3095,11 @@
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.NumberList">
             <summary>
             Number list
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Boolean">
+            <summary>
+            Boolean
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.Base.BaseFormulaNode">
@@ -3615,6 +3692,60 @@
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
+            <summary>
+            Calculate formula
+            </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
+            <exception cref="T:System.InvalidCastException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
+            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Calculate formula
@@ -3862,6 +3993,47 @@
         <member name="M:NoStringEvaluating.Services.IndexWatcher.Remember(System.Int32)">
             <summary>
             Remember index
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId">
+            <summary>
+            Id struct for value keepers
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.Id">
+            <summary>
+            Id
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.TypeKey">
+            <summary>
+            Type key
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.#ctor(System.Int32,NoStringEvaluating.Models.Values.ValueTypeKey)">
+            <summary>
+            Id struct for value keepers
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.Equals(NoStringEvaluating.Services.Keepers.Models.ValueKeeperId)">
+            <summary>
+            Equals
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Keepers.Models.ValueKeeperId.GetHashCode">
+            <summary>
+            GetHashCode
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.NameBuilder">

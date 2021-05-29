@@ -20,7 +20,7 @@ namespace NoStringEvaluating.Factories
         /// </summary>
         public WordFactory Word()
         {
-            return new WordFactory(_idContainer.WordIds);
+            return new WordFactory(_idContainer.Ids);
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace NoStringEvaluating.Factories
         /// </summary>
         public DateTimeFactory DateTime()
         {
-            return new DateTimeFactory(_idContainer.DateTimeIds);
+            return new DateTimeFactory(_idContainer.Ids);
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace NoStringEvaluating.Factories
         /// </summary>
         public WordListFactory WordList()
         {
-            return new WordListFactory(_idContainer.WordListIds);
+            return new WordListFactory(_idContainer.Ids);
         }
 
         /// <summary>
@@ -44,9 +44,9 @@ namespace NoStringEvaluating.Factories
         /// </summary>
         public NumberListFactory NumberList()
         {
-            return new NumberListFactory(_idContainer.NumberListIds);
+            return new NumberListFactory(_idContainer.Ids);
         }
-        
+
         internal InternalEvaluatorValue Create(EvaluatorValue val)
         {
             if (val.TypeKey == ValueTypeKey.Number)
@@ -72,6 +72,12 @@ namespace NoStringEvaluating.Factories
             if (val.TypeKey == ValueTypeKey.NumberList)
             {
                 return NumberList().Create(val.NumberList);
+            }
+
+            if (val.TypeKey == ValueTypeKey.Boolean)
+            {
+                // Bool represent as number in any cases
+                return val.Boolean ? 1 : 0;
             }
 
             throw new InvalidCastException($"Can't cast {nameof(EvaluatorValue)} with the typeKey = \"{val.TypeKey}\" to {nameof(InternalEvaluatorValue)}");

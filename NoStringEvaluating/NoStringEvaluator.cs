@@ -453,6 +453,89 @@ namespace NoStringEvaluating
 
         #endregion
 
+        #region BooleanEndpoints
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(string formula, IVariablesContainer variables)
+        {
+            var formulaNodes = _formulaCache.GetFormulaNodes(formula);
+            var wrapper = VariablesSource.Create(variables);
+            return OnCalcBoolean(formulaNodes.Nodes, wrapper);
+        }
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables)
+        {
+            var wrapper = VariablesSource.Create(variables);
+            return OnCalcBoolean(formulaNodes.Nodes, wrapper);
+        }
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables)
+        {
+            var formulaNodes = _formulaCache.GetFormulaNodes(formula);
+            var wrapper = VariablesSource.Create(variables);
+            return OnCalcBoolean(formulaNodes.Nodes, wrapper);
+        }
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        {
+            var wrapper = VariablesSource.Create(variables);
+            return OnCalcBoolean(formulaNodes.Nodes, wrapper);
+        }
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(string formula)
+        {
+            var formulaNodes = _formulaCache.GetFormulaNodes(formula);
+            return OnCalcBoolean(formulaNodes.Nodes, default);
+        }
+
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        /// <exception cref="VariableNotFoundException"></exception>
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        public bool CalcBoolean(FormulaNodes formulaNodes)
+        {
+            return OnCalcBoolean(formulaNodes.Nodes, default);
+        }
+
+        #endregion
+
         #region AggregatedEndpoints
 
         /// <summary>
@@ -591,6 +674,17 @@ namespace NoStringEvaluating
 
             // Calculate with internal struct
             List<double> res = CalcInternal(nodes, variables, idContainer);
+
+            return res;
+        }
+
+        private bool OnCalcBoolean(List<BaseFormulaNode> nodes, VariablesSource variables)
+        {
+            // Rent
+            using var idContainer = GetIdContainer();
+
+            // Calculate with internal struct
+            bool res = CalcInternal(nodes, variables, idContainer);
 
             return res;
         }

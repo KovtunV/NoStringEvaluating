@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -21,12 +22,36 @@ namespace NoStringEvaluating.Functions.Excel.Word
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var wordFactory = factory.Word();
-            var word = args[0].GetWord();
+            var valArg = args[0];
+
+            if (valArg.IsWord)
+            {
+                var word = valArg.GetWord();
+                var wordRes = LeftWord(args, word);
+
+                return factory.Word().Create(wordRes);
+            }
+
+            if (valArg.IsWordList)
+            {
+                var wordList = valArg.GetWordList().ToList();
+                for (int i = 0; i < wordList.Count; i++)
+                {
+                    wordList[i] = LeftWord(args, wordList[i]);
+                }
+
+                return factory.WordList().Create(wordList);
+            }
+
+            return double.NaN;        
+        }
+
+        private string LeftWord(List<InternalEvaluatorValue> args, string word)
+        {
             if (args.Count == 1)
             {
                 var wordRes = word.Length > 1 ? word[..1] : string.Empty;
-                return wordFactory.Create(wordRes);
+                return wordRes;
             }
 
             var pattern = args[1];
@@ -36,32 +61,32 @@ namespace NoStringEvaluating.Functions.Excel.Word
             {
                 if (pattern.Number < 0)
                 {
-                    return wordFactory.Empty();
+                    return string.Empty;
                 }
 
                 if (pattern.Number >= word.Length)
                 {
-                    return wordFactory.Create(word);
+                    return word;
                 }
 
                 var wordRes = word[..(int)pattern.Number];
-                return wordFactory.Create(wordRes);
+                return wordRes;
             }
 
             // Word
             var patternWord = pattern.GetWord();
             if (patternWord.Length == 0)
             {
-                return wordFactory.Empty();
+                return string.Empty;
             }
 
             var subWordIndex = word.IndexOf(patternWord);
-            if(subWordIndex == -1)
+            if (subWordIndex == -1)
             {
-                return wordFactory.Create(word);
+                return word;
             }
 
-            return wordFactory.Create(word[..subWordIndex]);
+            return word[..subWordIndex];
         }
     }
 }

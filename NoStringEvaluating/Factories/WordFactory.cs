@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers;
+using NoStringEvaluating.Services.Keepers.Models;
 
 namespace NoStringEvaluating.Factories
 {
@@ -9,12 +10,12 @@ namespace NoStringEvaluating.Factories
     /// </summary>
     public readonly struct WordFactory
     {
-        private readonly List<int> _ids;
+        private readonly List<ValueKeeperId> _ids;
 
         /// <summary>
         /// WordFactory
         /// </summary>
-        public WordFactory(List<int> ids)
+        public WordFactory(List<ValueKeeperId> ids)
         {
             _ids = ids;
         }
@@ -39,18 +40,16 @@ namespace NoStringEvaluating.Factories
         /// <summary>
         /// Creates word value
         /// </summary>
-        /// <param name="word"></param>
-        /// <returns></returns>
         public InternalEvaluatorValue Create(string word)
         {
             // Save to keeper
-            var id = WordKeeper.Instance.Save(word);
+            var idModel = WordKeeper.Instance.Save(word);
 
             // Save to scouped list
-            _ids.Add(id);
+            _ids.Add(idModel);
 
             // Create value
-            return new InternalEvaluatorValue(id, ValueTypeKey.Word);
+            return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
         }
     }
 }

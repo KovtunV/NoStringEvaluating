@@ -1,7 +1,7 @@
-﻿using System;
+﻿using NoStringEvaluating.Services.Keepers;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
-using NoStringEvaluating.Services.Keepers;
 
 namespace NoStringEvaluating.Models.Values
 {
@@ -267,6 +267,14 @@ namespace NoStringEvaluating.Models.Values
         public static implicit operator List<double>(InternalEvaluatorValue a)
         {
             return a.GetNumberList();
+        }
+
+        /// <summary>
+        /// To boolean
+        /// </summary>
+        public static implicit operator bool(InternalEvaluatorValue a)
+        {
+            return Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
         }
 
         /// <summary>

@@ -174,6 +174,10 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("ToNumber('5')", 5);
             yield return CreateTestModel("ToNumber('ghj5')", double.NaN);
 
+            // IsError
+            yield return CreateTestModel("IsError(ToNumber('Text'))", 1);
+            yield return CreateTestModel("IsError(ToNumber('3'))", 0);
+
             // Word
             foreach (var item in GetWordAsNumberFormulas())
             {

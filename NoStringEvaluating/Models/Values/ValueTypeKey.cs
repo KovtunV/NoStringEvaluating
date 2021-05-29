@@ -28,6 +28,11 @@
         /// <summary>
         /// Number list
         /// </summary>
-        NumberList
+        NumberList,
+
+        /// <summary>
+        /// Boolean
+        /// </summary>
+        Boolean
     }
 }

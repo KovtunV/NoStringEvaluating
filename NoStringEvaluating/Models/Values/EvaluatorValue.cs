@@ -26,6 +26,11 @@ namespace NoStringEvaluating.Models.Values
         public string Word { get; }
 
         /// <summary>
+        /// Boolean
+        /// </summary>
+        public bool Boolean { get; }
+
+        /// <summary>
         /// DateTime
         /// </summary>
         public DateTime DateTime { get; }
@@ -54,6 +59,7 @@ namespace NoStringEvaluating.Models.Values
             WordList = null;
             NumberList = null;
             DateTime = DateTime.MinValue;
+            Boolean = false;
         }
 
         /// <summary>
@@ -68,6 +74,7 @@ namespace NoStringEvaluating.Models.Values
             WordList = null;
             NumberList = null;
             DateTime = DateTime.MinValue;
+            Boolean = false;
         }
 
         /// <summary>
@@ -82,6 +89,7 @@ namespace NoStringEvaluating.Models.Values
             Word = null;
             WordList = null;
             NumberList = null;
+            Boolean = false;
         }
 
         /// <summary>
@@ -96,6 +104,7 @@ namespace NoStringEvaluating.Models.Values
             Word = null;
             NumberList = null;
             DateTime = DateTime.MinValue;
+            Boolean = false;
         }
 
         /// <summary>
@@ -106,6 +115,22 @@ namespace NoStringEvaluating.Models.Values
             TypeKey = ValueTypeKey.NumberList;
             NumberList = numberList;
 
+            Number = double.NaN;
+            Word = null;
+            WordList = null;
+            DateTime = DateTime.MinValue;
+            Boolean = false;
+        }
+
+        /// <summary>
+        /// Value
+        /// </summary>
+        public EvaluatorValue(bool boolean)
+        {
+            TypeKey = ValueTypeKey.Boolean;
+            Boolean = boolean;
+
+            NumberList = null;
             Number = double.NaN;
             Word = null;
             WordList = null;
@@ -137,6 +162,11 @@ namespace NoStringEvaluating.Models.Values
             if (TypeKey == ValueTypeKey.NumberList)
             {
                 return string.Join(", ", NumberList);
+            }
+
+            if (TypeKey == ValueTypeKey.Boolean)
+            {
+                return Boolean.ToString(CultureInfo.InvariantCulture);
             }
 
             return Number.ToString(CultureInfo.InvariantCulture);
@@ -187,6 +217,14 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// To EvaluatorValue
         /// </summary>
+        public static implicit operator EvaluatorValue(bool a)
+        {
+            return new EvaluatorValue(a);
+        }
+
+        /// <summary>
+        /// To EvaluatorValue
+        /// </summary>
         public static implicit operator EvaluatorValue(InternalEvaluatorValue a)
         {
             if (a.IsNumber)
@@ -224,28 +262,33 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// Equals
         /// </summary>
-        public bool Equals(EvaluatorValue other)
+        public override bool Equals(object obj)
         {
-            return TypeKey == other.TypeKey && Number.Equals(other.Number) && Word == other.Word && DateTime.Equals(other.DateTime) && Equals(WordList, other.WordList) && Equals(NumberList, other.NumberList);
+            return obj is EvaluatorValue value && Equals(value);
         }
 
         /// <summary>
         /// Equals
         /// </summary>
-        public override bool Equals(object obj)
+        public bool Equals(EvaluatorValue other)
         {
-            return obj is EvaluatorValue other && Equals(other);
+            return TypeKey == other.TypeKey &&
+                   Word == other.Word &&
+                   Boolean == other.Boolean &&
+                   Number.Equals(other.Number) &&
+                   DateTime.Equals(other.DateTime) &&
+                   EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList) &&
+                   EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList);
         }
 
         /// <summary>
-        /// HashCode
+        /// GetHashCode
         /// </summary>
         public override int GetHashCode()
         {
-            return HashCode.Combine((int) TypeKey, Number, Word, DateTime, WordList, NumberList);
+            return HashCode.Combine(TypeKey, Number, Word, Boolean, DateTime, WordList, NumberList);
         }
 
         #endregion
-
     }
 }
