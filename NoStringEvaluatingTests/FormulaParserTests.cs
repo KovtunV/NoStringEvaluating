@@ -8,6 +8,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Extensions;
+using NoStringEvaluating.Extensions.Microsoft.DependencyInjection;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models;

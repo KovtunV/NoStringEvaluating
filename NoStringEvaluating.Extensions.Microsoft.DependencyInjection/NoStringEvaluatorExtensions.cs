@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.ObjectPool;
-using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Cache;
 using NoStringEvaluating.Services.Checking;
 using NoStringEvaluating.Services.Parsing;
 using NoStringEvaluating.Services.Parsing.NodeReaders;
+using System;
+using System.Collections.Generic;
 
-namespace NoStringEvaluatingTests
+namespace NoStringEvaluating.Extensions.Microsoft.DependencyInjection
 {
     /// <summary>
     /// NoStringEvaluator registrar
@@ -35,7 +34,7 @@ namespace NoStringEvaluatingTests
 
             // Checker
             services.TryAddSingleton<IFormulaChecker, FormulaChecker>();
-            
+
             // Evaluator
             services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
 

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NoStringEvaluating.Extensions.Microsoft.DependencyInjection</name>
+    </assembly>
+    <members>
+        <member name="T:NoStringEvaluating.Extensions.Microsoft.DependencyInjection.NoStringEvaluatorExtensions">
+            <summary>
+            NoStringEvaluator registrar
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.Microsoft.DependencyInjection.NoStringEvaluatorExtensions.AddNoStringEvaluator(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
+            <summary>
+            Add NoString math evaluator
+            </summary>
+        </member>
+    </members>
+</doc>

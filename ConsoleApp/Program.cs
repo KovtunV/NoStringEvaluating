@@ -3,6 +3,7 @@ using ConsoleApp.Benchmark;
 using Microsoft.Extensions.DependencyInjection;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
+using NoStringEvaluating.Extensions.Microsoft.DependencyInjection;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;

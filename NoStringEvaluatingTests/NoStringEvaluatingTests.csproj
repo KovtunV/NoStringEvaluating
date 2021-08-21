@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -18,7 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
+    <ProjectReference Include="..\NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

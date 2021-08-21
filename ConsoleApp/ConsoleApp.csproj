@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
+    <ProjectReference Include="..\NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

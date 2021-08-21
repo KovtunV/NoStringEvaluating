@@ -6,6 +6,13 @@ From v2.0 it can evaluate string, DateTime, etc...
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
 [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
 
+
+Microsoft.Extensions.DependencyInjection
+
+[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/KovtunV/NoStringEvaluating)
+[![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
+[![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
+
 ------------
 <!--ts-->
 
