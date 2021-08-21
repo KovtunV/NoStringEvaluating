@@ -538,16 +538,6 @@
             Raises when can't find a variable
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
-            <summary>
-            NoStringEvaluator registrar
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.AddNoStringEvaluator(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
-            <summary>
-            Add NoString math evaluator
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Factories.DateTimeFactory">
             <summary>
             DateTimeFactory

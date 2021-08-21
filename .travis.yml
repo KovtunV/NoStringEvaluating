@@ -9,4 +9,4 @@ install:
 script:
  - dotnet build --configuration Release
  - dotnet test NoStringEvaluatingTests/NoStringEvaluatingTests.csproj
- - dotnet nuget push NoStringEvaluating/bin/Release/*.nupkg -s "https://nuget.org" -k $NUGET_API_KEY --skip-duplicate
+ - dotnet nuget push NoStringEvaluating/bin/Release/*.nupkg -s "https://nuget.org" -k $EVALUATOR_NUGET_API_KEY --skip-duplicate
