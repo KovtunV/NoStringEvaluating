@@ -2,14 +2,14 @@
 Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables.
 From v2.0 it can evaluate string, DateTime, etc...
 
-[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/KovtunV/NoStringEvaluating)
+[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating)
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
 [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
 
 
 Microsoft.Extensions.DependencyInjection
 
-[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/KovtunV/NoStringEvaluating)
+[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating)
 [![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
 [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
 
