@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Services.Keepers;
 using NoStringEvaluating.Services.Keepers.Models;
@@ -9,7 +8,7 @@ namespace NoStringEvaluating.Models.Values
     /// <summary>
     /// Contains list of ids for extra types
     /// </summary>
-    public class ExtraTypeIdContainer : IDisposable
+    public class ExtraTypeIdContainer
     {
         private ObjectPool<ExtraTypeIdContainer> _pool;
 
@@ -42,9 +41,9 @@ namespace NoStringEvaluating.Models.Values
         }
 
         /// <summary>
-        /// Dispose
+        /// Releases container
         /// </summary>
-        public void Dispose()
+        public void Release()
         {
             WordKeeper.Instance.Clear(Ids);
             DateTimeKeeper.Instance.Clear(Ids);

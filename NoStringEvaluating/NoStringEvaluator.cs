@@ -915,9 +915,10 @@ namespace NoStringEvaluating
 
         #endregion
 
-        private ExtraTypeIdContainer GetIdContainer()
+        private ExtraTypeIdContainerReleaser GetIdContainer()
         {
-            return _extraTypeIdContainerPool.Get()
+            return _extraTypeIdContainerPool
+                .Get()
                 .SetPool(_extraTypeIdContainerPool)
                 .Clear();
         }

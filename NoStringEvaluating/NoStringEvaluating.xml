@@ -2902,9 +2902,9 @@
             Contains list of ids for extra types
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.Dispose">
+        <member name="M:NoStringEvaluating.Models.Values.ExtraTypeIdContainer.Release">
             <summary>
-            Dispose
+            Releases container
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.InternalEvaluatorValue">
