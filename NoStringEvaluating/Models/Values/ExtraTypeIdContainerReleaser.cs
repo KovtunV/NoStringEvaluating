@@ -21,9 +21,9 @@ namespace NoStringEvaluating.Models.Values
             return new ExtraTypeIdContainerReleaser(container);
         }
 
-        public static implicit operator ExtraTypeIdContainer(ExtraTypeIdContainerReleaser disposer)
+        public static implicit operator ExtraTypeIdContainer(ExtraTypeIdContainerReleaser releaser)
         {
-            return disposer.Container;
+            return releaser.Container;
         }
     }
 
