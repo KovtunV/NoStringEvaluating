@@ -2,14 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.Serialization;
 
 namespace NoStringEvaluating.Models.Values
 {
+
     /// <summary>
     /// Value
     /// </summary>
     public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
+        private object TypeValue { get; }
+
         /// <summary>
         /// Type key
         /// </summary>
@@ -18,32 +22,32 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// Number
         /// </summary>
-        public double Number { get; }
+        public double Number => (double)TypeValue;
 
         /// <summary>
         /// Word
         /// </summary>
-        public string Word { get; }
+        public string Word => (string)TypeValue;
 
         /// <summary>
         /// Boolean
         /// </summary>
-        public bool Boolean { get; }
+        public bool Boolean => (bool)TypeValue;
 
         /// <summary>
         /// DateTime
         /// </summary>
-        public DateTime DateTime { get; }
+        public DateTime DateTime => (DateTime) TypeValue;
 
         /// <summary>
         /// WordList
         /// </summary>
-        public List<string> WordList { get; }
+        public List<string> WordList => (List<string>)TypeValue;
 
         /// <summary>
         /// NumberList
         /// </summary>
-        public List<double> NumberList { get; }
+        public List<double> NumberList =>(List<double>)TypeValue;
 
         #region Ctors
 
@@ -53,13 +57,8 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(double number)
         {
             TypeKey = ValueTypeKey.Number;
-            Number = number;
+            TypeValue = number;
 
-            Word = null;
-            WordList = null;
-            NumberList = null;
-            DateTime = DateTime.MinValue;
-            Boolean = false;
         }
 
         /// <summary>
@@ -68,13 +67,7 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(string word)
         {
             TypeKey = ValueTypeKey.Word;
-            Word = word;
-
-            Number = double.NaN;
-            WordList = null;
-            NumberList = null;
-            DateTime = DateTime.MinValue;
-            Boolean = false;
+            TypeValue = word;
         }
 
         /// <summary>
@@ -83,13 +76,7 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(DateTime dateTime)
         {
             TypeKey = ValueTypeKey.DateTime;
-            DateTime = dateTime;
-
-            Number = double.NaN;
-            Word = null;
-            WordList = null;
-            NumberList = null;
-            Boolean = false;
+            TypeValue = dateTime;
         }
 
         /// <summary>
@@ -98,13 +85,7 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(List<string> wordList)
         {
             TypeKey = ValueTypeKey.WordList;
-            WordList = wordList;
-
-            Number = double.NaN;
-            Word = null;
-            NumberList = null;
-            DateTime = DateTime.MinValue;
-            Boolean = false;
+            TypeValue = wordList;
         }
 
         /// <summary>
@@ -113,13 +94,7 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(List<double> numberList)
         {
             TypeKey = ValueTypeKey.NumberList;
-            NumberList = numberList;
-
-            Number = double.NaN;
-            Word = null;
-            WordList = null;
-            DateTime = DateTime.MinValue;
-            Boolean = false;
+            TypeValue = numberList;
         }
 
         /// <summary>
@@ -128,13 +103,7 @@ namespace NoStringEvaluating.Models.Values
         public EvaluatorValue(bool boolean)
         {
             TypeKey = ValueTypeKey.Boolean;
-            Boolean = boolean;
-
-            NumberList = null;
-            Number = double.NaN;
-            Word = null;
-            WordList = null;
-            DateTime = DateTime.MinValue;
+            TypeValue = boolean;
         }
 
         #endregion
@@ -273,12 +242,11 @@ namespace NoStringEvaluating.Models.Values
         public bool Equals(EvaluatorValue other)
         {
             return TypeKey == other.TypeKey &&
-                   Word == other.Word &&
-                   Boolean == other.Boolean &&
-                   Number.Equals(other.Number) &&
-                   DateTime.Equals(other.DateTime) &&
-                   EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList) &&
-                   EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList);
+                (
+                (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList)) ||
+                (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList)) ||
+                TypeValue.Equals(other.TypeValue)
+                );
         }
 
         /// <summary>
@@ -286,7 +254,7 @@ namespace NoStringEvaluating.Models.Values
         /// </summary>
         public override int GetHashCode()
         {
-            return HashCode.Combine(TypeKey, Number, Word, Boolean, DateTime, WordList, NumberList);
+            return HashCode.Combine(TypeKey, TypeValue);
         }
 
         #endregion
