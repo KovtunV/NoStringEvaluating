@@ -4,44 +4,43 @@ using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers;
 using NoStringEvaluating.Services.Keepers.Models;
 
-namespace NoStringEvaluating.Factories
+namespace NoStringEvaluating.Factories;
+
+/// <summary>
+/// DateTimeFactory
+/// </summary>
+public readonly struct DateTimeFactory
 {
+    private readonly List<ValueKeeperId> _ids;
+
     /// <summary>
     /// DateTimeFactory
     /// </summary>
-    public readonly struct DateTimeFactory
+    public DateTimeFactory(List<ValueKeeperId> ids)
     {
-        private readonly List<ValueKeeperId> _ids;
+        _ids = ids;
+    }
 
-        /// <summary>
-        /// DateTimeFactory
-        /// </summary>
-        public DateTimeFactory(List<ValueKeeperId> ids)
-        {
-            _ids = ids;
-        }
+    /// <summary>
+    /// Creates default
+    /// </summary>
+    public InternalEvaluatorValue Empty()
+    {
+        return Create(DateTime.MinValue);
+    }
 
-        /// <summary>
-        /// Creates default
-        /// </summary>
-        public InternalEvaluatorValue Empty()
-        {
-            return Create(DateTime.MinValue);
-        }
+    /// <summary>
+    /// Creates dateTime value
+    /// </summary>
+    public InternalEvaluatorValue Create(DateTime date)
+    {
+        // Save to keeper
+        var idModel = DateTimeKeeper.Instance.Save(date);
 
-        /// <summary>
-        /// Creates dateTime value
-        /// </summary>
-        public InternalEvaluatorValue Create(DateTime date)
-        {
-            // Save to keeper
-            var idModel = DateTimeKeeper.Instance.Save(date);
+        // Save to scouped list
+        _ids.Add(idModel);
 
-            // Save to scouped list
-            _ids.Add(idModel);
-
-            // Create value
-            return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
-        }
+        // Create value
+        return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
     }
 }

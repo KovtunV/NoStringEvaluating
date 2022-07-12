@@ -3,24 +3,23 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin;
+
+/// <summary>
+/// Function - sinh
+/// </summary>
+public class SinhFunction : IFunction
 {
     /// <summary>
-    /// Function - sinh
+    /// Name
     /// </summary>
-    public class SinhFunction : IFunction
-    {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "SINH";
+    public virtual string Name { get; } = "SINH";
 
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return System.Math.Sinh(args[0]);
-        }
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        return System.Math.Sinh(args[0]);
     }
 }

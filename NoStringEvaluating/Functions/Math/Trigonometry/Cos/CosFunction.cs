@@ -3,24 +3,23 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos;
+
+/// <summary>
+/// Function - cos
+/// </summary>
+public class CosFunction : IFunction
 {
     /// <summary>
-    /// Function - cos
+    /// Name
     /// </summary>
-    public class CosFunction : IFunction
-    {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "COS";
+    public virtual string Name { get; } = "COS";
 
-        /// <summary>
-        /// Evaluate va;ue
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return System.Math.Cos(args[0]);
-        }
+    /// <summary>
+    /// Evaluate va;ue
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        return System.Math.Cos(args[0]);
     }
 }

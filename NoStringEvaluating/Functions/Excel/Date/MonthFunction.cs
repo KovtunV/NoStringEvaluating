@@ -3,35 +3,34 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Date
+namespace NoStringEvaluating.Functions.Excel.Date;
+
+/// <summary>
+/// Returns a month from dateTime
+/// <para>Month(Now()) or Month(Now(); 'MM')</para>
+/// </summary>
+public class MonthFunction : IFunction
 {
     /// <summary>
-    /// Returns a month from dateTime
-    /// <para>Month(Now()) or Month(Now(); 'MM')</para>
+    /// Name
     /// </summary>
-    public class MonthFunction : IFunction
+    public virtual string Name { get; } = "MONTH";
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "MONTH";
+        var wordFactory = factory.Word();
+        var dateVal = args[0].GetDateTime();
 
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        if (args.Count > 1 && args[1].IsWord)
         {
-            var wordFactory = factory.Word();
-            var dateVal = args[0].GetDateTime();
-
-            if (args.Count > 1 && args[1].IsWord)
-            {
-                var format = args[1].GetWord();
-                var strRes = dateVal.Month.ToString().PadLeft(format.Length, '0');
-                return wordFactory.Create(strRes);
-            }
-
-            return wordFactory.Create(dateVal.Month.ToString());
+            var format = args[1].GetWord();
+            var strRes = dateVal.Month.ToString().PadLeft(format.Length, '0');
+            return wordFactory.Create(strRes);
         }
+
+        return wordFactory.Create(dateVal.Month.ToString());
     }
 }

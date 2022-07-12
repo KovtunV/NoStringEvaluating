@@ -4,40 +4,39 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word
+namespace NoStringEvaluating.Functions.Excel.Word;
+
+/// <summary>
+/// Converts text to lowercase
+/// <para>Lower(myWord) or Lower(myWordList)</para>
+/// </summary>
+public class LowerFunction : IFunction
 {
     /// <summary>
-    /// Converts text to lowercase
-    /// <para>Lower(myWord) or Lower(myWordList)</para>
+    /// Name
     /// </summary>
-    public class LowerFunction : IFunction
+    public virtual string Name { get; } = "LOWER";
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "LOWER";
+        var arg = args[0];
 
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        if (arg.IsWord)
         {
-            var arg = args[0];
-
-            if (arg.IsWord)
-            {
-                var res = arg.GetWord().ToLowerInvariant();
-                return factory.Word().Create(res);
-            }
-
-            if (arg.IsWordList)
-            {
-                var wordList = arg.GetWordList();
-                var wordListRes = wordList.Select(s => s.ToLowerInvariant()).ToList();
-                return factory.WordList().Create(wordListRes);
-            }
-
-            return factory.Word().Empty();
+            var res = arg.GetWord().ToLowerInvariant();
+            return factory.Word().Create(res);
         }
+
+        if (arg.IsWordList)
+        {
+            var wordList = arg.GetWordList();
+            var wordListRes = wordList.Select(s => s.ToLowerInvariant()).ToList();
+            return factory.WordList().Create(wordListRes);
+        }
+
+        return factory.Word().Empty();
     }
 }

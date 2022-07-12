@@ -5,140 +5,139 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word
+namespace NoStringEvaluating.Functions.Excel.Word;
+
+/// <summary>
+/// Returns any substring from the middle of a string
+/// <para>Middle(myWord; indexStart; numberChars) or Middle(myWord; indexStart; wordEnd)  or Middle(myWord; wordStart; numberChars) or Middle(myWord; wordStart; wordEnd)</para>
+/// </summary>
+public class MiddleFunction : IFunction
 {
     /// <summary>
-    /// Returns any substring from the middle of a string
-    /// <para>Middle(myWord; indexStart; numberChars) or Middle(myWord; indexStart; wordEnd)  or Middle(myWord; wordStart; numberChars) or Middle(myWord; wordStart; wordEnd)</para>
+    /// Name
     /// </summary>
-    public class MiddleFunction : IFunction
+    public virtual string Name { get; } = "MIDDLE";
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "MIDDLE";
+        var valArg = args[0];
+        var argStart = args[1];
+        var argEnd = args[2];
 
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        if (valArg.IsWord)
         {
-            var valArg = args[0];
-            var argStart = args[1];
-            var argEnd = args[2];
+            var word = valArg.GetWord();
+            var wordRes = MiddleWord(argStart, argEnd, word);
 
-            if (valArg.IsWord)
-            {
-                var word = valArg.GetWord();
-                var wordRes = MiddleWord(argStart, argEnd, word);
-
-                return factory.Word().Create(wordRes);
-            }
-
-            if (valArg.IsWordList)
-            {
-                var wordList = valArg.GetWordList().ToList();
-                for (int i = 0; i < wordList.Count; i++)
-                {
-                    wordList[i] = MiddleWord(argStart, argEnd, wordList[i]);
-                }
-
-                return factory.WordList().Create(wordList);
-            }
-
-            return double.NaN;
+            return factory.Word().Create(wordRes);
         }
 
-        private string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
+        if (valArg.IsWordList)
         {
-            if (argStart.IsNumber && argEnd.IsNumber)
+            var wordList = valArg.GetWordList().ToList();
+            for (int i = 0; i < wordList.Count; i++)
             {
-                return CropNumberNumber(word, argStart, argEnd);
+                wordList[i] = MiddleWord(argStart, argEnd, wordList[i]);
             }
 
-            if (argStart.IsNumber && argEnd.IsWord)
-            {
-                return CropNumberWord(word, argStart, argEnd);
-            }
+            return factory.WordList().Create(wordList);
+        }
 
-            if (argStart.IsWord && argEnd.IsNumber)
-            {
-                return CropWordNumber(word, argStart, argEnd);
-            }
+        return double.NaN;
+    }
 
-            if (argStart.IsWord && argEnd.IsWord)
-            {
-                return CropWordWord(word, argStart, argEnd);
-            }
+    private string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
+    {
+        if (argStart.IsNumber && argEnd.IsNumber)
+        {
+            return CropNumberNumber(word, argStart, argEnd);
+        }
 
+        if (argStart.IsNumber && argEnd.IsWord)
+        {
+            return CropNumberWord(word, argStart, argEnd);
+        }
+
+        if (argStart.IsWord && argEnd.IsNumber)
+        {
+            return CropWordNumber(word, argStart, argEnd);
+        }
+
+        if (argStart.IsWord && argEnd.IsWord)
+        {
+            return CropWordWord(word, argStart, argEnd);
+        }
+
+        return string.Empty;
+    }
+
+    private string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    {
+        var wordStart = argStart.GetWord();
+        var wordEnd = argEnd.GetWord();
+
+        var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
+        if (wordStartIndex == -1)
             return string.Empty;
-        }
+        wordStartIndex += wordStart.Length;
 
-        private string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
-        {
-            var wordStart = argStart.GetWord();
-            var wordEnd = argEnd.GetWord();
+        var wordEndIndex = word.AsSpan().Slice(wordStartIndex).IndexOf(wordEnd, StringComparison.Ordinal);
+        if (wordEndIndex == -1)
+            return string.Empty;
+        wordEndIndex += wordStartIndex;
 
-            var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
-            if (wordStartIndex == -1)
-                return string.Empty;
-            wordStartIndex += wordStart.Length;
+        return word[wordStartIndex..wordEndIndex];
+    }
 
-            var wordEndIndex = word.AsSpan().Slice(wordStartIndex).IndexOf(wordEnd, StringComparison.Ordinal);
-            if (wordEndIndex == -1)
-                return string.Empty;
-            wordEndIndex += wordStartIndex;
+    private string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    {
+        var wordStart = argStart.GetWord();
+        var argEndInt = (int)argEnd.Number;
 
-            return word[wordStartIndex..wordEndIndex];
-        }
+        var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
+        if (wordStartIndex == -1)
+            return string.Empty;
 
-        private string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
-        {
-            var wordStart = argStart.GetWord();
-            var argEndInt = (int)argEnd.Number;
+        wordStartIndex += wordStart.Length;
 
-            var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
-            if (wordStartIndex == -1)
-                return string.Empty;
+        if (wordStartIndex + argEndInt > word.Length)
+            return word[wordStartIndex..];
 
-            wordStartIndex += wordStart.Length;
+        return word[wordStartIndex..(wordStartIndex + argEndInt)];
+    }
 
-            if (wordStartIndex + argEndInt > word.Length)
-                return word[wordStartIndex..];
+    private string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    {
+        var argStartInt = (int)argStart.Number;
+        var wordEnd = argEnd.GetWord();
 
-            return word[wordStartIndex..(wordStartIndex + argEndInt)];
-        }
+        if (argStartInt < 0 || argStartInt > word.Length)
+            return string.Empty;
 
-        private string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
-        {
-            var argStartInt = (int)argStart.Number;
-            var wordEnd = argEnd.GetWord();
+        var wordEndIndex = word.AsSpan().Slice(argStartInt).IndexOf(wordEnd, StringComparison.Ordinal);
+        if (wordEndIndex == -1)
+            return string.Empty;
 
-            if (argStartInt < 0 || argStartInt > word.Length)
-                return string.Empty;
+        return word[argStartInt..(argStartInt + wordEndIndex)];
+    }
 
-            var wordEndIndex = word.AsSpan().Slice(argStartInt).IndexOf(wordEnd, StringComparison.Ordinal);
-            if (wordEndIndex == -1)
-                return string.Empty;
+    private string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    {
+        var argStartInt = (int)argStart.Number;
+        var argEndInt = (int)argEnd.Number;
 
-            return word[argStartInt..(argStartInt + wordEndIndex)];
-        }
+        if (argStartInt < 0 || argEndInt < 0)
+            return string.Empty;
 
-        private string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
-        {
-            var argStartInt = (int)argStart.Number;
-            var argEndInt = (int)argEnd.Number;
+        if (argStartInt > word.Length)
+            return string.Empty;
 
-            if (argStartInt < 0 || argEndInt < 0)
-                return string.Empty;
+        if (argStartInt + argEndInt > word.Length)
+            return word[argStartInt..];
 
-            if (argStartInt > word.Length)
-                return string.Empty;
-
-            if (argStartInt + argEndInt > word.Length)
-                return word[argStartInt..];
-
-            return word[argStartInt..(argStartInt + argEndInt)];
-        }
+        return word[argStartInt..(argStartInt + argEndInt)];
     }
 }

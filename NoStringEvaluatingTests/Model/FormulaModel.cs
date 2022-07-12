@@ -1,29 +1,28 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluatingTests.Model
+namespace NoStringEvaluatingTests.Model;
+
+public class FormulaModel
 {
-    public class FormulaModel
+    public string Formula { get; }
+    public string ParsedFormula { get; }
+    public EvaluatorValue Result { get; }
+    public bool ExpectedOkResult { get; }
+
+    public Dictionary<string, EvaluatorValue> Arguments { get; }
+
+    public FormulaModel(string formula, string parsedFormula, EvaluatorValue result, bool expectedOkResult = true)
     {
-        public string Formula { get; }
-        public string ParsedFormula { get; }
-        public EvaluatorValue Result { get; }
-        public bool ExpectedOkResult { get; }
+        Formula = formula;
+        ParsedFormula = parsedFormula;
+        Result = result;
+        ExpectedOkResult = expectedOkResult;
+        Arguments = new Dictionary<string, EvaluatorValue>();
+    }
 
-        public Dictionary<string, EvaluatorValue> Arguments { get; }
-
-        public FormulaModel(string formula, string parsedFormula, EvaluatorValue result, bool expectedOkResult = true)
-        {
-            Formula = formula;
-            ParsedFormula = parsedFormula;
-            Result = result;
-            ExpectedOkResult = expectedOkResult;
-            Arguments = new Dictionary<string, EvaluatorValue>();
-        }
-
-        public override string ToString()
-        {
-            return Formula;
-        }
+    public override string ToString()
+    {
+        return Formula;
     }
 }

@@ -1,58 +1,57 @@
-﻿namespace NoStringEvaluating.Nodes.Base
+﻿namespace NoStringEvaluating.Nodes.Base;
+
+/// <summary>
+/// Node type matching
+/// </summary>
+public enum NodeTypeEnum
 {
     /// <summary>
-    /// Node type matching
+    /// Number
     /// </summary>
-    public enum NodeTypeEnum
-    {
-        /// <summary>
-        /// Number
-        /// </summary>
-        Number,
+    Number,
 
-        /// <summary>
-        /// Operator
-        /// </summary>
-        Operator,
+    /// <summary>
+    /// Operator
+    /// </summary>
+    Operator,
 
-        /// <summary>
-        /// Variable
-        /// </summary>
-        Variable,
+    /// <summary>
+    /// Variable
+    /// </summary>
+    Variable,
 
-        /// <summary>
-        /// Function wrapper
-        /// </summary>
-        FunctionWrapper,
+    /// <summary>
+    /// Function wrapper
+    /// </summary>
+    FunctionWrapper,
 
-        /// <summary>
-        /// Word
-        /// </summary>
-        Word,
+    /// <summary>
+    /// Word
+    /// </summary>
+    Word,
 
-        /// <summary>
-        /// WordList
-        /// </summary>
-        WordList,
+    /// <summary>
+    /// WordList
+    /// </summary>
+    WordList,
 
-        /// <summary>
-        /// NumberList
-        /// </summary>
-        NumberList,
+    /// <summary>
+    /// NumberList
+    /// </summary>
+    NumberList,
 
-        /// <summary>
-        /// Bracket
-        /// </summary>
-        Bracket,
+    /// <summary>
+    /// Bracket
+    /// </summary>
+    Bracket,
 
-        /// <summary>
-        /// Function char
-        /// </summary>
-        FunctionChar,
+    /// <summary>
+    /// Function char
+    /// </summary>
+    FunctionChar,
 
-        /// <summary>
-        /// Function
-        /// </summary>
-        Function
-    }
+    /// <summary>
+    /// Function
+    /// </summary>
+    Function
 }

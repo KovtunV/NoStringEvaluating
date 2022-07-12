@@ -1,38 +1,37 @@
-﻿namespace NoStringEvaluating.Models.Values
+﻿namespace NoStringEvaluating.Models.Values;
+
+/// <summary>
+/// Type matching
+/// </summary>
+public enum ValueTypeKey
 {
     /// <summary>
-    /// Type matching
+    /// Number
     /// </summary>
-    public enum ValueTypeKey
-    {
-        /// <summary>
-        /// Number
-        /// </summary>
-        Number,
+    Number,
 
-        /// <summary>
-        /// Word
-        /// </summary>
-        Word,
+    /// <summary>
+    /// Word
+    /// </summary>
+    Word,
 
-        /// <summary>
-        /// DateTime
-        /// </summary>
-        DateTime,
+    /// <summary>
+    /// DateTime
+    /// </summary>
+    DateTime,
 
-        /// <summary>
-        /// Word list
-        /// </summary>
-        WordList,
+    /// <summary>
+    /// Word list
+    /// </summary>
+    WordList,
 
-        /// <summary>
-        /// Number list
-        /// </summary>
-        NumberList,
+    /// <summary>
+    /// Number list
+    /// </summary>
+    NumberList,
 
-        /// <summary>
-        /// Boolean
-        /// </summary>
-        Boolean
-    }
+    /// <summary>
+    /// Boolean
+    /// </summary>
+    Boolean
 }

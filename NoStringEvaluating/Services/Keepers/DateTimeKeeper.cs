@@ -1,24 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers.Base;
 
-namespace NoStringEvaluating.Services.Keepers
+namespace NoStringEvaluating.Services.Keepers;
+
+internal class DateTimeKeeper : BaseValueKeeper<DateTime>
 {
-    internal class DateTimeKeeper : BaseValueKeeper<DateTime>
+    internal DateTimeKeeper() : base(ValueTypeKey.DateTime)
     {
-        internal DateTimeKeeper() : base(ValueTypeKey.DateTime)
-        {
 
-        }
+    }
 
-        // Static 
-        internal static DateTimeKeeper Instance { get; }
+    // Static 
+    internal static DateTimeKeeper Instance { get; }
 
-        static DateTimeKeeper()
-        {
-            Instance = new DateTimeKeeper();
-        }
+    static DateTimeKeeper()
+    {
+        Instance = new DateTimeKeeper();
     }
 }

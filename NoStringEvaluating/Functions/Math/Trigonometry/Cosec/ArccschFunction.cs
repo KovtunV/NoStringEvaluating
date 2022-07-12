@@ -4,26 +4,25 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec;
+
+/// <summary>
+/// Function - arccsch
+/// </summary>
+public class ArccschFunction : IFunction
 {
     /// <summary>
-    /// Function - arccsch
+    /// Name
     /// </summary>
-    public class ArccschFunction : IFunction
-    {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "ARCCSCH";
+    public virtual string Name { get; } = "ARCCSCH";
 
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            var x = args[0];
-            var a = Sign(x) * Sqrt(x * x + 1) + 1;
-            return Log(a / x);
-        }
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        var x = args[0];
+        var a = Sign(x) * Sqrt(x * x + 1) + 1;
+        return Log(a / x);
     }
 }

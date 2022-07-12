@@ -1,18 +1,17 @@
-﻿namespace NoStringEvaluating.Models
+﻿namespace NoStringEvaluating.Models;
+
+/// <summary>
+/// Chars used by function
+/// </summary>
+public enum FunctionChar
 {
     /// <summary>
-    /// Chars used by function
+    /// Undefined
     /// </summary>
-    public enum FunctionChar
-    {
-        /// <summary>
-        /// Undefined
-        /// </summary>
-        Undefined = 0,
+    Undefined = 0,
 
-        /// <summary>
-        /// Semicolon
-        /// </summary>
-        Semicolon
-    }
+    /// <summary>
+    /// Semicolon
+    /// </summary>
+    Semicolon
 }

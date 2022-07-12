@@ -3,57 +3,56 @@ using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Services.Keepers;
 using NoStringEvaluating.Services.Keepers.Models;
 
-namespace NoStringEvaluating.Models.Values
+namespace NoStringEvaluating.Models.Values;
+
+/// <summary>
+/// Contains list of ids for extra types
+/// </summary>
+public class ExtraTypeIdContainer
 {
+    private ObjectPool<ExtraTypeIdContainer> _pool;
+
+    /// <summary>
+    /// Ids
+    /// </summary>
+    public List<ValueKeeperId> Ids { get; }
+
     /// <summary>
     /// Contains list of ids for extra types
     /// </summary>
-    public class ExtraTypeIdContainer
+    public ExtraTypeIdContainer()
     {
-        private ObjectPool<ExtraTypeIdContainer> _pool;
+        Ids = new List<ValueKeeperId>();
+    }
 
-        /// <summary>
-        /// Ids
-        /// </summary>
-        public List<ValueKeeperId> Ids { get; }
+    internal ExtraTypeIdContainer SetPool(ObjectPool<ExtraTypeIdContainer> pool)
+    {
+        _pool = pool;
 
-        /// <summary>
-        /// Contains list of ids for extra types
-        /// </summary>
-        public ExtraTypeIdContainer()
-        {
-            Ids = new List<ValueKeeperId>();
-        }
+        return this;
+    }
 
-        internal ExtraTypeIdContainer SetPool(ObjectPool<ExtraTypeIdContainer> pool)
-        {
-            _pool = pool;
+    internal ExtraTypeIdContainer Clear()
+    {
+        // Prevent dirty collection
+        Ids.Clear();
 
-            return this;
-        }
+        return this;
+    }
 
-        internal ExtraTypeIdContainer Clear()
-        {
-            // Prevent dirty collection
-            Ids.Clear();
+    /// <summary>
+    /// Releases container
+    /// </summary>
+    public void Release()
+    {
+        WordKeeper.Instance.Clear(Ids);
+        DateTimeKeeper.Instance.Clear(Ids);
+        WordListKeeper.Instance.Clear(Ids);
+        NumberListKeeper.Instance.Clear(Ids);
 
-            return this;
-        }
+        Ids.Clear();
 
-        /// <summary>
-        /// Releases container
-        /// </summary>
-        public void Release()
-        {
-            WordKeeper.Instance.Clear(Ids);
-            DateTimeKeeper.Instance.Clear(Ids);
-            WordListKeeper.Instance.Clear(Ids);
-            NumberListKeeper.Instance.Clear(Ids);
-
-            Ids.Clear();
-
-            // Return itself
-            _pool.Return(this);
-        }
+        // Return itself
+        _pool.Return(this);
     }
 }

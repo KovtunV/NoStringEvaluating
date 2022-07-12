@@ -4,103 +4,102 @@ using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
-namespace NoStringEvaluating.Services.Parsing.NodeReaders
+namespace NoStringEvaluating.Services.Parsing.NodeReaders;
+
+/// <summary>
+/// Bracket reader
+/// </summary>
+public static class BracketReader
 {
     /// <summary>
-    /// Bracket reader
+    /// Read open bracket
     /// </summary>
-    public static class BracketReader
+    public static bool TryProceedOpenBracket(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
     {
-        /// <summary>
-        /// Read open bracket
-        /// </summary>
-        public static bool TryProceedOpenBracket(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
-        {
-            // Read unary minus
-            var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
+        // Read unary minus
+        var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
-            // Check out of range
-            if (localIndex >= formula.Length)
-                return false;
-
-            // Check open bracket
-            if (formula[localIndex] == OPEN_BRACKET_CHAR)
-            {
-                if (isNegativeLocal)
-                {
-                    AddAdditionalNodesForUnaryMinus(nodes);
-                }
-
-                // Add bracket
-                var bracket = AddOpenBracket(nodes);
-
-                // Is unary minus
-                if (isNegativeLocal)
-                {
-                    negativeBracketCounters.CreateNewCounter();
-                }
-                else
-                {
-                    negativeBracketCounters.Proceed(bracket);
-                }
-
-                index = localIndex;
-                return true;
-            }
-
+        // Check out of range
+        if (localIndex >= formula.Length)
             return false;
-        }
 
-        /// <summary>
-        /// Read close bracket
-        /// </summary>
-        public static bool TryProceedCloseBracket(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
+        // Check open bracket
+        if (formula[localIndex] == OPEN_BRACKET_CHAR)
         {
-            if (formula[index] != CLOSE_BRACKET_CHAR)
+            if (isNegativeLocal)
             {
-                return false;
+                AddAdditionalNodesForUnaryMinus(nodes);
             }
 
             // Add bracket
-            var bracket = AddCloseBracket(nodes);
+            var bracket = AddOpenBracket(nodes);
 
-            // If there is unary minus, we must add close bracket
-            if (negativeBracketCounters.Proceed(bracket))
+            // Is unary minus
+            if (isNegativeLocal)
             {
-                AddCloseBracket(nodes);
+                negativeBracketCounters.CreateNewCounter();
+            }
+            else
+            {
+                negativeBracketCounters.Proceed(bracket);
             }
 
+            index = localIndex;
             return true;
         }
 
-        private static void AddAdditionalNodesForUnaryMinus(List<BaseFormulaNode> nodes)
-        {
-            var bracket = new BracketNode(Bracket.Open);
-            var value = new NumberNode(0);
-            var minus = new OperatorNode(Operator.Minus);
-
-            nodes.Add(bracket);
-            nodes.Add(value);
-            nodes.Add(minus);
-        }
-
-        private static BracketNode AddCloseBracket(List<BaseFormulaNode> nodes)
-        {
-            var bracket = new BracketNode(Bracket.Close);
-            nodes.Add(bracket);
-
-            return bracket;
-        }
-
-        private static BracketNode AddOpenBracket(List<BaseFormulaNode> nodes)
-        {
-            var bracket = new BracketNode(Bracket.Open);
-            nodes.Add(bracket);
-
-            return bracket;
-        }
-
-        private const char OPEN_BRACKET_CHAR = '(';
-        private const char CLOSE_BRACKET_CHAR = ')';
+        return false;
     }
+
+    /// <summary>
+    /// Read close bracket
+    /// </summary>
+    public static bool TryProceedCloseBracket(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, BracketCounters negativeBracketCounters, ref int index)
+    {
+        if (formula[index] != CLOSE_BRACKET_CHAR)
+        {
+            return false;
+        }
+
+        // Add bracket
+        var bracket = AddCloseBracket(nodes);
+
+        // If there is unary minus, we must add close bracket
+        if (negativeBracketCounters.Proceed(bracket))
+        {
+            AddCloseBracket(nodes);
+        }
+
+        return true;
+    }
+
+    private static void AddAdditionalNodesForUnaryMinus(List<BaseFormulaNode> nodes)
+    {
+        var bracket = new BracketNode(Bracket.Open);
+        var value = new NumberNode(0);
+        var minus = new OperatorNode(Operator.Minus);
+
+        nodes.Add(bracket);
+        nodes.Add(value);
+        nodes.Add(minus);
+    }
+
+    private static BracketNode AddCloseBracket(List<BaseFormulaNode> nodes)
+    {
+        var bracket = new BracketNode(Bracket.Close);
+        nodes.Add(bracket);
+
+        return bracket;
+    }
+
+    private static BracketNode AddOpenBracket(List<BaseFormulaNode> nodes)
+    {
+        var bracket = new BracketNode(Bracket.Open);
+        nodes.Add(bracket);
+
+        return bracket;
+    }
+
+    private const char OPEN_BRACKET_CHAR = '(';
+    private const char CLOSE_BRACKET_CHAR = ')';
 }

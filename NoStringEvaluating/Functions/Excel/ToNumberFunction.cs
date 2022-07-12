@@ -1,43 +1,42 @@
-﻿using NoStringEvaluating.Factories;
+﻿using System.Collections.Generic;
+using System.Globalization;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
-using System.Collections.Generic;
-using System.Globalization;
 
-namespace NoStringEvaluating.Functions.Excel
+namespace NoStringEvaluating.Functions.Excel;
+
+/// <summary>
+/// ToNumber('05')
+/// </summary>
+public class ToNumberFunction : IFunction
 {
     /// <summary>
-    /// ToNumber('05')
+    /// Name
     /// </summary>
-    public class ToNumberFunction : IFunction
+    public virtual string Name { get; } = "TONUMBER";
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "TONUMBER";
-
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        var arg = args[0];
+        if (arg.IsNumber)
         {
-            var arg = args[0];
-            if (arg.IsNumber)
-            {
-                return arg;
-            }
-
-            var numberWord = arg.GetWord();
-
-            if (double.TryParse(numberWord, NumberStyles.Any, RusCulture, out var res))
-                return res;
-
-            if (double.TryParse(numberWord, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
-                return res;
-
-            return double.NaN;
+            return arg;
         }
 
-        private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");
+        var numberWord = arg.GetWord();
+
+        if (double.TryParse(numberWord, NumberStyles.Any, RusCulture, out var res))
+            return res;
+
+        if (double.TryParse(numberWord, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
+            return res;
+
+        return double.NaN;
     }
+
+    private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");
 }

@@ -3,45 +3,44 @@ using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers;
 using NoStringEvaluating.Services.Keepers.Models;
 
-namespace NoStringEvaluating.Factories
+namespace NoStringEvaluating.Factories;
+
+/// <summary>
+/// WordListFactory
+/// </summary>
+public readonly struct WordListFactory
 {
+    private readonly List<ValueKeeperId> _ids;
+
     /// <summary>
     /// WordListFactory
     /// </summary>
-    public readonly struct WordListFactory
+    public WordListFactory(List<ValueKeeperId> ids)
     {
-        private readonly List<ValueKeeperId> _ids;
+        _ids = ids;
+    }
 
-        /// <summary>
-        /// WordListFactory
-        /// </summary>
-        public WordListFactory(List<ValueKeeperId> ids)
-        {
-            _ids = ids;
-        }
+    /// <summary>
+    /// Creates default
+    /// </summary>
+    /// <returns></returns>
+    public InternalEvaluatorValue Empty()
+    {
+        return Create(new List<string>());
+    }
 
-        /// <summary>
-        /// Creates default
-        /// </summary>
-        /// <returns></returns>
-        public InternalEvaluatorValue Empty()
-        {
-            return Create(new List<string>());
-        }
+    /// <summary>
+    /// Creates string List value
+    /// </summary>
+    public InternalEvaluatorValue Create(List<string> wordList)
+    {
+        // Save to keeper
+        var idModel = WordListKeeper.Instance.Save(wordList);
 
-        /// <summary>
-        /// Creates string List value
-        /// </summary>
-        public InternalEvaluatorValue Create(List<string> wordList)
-        {
-            // Save to keeper
-            var idModel = WordListKeeper.Instance.Save(wordList);
+        // Save to scouped list
+        _ids.Add(idModel);
 
-            // Save to scouped list
-            _ids.Add(idModel);
-
-            // Create value
-            return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
-        }
+        // Create value
+        return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
     }
 }

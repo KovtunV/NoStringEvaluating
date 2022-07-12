@@ -3,24 +3,23 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math
+namespace NoStringEvaluating.Functions.Math;
+
+/// <summary>
+/// Function - sgn
+/// </summary>
+public class SgnFunction : IFunction
 {
     /// <summary>
-    /// Function - sgn
+    /// Name
     /// </summary>
-    public class SgnFunction : IFunction
-    {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public virtual string Name { get; } = "SGN";
+    public virtual string Name { get; } = "SGN";
 
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return System.Math.Sign(args[0]);
-        }
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        return System.Math.Sign(args[0]);
     }
 }
