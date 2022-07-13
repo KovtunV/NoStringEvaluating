@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Returns any substring from the middle of a string
     /// <para>Middle(myWord; indexStart; numberChars) or Middle(myWord; indexStart; wordEnd)  or Middle(myWord; wordStart; numberChars) or Middle(myWord; wordStart; wordEnd)</para>
     /// </summary>
-    public class MiddleFunction : IFunction
+    public sealed class MiddleFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "MIDDLE";
+        public string Name { get; } = "MIDDLE";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

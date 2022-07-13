@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec
     /// <summary>
     /// Function - acosech
     /// </summary>
-    public class AcosechFunction : IFunction
+    public sealed class AcosechFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ACOSECH";
+        public string Name { get; } = "ACOSECH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

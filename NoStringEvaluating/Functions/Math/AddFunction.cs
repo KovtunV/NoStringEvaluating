@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math
     /// Function - add
     /// <para>Add(1; 2; 3) or Add(myList; 1)</para>
     /// </summary>
-    public class AddFunction : IFunction
+    public sealed class AddFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ADD";
+        public string Name { get; } = "ADD";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

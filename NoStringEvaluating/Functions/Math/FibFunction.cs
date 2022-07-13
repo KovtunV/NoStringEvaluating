@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - fib
     /// </summary>
-    public class FibFunction : IFunction
+    public sealed class FibFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "FIB";
+        public string Name { get; } = "FIB";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math
     /// Function - max
     /// <para>Max(1; 2; 3) or Max(myList; 2; 3)</para>
     /// </summary>
-    public class MaxFunction : IFunction
+    public sealed class MaxFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "MAX";
+        public string Name { get; } = "MAX";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

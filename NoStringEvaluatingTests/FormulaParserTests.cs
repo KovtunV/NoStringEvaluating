@@ -11,6 +11,7 @@ using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Extensions.Microsoft.DependencyInjection;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Functions.Null;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluatingTests.Formulas;
@@ -61,9 +62,13 @@ namespace NoStringEvaluatingTests
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
 
             var res = evaluator.CalcNumber(model.Formula, model.Arguments);
-            var roundedRes = Math.Round(res, 3);
 
-            Assert.AreEqual(model.Result, roundedRes);
+            if (res == null) Assert.IsTrue(model.Result.IsNull);
+            else
+            {
+                var roundedRes = Math.Round(res.Value, 3);
+                Assert.AreEqual(model.Result, roundedRes);
+            }
         }
 
         [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
@@ -147,18 +152,10 @@ namespace NoStringEvaluatingTests
             var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
             var formula = "[my var!] + 5";
 
-            try
-            {
-                var res = evaluator.CalcNumber(formula);
-            }
-            catch (VariableNotFoundException ex)
-            {
-                // This exception is OK
-                Assert.AreEqual("my var!", ex.VariableName);
-                return;
-            }
+            var res = evaluator.CalcNumber(formula);
+            Assert.IsTrue(res == null);
+            return;
 
-            Assert.Fail();
         }
 
         [TestMethod]
@@ -175,7 +172,7 @@ namespace NoStringEvaluatingTests
             });
 
             // Creates extra DateTime, in another thread extra type 'sleep word' must exists
-            var preCalc = evaluator.Calc("Now()"); 
+            var preCalc = evaluator.Calc("Now()");
             var res = await resTask;
 
             Assert.AreEqual("sleep word", res);
@@ -217,6 +214,8 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOV";
 
+        public bool CanHandleNullArguments { get; } = false;
+
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var res = 1d;
@@ -234,6 +233,8 @@ namespace NoStringEvaluatingTests
     {
         public string Name { get; } = "KOVT";
 
+        public bool CanHandleNullArguments { get; } = false;
+
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             return args[0] - args[1];
@@ -243,6 +244,8 @@ namespace NoStringEvaluatingTests
     public class TestSleepFunction : IFunction
     {
         public string Name { get; } = "TestSleep";
+
+        public bool CanHandleNullArguments { get; } = false;
 
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {

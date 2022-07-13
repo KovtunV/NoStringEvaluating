@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Excel
     /// <summary>
     /// IsMember(myList; item)
     /// </summary>
-    public class IsMemberFunction : IFunction
+    public sealed class IsMemberFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ISMEMBER";
+        public string Name { get; } = "ISMEMBER";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec
     /// <summary>
     /// Function - arcsch
     /// </summary>
-    public class ArcschFunction : IFunction
+    public sealed class ArcschFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ARCSCH";
+        public string Name { get; } = "ARCSCH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

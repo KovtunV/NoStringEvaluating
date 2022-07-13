@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
     /// <summary>
     /// Function - arccosh
     /// </summary>
-    public class ArccoshFunction : IFunction
+    public sealed class ArccoshFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ARCCOSH";
+        public string Name { get; } = "ARCCOSH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - gcd
     /// </summary>
-    public class GcdFunction : IFunction
+    public sealed class GcdFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "GCD";
+        public string Name { get; } = "GCD";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

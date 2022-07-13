@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry
     /// <summary>
     /// Function - exp
     /// </summary>
-    public class ExpFunction : IFunction
+    public sealed class ExpFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "EXP";
+        public string Name { get; } = "EXP";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

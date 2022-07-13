@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Capitalizes the first letter in each word of a text
     /// <para>Proper(myWord)</para>
     /// </summary>
-    public class ProperFunction : IFunction
+    public sealed class ProperFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "PROPER";
+        public string Name { get; } = "PROPER";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Logic
     /// <summary>
     /// Function - add
     /// </summary>
-    public class AndFunction : IFunction
+    public sealed class AndFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "AND";
+        public string Name { get; } = "AND";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

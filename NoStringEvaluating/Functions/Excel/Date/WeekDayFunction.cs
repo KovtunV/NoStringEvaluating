@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
     /// Takes a date and returns a number between 1-7 representing the day of week
     /// <para>WeekDay(Today())</para>
     /// </summary>
-    public class WeekDayFunction : IFunction
+    public sealed class WeekDayFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "WEEKDAY";
+        public string Name { get; } = "WEEKDAY";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

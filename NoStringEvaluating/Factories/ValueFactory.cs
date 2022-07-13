@@ -54,15 +54,27 @@ namespace NoStringEvaluating.Factories
                 return val.Number;
             }
 
-            if (val.TypeKey == ValueTypeKey.Word)
+            if (val.TypeKey == ValueTypeKey.Boolean)
             {
-                return Word().Create(val.Word);
+                // Bool represent as number in any cases
+                return val.Boolean ? 1 : 0;
             }
-
+            
             if (val.TypeKey == ValueTypeKey.DateTime)
             {
                 return DateTime().Create(val.DateTime);
             }
+
+            if (val.TypeKey == ValueTypeKey.Null)
+            {
+                return new InternalEvaluatorValue();
+            }
+
+            if (val.TypeKey == ValueTypeKey.Word)
+            {
+                return Word().Create(val.Word);
+            }
+                  
 
             if (val.TypeKey == ValueTypeKey.WordList)
             {
@@ -74,11 +86,6 @@ namespace NoStringEvaluating.Factories
                 return NumberList().Create(val.NumberList);
             }
 
-            if (val.TypeKey == ValueTypeKey.Boolean)
-            {
-                // Bool represent as number in any cases
-                return val.Boolean ? 1 : 0;
-            }
 
             throw new InvalidCastException($"Can't cast {nameof(EvaluatorValue)} with the typeKey = \"{val.TypeKey}\" to {nameof(InternalEvaluatorValue)}");
         }

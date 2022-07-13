@@ -29,6 +29,11 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("3 >= 3", "3 3 >=", 1);
             yield return CreateTestModel("3 == 3", "3 3 ==", 1);
             yield return CreateTestModel("1 != 3", "1 3 !=", 1);
+
+            // Null Number
+            yield return CreateTestModel("IfNull(thisisnull;3)","IFNULL([thisisnull]; 3)", 3);
+            yield return CreateTestModel("IfNull(4;3)", "IFNULL(4; 3)", 4);
+
         }
     }
 }

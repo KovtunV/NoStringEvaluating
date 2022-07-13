@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Converts text to uppercase
     /// <para>Upper(myWord) or Upper(myWordList)</para>
     /// </summary>
-    public class UpperFunction : IFunction
+    public sealed class UpperFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "UPPER";
+        public string Name { get; } = "UPPER";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

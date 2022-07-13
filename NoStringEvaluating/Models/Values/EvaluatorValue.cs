@@ -11,8 +11,7 @@ namespace NoStringEvaluating.Models.Values
     /// </summary>
     public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
-        private object TypeValue { get; }
-
+        private readonly object TypeValue { get; }
         /// <summary>
         /// Type key
         /// </summary>
@@ -36,7 +35,7 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// DateTime
         /// </summary>
-        public DateTime DateTime => (DateTime) TypeValue;
+        public DateTime DateTime => (DateTime)TypeValue;
 
         /// <summary>
         /// WordList
@@ -46,7 +45,7 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// NumberList
         /// </summary>
-        public List<double> NumberList =>(List<double>)TypeValue;
+        public List<double> NumberList => (List<double>)TypeValue;
 
         #region Ctors
 
@@ -57,7 +56,6 @@ namespace NoStringEvaluating.Models.Values
         {
             TypeKey = ValueTypeKey.Number;
             TypeValue = number;
-
         }
 
         /// <summary>
@@ -104,6 +102,14 @@ namespace NoStringEvaluating.Models.Values
             TypeKey = ValueTypeKey.Boolean;
             TypeValue = boolean;
         }
+        /// <summary>
+        /// Value
+        /// </summary>
+        public EvaluatorValue()
+        {
+            TypeKey = ValueTypeKey.Null;
+            TypeValue = null;
+        }
 
         #endregion
 
@@ -137,6 +143,11 @@ namespace NoStringEvaluating.Models.Values
                 return Boolean.ToString(CultureInfo.InvariantCulture);
             }
 
+            if (TypeKey == ValueTypeKey.Null)
+            {
+                return "Null";
+            }
+
             return Number.ToString(CultureInfo.InvariantCulture);
         }
 
@@ -153,9 +164,17 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// To EvaluatorValue
         /// </summary>
+        public static implicit operator EvaluatorValue(double? a)
+        {
+            return a == null ? default : new EvaluatorValue(a.Value);
+        }
+
+        /// <summary>
+        /// To EvaluatorValue
+        /// </summary>
         public static implicit operator EvaluatorValue(string a)
         {
-            return new EvaluatorValue(a);
+            return a == null ? default : new EvaluatorValue(a);
         }
 
         /// <summary>
@@ -165,21 +184,28 @@ namespace NoStringEvaluating.Models.Values
         {
             return new EvaluatorValue(a);
         }
+        /// <summary>
+        /// To EvaluatorValue
+        /// </summary>
+        public static implicit operator EvaluatorValue(DateTime? a)
+        {
+            return a == null ? default : new EvaluatorValue(a.Value);
+        }
 
         /// <summary>
         /// To EvaluatorValue
         /// </summary>
         public static implicit operator EvaluatorValue(List<string> a)
         {
-            return new EvaluatorValue(a);
+            return a == null ? default : new EvaluatorValue(a);
         }
 
         /// <summary>
         /// To EvaluatorValue
         /// </summary>
         public static implicit operator EvaluatorValue(List<double> a)
-        {
-            return new EvaluatorValue(a);
+        {        
+            return a == null ? default : new EvaluatorValue(a);
         }
 
         /// <summary>
@@ -188,6 +214,14 @@ namespace NoStringEvaluating.Models.Values
         public static implicit operator EvaluatorValue(bool a)
         {
             return new EvaluatorValue(a);
+        }
+
+        /// <summary>
+        /// To EvaluatorValue
+        /// </summary>
+        public static implicit operator EvaluatorValue(bool? a)
+        {
+            return a == null ? default : new EvaluatorValue(a.Value);
         }
 
         /// <summary>
@@ -220,6 +254,11 @@ namespace NoStringEvaluating.Models.Values
                 return new EvaluatorValue(a.GetNumberList());
             }
 
+            if (a.IsNull)
+            {
+                return new EvaluatorValue();
+            }
+
             throw new InvalidCastException($"Can't cast {nameof(InternalEvaluatorValue)} with the typeKey = \"{a.TypeKey}\" to {nameof(EvaluatorValue)}");
         }
 
@@ -240,8 +279,9 @@ namespace NoStringEvaluating.Models.Values
         /// </summary>
         public bool Equals(EvaluatorValue other)
         {
-            return TypeKey == other.TypeKey &&
+            return TypeKey == other.TypeKey && 
                 (
+                (TypeKey == ValueTypeKey.Null) ||
                 (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList)) ||
                 (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList)) ||
                 TypeValue.Equals(other.TypeValue)
@@ -254,6 +294,18 @@ namespace NoStringEvaluating.Models.Values
         public override int GetHashCode()
         {
             return HashCode.Combine(TypeKey, TypeValue);
+        }
+
+        #endregion
+
+        #region Null
+
+        /// <summary>
+        /// IsNull
+        /// </summary>
+        public bool IsNull
+        {
+            get => TypeKey == ValueTypeKey.Null;
         }
 
         #endregion

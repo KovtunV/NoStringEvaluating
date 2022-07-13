@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Replaces characters within text
     /// <para>Replace(myWord; oldPart; newPart) or Replace(myList; oldPart; newPart)</para>
     /// </summary>
-    public class ReplaceFunction : IFunction
+    public sealed class ReplaceFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "REPLACE";
+        public string Name { get; } = "REPLACE";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

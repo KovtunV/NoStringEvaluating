@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec
     /// <summary>
     /// Function - asech
     /// </summary>
-    public class AsechFunction : IFunction
+    public sealed class AsechFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ASECH";
+        public string Name { get; } = "ASECH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

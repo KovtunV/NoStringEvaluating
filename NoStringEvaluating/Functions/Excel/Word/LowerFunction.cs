@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Converts text to lowercase
     /// <para>Lower(myWord) or Lower(myWordList)</para>
     /// </summary>
-    public class LowerFunction : IFunction
+    public sealed class LowerFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "LOWER";
+        public string Name { get; } = "LOWER";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

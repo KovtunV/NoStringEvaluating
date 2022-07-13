@@ -16,6 +16,11 @@ namespace NoStringEvaluating.Functions.Excel.Word
         public virtual string Name { get;} = "ISTEXT";
 
         /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
         /// Execute value
         /// </summary>
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)

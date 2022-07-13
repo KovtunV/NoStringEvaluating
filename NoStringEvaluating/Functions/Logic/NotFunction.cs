@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Logic
     /// <summary>
     /// Function - not
     /// </summary>
-    public class NotFunction : IFunction
+    public sealed class NotFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "NOT";
+        public string Name { get; } = "NOT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

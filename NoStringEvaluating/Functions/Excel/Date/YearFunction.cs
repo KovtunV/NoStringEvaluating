@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
     /// Returns a year from dateTime
     /// <para>Year(Now()) or Year(Now(); 'YY')</para>
     /// </summary>
-    public class YearFunction : IFunction
+    public sealed class YearFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "YEAR";
+        public string Name { get; } = "YEAR";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

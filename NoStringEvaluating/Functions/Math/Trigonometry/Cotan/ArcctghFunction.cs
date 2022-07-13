@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
     /// <summary>
     /// Function - arcctgh
     /// </summary>
-    public class ArcctghFunction : IFunction
+    public sealed class ArcctghFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ARCCTGH";
+        public string Name { get; } = "ARCCTGH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

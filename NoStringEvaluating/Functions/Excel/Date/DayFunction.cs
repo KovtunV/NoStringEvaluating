@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
     /// Returnts a day from dateTime
     /// <para>Day(Now()) or Day(Now(); 'DD')</para>
     /// </summary>
-    public class DayFunction : IFunction
+    public sealed class DayFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "DAY";
+        public string Name { get; } = "DAY";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

@@ -200,7 +200,7 @@ namespace NoStringEvaluatingTests.Formulas
             foreach (var item in GetNumberListAsNumberFormulas())
             {
                 yield return item;
-            }
+            }                                       
         }
     }
 }

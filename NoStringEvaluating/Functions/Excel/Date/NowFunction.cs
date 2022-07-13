@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
     /// Returns Datetime.Now
     /// <para>Now()</para>
     /// </summary>
-    public class NowFunction : IFunction
+    public sealed class NowFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "NOW";
+        public string Name { get; } = "NOW";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

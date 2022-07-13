@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - min
     /// </summary>
-    public class MinFunction : IFunction
+    public sealed class MinFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "MIN";
+        public string Name { get; } = "MIN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

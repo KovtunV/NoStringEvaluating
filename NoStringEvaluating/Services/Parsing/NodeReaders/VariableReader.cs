@@ -41,7 +41,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 if (ch == END_CHAR)
                 {
                     var variableSpan = formula.Slice(variableBuilder.StartIndex.GetValueOrDefault(), variableBuilder.Length);
-                    var variableName = variableSpan.ToString();
+                    var variableName = variableSpan.ToString();                    
                     AddFormulaNode(nodes, variableName, isNegativeLocal);
 
                     index = i;

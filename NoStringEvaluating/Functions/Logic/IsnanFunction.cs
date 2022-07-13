@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Logic
     /// <summary>
     /// Function - isNaN
     /// </summary>
-    public class IsnanFunction : IFunction
+    public sealed class IsnanFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ISNAN";
+        public string Name { get; } = "ISNAN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

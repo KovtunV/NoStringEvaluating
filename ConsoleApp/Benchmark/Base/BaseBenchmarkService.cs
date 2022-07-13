@@ -136,6 +136,8 @@ namespace ConsoleApp.Benchmark.Base
     {
         public string Name { get; } = "kov";
 
+        public bool CanHandleNullArguments { get; } = false;
+
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var res = 1d;
@@ -152,6 +154,8 @@ namespace ConsoleApp.Benchmark.Base
     public class Func_kovt : IFunction
     {
         public string Name { get; } = "kovt";
+
+        public bool CanHandleNullArguments { get; } = false;
 
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {

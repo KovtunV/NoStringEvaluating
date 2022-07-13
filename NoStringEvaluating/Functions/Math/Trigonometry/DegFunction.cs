@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry
     /// <summary>
     /// Function - deg
     /// </summary>
-    public class DegFunction : IFunction
+    public sealed class DegFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "DEG";
+        public string Name { get; } = "DEG";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

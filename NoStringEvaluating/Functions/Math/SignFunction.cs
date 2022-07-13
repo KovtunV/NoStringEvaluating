@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - sign
     /// </summary>
-    public class SignFunction : IFunction
+    public sealed class SignFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "SIGN";
+        public string Name { get; } = "SIGN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Concates values
     /// <para>Concat(56; '_myWord') or Concat(myList; myArg; 45; myList2)</para>
     /// </summary>
-    public class ConcatFunction : IFunction
+    public sealed class ConcatFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "CONCAT";
+        public string Name { get; } = "CONCAT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

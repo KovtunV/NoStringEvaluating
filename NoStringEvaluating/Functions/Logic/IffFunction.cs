@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Logic
     /// <summary>
     /// Function - iff
     /// </summary>
-    public class IffFunction : IFunction
+    public sealed class IffFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "IFF";
+        public string Name { get; } = "IFF";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

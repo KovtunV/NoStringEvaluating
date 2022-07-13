@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Linq;
 using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
@@ -43,11 +44,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(string formula, IVariablesContainer variables)
+        public double? CalcNumber(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -57,11 +58,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public double? CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcNumber(formulaNodes.Nodes, wrapper);
@@ -70,11 +71,10 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables)
+        public double? CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -84,11 +84,10 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public double? CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcNumber(formulaNodes.Nodes, wrapper);
@@ -97,11 +96,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(string formula)
+        public double? CalcNumber(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcNumber(formulaNodes.Nodes, default);
@@ -110,11 +109,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public double CalcNumber(FormulaNodes formulaNodes)
+        public double? CalcNumber(FormulaNodes formulaNodes)
         {
             return OnCalcNumber(formulaNodes.Nodes, default);
         }
@@ -126,11 +125,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(string formula, IVariablesContainer variables)
+        public string? CalcWord(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -140,11 +139,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public string? CalcWord(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcWord(formulaNodes.Nodes, wrapper);
@@ -153,11 +152,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(string formula, IDictionary<string, EvaluatorValue> variables)
+        public string? CalcWord(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -167,11 +166,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public string? CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcWord(formulaNodes.Nodes, wrapper);
@@ -180,11 +179,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(string formula)
+        public string? CalcWord(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcWord(formulaNodes.Nodes, default);
@@ -193,11 +192,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public string CalcWord(FormulaNodes formulaNodes)
+        public string? CalcWord(FormulaNodes formulaNodes)
         {
             return OnCalcWord(formulaNodes.Nodes, default);
         }
@@ -209,11 +208,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(string formula, IVariablesContainer variables)
+        public DateTime? CalcDateTime(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -223,11 +222,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public DateTime? CalcDateTime(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcDateTime(formulaNodes.Nodes, wrapper);
@@ -236,11 +235,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables)
+        public DateTime? CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -250,11 +249,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public DateTime? CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcDateTime(formulaNodes.Nodes, wrapper);
@@ -263,11 +262,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(string formula)
+        public DateTime? CalcDateTime(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcDateTime(formulaNodes.Nodes, default);
@@ -276,11 +275,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public DateTime CalcDateTime(FormulaNodes formulaNodes)
+        public DateTime? CalcDateTime(FormulaNodes formulaNodes)
         {
             return OnCalcDateTime(formulaNodes.Nodes, default);
         }
@@ -292,11 +291,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(string formula, IVariablesContainer variables)
+        public List<string>? CalcWordList(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -306,11 +305,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public List<string>? CalcWordList(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcWordList(formulaNodes.Nodes, wrapper);
@@ -319,11 +318,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables)
+        public List<string>? CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -333,11 +332,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public List<string>? CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcWordList(formulaNodes.Nodes, wrapper);
@@ -346,11 +345,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(string formula)
+        public List<string>? CalcWordList(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcWordList(formulaNodes.Nodes, default);
@@ -359,11 +358,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<string> CalcWordList(FormulaNodes formulaNodes)
+        public List<string>? CalcWordList(FormulaNodes formulaNodes)
         {
             return OnCalcWordList(formulaNodes.Nodes, default);
         }
@@ -375,11 +374,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(string formula, IVariablesContainer variables)
+        public List<double>? CalcNumberList(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -389,11 +388,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public List<double>? CalcNumberList(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcNumberList(formulaNodes.Nodes, wrapper);
@@ -402,11 +401,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables)
+        public List<double>? CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -416,11 +415,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public List<double>? CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcNumberList(formulaNodes.Nodes, wrapper);
@@ -429,11 +428,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(string formula)
+        public List<double>? CalcNumberList(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcNumberList(formulaNodes.Nodes, default);
@@ -442,11 +441,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public List<double> CalcNumberList(FormulaNodes formulaNodes)
+        public List<double>? CalcNumberList(FormulaNodes formulaNodes)
         {
             return OnCalcNumberList(formulaNodes.Nodes, default);
         }
@@ -458,11 +457,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(string formula, IVariablesContainer variables)
+        public bool? CalcBoolean(string formula, IVariablesContainer variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -472,11 +471,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables)
+        public bool? CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcBoolean(formulaNodes.Nodes, wrapper);
@@ -485,11 +484,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables)
+        public bool? CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             var wrapper = VariablesSource.Create(variables);
@@ -499,11 +498,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        public bool? CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
         {
             var wrapper = VariablesSource.Create(variables);
             return OnCalcBoolean(formulaNodes.Nodes, wrapper);
@@ -512,11 +511,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(string formula)
+        public bool? CalcBoolean(string formula)
         {
             var formulaNodes = _formulaCache.GetFormulaNodes(formula);
             return OnCalcBoolean(formulaNodes.Nodes, default);
@@ -525,11 +524,11 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-        public bool CalcBoolean(FormulaNodes formulaNodes)
+        public bool? CalcBoolean(FormulaNodes formulaNodes)
         {
             return OnCalcBoolean(formulaNodes.Nodes, default);
         }
@@ -541,7 +540,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -555,7 +554,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -568,7 +567,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -582,7 +581,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -595,7 +594,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -608,7 +607,7 @@ namespace NoStringEvaluating
         /// <summary>
         /// Calculate formula
         /// </summary>
-        /// <exception cref="VariableNotFoundException"></exception>
+
         /// <exception cref="InvalidCastException"></exception>
         /// <exception cref="ExtraTypeNoFreeIdException"></exception>
         /// <exception cref="ExtraTypeIdNotFoundException"></exception>
@@ -623,69 +622,74 @@ namespace NoStringEvaluating
 
         #region OnCalc
 
-        private double OnCalcNumber(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private double? OnCalcNumber(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            double res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
             return res;
         }
 
-        private string OnCalcWord(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private string? OnCalcWord(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            string res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
-            return WordFormatter.Format(res);
+            // Result
+            return WordFormatter.Format(res.GetWord());
         }
 
-        private DateTime OnCalcDateTime(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private DateTime? OnCalcDateTime(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            DateTime res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
+            // Result
             return res;
         }
 
-        private List<string> OnCalcWordList(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private List<string>? OnCalcWordList(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            List<string> res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
-            return WordFormatter.Format(res);
+            // Result
+            return WordFormatter.Format(res.GetWordList());
         }
 
-        private List<double> OnCalcNumberList(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private List<double>? OnCalcNumberList(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            List<double> res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
+            // Result
             return res;
         }
 
-        private bool OnCalcBoolean(List<BaseFormulaNode> nodes, VariablesSource variables)
+        private bool? OnCalcBoolean(List<BaseFormulaNode> nodes, VariablesSource variables)
         {
             // Rent
             using var idContainer = GetIdContainer();
 
             // Calculate with internal struct
-            bool res = CalcInternal(nodes, variables, idContainer);
+            var res = CalcInternal(nodes, variables, idContainer);
 
+            // Result
             return res;
         }
 
@@ -700,16 +704,75 @@ namespace NoStringEvaluating
             return res;
         }
 
+        #region VariableValuesUsed
+
+        /// <summary>
+        /// Return list of variable values used by formula
+        /// </summary>
+        public List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(FormulaNodes formulaNodes, IVariablesContainer variables)
+        {
+            var wrapper = VariablesSource.Create(variables);
+            return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
+        }
+        /// <summary>
+        /// Return list of variable values used by formula
+        /// </summary>
+        public List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(string formula, IVariablesContainer variables)
+        {
+            var formulaNodes = _formulaCache.GetFormulaNodes(formula);
+            return VariableValuesUsedByFormula(formulaNodes, variables);
+        }
+
+        /// <summary>
+        /// Return list of variable values used by formula
+        /// </summary>
+        public List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
+        {
+            var wrapper = VariablesSource.Create(variables);
+            return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
+        }
+
+        /// <summary>
+        /// Return list of variable values used by formula
+        /// </summary>
+        public List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(string formula, IDictionary<string, EvaluatorValue> variables)
+        {
+            var formulaNodes = _formulaCache.GetFormulaNodes(formula);
+            return VariableValuesUsedByFormula(formulaNodes, variables);
+        }
+
+        /// <summary>
+        /// Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
+        /// </summary>
+        /// <param name="nodes"></param>
+        /// <param name="variables"></param>
+        private List<(string name, EvaluatorValue value)> VariableValuesUsedByFormulaInternal(List<BaseFormulaNode> nodes, VariablesSource variables)
+        {
+            var res = new List<(string, EvaluatorValue)>();
+            for (int i = 0; i < nodes.Count; i++)
+            {
+                var node = nodes[i];
+
+                if (node.TypeKey == NodeTypeEnum.Variable)
+                {
+                    var variableNode = (VariableNode)node;
+                    res.Add((variableNode.Name, variables.GetValue(variableNode.Name)));
+                }
+            }
+            return res;
+        }
+        #endregion(string,EvaluatorValue)
+
         #endregion
 
         #region CalcInternal
 
         private InternalEvaluatorValue CalcInternal(List<BaseFormulaNode> nodes, VariablesSource variables, ExtraTypeIdContainer idContainer)
         {
-            // If no nodes return default value
+            // If no nodes return NULL
             if (nodes.Count == 0)
             {
-                return double.NaN;
+                return default(InternalEvaluatorValue);
             }
 
             // Rent stack
@@ -739,130 +802,110 @@ namespace NoStringEvaluating
                     }
 
                     stack.Push(val);
-                }
-                else if (node.TypeKey == NodeTypeEnum.Operator)
+                } else if (node.TypeKey == NodeTypeEnum.Operator)
                 {
                     var mathOperationNode = (OperatorNode)node;
-                    InternalEvaluatorValue a;
-                    InternalEvaluatorValue b;
-
-                    switch (mathOperationNode.OperatorKey)
+                    var a = stack.Pop();
+                    var b = stack.Pop();
+                    // any null values in the operation make for special handling
+                    if (a.IsNull || b.IsNull)
                     {
-                        // Math
-                        case Operator.Multiply: stack.Push(stack.Pop() * stack.Pop()); break;
-                        case Operator.Divide:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(b / a); break;
-                        case Operator.Plus:
-                            a = stack.Pop();
-                            b = stack.Pop();
+                        switch (mathOperationNode.OperatorKey)
+                        {
+                            // Equal and UnEqual work
+                            case Operator.Equal: stack.Push(factory.Create(new EvaluatorValue(a.IsNull && b.IsNull))); break;
+                            case Operator.NotEqual: stack.Push(factory.Create(new EvaluatorValue(a.IsNull != b.IsNull))); break;
+                            // all others operators we set the result to null
+                            default: stack.Push(default); break;
+                        }
 
-                            if (a.IsWord || b.IsWord)
-                            {
-                                stack.Push(factory.Word().Concat(b, a));
-                            }
-                            else if (a.IsNumber && b.IsDateTime)
-                            {
-                                stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(a.Number)));
-                            }
-                            else if (a.IsDateTime && b.IsNumber)
-                            {
-                                stack.Push(factory.DateTime().Create(a.GetDateTime().AddDays(b.Number)));
-                            }
-                            else
-                            {
-                                stack.Push(a + b);
-                            }
+                    } else // two non null number variables
+                    {
+                        switch (mathOperationNode.OperatorKey)
+                        {
+                            // Math
+                            case Operator.Multiply: stack.Push(a * b); break;
+                            case Operator.Divide:
+                                stack.Push(b / a); break;
+                            case Operator.Plus:
+                                if (a.IsWord || b.IsWord)
+                                {
+                                    stack.Push(factory.Word().Concat(b, a));
+                                } else if (a.IsNumber && b.IsDateTime)
+                                {
+                                    stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(a.Number)));
+                                } else if (a.IsDateTime && b.IsNumber)
+                                {
+                                    stack.Push(factory.DateTime().Create(a.GetDateTime().AddDays(b.Number)));
+                                } else
+                                {
+                                    stack.Push(a + b);
+                                }
 
-                            break;
-                        case Operator.Minus:
-                            a = stack.Pop();
-                            b = stack.Pop();
+                                break;
+                            case Operator.Minus:
+                                if (a.IsNumber && b.IsDateTime)
+                                {
+                                    stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(-a.Number)));
+                                } else if (a.IsDateTime && b.IsDateTime)
+                                {
+                                    stack.Push(b.GetDateTime().Subtract(a.GetDateTime()).TotalDays);
+                                } else
+                                {
+                                    stack.Push(b - a);
+                                }
+                                break;
+                            case Operator.Power:
+                                stack.Push(Math.Pow(b, a)); break;
 
-                            if (a.IsNumber && b.IsDateTime)
-                            {
-                                stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(-a.Number)));
-                            }
-                            else if (a.IsDateTime && b.IsDateTime)
-                            {
-                                stack.Push(b.GetDateTime().Subtract(a.GetDateTime()).TotalDays);
-                            }
-                            else
-                            {
-                                stack.Push(b - a);
-                            }
-
-                            break;
-                        case Operator.Power:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(Math.Pow(b, a)); break;
-
-                        // Logic
-                        case Operator.Less:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(b < a ? 1 : 0); break;
-                        case Operator.LessEqual:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(b <= a ? 1 : 0); break;
-                        case Operator.More:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(b > a ? 1 : 0); break;
-                        case Operator.MoreEqual:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(b >= a ? 1 : 0); break;
-                        case Operator.Equal:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(Math.Abs(b - a) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-                        case Operator.NotEqual:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(Math.Abs(b - a) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-
-                        // Additional logic
-                        case Operator.And:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-                        case Operator.Or:
-                            a = stack.Pop();
-                            b = stack.Pop();
-                            stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
+                            // Logic
+                            case Operator.Less:
+                                stack.Push(b < a ? 1 : 0); break;
+                            case Operator.LessEqual:
+                                stack.Push(b <= a ? 1 : 0); break;
+                            case Operator.More:
+                                stack.Push(b > a ? 1 : 0); break;
+                            case Operator.MoreEqual:
+                                stack.Push(b >= a ? 1 : 0); break;
+                            case Operator.Equal:
+                                if (a.IsNumber || b.IsNumber) stack.Push(Math.Abs(b - a) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); 
+                                else stack.Push(factory.Create(new EvaluatorValue(a.Equals(b))));
+                                break;
+                            case Operator.NotEqual:
+                                if (a.IsNumber || b.IsNumber) stack.Push(Math.Abs(b - a) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0);
+                                else stack.Push(factory.Create(new EvaluatorValue(!a.Equals(b)))); break;
+                            // Additional logic
+                            case Operator.And:
+                                stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
+                            case Operator.Or:
+                                stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
+                            // something really wrong
+                            default: throw new Exception("Unsupported operator => " + mathOperationNode.OperatorKey);
+                        }
                     }
-                }
-                else if (node.TypeKey == NodeTypeEnum.FunctionWrapper)
+                } else if (node.TypeKey == NodeTypeEnum.FunctionWrapper)
                 {
                     var functionWrapper = (FunctionWrapperNode)node;
                     var functionVal = CalcFunction(functionWrapper, variables, idContainer);
 
                     stack.Push(functionVal);
-                }
-                else if (node.TypeKey == NodeTypeEnum.Number)
+                } else if (node.TypeKey == NodeTypeEnum.Number)
                 {
                     var valNode = (NumberNode)node;
                     stack.Push(valNode.Number);
-                }
-                else if (node.TypeKey == NodeTypeEnum.Word)
+                } else if (node.TypeKey == NodeTypeEnum.Word)
                 {
                     var wordNode = (WordNode)node;
                     var wordItem = factory.Word().Create(wordNode.Word);
 
                     stack.Push(wordItem);
-                }
-                else if (node.TypeKey == NodeTypeEnum.WordList)
+                } else if (node.TypeKey == NodeTypeEnum.WordList)
                 {
                     var wordListNode = (WordListNode)node;
                     var wordListItem = factory.WordList().Create(wordListNode.WordList);
 
                     stack.Push(wordListItem);
-                }
-                else if (node.TypeKey == NodeTypeEnum.NumberList)
+                } else if (node.TypeKey == NodeTypeEnum.NumberList)
                 {
                     var numberListNode = (NumberListNode)node;
                     var numberListItem = factory.NumberList().Create(numberListNode.NumberList);
@@ -890,18 +933,28 @@ namespace NoStringEvaluating
                 args.Clear();
             }
 
+            bool hasNullArgs = false;
             for (int i = 0; i < functionWrapper.FunctionArgumentNodes.Count; i++)
             {
                 var subNodes = functionWrapper.FunctionArgumentNodes[i];
                 var subRes = CalcInternal(subNodes, variables, idContainer);
+                if (subRes.IsNull) hasNullArgs = true;
                 args.Add(subRes);
             }
 
             var factory = GetFactory(idContainer);
-            var res = functionWrapper.FunctionNode.Function.Execute(args, factory);
-            if (functionWrapper.FunctionNode.IsNegative && res.IsNumber)
+            var func = functionWrapper.FunctionNode.Function;
+
+            var res = default(InternalEvaluatorValue);
+
+            // if we have NULL arguments and the function does not handle this we skip the functiona and return null
+            if (func.CanHandleNullArguments || !hasNullArgs)
             {
-                res = res.Number * -1;
+                res = func.Execute(args, factory);
+                if (functionWrapper.FunctionNode.IsNegative && res.IsNumber)
+                {
+                    res = res.Number * -1;
+                }
             }
 
             // Clear collection
@@ -927,5 +980,6 @@ namespace NoStringEvaluating
         {
             return new ValueFactory(idContainer);
         }
+
     }
 }

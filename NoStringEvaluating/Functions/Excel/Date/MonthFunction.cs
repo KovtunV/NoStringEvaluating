@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date
     /// Returns a month from dateTime
     /// <para>Month(Now()) or Month(Now(); 'MM')</para>
     /// </summary>
-    public class MonthFunction : IFunction
+    public sealed class MonthFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "MONTH";
+        public string Name { get; } = "MONTH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

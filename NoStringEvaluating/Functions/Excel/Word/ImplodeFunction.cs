@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// <para>Implode(myList) or Implode(myList; separator) or Implode(myList; 5; 'my wordd'; separator) last value is separator</para>
     /// <para>separator by default is empty ""</para>
     /// </summary>
-    public class ImplodeFunction : IFunction
+    public sealed class ImplodeFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "IMPLODE";
+        public string Name { get; } = "IMPLODE";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

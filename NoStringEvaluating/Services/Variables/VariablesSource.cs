@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
@@ -18,51 +19,21 @@ namespace NoStringEvaluating.Services.Variables
 
         internal EvaluatorValue GetValue(string name)
         {
-            // Check null
-            ThrowExceptionIfSourcesAreNull(name);
-
+            // NULL is a reserved variable name
+            if (name.Equals("null",StringComparison.OrdinalIgnoreCase)) return default(EvaluatorValue);
             // Check an implemented container
-            if (_variablesContainer != null)
-            {
-                return GetValueFromContainer(name);
-            }
-
+            if (_variablesContainer != null) return GetValueFromContainer(name);
             // Check a dictionary
-            return GetValueFromDictionary(name);
+            if (_variablesDict != null && _variablesDict.TryGetValue(name, out var value)) return value;
+            // Not in there, return null value
+            return default(InternalEvaluatorValue);
         }
 
         private EvaluatorValue GetValueFromContainer(string name)
         {
-            if(!_variablesContainer.TryGetValue(name, out var value))
-            {
-                ThrowException(name);
-            }
-
-            return value;
-        }
-
-        private EvaluatorValue GetValueFromDictionary(string name)
-        {
-            if (!_variablesDict.TryGetValue(name, out var value))
-            {
-                ThrowException(name);
-            }
-
-            return value;
-        }
-
-        private void ThrowExceptionIfSourcesAreNull(string name)
-        {
-            if (_variablesDict is null && _variablesContainer is null)
-            {
-                ThrowException(name);
-            }
-        }
-
-        private void ThrowException(string name)
-        {
-            var msg = $"Variable \"{name}\" not found";
-            throw new VariableNotFoundException(name, msg);
+            if (_variablesContainer.TryGetValue(name, out var value)) return value;
+            // Not in there return null value
+            return default(InternalEvaluatorValue);
         }
 
         internal static VariablesSource Create(IVariablesContainer variablesContainer)

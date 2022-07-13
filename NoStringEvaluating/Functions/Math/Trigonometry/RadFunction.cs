@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry
     /// <summary>
     /// Function - rad
     /// </summary>
-    public class RadFunction : IFunction
+    public sealed class RadFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "RAD";
+        public string Name { get; } = "RAD";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

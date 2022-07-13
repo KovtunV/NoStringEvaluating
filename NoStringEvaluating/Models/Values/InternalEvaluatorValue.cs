@@ -29,14 +29,25 @@ namespace NoStringEvaluating.Models.Values
         {
             TypeKey = ValueTypeKey.Number;
             Number = number;
+            _extraTypeId = NullId;
+        }
 
+        /// <summary>
+        /// NULL Instance
+        /// </summary>
+        public InternalEvaluatorValue()
+        {
+            // Everything set to 0, the same as what you get when you do  default(InternalEvaluatorValue)
+            TypeKey = ValueTypeKey.Null;
+            Number = 0;
             _extraTypeId = NullId;
         }
 
         internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
         {
-            _extraTypeId = extraTypeId;
-
+            // The 0 value we have attached to NULL
+            _extraTypeId = extraTypeId + 1;
+            //
             TypeKey = typeKey;
             Number = double.NaN;
         }
@@ -68,10 +79,15 @@ namespace NoStringEvaluating.Models.Values
                 return nList is null ? string.Empty : string.Join(", ", nList);
             }
 
+            if (IsNull)
+            {
+                return "Null";
+            }
+
             return Number.ToString(CultureInfo.InvariantCulture);
         }
 
-        #region IsProperies
+        #region IsProperties
 
         /// <summary>
         /// IsNumber
@@ -113,6 +129,14 @@ namespace NoStringEvaluating.Models.Values
             get => TypeKey == ValueTypeKey.NumberList;
         }
 
+        /// <summary>
+        /// IsNull
+        /// </summary>
+        public bool IsNull
+        {
+            get => TypeKey == ValueTypeKey.Null;
+        }
+
         #endregion
 
         #region ExtraValue
@@ -123,7 +147,7 @@ namespace NoStringEvaluating.Models.Values
         public string GetWord()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : null;
+            return IsWord ? WordKeeper.Instance.Get(_extraTypeId - 1) : null;
         }
 
         /// <summary>
@@ -132,7 +156,7 @@ namespace NoStringEvaluating.Models.Values
         public DateTime GetDateTime()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : DateTime.MinValue;
+            return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId - 1) : DateTime.MinValue;
         }
 
         /// <summary>
@@ -141,7 +165,7 @@ namespace NoStringEvaluating.Models.Values
         public List<string> GetWordList()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : null;
+            return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId - 1) : null;
         }
 
         /// <summary>
@@ -150,10 +174,28 @@ namespace NoStringEvaluating.Models.Values
         public List<double> GetNumberList()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : null;
+            return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId - 1) : null;
         }
 
         #endregion
+
+        #region Equals
+        /// <summary>
+        /// Equals
+        /// </summary>
+        public bool Equals(InternalEvaluatorValue other)
+        {
+            return TypeKey == other.TypeKey &&
+                (
+                (TypeKey == ValueTypeKey.Null) ||
+                (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
+                (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
+                (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
+                Number == other.Number
+                );
+        }
+        #endregion
+
 
         #region MathOperators
 
@@ -238,12 +280,21 @@ namespace NoStringEvaluating.Models.Values
         }
 
         /// <summary>
+        /// To double?
+        /// </summary>
+        public static implicit operator double?(InternalEvaluatorValue a)
+        {
+            return a.IsNull ? null : a.Number;
+        }
+
+        /// <summary>
         /// To string
         /// </summary>
         public static implicit operator string(InternalEvaluatorValue a)
         {
-            return a.GetWord();
+            return a.IsNull ? null : a.GetWord();
         }
+
 
         /// <summary>
         /// To DateTime
@@ -254,11 +305,19 @@ namespace NoStringEvaluating.Models.Values
         }
 
         /// <summary>
+        /// To DateTime?
+        /// </summary>
+        public static implicit operator DateTime?(InternalEvaluatorValue a)
+        {
+            return a.IsNull ? null : a.GetDateTime();
+        }
+
+        /// <summary>
         /// To string List
         /// </summary>
         public static implicit operator List<string>(InternalEvaluatorValue a)
         {
-            return a.GetWordList();
+            return a.IsNull ? null : a.GetWordList();
         }
 
         /// <summary>
@@ -266,7 +325,7 @@ namespace NoStringEvaluating.Models.Values
         /// </summary>
         public static implicit operator List<double>(InternalEvaluatorValue a)
         {
-            return a.GetNumberList();
+            return a.IsNull ? null : a.GetNumberList();
         }
 
         /// <summary>
@@ -274,7 +333,16 @@ namespace NoStringEvaluating.Models.Values
         /// </summary>
         public static implicit operator bool(InternalEvaluatorValue a)
         {
-            return Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
+            return a.IsNull ? false : Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
+        }
+
+
+        /// <summary>
+        /// To boolean?
+        /// </summary>
+        public static implicit operator bool?(InternalEvaluatorValue a)
+        {
+            return a.IsNull ? null : Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
         }
 
         /// <summary>
@@ -290,7 +358,7 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// Null Id
         /// </summary>
-        private const int NullId = -1;
+        private const int NullId = 0;
     }
 
 }

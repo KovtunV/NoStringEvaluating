@@ -20,6 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj" />
+    <ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
   </ItemGroup>
 
 </Project>

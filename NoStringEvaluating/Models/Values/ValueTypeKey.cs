@@ -6,6 +6,11 @@
     public enum ValueTypeKey
     {
         /// <summary>
+        /// NULL, must be zero so that if default(EvaluatorValue) is used the typekeyis automatically null
+        /// </summary>
+        Null = 0,
+
+        /// <summary>
         /// Number
         /// </summary>
         Number,
@@ -33,6 +38,8 @@
         /// <summary>
         /// Boolean
         /// </summary>
-        Boolean
+        Boolean,
+
+
     }
 }

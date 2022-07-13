@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Excel
     /// <summary>
     /// IsError(ToNumber('Text'))
     /// </summary>
-    public class IsErrorFunction : IFunction
+    public sealed class IsErrorFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "ISERROR";
+        public string Name { get; } = "ISERROR";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

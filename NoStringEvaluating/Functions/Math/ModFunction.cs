@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - mod
     /// </summary>
-    public class ModFunction : IFunction
+    public sealed class ModFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "MOD";
+        public string Name { get; } = "MOD";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

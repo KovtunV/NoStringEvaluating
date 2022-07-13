@@ -15,6 +15,11 @@ namespace NoStringEvaluating.Functions.Base
         string Name { get; }
 
         /// <summary>
+        /// Does the function allow for input arguments to be null? Return false if NULL input arguments are not supported. Your function can also return  default(InternalEvaluatorValue)  to return a NULL result
+        /// </summary>
+        bool CanHandleNullArguments { get; } 
+
+        /// <summary>
         /// Evaluate value
         /// </summary>
         InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory);

@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel
     /// Returns the number of characters in a text string
     /// <para>Len(myWord)</para>
     /// </summary>
-    public class LenFunction : IFunction
+    public sealed class LenFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "LEN";
+        public string Name { get; } = "LEN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

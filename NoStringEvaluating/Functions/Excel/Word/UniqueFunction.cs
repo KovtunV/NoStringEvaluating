@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// <para>if second parameter is true then returns only qnique</para>
     /// <para>if second parameter is false then returns list without doubles</para>
     /// </summary>
-    public class UniqueFunction : IFunction
+    public sealed class UniqueFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "UNIQUE";
+        public string Name { get; } = "UNIQUE";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

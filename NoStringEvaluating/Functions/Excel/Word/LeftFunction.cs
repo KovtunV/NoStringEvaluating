@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Word
     /// Searches a string from left to right and returns the leftmost characters of the string
     /// <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; subWord) </para>
     /// </summary>
-    public class LeftFunction : IFunction
+    public sealed class LeftFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "LEFT";
+        public string Name { get; } = "LEFT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value

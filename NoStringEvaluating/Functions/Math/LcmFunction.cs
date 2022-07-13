@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math
     /// <summary>
     /// Function - lcm
     /// </summary>
-    public class LcmFunction : IFunction
+    public sealed class LcmFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "LCM";
+        public string Name { get; } = "LCM";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Evaluate value

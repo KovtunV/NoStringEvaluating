@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel
     /// SORT(myList; sortType)
     /// <para>sortType: 1 - asc, not 1 - desc</para> 
     /// </summary>
-    public class SortFunction : IFunction
+    public sealed class SortFunction : IFunction
     {
         /// <summary>
         /// Name
         /// </summary>
-        public virtual string Name { get; } = "SORT";
+        public string Name { get; } = "SORT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
         /// <summary>
         /// Execute value
