@@ -238,11 +238,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public bool Equals(EvaluatorValue other)
     {
-        return EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade) &&
-               TypeKey == other.TypeKey &&
-               Number == other.Number &&
-               Boolean == other.Boolean &&
-               DateTime == other.DateTime;
+        return TypeKey == other.TypeKey &&
+            Boolean == other.Boolean &&
+            Number.Equals(other.Number) &&
+            DateTime.Equals(other.DateTime) &&
+            EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade);
     }
 
     /// <summary>
