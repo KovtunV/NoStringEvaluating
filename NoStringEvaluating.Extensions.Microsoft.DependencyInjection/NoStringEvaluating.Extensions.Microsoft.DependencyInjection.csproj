@@ -12,8 +12,9 @@
     <PackageIconUrl />
     <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <PackageReleaseNotes>Package update</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -22,10 +23,14 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="NoStringEvaluating" Version="2.2.2" />
+    <PackageReference Include="NoStringEvaluating" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
