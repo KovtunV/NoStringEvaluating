@@ -19,8 +19,6 @@ namespace NoStringEvaluating.Services.Variables
 
         internal EvaluatorValue GetValue(string name)
         {
-            // NULL is a reserved variable name
-            if (name.Equals("null",StringComparison.OrdinalIgnoreCase)) return default(EvaluatorValue);
             // Check an implemented container
             if (_variablesContainer != null) return GetValueFromContainer(name);
             // Check a dictionary

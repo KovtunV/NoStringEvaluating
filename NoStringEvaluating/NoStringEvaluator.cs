@@ -911,6 +911,9 @@ namespace NoStringEvaluating
                     var numberListItem = factory.NumberList().Create(numberListNode.NumberList);
 
                     stack.Push(numberListItem);
+                } else if (node.TypeKey == NodeTypeEnum.NullConst)
+                {
+                    stack.Push(default);
                 }
             }
 

@@ -41,7 +41,7 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                 if (ch == END_CHAR)
                 {
                     var variableSpan = formula.Slice(variableBuilder.StartIndex.GetValueOrDefault(), variableBuilder.Length);
-                    var variableName = variableSpan.ToString();                    
+                    var variableName = variableSpan.ToString();
                     AddFormulaNode(nodes, variableName, isNegativeLocal);
 
                     index = i;
@@ -77,13 +77,11 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
                         index = i;
                         return true;
                     }
-                }
-                else if (TryAddSimpleVariable(nodes, formula, numberBuilder, isNegativeLocal))
+                } else if (TryAddSimpleVariable(nodes, formula, numberBuilder, isNegativeLocal))
                 {
                     index = i - 1;
                     return true;
-                }
-                else
+                } else
                 {
                     break;
                 }
@@ -118,8 +116,11 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders
 
                 var valNode = new NumberNode(value);
                 nodes.Add(valNode);
-            }
-            else
+            } else if (variableName.Equals("NULL",StringComparison.OrdinalIgnoreCase))   // Null constant
+            {
+                var nullNode = new NullNode();
+                nodes.Add(nullNode);
+            } else
             {
                 var varNode = new VariableNode(variableName, isNegative);
                 nodes.Add(varNode);

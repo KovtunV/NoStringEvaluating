@@ -12,7 +12,6 @@ namespace NoStringEvaluatingTests.Formulas
         public static IEnumerable<FormulaModel[]> GetBooleanFormulas()
         {
 
-            yield return CreateTestModel("[my var!] + 5", default);
 
             var myTrue = true;
             var myFalse = false;
@@ -43,6 +42,10 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("NullIf(4;3) == 4", true);
             yield return CreateTestModel("IfNull(thisisanullvar;'somethingelse') == 'somethingelse'", true);
             yield return CreateTestModel("IfNull('thisisnotnull';'somethingelse') == 'thisisnotnull'", true);
+            yield return CreateTestModel("nuLl == 3", false);
+            yield return CreateTestModel("nuLl == abc",true); // both null
+
+
 
         }
     }

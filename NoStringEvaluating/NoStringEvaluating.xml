@@ -3830,6 +3830,11 @@
             Function
             </summary>
         </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NullConst">
+            <summary>
+            Null
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Nodes.BracketNode">
             <summary>
             Formula node - Bracket
@@ -3936,6 +3941,21 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.NullNode">
+            <summary>
+            Formula node - Null
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NullNode.#ctor">
+            <summary>
+            Null Const
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NullNode.ToString">
             <summary>
             ToString
             </summary>

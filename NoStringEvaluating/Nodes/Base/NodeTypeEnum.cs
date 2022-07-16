@@ -53,6 +53,11 @@
         /// <summary>
         /// Function
         /// </summary>
-        Function
+        Function,
+
+        /// <summary>
+        /// Null
+        /// </summary>
+        NullConst
     }
 }
