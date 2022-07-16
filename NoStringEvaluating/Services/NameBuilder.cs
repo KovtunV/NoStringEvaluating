@@ -57,5 +57,4 @@ public struct NameBuilder
         ExpectedName = name;
         Length = 0;
     }
-
 }

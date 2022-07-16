@@ -10,6 +10,8 @@ namespace NoStringEvaluating.Models.Values;
 /// </summary>
 public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 {
+    private readonly object _referenceValueFacade = default;
+
     /// <summary>
     /// Type key
     /// </summary>
@@ -18,32 +20,32 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// <summary>
     /// Number
     /// </summary>
-    public double Number { get; }
-
-    /// <summary>
-    /// Word
-    /// </summary>
-    public string Word { get; }
+    public double Number { get; } = default;
 
     /// <summary>
     /// Boolean
     /// </summary>
-    public bool Boolean { get; }
+    public bool Boolean { get; } = default;
 
     /// <summary>
     /// DateTime
     /// </summary>
-    public DateTime DateTime { get; }
+    public DateTime DateTime { get; } = default;
+
+    /// <summary>
+    /// Word
+    /// </summary>
+    public string Word => _referenceValueFacade as string;
 
     /// <summary>
     /// WordList
     /// </summary>
-    public List<string> WordList { get; }
+    public List<string> WordList => _referenceValueFacade as List<string>;
 
     /// <summary>
     /// NumberList
     /// </summary>
-    public List<double> NumberList { get; }
+    public List<double> NumberList => _referenceValueFacade as List<double>;
 
     #region Ctors
 
@@ -54,72 +56,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         TypeKey = ValueTypeKey.Number;
         Number = number;
-
-        Word = null;
-        WordList = null;
-        NumberList = null;
-        DateTime = DateTime.MinValue;
-        Boolean = false;
-    }
-
-    /// <summary>
-    /// Value
-    /// </summary>
-    public EvaluatorValue(string word)
-    {
-        TypeKey = ValueTypeKey.Word;
-        Word = word;
-
-        Number = double.NaN;
-        WordList = null;
-        NumberList = null;
-        DateTime = DateTime.MinValue;
-        Boolean = false;
-    }
-
-    /// <summary>
-    /// Value
-    /// </summary>
-    public EvaluatorValue(DateTime dateTime)
-    {
-        TypeKey = ValueTypeKey.DateTime;
-        DateTime = dateTime;
-
-        Number = double.NaN;
-        Word = null;
-        WordList = null;
-        NumberList = null;
-        Boolean = false;
-    }
-
-    /// <summary>
-    /// Value
-    /// </summary>
-    public EvaluatorValue(List<string> wordList)
-    {
-        TypeKey = ValueTypeKey.WordList;
-        WordList = wordList;
-
-        Number = double.NaN;
-        Word = null;
-        NumberList = null;
-        DateTime = DateTime.MinValue;
-        Boolean = false;
-    }
-
-    /// <summary>
-    /// Value
-    /// </summary>
-    public EvaluatorValue(List<double> numberList)
-    {
-        TypeKey = ValueTypeKey.NumberList;
-        NumberList = numberList;
-
-        Number = double.NaN;
-        Word = null;
-        WordList = null;
-        DateTime = DateTime.MinValue;
-        Boolean = false;
     }
 
     /// <summary>
@@ -129,12 +65,42 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         TypeKey = ValueTypeKey.Boolean;
         Boolean = boolean;
+    }
 
-        NumberList = null;
-        Number = double.NaN;
-        Word = null;
-        WordList = null;
-        DateTime = DateTime.MinValue;
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue(DateTime dateTime)
+    {
+        TypeKey = ValueTypeKey.DateTime;
+        DateTime = dateTime;
+    }
+
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue(string word)
+    {
+        TypeKey = ValueTypeKey.Word;
+        _referenceValueFacade = word;
+    }
+
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue(List<string> wordList)
+    {
+        TypeKey = ValueTypeKey.WordList;
+        _referenceValueFacade = wordList;
+    }
+
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue(List<double> numberList)
+    {
+        TypeKey = ValueTypeKey.NumberList;
+        _referenceValueFacade = numberList;
     }
 
     #endregion
@@ -272,13 +238,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public bool Equals(EvaluatorValue other)
     {
-        return TypeKey == other.TypeKey &&
-               Word == other.Word &&
+        return EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade) &&
+               TypeKey == other.TypeKey &&
+               Number == other.Number &&
                Boolean == other.Boolean &&
-               Number.Equals(other.Number) &&
-               DateTime.Equals(other.DateTime) &&
-               EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList) &&
-               EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList);
+               DateTime == other.DateTime;
     }
 
     /// <summary>
@@ -286,7 +250,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public override int GetHashCode()
     {
-        return HashCode.Combine(TypeKey, Number, Word, Boolean, DateTime, WordList, NumberList);
+        return HashCode.Combine(_referenceValueFacade, TypeKey, Number, Boolean, DateTime);
     }
 
     #endregion

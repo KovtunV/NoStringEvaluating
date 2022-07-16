@@ -2777,11 +2777,6 @@
             Number
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.Word">
-            <summary>
-            Word
-            </summary>
-        </member>
         <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.Boolean">
             <summary>
             Boolean
@@ -2790,6 +2785,11 @@
         <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.DateTime">
             <summary>
             DateTime
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.Word">
+            <summary>
+            Word
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.WordList">
@@ -2807,12 +2807,17 @@
             Value
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.String)">
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Boolean)">
             <summary>
             Value
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.DateTime)">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.String)">
             <summary>
             Value
             </summary>
@@ -2823,11 +2828,6 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Collections.Generic.List{System.Double})">
-            <summary>
-            Value
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Boolean)">
             <summary>
             Value
             </summary>

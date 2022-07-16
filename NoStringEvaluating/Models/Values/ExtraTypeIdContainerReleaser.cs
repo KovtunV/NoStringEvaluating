@@ -26,4 +26,3 @@ internal readonly struct ExtraTypeIdContainerReleaser : IDisposable
         return releaser.Container;
     }
 }
-

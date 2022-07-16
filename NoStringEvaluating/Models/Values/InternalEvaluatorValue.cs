@@ -292,4 +292,3 @@ public readonly struct InternalEvaluatorValue
     /// </summary>
     private const int NullId = -1;
 }
-
