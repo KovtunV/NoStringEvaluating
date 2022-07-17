@@ -1,44 +1,43 @@
 ﻿using System;
 using NoStringEvaluating.Nodes.Base;
 
-namespace NoStringEvaluating.Services
+namespace NoStringEvaluating.Services;
+
+/// <summary>
+/// Border counter
+/// </summary>
+public class BorderCounter<TNode> where TNode : BaseFormulaNode
 {
+    private readonly Func<TNode, bool> _countFunc;
+
+    /// <summary>
+    /// Border count
+    /// </summary>
+    public int Count { get; private set; }
+
     /// <summary>
     /// Border counter
     /// </summary>
-    public class BorderCounter<TNode> where TNode : BaseFormulaNode
+    public BorderCounter(Func<TNode, bool> countFunc)
     {
-        private readonly Func<TNode, bool> _countFunc;
+        _countFunc = countFunc;
+        Count = 1;
+    }
 
-        /// <summary>
-        /// Border count
-        /// </summary>
-        public int Count { get; private set; }
-
-        /// <summary>
-        /// Border counter
-        /// </summary>
-        public BorderCounter(Func<TNode, bool> countFunc)
+    /// <summary>
+    /// Proceed border
+    /// </summary>
+    public bool Proceed(TNode node)
+    {
+        if (_countFunc(node))
         {
-            _countFunc = countFunc;
-            Count = 1;
+            Count++;
+        }
+        else
+        {
+            Count--;
         }
 
-        /// <summary>
-        /// Proceed border
-        /// </summary>
-        public bool Proceed(TNode node)
-        {
-            if (_countFunc(node))
-            {
-                Count++;
-            }
-            else
-            {
-                Count--;
-            }
-
-            return Count is 0;
-        }
+        return Count is 0;
     }
 }

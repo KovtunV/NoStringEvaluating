@@ -4,81 +4,80 @@ using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
-namespace NoStringEvaluating.Services.Parsing.NodeReaders
+namespace NoStringEvaluating.Services.Parsing.NodeReaders;
+
+/// <summary>
+/// Operator reader
+/// </summary>
+public static class OperatorReader
 {
-    /// <summary>
-    /// Operator reader
-    /// </summary>
-    public static class OperatorReader
+    private static readonly string[] _operators;
+
+    static OperatorReader()
     {
-        private static readonly string[] _operators;
+        // Pay attention and sort operators :)
+        _operators = new[] { "+", "-", "*", "/", "^", "<=", "<", ">=", ">", "==", "!=", "&&", "||" };
+    }
 
-        static OperatorReader()
+    /// <summary>
+    /// Read operator
+    /// </summary>
+    public static bool TryProceedOperator(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
+    {
+        var operatorNameBuilder = new NameBuilder();
+
+        for (int operInd = 0; operInd < _operators.Length; operInd++)
         {
-            // Pay attention and sort operators :)
-            _operators = new[] { "+", "-", "*", "/", "^", "<=", "<", ">=", ">", "==", "!=", "&&", "||" };
-        }
+            var operatorName = _operators[operInd];
 
-        /// <summary>
-        /// Read operator
-        /// </summary>
-        public static bool TryProceedOperator(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
-        {
-            var operatorNameBuilder = new NameBuilder();
+            // Set operator name
+            operatorNameBuilder.Reset(operatorName);
 
-            for (int operInd = 0; operInd < _operators.Length; operInd++)
+            for (int i = index; i < formula.Length; i++)
             {
-                var operatorName = _operators[operInd];
+                var ch = formula[i];
 
-                // Set operator name
-                operatorNameBuilder.Reset(operatorName);
-
-                for (int i = index; i < formula.Length; i++)
+                if (operatorNameBuilder.TryRemember(ch))
                 {
-                    var ch = formula[i];
-       
-                    if (operatorNameBuilder.TryRemember(ch))
+                    if (operatorNameBuilder.IsFinished)
                     {
-                        if (operatorNameBuilder.IsFinished)
-                        {
-                            var operatorKey = GetOperatorKey(operatorName);
-                            var operatorNode = new OperatorNode(operatorKey);
-                            nodes.Add(operatorNode);
+                        var operatorKey = GetOperatorKey(operatorName);
+                        var operatorNode = new OperatorNode(operatorKey);
+                        nodes.Add(operatorNode);
 
-                            index = i;
-                            return true;
-                        }
-                    }
-                    else
-                    {
-                        break;
+                        index = i;
+                        return true;
                     }
                 }
+                else
+                {
+                    break;
+                }
             }
-
-            return false;
         }
 
-        private static Operator GetOperatorKey(string name)
+        return false;
+    }
+
+    private static Operator GetOperatorKey(string name)
+    {
+        return name switch
         {
-            return name switch
-            {
-                "+" => Operator.Plus,
-                "-" => Operator.Minus,
-                "*" => Operator.Multiply,
-                "/" => Operator.Divide,
-                "^" => Operator.Power,
-                "<=" => Operator.LessEqual,
-                "<" => Operator.Less,
-                ">=" => Operator.MoreEqual,
-                ">" => Operator.More,
-                "==" => Operator.Equal,
-                "!=" => Operator.NotEqual,
-                "&&" => Operator.And,
-                "||" => Operator.Or,
+            "+" => Operator.Plus,
+            "-" => Operator.Minus,
+            "*" => Operator.Multiply,
+            "/" => Operator.Divide,
+            "^" => Operator.Power,
+            "<=" => Operator.LessEqual,
+            "<" => Operator.Less,
+            ">=" => Operator.MoreEqual,
+            ">" => Operator.More,
+            "==" => Operator.Equal,
+            "!=" => Operator.NotEqual,
+            "&&" => Operator.And,
+            "||" => Operator.Or,
 
-                _ => Operator.Undefined
-            };
-        }
+            _ => Operator.Undefined
+        };
     }
 }

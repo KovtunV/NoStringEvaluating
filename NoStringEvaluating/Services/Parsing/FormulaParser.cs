@@ -6,91 +6,90 @@ using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
 using NoStringEvaluating.Services.Parsing.NodeReaders;
 
-namespace NoStringEvaluating.Services.Parsing
+namespace NoStringEvaluating.Services.Parsing;
+
+/// <summary>
+/// Parser from string to object sequence
+/// </summary>
+public class FormulaParser : IFormulaParser
 {
+    /// <summary>
+    /// Function reader
+    /// </summary>
+    public IFunctionReader FunctionsReader { get; }
+
     /// <summary>
     /// Parser from string to object sequence
     /// </summary>
-    public class FormulaParser : IFormulaParser
+    public FormulaParser(IFunctionReader functionReader)
     {
-        /// <summary>
-        /// Function reader
-        /// </summary>
-        public IFunctionReader FunctionsReader { get; }
+        FunctionsReader = functionReader;
+    }
 
-        /// <summary>
-        /// Parser from string to object sequence
-        /// </summary>
-        public FormulaParser(IFunctionReader functionReader)
+    /// <summary>
+    /// Return parsed formula nodes
+    /// </summary>
+    public FormulaNodes Parse(string formula)
+    {
+        return Parse(formula.AsSpan());
+    }
+
+    /// <summary>
+    /// Return parsed formula nodes
+    /// </summary>
+    public FormulaNodes Parse(ReadOnlySpan<char> formula)
+    {
+        var nodes = ParseWithoutRpn(formula);
+        var polish = PolishNotationService.GetReversedNodes(nodes);
+        return new FormulaNodes(polish);
+    }
+
+    /// <summary>
+    /// Return parsed formula nodes without RPN
+    /// </summary>
+    public List<BaseFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
+    {
+        var negativeBracketCounters = new BracketCounters();
+        var nodes = new List<BaseFormulaNode>();
+
+        for (int i = 0; i < formula.Length; i++)
         {
-            FunctionsReader = functionReader;
+            var ch = formula[i];
+
+            if (ch.IsWhiteSpace())
+                continue;
+
+            if (FunctionCharReader.TryProceedFunctionChar(nodes, ch))
+                continue;
+
+            if (BracketReader.TryProceedOpenBracket(nodes, formula, negativeBracketCounters, ref i))
+                continue;
+
+            if (BracketReader.TryProceedCloseBracket(nodes, formula, negativeBracketCounters, ref i))
+                continue;
+
+            if (VariableReader.TryProceedBorderedVariable(nodes, formula, ref i))
+                continue;
+
+            if (NumberReader.TryProceedNumber(nodes, formula, ref i))
+                continue;
+
+            if (FunctionsReader.TryProceedFunction(nodes, formula, ref i))
+                continue;
+
+            if (VariableReader.TryProceedSimpleVariable(nodes, formula, ref i))
+                continue;
+
+            if (WordReader.TryProceedWord(nodes, formula, ref i))
+                continue;
+
+            if (ListReader.TryProceedList(nodes, formula, ref i))
+                continue;
+
+            if (OperatorReader.TryProceedOperator(nodes, formula, ref i))
+                continue;
         }
 
-        /// <summary>
-        /// Return parsed formula nodes
-        /// </summary>
-        public FormulaNodes Parse(string formula)
-        {
-            return Parse(formula.AsSpan());
-        }
-
-        /// <summary>
-        /// Return parsed formula nodes
-        /// </summary>
-        public FormulaNodes Parse(ReadOnlySpan<char> formula)
-        {
-            var nodes = ParseWithoutRpn(formula);
-            var polish = PolishNotationService.GetReversedNodes(nodes);
-            return new FormulaNodes(polish);
-        }
-
-        /// <summary>
-        /// Return parsed formula nodes without RPN
-        /// </summary>
-        public List<BaseFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)
-        {
-            var negativeBracketCounters = new BracketCounters();
-            var nodes = new List<BaseFormulaNode>();
-
-            for (int i = 0; i < formula.Length; i++)
-            {
-                var ch = formula[i];
-
-                if (ch.IsWhiteSpace())
-                    continue;
-
-                if (FunctionCharReader.TryProceedFunctionChar(nodes, ch))
-                    continue;
-
-                if (BracketReader.TryProceedOpenBracket(nodes, formula, negativeBracketCounters, ref i))
-                    continue;
-
-                if (BracketReader.TryProceedCloseBracket(nodes, formula, negativeBracketCounters, ref i))
-                    continue;
-
-                if (VariableReader.TryProceedBorderedVariable(nodes, formula, ref i))
-                    continue;
-
-                if (NumberReader.TryProceedNumber(nodes, formula, ref i))
-                    continue;
-
-                if (FunctionsReader.TryProceedFunction(nodes, formula, ref i))
-                    continue;
-
-                if (VariableReader.TryProceedSimpleVariable(nodes, formula, ref i))
-                    continue;
-
-                if (WordReader.TryProceedWord(nodes, formula, ref i))
-                    continue;
-
-                if(ListReader.TryProceedList(nodes, formula, ref i))
-                    continue;
-
-                if (OperatorReader.TryProceedOperator(nodes, formula, ref i))
-                    continue;
-            }
-
-            return nodes;
-        }
+        return nodes;
     }
 }

@@ -1,32 +1,31 @@
-﻿using NoStringEvaluating.Nodes.Base;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using NoStringEvaluating.Nodes.Base;
 
-namespace NoStringEvaluating.Nodes
+namespace NoStringEvaluating.Nodes;
+
+/// <summary>
+/// Formula node - NumberList
+/// </summary>
+public class NumberListNode : BaseFormulaNode
 {
+    /// <summary>
+    /// NumberList
+    /// </summary>
+    public List<double> NumberList { get; }
+
     /// <summary>
     /// Formula node - NumberList
     /// </summary>
-    public class NumberListNode : BaseFormulaNode
+    public NumberListNode(List<double> numberList) : base(NodeTypeEnum.NumberList)
     {
-        /// <summary>
-        /// NumberList
-        /// </summary>
-        public List<double> NumberList { get; }
+        NumberList = numberList;
+    }
 
-        /// <summary>
-        /// Formula node - NumberList
-        /// </summary>
-        public NumberListNode(List<double> numberList) : base(NodeTypeEnum.NumberList)
-        {
-            NumberList = numberList;
-        }
-
-        /// <summary>
-        /// ToString
-        /// </summary>
-        public override string ToString()
-        {
-            return string.Join(", ", NumberList);
-        }
+    /// <summary>
+    /// ToString
+    /// </summary>
+    public override string ToString()
+    {
+        return string.Join(", ", NumberList);
     }
 }

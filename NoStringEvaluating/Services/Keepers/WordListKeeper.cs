@@ -1,23 +1,21 @@
 ﻿using System.Collections.Generic;
-using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers.Base;
 
-namespace NoStringEvaluating.Services.Keepers
+namespace NoStringEvaluating.Services.Keepers;
+
+internal class WordListKeeper : BaseValueKeeper<List<string>>
 {
-    internal class WordListKeeper : BaseValueKeeper<List<string>>
+    internal WordListKeeper() : base(ValueTypeKey.WordList)
     {
-        internal WordListKeeper() : base(ValueTypeKey.WordList)
-        {
 
-        }
+    }
 
-        // Static 
-        internal static WordListKeeper Instance { get; }
+    // Static 
+    internal static WordListKeeper Instance { get; }
 
-        static WordListKeeper()
-        {
-            Instance = new WordListKeeper();
-        }
+    static WordListKeeper()
+    {
+        Instance = new WordListKeeper();
     }
 }

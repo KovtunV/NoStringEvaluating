@@ -3,16 +3,19 @@ using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.ObjectPool;
-using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Cache;
 using NoStringEvaluating.Services.Checking;
 using NoStringEvaluating.Services.Parsing;
 using NoStringEvaluating.Services.Parsing.NodeReaders;
+using NoStringEvaluating;
 
-namespace ConsoleApp;
+namespace NoStringEvaluatingTests;
 
+/// <summary>
+/// NoStringEvaluator registrar
+/// </summary>
 public static class NoStringEvaluatorExtensions
 {
     /// <summary>

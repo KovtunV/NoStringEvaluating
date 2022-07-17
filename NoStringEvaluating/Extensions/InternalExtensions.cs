@@ -1,35 +1,34 @@
 ﻿using NoStringEvaluating.Models;
 
-namespace NoStringEvaluating.Extensions
+namespace NoStringEvaluating.Extensions;
+
+internal static class InternalExtensions
 {
-    internal static class InternalExtensions
+    internal static bool IsSimpleVariable(this char ch)
     {
-        internal static bool IsSimpleVariable(this char ch)
-        {
-            return char.IsLetterOrDigit(ch) || ch == '_';
-        }
+        return char.IsLetterOrDigit(ch) || ch == '_';
+    }
 
-        internal static bool IsFloatingNumber(this char ch)
-        {
-            var isDigit = ch.IsDigit();
+    internal static bool IsFloatingNumber(this char ch)
+    {
+        var isDigit = ch.IsDigit();
 
-            return NoStringEvaluatorConstants.FloatingPointSymbol switch
-            {
-                FloatingPointSymbol.Dot => (isDigit || ch == '.'),
-                FloatingPointSymbol.Comma => (isDigit || ch == ','),
-                FloatingPointSymbol.DotComma => (isDigit || ch == '.' || ch == ','),
-                _ => false
-            };
-        }
-
-        internal static bool IsDigit(this char ch)
+        return NoStringEvaluatorConstants.FloatingPointSymbol switch
         {
-            return char.IsDigit(ch);
-        }
+            FloatingPointSymbol.Dot => (isDigit || ch == '.'),
+            FloatingPointSymbol.Comma => (isDigit || ch == ','),
+            FloatingPointSymbol.DotComma => (isDigit || ch == '.' || ch == ','),
+            _ => false
+        };
+    }
 
-        internal static bool IsWhiteSpace(this char ch)
-        {
-            return char.IsWhiteSpace(ch);
-        }
+    internal static bool IsDigit(this char ch)
+    {
+        return char.IsDigit(ch);
+    }
+
+    internal static bool IsWhiteSpace(this char ch)
+    {
+        return char.IsWhiteSpace(ch);
     }
 }

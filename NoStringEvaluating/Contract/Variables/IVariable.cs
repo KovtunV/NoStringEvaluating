@@ -1,20 +1,19 @@
 ﻿using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Contract.Variables
+namespace NoStringEvaluating.Contract.Variables;
+
+/// <summary>
+/// Variable model
+/// </summary>
+public interface IVariable
 {
     /// <summary>
-    /// Variable model
+    /// Name
     /// </summary>
-    public interface IVariable
-    {
-        /// <summary>
-        /// Name
-        /// </summary>
-        string Name { get; set; }
+    string Name { get; set; }
 
-        /// <summary>
-        /// Value
-        /// </summary>
-        EvaluatorValue Value { get; set; }
-    }
+    /// <summary>
+    /// Value
+    /// </summary>
+    EvaluatorValue Value { get; set; }
 }

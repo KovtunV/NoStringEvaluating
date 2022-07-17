@@ -1,21 +1,20 @@
 ﻿using System;
 using NoStringEvaluating.Models.FormulaChecker;
 
-namespace NoStringEvaluating.Contract
+namespace NoStringEvaluating.Contract;
+
+/// <summary>
+/// Syntax checker
+/// </summary>
+public interface IFormulaChecker
 {
     /// <summary>
-    /// Syntax checker
+    /// Check syntax
     /// </summary>
-    public interface IFormulaChecker
-    {
-        /// <summary>
-        /// Check syntax
-        /// </summary>
-        CheckFormulaResult CheckSyntax(string formula);
+    CheckFormulaResult CheckSyntax(string formula);
 
-        /// <summary>
-        /// Check syntax
-        /// </summary>
-        CheckFormulaResult CheckSyntax(ReadOnlySpan<char> formula);
-    }
+    /// <summary>
+    /// Check syntax
+    /// </summary>
+    CheckFormulaResult CheckSyntax(ReadOnlySpan<char> formula);
 }

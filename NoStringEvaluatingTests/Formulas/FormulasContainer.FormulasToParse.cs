@@ -1,13 +1,12 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluatingTests.Model;
 
-namespace NoStringEvaluatingTests.Formulas
+namespace NoStringEvaluatingTests.Formulas;
+
+public static partial class FormulasContainer
 {
-    public static partial class FormulasContainer
+    public static IEnumerable<FormulaModel[]> GetFormulasToParse()
     {
-        public static IEnumerable<FormulaModel[]> GetFormulasToParse()
-        {
-            return GetCommonFormulas();
-        }
+        return GetCommonFormulas();
     }
 }
