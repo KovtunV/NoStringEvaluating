@@ -45,9 +45,7 @@ namespace NoStringEvaluating.Models.Values
 
         internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
         {
-            // The 0 value we have attached to NULL
-            _extraTypeId = extraTypeId + 1;
-            //
+            _extraTypeId = extraTypeId;
             TypeKey = typeKey;
             Number = double.NaN;
         }
@@ -147,7 +145,7 @@ namespace NoStringEvaluating.Models.Values
         public string GetWord()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsWord ? WordKeeper.Instance.Get(_extraTypeId - 1) : null;
+            return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : null;
         }
 
         /// <summary>
@@ -156,7 +154,7 @@ namespace NoStringEvaluating.Models.Values
         public DateTime GetDateTime()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId - 1) : DateTime.MinValue;
+            return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : DateTime.MinValue;
         }
 
         /// <summary>
@@ -165,7 +163,7 @@ namespace NoStringEvaluating.Models.Values
         public List<string> GetWordList()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId - 1) : null;
+            return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : null;
         }
 
         /// <summary>
@@ -174,7 +172,7 @@ namespace NoStringEvaluating.Models.Values
         public List<double> GetNumberList()
         {
             // It has to be a method to avoid misunderstanding inside custom functions
-            return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId - 1) : null;
+            return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : null;
         }
 
         #endregion
@@ -358,7 +356,7 @@ namespace NoStringEvaluating.Models.Values
         /// <summary>
         /// Null Id
         /// </summary>
-        private const int NullId = 0;
+        private const int NullId = -1;
     }
 
 }

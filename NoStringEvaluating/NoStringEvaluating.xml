@@ -3780,6 +3780,11 @@
             Node type matching
             </summary>
         </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NullConst">
+            <summary>
+            Null
+            </summary>
+        </member>
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Number">
             <summary>
             Number
@@ -3828,11 +3833,6 @@
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Function">
             <summary>
             Function
-            </summary>
-        </member>
-        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NullConst">
-            <summary>
-            Null
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.BracketNode">
