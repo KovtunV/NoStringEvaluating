@@ -21,7 +21,8 @@ class Program
 
         //var res = eval.CalcWord("5 + 'h'", args);
 
-        BenchmarkRunner.Run<BenchmarkNumberService>();
+        //BenchmarkRunner.Run<BenchmarkNumberService>();
+        BenchmarkRunner.Run<BenchmarkEvaluationPerformance>();
     }
 
 

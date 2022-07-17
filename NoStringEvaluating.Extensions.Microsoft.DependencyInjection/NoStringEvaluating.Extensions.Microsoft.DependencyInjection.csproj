@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
-    <PackageReference Include="NoStringEvaluating" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +34,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
   </ItemGroup>
 
 </Project>

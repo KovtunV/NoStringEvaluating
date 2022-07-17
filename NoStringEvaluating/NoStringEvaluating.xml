@@ -84,7 +84,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -93,7 +92,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -102,7 +100,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -111,7 +108,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -120,7 +116,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -129,7 +124,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -138,7 +132,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -147,7 +140,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -156,7 +148,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -165,7 +156,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -174,7 +164,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -183,7 +172,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -192,7 +180,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -201,7 +188,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -210,7 +196,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -219,7 +204,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -228,7 +212,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -237,7 +220,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -246,7 +228,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -255,7 +236,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -264,7 +244,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -273,7 +252,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -282,7 +260,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -291,7 +268,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -300,7 +276,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -309,7 +284,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -318,7 +292,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -327,7 +300,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -336,7 +308,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -345,7 +316,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -354,7 +324,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -363,7 +332,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -372,7 +340,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -381,7 +348,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -390,7 +356,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -399,7 +364,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -408,7 +372,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -417,7 +380,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -426,7 +388,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -435,7 +396,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -444,7 +404,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -453,7 +412,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -659,6 +617,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Base.IFunction.CanHandleNullArguments">
+            <summary>
+            Does the function allow for input arguments to be null? Return false if NULL input arguments are not supported. Your function can also return  default(InternalEvaluatorValue)  to return a NULL result
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Base.IFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -673,6 +636,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.CountFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.CountFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.CountFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -691,6 +659,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.DateDifFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.DateDifFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -704,6 +677,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.DateFormatFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -722,6 +700,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.DayFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.DayFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -736,6 +719,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Date.MonthFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.MonthFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.MonthFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -754,6 +742,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.NowFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.NowFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -768,6 +761,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.TimeDifFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -786,6 +784,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.ToDateTimeFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.ToDateTimeFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -800,6 +803,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Date.TodayFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.TodayFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.TodayFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -818,6 +826,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.WeekDayFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.WeekDayFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -832,6 +845,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Date.YearFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.YearFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Date.YearFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -849,6 +867,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsErrorFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.IsErrorFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -864,6 +887,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsMemberFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.IsMemberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -877,6 +905,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.IsNumberFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.IsNumberFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.IsNumberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -895,6 +928,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.LenFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.LenFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -909,6 +947,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.SortFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.SortFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.SortFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -926,6 +969,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.ToNumberFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.ToNumberFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -940,6 +988,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.ConcatFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.ConcatFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.ConcatFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -959,6 +1012,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.ExplodeFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.ExplodeFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -976,6 +1034,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.ImplodeFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.ImplodeFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -989,6 +1052,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.IsTextFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.IsTextFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.IsTextFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1007,6 +1075,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.LeftFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.LeftFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1021,6 +1094,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.LowerFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.LowerFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.LowerFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1039,6 +1117,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.MiddleFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.MiddleFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1053,6 +1136,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.ProperFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.ProperFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.ProperFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1071,6 +1159,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.ReplaceFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.ReplaceFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1087,6 +1180,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.RightFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.RightFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1101,6 +1199,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.TextFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.TextFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.TextFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1120,6 +1223,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.UniqueFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.UniqueFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1134,6 +1242,11 @@
         <member name="P:NoStringEvaluating.Functions.Excel.Word.UpperFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Word.UpperFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Excel.Word.UpperFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1151,6 +1264,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.AndFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Logic.AndFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1164,6 +1282,11 @@
         <member name="P:NoStringEvaluating.Functions.Logic.IffFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.IffFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Logic.IffFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1181,6 +1304,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.IfFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Logic.IfFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1194,6 +1322,11 @@
         <member name="P:NoStringEvaluating.Functions.Logic.IsnanFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.IsnanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Logic.IsnanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1211,6 +1344,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.NotFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Logic.NotFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1226,6 +1364,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.OrFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Logic.OrFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1239,6 +1382,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.AbsFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.AbsFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.AbsFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1257,6 +1405,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.AddFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.AddFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1270,6 +1423,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.CeilFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.CeilFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.CeilFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1287,6 +1445,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FactFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.FactFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1300,6 +1463,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.FibFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FibFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.FibFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1317,6 +1485,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.FloorFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.FloorFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1330,6 +1503,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.GcdFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.GcdFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.GcdFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1347,6 +1525,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LcmFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.LcmFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1360,6 +1543,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.LnFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LnFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.LnFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1377,6 +1565,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Log10Function.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Log10Function.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1392,6 +1585,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Log2Function.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Log2Function.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1405,6 +1603,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.LogFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.LogFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.LogFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1423,6 +1626,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MaxFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.MaxFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1436,6 +1644,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.MeanFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MeanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.MeanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1453,6 +1666,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MinFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.MinFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1468,6 +1686,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.ModFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.ModFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1481,6 +1704,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.MultiFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.MultiFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.MultiFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1499,6 +1727,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.RoundFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.RoundFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Execute value
@@ -1512,6 +1745,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.SgnFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SgnFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.SgnFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1529,6 +1767,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SignFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.SignFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1542,6 +1785,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.SqrtFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.SqrtFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.SqrtFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1559,6 +1807,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcosechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcosechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1572,6 +1825,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.AcschFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1589,6 +1847,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArccschFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArccschFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1602,6 +1865,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcosechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1619,6 +1887,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcschFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.ArcschFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1632,6 +1905,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosecFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1649,6 +1927,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CosechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1662,6 +1945,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CscFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1679,6 +1967,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CschFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cosec.CschFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1692,6 +1985,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcosFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1709,6 +2007,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcoshFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.AcoshFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1722,6 +2025,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccosFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1742,6 +2050,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccoshFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArccoshFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1755,6 +2068,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcosFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1772,6 +2090,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcoshFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.ArcoshFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1785,6 +2108,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CosFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1802,6 +2130,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CoshFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cos.CoshFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1815,6 +2148,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcotFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1832,6 +2170,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcothFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.AcothFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1845,6 +2188,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1862,6 +2210,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1875,6 +2228,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1892,6 +2250,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ActghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1905,6 +2268,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccotFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1922,6 +2290,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccothFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArccothFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1935,6 +2308,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1952,6 +2330,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1965,6 +2348,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -1982,6 +2370,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.ArcctghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -1995,6 +2388,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CotFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2012,6 +2410,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CothFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CothFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate function
@@ -2025,6 +2428,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2042,6 +2450,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2055,6 +2468,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2072,6 +2490,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Cotan.CtghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2085,6 +2508,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.DegFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2102,6 +2530,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.ExpFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.ExpFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2115,6 +2548,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.RadFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2132,6 +2570,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsecFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsecFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2145,6 +2588,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArcsechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2162,6 +2610,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArsechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.ArsechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2175,6 +2628,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.AsechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2192,6 +2650,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SecFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SecFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2205,6 +2668,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sec.SechFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2222,6 +2690,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2235,6 +2708,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArcsinhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2252,6 +2730,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2265,6 +2748,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.ArsinhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2282,6 +2770,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2295,6 +2788,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.AsinhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2312,6 +2810,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2325,6 +2828,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Sin.SinhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2342,6 +2850,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2355,6 +2868,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2372,6 +2890,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2385,6 +2908,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.ArctghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2402,6 +2930,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2415,6 +2948,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2432,6 +2970,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2445,6 +2988,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.AtghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2462,6 +3010,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2475,6 +3028,11 @@
         <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction.Name">
             <summary>
             Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TanhFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -2492,6 +3050,11 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TgFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TgFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
@@ -2507,9 +3070,54 @@
             Name
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TghFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Functions.Math.Trigonometry.Tan.TghFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Null.IfNullFunction">
+            <summary>
+            Function - IfNull(x,3) => Returns 3 if x is Null
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.IfNullFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.IfNullFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Null.IfNullFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Evaluate function
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Null.NullIfFunction">
+            <summary>
+            Function - NullIf(x,3) => Returns NULL if x == 3
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.NullIfFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.NullIfFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Null.NullIfFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Evaluate function
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Bracket">
@@ -2832,6 +3440,11 @@
             Value
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor">
+            <summary>
+            Value
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.ToString">
             <summary>
             ToString
@@ -2842,12 +3455,22 @@
             To EvaluatorValue
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.Double})~NoStringEvaluating.Models.Values.EvaluatorValue">
+            <summary>
+            To EvaluatorValue
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.String)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.DateTime)~NoStringEvaluating.Models.Values.EvaluatorValue">
+            <summary>
+            To EvaluatorValue
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.DateTime})~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
@@ -2863,6 +3486,11 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Boolean)~NoStringEvaluating.Models.Values.EvaluatorValue">
+            <summary>
+            To EvaluatorValue
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.Boolean})~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
@@ -2885,6 +3513,11 @@
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.GetHashCode">
             <summary>
             GetHashCode
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.IsNull">
+            <summary>
+            IsNull
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ExtraTypeIdContainer">
@@ -2927,6 +3560,11 @@
             Value for internal processing
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor">
+            <summary>
+            NULL Instance
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.ToString">
             <summary>
             ToString
@@ -2957,6 +3595,11 @@
             IsNumberList
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsNull">
+            <summary>
+            IsNull
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWord">
             <summary>
             Returns string
@@ -2975,6 +3618,11 @@
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetNumberList">
             <summary>
             Returns double List
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.Equals(NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
+            <summary>
+            Equals
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Addition(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
@@ -3022,6 +3670,11 @@
             To double
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.Double}">
+            <summary>
+            To double?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.String">
             <summary>
             To string
@@ -3030,6 +3683,11 @@
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.DateTime">
             <summary>
             To DateTime
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.DateTime}">
+            <summary>
+            To DateTime?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Collections.Generic.List{System.String}">
@@ -3047,6 +3705,11 @@
             To boolean
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.Boolean}">
+            <summary>
+            To boolean?
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.InternalEvaluatorValue">
             <summary>
             To InternalEvaluatorValue
@@ -3060,6 +3723,11 @@
         <member name="T:NoStringEvaluating.Models.Values.ValueTypeKey">
             <summary>
             Type matching
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Null">
+            <summary>
+            NULL, must be zero so that if default(EvaluatorValue) is used the typekeyis automatically null
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Number">
@@ -3160,6 +3828,11 @@
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Function">
             <summary>
             Function
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NullConst">
+            <summary>
+            Null
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.BracketNode">
@@ -3268,6 +3941,21 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.NullNode">
+            <summary>
+            Formula node - Null
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NullNode.#ctor">
+            <summary>
+            Null Const
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.NullNode.ToString">
             <summary>
             ToString
             </summary>
@@ -3416,7 +4104,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3425,7 +4112,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3434,7 +4120,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3443,7 +4128,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3452,7 +4136,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3461,7 +4144,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3470,7 +4152,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3479,7 +4160,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3488,7 +4168,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3497,7 +4176,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3506,7 +4184,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3515,7 +4192,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3524,7 +4200,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3533,7 +4208,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3542,7 +4216,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3551,7 +4224,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3560,7 +4232,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3569,7 +4240,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3578,7 +4248,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3587,7 +4256,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3596,7 +4264,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3605,7 +4272,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3614,7 +4280,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3623,7 +4288,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3632,7 +4296,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3641,7 +4304,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3650,7 +4312,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3659,7 +4320,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3668,7 +4328,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3677,7 +4336,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3686,7 +4344,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3695,7 +4352,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3704,7 +4360,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3713,7 +4368,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3722,7 +4376,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3731,7 +4384,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3740,7 +4392,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3749,7 +4400,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3758,7 +4408,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3767,7 +4416,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3776,7 +4424,6 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -3785,10 +4432,36 @@
             <summary>
             Calculate formula
             </summary>
-            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormulaInternal(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},NoStringEvaluating.Services.Variables.VariablesSource)">
+            <summary>
+            Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
+            </summary>
+            <param name="nodes"></param>
+            <param name="variables"></param>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorConstants">
             <summary>
