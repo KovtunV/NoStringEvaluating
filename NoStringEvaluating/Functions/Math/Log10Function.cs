@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - log10
-/// </summary>
-public class Log10Function : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - log10
     /// </summary>
-    public virtual string Name { get; } = "LOG10";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class Log10Function : IFunction
     {
-        return System.Math.Log10(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "LOG10";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Log10(args[0]);
+        }
     }
 }

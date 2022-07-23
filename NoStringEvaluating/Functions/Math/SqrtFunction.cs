@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - sqrt
-/// </summary>
-public class SqrtFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - sqrt
     /// </summary>
-    public virtual string Name { get; } = "SQRT";
-
-    /// <summary>
-    /// Evaluate function
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class SqrtFunction : IFunction
     {
-        return System.Math.Sqrt(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "SQRT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate function
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Sqrt(args[0]);
+        }
     }
 }

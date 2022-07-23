@@ -103,6 +103,15 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         _referenceValueFacade = numberList;
     }
 
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue()
+    {
+        TypeKey = ValueTypeKey.Null;
+    }
+
+
     #endregion
 
     /// <summary>
@@ -135,6 +144,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return Boolean.ToString(CultureInfo.InvariantCulture);
         }
 
+        if (TypeKey == ValueTypeKey.Null)
+        {
+            return "Null";
+        }
+
         return Number.ToString(CultureInfo.InvariantCulture);
     }
 
@@ -151,9 +165,17 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// <summary>
     /// To EvaluatorValue
     /// </summary>
+    public static implicit operator EvaluatorValue(double? a)
+    {
+        return a == null ? default : new EvaluatorValue(a.Value);
+    }
+
+    /// <summary>
+    /// To EvaluatorValue
+    /// </summary>
     public static implicit operator EvaluatorValue(string a)
     {
-        return new EvaluatorValue(a);
+        return a == null ? default : new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -163,13 +185,20 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         return new EvaluatorValue(a);
     }
+    /// <summary>
+    /// To EvaluatorValue
+    /// </summary>
+    public static implicit operator EvaluatorValue(DateTime? a)
+    {
+        return a == null ? default : new EvaluatorValue(a.Value);
+    }
 
     /// <summary>
     /// To EvaluatorValue
     /// </summary>
     public static implicit operator EvaluatorValue(List<string> a)
     {
-        return new EvaluatorValue(a);
+        return a == null ? default : new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -177,7 +206,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public static implicit operator EvaluatorValue(List<double> a)
     {
-        return new EvaluatorValue(a);
+        return a == null ? default : new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -186,6 +215,14 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public static implicit operator EvaluatorValue(bool a)
     {
         return new EvaluatorValue(a);
+    }
+
+    /// <summary>
+    /// To EvaluatorValue
+    /// </summary>
+    public static implicit operator EvaluatorValue(bool? a)
+    {
+        return a == null ? default : new EvaluatorValue(a.Value);
     }
 
     /// <summary>
@@ -218,6 +255,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return new EvaluatorValue(a.GetNumberList());
         }
 
+        if (a.IsNull)
+        {
+            return new EvaluatorValue();
+        }
+
         throw new InvalidCastException($"Can't cast {nameof(InternalEvaluatorValue)} with the typeKey = \"{a.TypeKey}\" to {nameof(EvaluatorValue)}");
     }
 
@@ -239,10 +281,10 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public bool Equals(EvaluatorValue other)
     {
         return TypeKey == other.TypeKey &&
-            Boolean == other.Boolean &&
-            Number.Equals(other.Number) &&
-            DateTime.Equals(other.DateTime) &&
-            EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade);
+               Number == other.Number &&
+               Boolean == other.Boolean &&
+               DateTime == other.DateTime &&
+               EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade);
     }
 
     /// <summary>
@@ -251,6 +293,18 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public override int GetHashCode()
     {
         return HashCode.Combine(_referenceValueFacade, TypeKey, Number, Boolean, DateTime);
+    }
+
+    #endregion
+
+    #region Null
+
+    /// <summary>
+    /// IsNull
+    /// </summary>
+    public bool IsNull
+    {
+        get => TypeKey == ValueTypeKey.Null;
     }
 
     #endregion

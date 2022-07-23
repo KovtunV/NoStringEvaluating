@@ -1,57 +1,63 @@
-﻿namespace NoStringEvaluating.Nodes.Base;
-
-/// <summary>
-/// Node type matching
-/// </summary>
-public enum NodeTypeEnum
+﻿namespace NoStringEvaluating.Nodes.Base
 {
     /// <summary>
-    /// Number
+    /// Node type matching
     /// </summary>
-    Number,
+    public enum NodeTypeEnum : byte
+    {
+        /// <summary>
+        /// Null
+        /// </summary>
+        NullConst = 0, // Must be 0 for NULL so that   x = default(EvaluatorValue)  will say x = the NULL value
 
-    /// <summary>
-    /// Operator
-    /// </summary>
-    Operator,
+        /// <summary>
+        /// Number
+        /// </summary>
+        Number,
 
-    /// <summary>
-    /// Variable
-    /// </summary>
-    Variable,
+        /// <summary>
+        /// Operator
+        /// </summary>
+        Operator,
 
-    /// <summary>
-    /// Function wrapper
-    /// </summary>
-    FunctionWrapper,
+        /// <summary>
+        /// Variable
+        /// </summary>
+        Variable,
 
-    /// <summary>
-    /// Word
-    /// </summary>
-    Word,
+        /// <summary>
+        /// Function wrapper
+        /// </summary>
+        FunctionWrapper,
 
-    /// <summary>
-    /// WordList
-    /// </summary>
-    WordList,
+        /// <summary>
+        /// Word
+        /// </summary>
+        Word,
 
-    /// <summary>
-    /// NumberList
-    /// </summary>
-    NumberList,
+        /// <summary>
+        /// WordList
+        /// </summary>
+        WordList,
 
-    /// <summary>
-    /// Bracket
-    /// </summary>
-    Bracket,
+        /// <summary>
+        /// NumberList
+        /// </summary>
+        NumberList,
 
-    /// <summary>
-    /// Function char
-    /// </summary>
-    FunctionChar,
+        /// <summary>
+        /// Bracket
+        /// </summary>
+        Bracket,
 
-    /// <summary>
-    /// Function
-    /// </summary>
-    Function
+        /// <summary>
+        /// Function char
+        /// </summary>
+        FunctionChar,
+
+        /// <summary>
+        /// Function
+        /// </summary>
+        Function
+    }
 }

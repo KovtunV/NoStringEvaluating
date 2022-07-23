@@ -4,59 +4,65 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Concatenates all members of a text list and returns a text string
-/// <para>Implode(myList) or Implode(myList; separator) or Implode(myList; 5; 'my wordd'; separator) last value is separator</para>
-/// <para>separator by default is empty ""</para>
-/// </summary>
-public class ImplodeFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Concatenates all members of a text list and returns a text string
+    /// <para>Implode(myList) or Implode(myList; separator) or Implode(myList; 5; 'my wordd'; separator) last value is separator</para>
+    /// <para>separator by default is empty ""</para>
     /// </summary>
-    public virtual string Name { get; } = "IMPLODE";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ImplodeFunction : IFunction
     {
-        var separator = args.Count > 1 ? args[^1].GetWord() : string.Empty;
-        var res = string.Join(separator, GetLoop(args));
-        return factory.Word().Create(res);
-    }
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "IMPLODE";
 
-    private IEnumerable<string> GetLoop(List<InternalEvaluatorValue> args)
-    {
-        var n = args.Count == 1 ? 1 : args.Count - 1;
-        for (int i = 0; i < n; i++)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[i];
+            var separator = args.Count > 1 ? args[^1].GetWord() : string.Empty;
+            var res = string.Join(separator, GetLoop(args));
+            return factory.Word().Create(res);
+        }
 
-            if (arg.IsWordList)
+        private IEnumerable<string> GetLoop(List<InternalEvaluatorValue> args)
+        {
+            var n = args.Count == 1 ? 1 : args.Count - 1;
+            for (int i = 0; i < n; i++)
             {
-                var wordList = arg.GetWordList();
-                for (int j = 0; j < wordList.Count; j++)
+                var arg = args[i];
+
+                if (arg.IsWordList)
                 {
-                    yield return wordList[j];
+                    var wordList = arg.GetWordList();
+                    for (int j = 0; j < wordList.Count; j++)
+                    {
+                        yield return wordList[j];
+                    }
                 }
-            }
-            else if (arg.IsNumberList)
-            {
-                var numberList = arg.GetNumberList();
-                for (int j = 0; j < numberList.Count; j++)
+                else if (arg.IsNumberList)
                 {
-                    yield return numberList[j].ToString(CultureInfo.InvariantCulture);
+                    var numberList = arg.GetNumberList();
+                    for (int j = 0; j < numberList.Count; j++)
+                    {
+                        yield return numberList[j].ToString(CultureInfo.InvariantCulture);
+                    }
                 }
-            }
-            else
-            {
-                yield return arg.ToString();
+                else
+                {
+                    yield return arg.ToString();
+                }
             }
         }
+
+
     }
-
-
 }

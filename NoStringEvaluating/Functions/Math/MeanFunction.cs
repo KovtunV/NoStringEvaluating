@@ -3,44 +3,50 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - mean
-/// </summary>
-public class MeanFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - mean
     /// </summary>
-    public virtual string Name { get; } = "MEAN";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class MeanFunction : IFunction
     {
-        var count = 0;
-        var sum = 0d;
-        for (int i = 0; i < args.Count; i++)
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "MEAN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[i];
-            if (arg.IsNumberList)
+            var count = 0;
+            var sum = 0d;
+            for (int i = 0; i < args.Count; i++)
             {
-                var numberList = arg.GetNumberList();
-                for (int j = 0; j < numberList.Count; j++)
+                var arg = args[i];
+                if (arg.IsNumberList)
                 {
-                    sum += numberList[j];
+                    var numberList = arg.GetNumberList();
+                    for (int j = 0; j < numberList.Count; j++)
+                    {
+                        sum += numberList[j];
+                    }
+
+                    count += numberList.Count;
+                    continue;
                 }
 
-                count += numberList.Count;
-                continue;
+                sum += args[i];
+                count++;
             }
 
-            sum += args[i];
-            count++;
+            return sum / count;
         }
-
-        return sum / count;
     }
 }

@@ -6,7 +6,7 @@ internal static class InternalExtensions
 {
     internal static bool IsSimpleVariable(this char ch)
     {
-        return char.IsLetterOrDigit(ch) || ch == '_';
+        return char.IsLetterOrDigit(ch) || ch == '_' || ch == '.';
     }
 
     internal static bool IsFloatingNumber(this char ch)

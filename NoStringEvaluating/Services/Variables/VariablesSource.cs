@@ -1,77 +1,47 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Services.Variables;
-
-internal readonly struct VariablesSource
+namespace NoStringEvaluating.Services.Variables
 {
-    private readonly IVariablesContainer _variablesContainer;
-    private readonly IDictionary<string, EvaluatorValue> _variablesDict;
-
-    private VariablesSource(IVariablesContainer variablesContainer, IDictionary<string, EvaluatorValue> variablesDict)
+    internal readonly struct VariablesSource
     {
-        _variablesContainer = variablesContainer;
-        _variablesDict = variablesDict;
-    }
+        private readonly IVariablesContainer _variablesContainer;
+        private readonly IDictionary<string, EvaluatorValue> _variablesDict;
 
-    internal EvaluatorValue GetValue(string name)
-    {
-        // Check null
-        ThrowExceptionIfSourcesAreNull(name);
-
-        // Check an implemented container
-        if (_variablesContainer != null)
+        private VariablesSource(IVariablesContainer variablesContainer, IDictionary<string, EvaluatorValue> variablesDict)
         {
-            return GetValueFromContainer(name);
+            _variablesContainer = variablesContainer;
+            _variablesDict = variablesDict;
         }
 
-        // Check a dictionary
-        return GetValueFromDictionary(name);
-    }
-
-    private EvaluatorValue GetValueFromContainer(string name)
-    {
-        if (!_variablesContainer.TryGetValue(name, out var value))
+        internal EvaluatorValue GetValue(string name)
         {
-            ThrowException(name);
+            // Check an implemented container
+            if (_variablesContainer != null) return GetValueFromContainer(name);
+            // Check a dictionary
+            if (_variablesDict != null && _variablesDict.TryGetValue(name, out var value)) return value;
+            // Not in there, return null value
+            return default(InternalEvaluatorValue);
         }
 
-        return value;
-    }
-
-    private EvaluatorValue GetValueFromDictionary(string name)
-    {
-        if (!_variablesDict.TryGetValue(name, out var value))
+        private EvaluatorValue GetValueFromContainer(string name)
         {
-            ThrowException(name);
+            if (_variablesContainer.TryGetValue(name, out var value)) return value;
+            // Not in there return null value
+            return default(InternalEvaluatorValue);
         }
 
-        return value;
-    }
-
-    private void ThrowExceptionIfSourcesAreNull(string name)
-    {
-        if (_variablesDict is null && _variablesContainer is null)
+        internal static VariablesSource Create(IVariablesContainer variablesContainer)
         {
-            ThrowException(name);
+            return new VariablesSource(variablesContainer, variablesDict: null);
         }
-    }
 
-    private void ThrowException(string name)
-    {
-        var msg = $"Variable \"{name}\" not found";
-        throw new VariableNotFoundException(name, msg);
-    }
-
-    internal static VariablesSource Create(IVariablesContainer variablesContainer)
-    {
-        return new VariablesSource(variablesContainer, variablesDict: null);
-    }
-
-    internal static VariablesSource Create(IDictionary<string, EvaluatorValue> variablesDict)
-    {
-        return new VariablesSource(variablesContainer: null, variablesDict);
+        internal static VariablesSource Create(IDictionary<string, EvaluatorValue> variablesDict)
+        {
+            return new VariablesSource(variablesContainer: null, variablesDict);
+        }
     }
 }

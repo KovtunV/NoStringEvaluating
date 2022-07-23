@@ -3,24 +3,30 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan;
-
-/// <summary>
-/// Function - arccoth
-/// </summary>
-public class ArccothFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
 {
     /// <summary>
-    /// Name
+    /// Function - arccoth
     /// </summary>
-    public virtual string Name { get; } = "ARCCOTH";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ArccothFunction : IFunction
     {
-        var x = args[0];
-        return System.Math.Log((x + 1) / (x - 1)) / 2;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ARCCOTH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            var x = args[0];
+            return System.Math.Log((x + 1) / (x - 1)) / 2;
+        }
     }
 }

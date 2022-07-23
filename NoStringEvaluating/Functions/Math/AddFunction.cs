@@ -3,43 +3,49 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - add
-/// <para>Add(1; 2; 3) or Add(myList; 1)</para>
-/// </summary>
-public class AddFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - add
+    /// <para>Add(1; 2; 3) or Add(myList; 1)</para>
     /// </summary>
-    public virtual string Name { get; } = "ADD";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class AddFunction : IFunction
     {
-        var sum = 0d;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ADD";
 
-        for (int i = 0; i < args.Count; i++)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[i];
-            if (arg.IsNumberList)
+            var sum = 0d;
+
+            for (int i = 0; i < args.Count; i++)
             {
-                var numberList = arg.GetNumberList();
-                for (int j = 0; j < numberList.Count; j++)
+                var arg = args[i];
+                if (arg.IsNumberList)
                 {
-                    sum += numberList[j];
+                    var numberList = arg.GetNumberList();
+                    for (int j = 0; j < numberList.Count; j++)
+                    {
+                        sum += numberList[j];
+                    }
+
+                    continue;
                 }
 
-                continue;
+                sum += args[i];
             }
 
-            sum += args[i];
+            return sum;
         }
-
-        return sum;
     }
 }

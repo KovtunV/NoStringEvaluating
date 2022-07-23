@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan;
-
-/// <summary>
-/// Function - ctgh
-/// </summary>
-public class CtghFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
 {
     /// <summary>
-    /// Name
+    /// Function - ctgh
     /// </summary>
-    public virtual string Name { get; } = "CTGH";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class CtghFunction : IFunction
     {
-        return 1 / System.Math.Tanh(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "CTGH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return 1 / System.Math.Tanh(args[0]);
+        }
     }
 }

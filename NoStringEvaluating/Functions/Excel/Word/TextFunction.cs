@@ -3,24 +3,30 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Return text from first argument
-/// <para>Text(26)</para>
-/// </summary>
-public class TextFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Return text from first argument
+    /// <para>Text(26)</para>
     /// </summary>
-    public virtual string Name { get; } = "TEXT";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class TextFunction : IFunction
     {
-        return factory.Word().Create(args[0].ToString());
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "TEXT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return factory.Word().Create(args[0].ToString());
+        }
     }
 }

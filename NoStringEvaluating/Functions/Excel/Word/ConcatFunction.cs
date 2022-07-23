@@ -3,61 +3,67 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Concates values
-/// <para>Concat(56; '_myWord') or Concat(myList; myArg; 45; myList2)</para>
-/// </summary>
-public class ConcatFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Concates values
+    /// <para>Concat(56; '_myWord') or Concat(myList; myArg; 45; myList2)</para>
     /// </summary>
-    public virtual string Name { get; } = "CONCAT";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ConcatFunction : IFunction
     {
-        var firstArg = args[0];
-        string res;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "CONCAT";
 
-        if (firstArg.IsWordList)
-        {
-            var wordList = firstArg.GetWordList();
-            res = string.Join(string.Empty, wordList);
-        }
-        else if (firstArg.IsNumberList)
-        {
-            var numberList = firstArg.GetNumberList();
-            res = string.Join(string.Empty, numberList);
-        }
-        else
-        {
-            res = firstArg.ToString();
-        }
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
-        for (int i = 1; i < args.Count; i++)
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[i];
-            if (arg.IsWordList)
+            var firstArg = args[0];
+            string res;
+
+            if (firstArg.IsWordList)
             {
-                var wordList = arg.GetWordList();
-                res += string.Join(string.Empty, wordList);
+                var wordList = firstArg.GetWordList();
+                res = string.Join("", wordList);
             }
-            else if (arg.IsNumberList)
+            else if (firstArg.IsNumberList)
             {
-                var numberList = arg.GetNumberList();
-                res += string.Join(string.Empty, numberList);
+                var numberList = firstArg.GetNumberList();
+                res = string.Join("", numberList);
             }
             else
             {
-                res += arg.ToString();
+                res = firstArg.ToString();
             }
-        }
 
-        return factory.Word().Create(res);
+            for (int i = 1; i < args.Count; i++)
+            {
+                var arg = args[i];
+                if (arg.IsWordList)
+                {
+                    var wordList = arg.GetWordList();
+                    res += string.Join("", wordList);
+                }
+                else if (arg.IsNumberList)
+                {
+                    var numberList = arg.GetNumberList();
+                    res += string.Join("", numberList);
+                }
+                else
+                {
+                    res += arg.ToString();
+                }
+            }
+
+            return factory.Word().Create(res);
+        }
     }
 }

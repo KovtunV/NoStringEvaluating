@@ -5,416 +5,417 @@ using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Nodes.Common;
 
-namespace NoStringEvaluating.Contract;
-
-/// <summary>
-/// Expression evaluator
-/// </summary>
-public interface INoStringEvaluator
+namespace NoStringEvaluating.Contract
 {
-    #region Number
-
     /// <summary>
-    /// Calculate formula
+    /// Expression evaluator
     /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(string formula, IVariablesContainer variables);
+    public interface INoStringEvaluator
+    {
+        #region Number
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    double CalcNumber(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        double? CalcNumber(FormulaNodes formulaNodes);
 
-    #region Word
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(string formula, IVariablesContainer variables);
+        #region Word
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    string CalcWord(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        string? CalcWord(FormulaNodes formulaNodes);
 
-    #region DateTime
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(string formula, IVariablesContainer variables);
+        #region DateTime
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    DateTime CalcDateTime(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        DateTime? CalcDateTime(FormulaNodes formulaNodes);
 
-    #region WordList
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(string formula, IVariablesContainer variables);
+        #region WordList
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<string> CalcWordList(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<string>? CalcWordList(FormulaNodes formulaNodes);
 
-    #region NumberList
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(string formula, IVariablesContainer variables);
+        #region NumberList
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    List<double> CalcNumberList(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        List<double>? CalcNumberList(FormulaNodes formulaNodes);
 
-    #region Boolean
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(string formula, IVariablesContainer variables);
+        #region Boolean
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    bool CalcBoolean(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        bool? CalcBoolean(FormulaNodes formulaNodes);
 
-    #region Aggregated
+        #endregion
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(string formula, IVariablesContainer variables);
+        #region Aggregated
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(FormulaNodes formulaNodes, IVariablesContainer variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(string formula, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(string formula, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(FormulaNodes formulaNodes, IVariablesContainer variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(string formula, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(string formula);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
-    /// <summary>
-    /// Calculate formula
-    /// </summary>
-    /// <exception cref="VariableNotFoundException"></exception>
-    /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeNoFreeIdException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
-    EvaluatorValue Calc(FormulaNodes formulaNodes);
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(string formula);
 
-    #endregion
+        /// <summary>
+        /// Calculate formula
+        /// </summary>
+        
+        /// <exception cref="InvalidCastException"></exception>
+        /// <exception cref="ExtraTypeNoFreeIdException"></exception>
+        /// <exception cref="ExtraTypeIdNotFoundException"></exception>
+        EvaluatorValue Calc(FormulaNodes formulaNodes);
+
+        #endregion
+    }
 }

@@ -3,51 +3,57 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Replaces characters within text
-/// <para>Replace(myWord; oldPart; newPart) or Replace(myList; oldPart; newPart)</para>
-/// </summary>
-public class ReplaceFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Replaces characters within text
+    /// <para>Replace(myWord; oldPart; newPart) or Replace(myList; oldPart; newPart)</para>
     /// </summary>
-    public virtual string Name { get; } = "REPLACE";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ReplaceFunction : IFunction
     {
-        var wordFactory = factory.Word();
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "REPLACE";
 
-        var sourseArg = args[0];
-        var oldWord = args[1].GetWord();
-        var newWord = args[2].GetWord();
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
-        // Word
-        if (sourseArg.IsWord)
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var word = sourseArg.GetWord();
-            var res = word.Replace(oldWord, newWord);
-            return wordFactory.Create(res);
-        }
+            var wordFactory = factory.Word();
 
-        if (sourseArg.IsWordList)
-        {
-            var sourseList = sourseArg.GetWordList();
+            var sourseArg = args[0];
+            var oldWord = args[1].GetWord();
+            var newWord = args[2].GetWord();
 
-            var resList = new List<string>(sourseList.Count);
-            for (int i = 0; i < sourseList.Count; i++)
+            // Word
+            if (sourseArg.IsWord)
             {
-                resList.Add(sourseList[i].Replace(oldWord, newWord));
+                var word = sourseArg.GetWord();
+                var res = word.Replace(oldWord, newWord);
+                return wordFactory.Create(res);
             }
 
-            return factory.WordList().Create(resList);
-        }
+            if (sourseArg.IsWordList)
+            {
+                var sourseList = sourseArg.GetWordList();
 
-        return wordFactory.Empty();
+                var resList = new List<string>(sourseList.Count);
+                for (int i = 0; i < sourseList.Count; i++)
+                {
+                    resList.Add(sourseList[i].Replace(oldWord, newWord));
+                }
+
+                return factory.WordList().Create(resList);
+            }
+
+            return wordFactory.Empty();
+        }
     }
 }

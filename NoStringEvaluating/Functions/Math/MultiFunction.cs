@@ -3,41 +3,47 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - multi
-/// </summary>
-public class MultiFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - multi
     /// </summary>
-    public virtual string Name { get; } = "MULTI";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class MultiFunction : IFunction
     {
-        var res = 1d;
-        for (int i = 0; i < args.Count; i++)
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "MULTI";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var arg = args[i];
-            if (arg.IsNumberList)
+            var res = 1d;
+            for (int i = 0; i < args.Count; i++)
             {
-                var numberList = arg.GetNumberList();
-                for (int j = 0; j < numberList.Count; j++)
+                var arg = args[i];
+                if (arg.IsNumberList)
                 {
-                    res *= numberList[j];
+                    var numberList = arg.GetNumberList();
+                    for (int j = 0; j < numberList.Count; j++)
+                    {
+                        res *= numberList[j];
+                    }
+
+                    continue;
                 }
 
-                continue;
+                res *= args[i];
             }
 
-            res *= args[i];
+            return res;
         }
-
-        return res;
     }
 }

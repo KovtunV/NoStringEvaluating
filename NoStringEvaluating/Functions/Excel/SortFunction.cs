@@ -5,53 +5,59 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel;
-
-/// <summary>
-/// SORT(myList; sortType)
-/// <para>sortType: 1 - asc, not 1 - desc</para> 
-/// </summary>
-public class SortFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel
 {
     /// <summary>
-    /// Name
+    /// SORT(myList; sortType)
+    /// <para>sortType: 1 - asc, not 1 - desc</para> 
     /// </summary>
-    public virtual string Name { get; } = "SORT";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class SortFunction : IFunction
     {
-        var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < NoStringEvaluatorConstants.FloatingTolerance;
-        var list = args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "SORT";
 
-        if (list.IsWordList)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            // Copy list
-            var wordList = list.GetWordList().ToList();
+            var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < NoStringEvaluatorConstants.FloatingTolerance;
+            var list = args[0];
 
-            if (ascSort)
-                wordList.Sort((a, b) => string.Compare(a, b, StringComparison.Ordinal));
-            else
-                wordList.Sort((a, b) => string.Compare(b, a, StringComparison.Ordinal));
+            if (list.IsWordList)
+            {
+                // Copy list
+                var wordList = list.GetWordList().ToList();
 
-            return factory.WordList().Create(wordList);
+                if (ascSort)
+                    wordList.Sort((a, b) => string.Compare(a, b, StringComparison.Ordinal));
+                else
+                    wordList.Sort((a, b) => string.Compare(b, a, StringComparison.Ordinal));
+
+                return factory.WordList().Create(wordList);
+            }
+
+            if (list.IsNumberList)
+            {
+                // Copy list
+                var numberList = list.GetNumberList().ToList();
+
+                if (ascSort)
+                    numberList.Sort((a, b) => a.CompareTo(b));
+                else
+                    numberList.Sort((a, b) => b.CompareTo(a));
+
+                return factory.NumberList().Create(numberList);
+            }
+
+            return double.NaN;
         }
-
-        if (list.IsNumberList)
-        {
-            // Copy list
-            var numberList = list.GetNumberList().ToList();
-
-            if (ascSort)
-                numberList.Sort((a, b) => a.CompareTo(b));
-            else
-                numberList.Sort((a, b) => b.CompareTo(a));
-
-            return factory.NumberList().Create(numberList);
-        }
-
-        return double.NaN;
     }
 }

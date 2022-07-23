@@ -4,26 +4,32 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec;
-
-/// <summary>
-/// Function - arcsec
-/// </summary>
-public class ArcsecFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec
 {
     /// <summary>
-    /// Name
+    /// Function - arcsec
     /// </summary>
-    public virtual string Name { get; } = "ARCSEC";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ArcsecFunction : IFunction
     {
-        var x = args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ARCSEC";
 
-        // 2 * Atan(1) == 1.5707963267948966
-        return 1.5707963267948966 - Atan(Sign(x) / Sqrt(x * x - 1));
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            var x = args[0];
+
+            // 2 * Atan(1) == 1.5707963267948966
+            return 1.5707963267948966 - Atan(Sign(x) / Sqrt(x * x - 1));
+        }
     }
 }

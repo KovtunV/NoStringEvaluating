@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin;
-
-/// <summary>
-/// Function - asinh
-/// </summary>
-public class AsinhFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin
 {
     /// <summary>
-    /// Name
+    /// Function - asinh
     /// </summary>
-    public virtual string Name { get; } = "ASINH";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class AsinhFunction : IFunction
     {
-        return System.Math.Asinh(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ASINH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Asinh(args[0]);
+        }
     }
 }

@@ -4,24 +4,30 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Date;
-
-/// <summary>
-/// Returns the current date
-/// <para>Today()</para>
-/// </summary>
-public class TodayFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
-    /// Name
+    /// Returns the current date
+    /// <para>Today()</para>
     /// </summary>
-    public virtual string Name { get; } = "TODAY";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class TodayFunction : IFunction
     {
-        return factory.DateTime().Create(DateTime.Today);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "TODAY";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return factory.DateTime().Create(DateTime.Today);
+        }
     }
 }

@@ -3,26 +3,32 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos;
-
-/// <summary>
-/// Function - arccos
-/// </summary>
-public class ArccosFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
 {
     /// <summary>
-    /// Name
+    /// Function - arccos
     /// </summary>
-    public virtual string Name { get; } = "ARCCOS";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    /// <param name="args"></param>
-    /// <param name="factory"></param>
-    /// <returns></returns>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ArccosFunction : IFunction
     {
-        return System.Math.Acos(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ARCCOS";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        /// <param name="args"></param>
+        /// <param name="factory"></param>
+        /// <returns></returns>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Acos(args[0]);
+        }
     }
 }

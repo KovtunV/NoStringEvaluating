@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin;
-
-/// <summary>
-/// Function - sin
-/// </summary>
-public class SinFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin
 {
     /// <summary>
-    /// Name
+    /// Function - sin
     /// </summary>
-    public virtual string Name { get; } = "SIN";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class SinFunction : IFunction
     {
-        return System.Math.Sin(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "SIN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Sin(args[0]);
+        }
     }
 }

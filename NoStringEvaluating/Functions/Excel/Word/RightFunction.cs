@@ -4,91 +4,97 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Searches a string from right to left and returns the rightmost characters of the string
-/// <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; subWord) </para>
-/// </summary>
-public class RightFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Searches a string from right to left and returns the rightmost characters of the string
+    /// <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; subWord) </para>
     /// </summary>
-    public virtual string Name { get; } = "RIGHT";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class RightFunction : IFunction
     {
-        var valArg = args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "RIGHT";
 
-        if (valArg.IsWord)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var word = valArg.GetWord();
-            var wordRes = RightWord(args, word);
+            var valArg = args[0];
 
-            return factory.Word().Create(wordRes);
-        }
-
-        if (valArg.IsWordList)
-        {
-            var wordList = valArg.GetWordList().ToList();
-            for (int i = 0; i < wordList.Count; i++)
+            if (valArg.IsWord)
             {
-                wordList[i] = RightWord(args, wordList[i]);
+                var word = valArg.GetWord();
+                var wordRes = RightWord(args, word);
+
+                return factory.Word().Create(wordRes);
             }
 
-            return factory.WordList().Create(wordList);
+            if (valArg.IsWordList)
+            {
+                var wordList = valArg.GetWordList().ToList();
+                for (int i = 0; i < wordList.Count; i++)
+                {
+                    wordList[i] = RightWord(args, wordList[i]);
+                }
+
+                return factory.WordList().Create(wordList);
+            }
+
+            return double.NaN;
         }
 
-        return double.NaN;
-    }
-
-    private string RightWord(List<InternalEvaluatorValue> args, string word)
-    {
-        if (args.Count == 1)
+        private string RightWord(List<InternalEvaluatorValue> args, string word)
         {
-            var wordRes = word.Length > 1 ? word[^1..] : string.Empty;
-            return wordRes;
-        }
+            if (args.Count == 1)
+            {
+                var wordRes = word.Length > 1 ? word[^1..] : string.Empty;
+                return wordRes;
+            }
 
-        var pattern = args[1];
+            var pattern = args[1];
 
-        // Number
-        if (pattern.IsNumber)
-        {
-            var numberInt = (int)pattern.Number;
+            // Number
+            if (pattern.IsNumber)
+            {
+                var numberInt = (int)pattern.Number;
 
-            if (pattern.Number < 0)
+                if (pattern.Number < 0)
+                {
+                    return string.Empty;
+                }
+
+                if (pattern.Number >= word.Length)
+                {
+                    return word;
+                }
+
+                var wordRes = word[^numberInt..];
+                return wordRes;
+            }
+
+            // Word
+            var patternWord = pattern.GetWord();
+            if (patternWord.Length == 0)
             {
                 return string.Empty;
             }
 
-            if (pattern.Number >= word.Length)
+            var subWordIndex = word.IndexOf(patternWord);
+            if (subWordIndex == -1)
             {
                 return word;
             }
 
-            var wordRes = word[^numberInt..];
-            return wordRes;
+            return word[(subWordIndex + patternWord.Length)..];
         }
 
-        // Word
-        var patternWord = pattern.GetWord();
-        if (patternWord.Length == 0)
-        {
-            return string.Empty;
-        }
-
-        var subWordIndex = word.IndexOf(patternWord);
-        if (subWordIndex == -1)
-        {
-            return word;
-        }
-
-        return word[(subWordIndex + patternWord.Length)..];
     }
-
 }

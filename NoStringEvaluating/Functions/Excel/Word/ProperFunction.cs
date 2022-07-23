@@ -5,68 +5,74 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Capitalizes the first letter in each word of a text
-/// <para>Proper(myWord)</para>
-/// </summary>
-public class ProperFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Capitalizes the first letter in each word of a text
+    /// <para>Proper(myWord)</para>
     /// </summary>
-    public virtual string Name { get; } = "PROPER";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ProperFunction : IFunction
     {
-        var arg = args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "PROPER";
 
-        if (arg.IsWord)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var word = arg.GetWord();
+            var arg = args[0];
 
-            var res = Proper(word);
-            return factory.Word().Create(res);
-        }
-
-        if (arg.IsWordList)
-        {
-            // Copy
-            var wordList = arg.GetWordList().ToList();
-            for (int i = 0; i < wordList.Count; i++)
+            if (arg.IsWord)
             {
-                wordList[i] = Proper(wordList[i]);
+                var word = arg.GetWord();
+ 
+                var res = Proper(word);
+                return factory.Word().Create(res);
             }
 
-            return factory.WordList().Create(wordList);
+            if (arg.IsWordList)
+            {
+                // Copy
+                var wordList = arg.GetWordList().ToList();
+                for (int i = 0; i < wordList.Count; i++)
+                {
+                    wordList[i] = Proper(wordList[i]);
+                }
+
+                return factory.WordList().Create(wordList);
+            }
+
+            return double.NaN;
         }
 
-        return double.NaN;
-    }
-
-    private string Proper(string word)
-    {
-        if (HasCapital(word))
+        private string Proper(string word)
         {
-            word = word.ToLowerInvariant();
+            if (HasCapital(word))
+            {
+                word = word.ToLowerInvariant();
+            }
+
+            var res = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(word);
+            return res;
         }
 
-        var res = CultureInfo.InvariantCulture.TextInfo.ToTitleCase(word);
-        return res;
-    }
-
-    private bool HasCapital(string str)
-    {
-        for (int i = 0; i < str.Length; i++)
+        private bool HasCapital(string str)
         {
-            if (char.IsUpper(str[i]))
-                return true;
-        }
+            for (int i = 0; i < str.Length; i++)
+            {
+                if (char.IsUpper(str[i]))
+                    return true;
+            }
 
-        return false;
+            return false;
+        }
     }
 }

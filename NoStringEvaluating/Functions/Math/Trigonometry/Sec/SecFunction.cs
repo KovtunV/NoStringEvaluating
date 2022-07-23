@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec;
-
-/// <summary>
-/// Function - sec
-/// </summary>
-public class SecFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec
 {
     /// <summary>
-    /// Name
+    /// Function - sec
     /// </summary>
-    public virtual string Name { get; } = "SEC";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class SecFunction : IFunction
     {
-        return 1 / System.Math.Cos(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "SEC";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+           return 1 / System.Math.Cos(args[0]);
+        }
     }
 }

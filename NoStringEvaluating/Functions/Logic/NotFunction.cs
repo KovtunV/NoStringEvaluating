@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Logic;
-
-/// <summary>
-/// Function - not
-/// </summary>
-public class NotFunction : IFunction
+namespace NoStringEvaluating.Functions.Logic
 {
     /// <summary>
-    /// Name
+    /// Function - not
     /// </summary>
-    public virtual string Name { get; } = "NOT";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class NotFunction : IFunction
     {
-        return System.Math.Abs(args[0]) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "NOT";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Abs(args[0]) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0;
+        }
     }
 }

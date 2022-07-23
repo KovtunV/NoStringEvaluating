@@ -4,25 +4,31 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec;
-
-/// <summary>
-/// Function - asech
-/// </summary>
-public class AsechFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sec
 {
     /// <summary>
-    /// Name
+    /// Function - asech
     /// </summary>
-    public virtual string Name { get; } = "ASECH";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class AsechFunction : IFunction
     {
-        var x = args[0];
-        var a = Sqrt(-x * x + 1) + 1;
-        return Log(a / x);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ASECH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            var x = args[0];
+            var a = Sqrt(-x * x + 1) + 1;
+            return Log( a / x);
+        }
     }
 }

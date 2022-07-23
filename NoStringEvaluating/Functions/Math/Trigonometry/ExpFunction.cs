@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry;
-
-/// <summary>
-/// Function - exp
-/// </summary>
-public class ExpFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry
 {
     /// <summary>
-    /// Name
+    /// Function - exp
     /// </summary>
-    public virtual string Name { get; } = "EXP";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ExpFunction : IFunction
     {
-        return System.Math.Exp(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "EXP";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Exp(args[0]);
+        }
     }
 }

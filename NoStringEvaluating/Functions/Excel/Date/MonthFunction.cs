@@ -3,34 +3,40 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Date;
-
-/// <summary>
-/// Returns a month from dateTime
-/// <para>Month(Now()) or Month(Now(); 'MM')</para>
-/// </summary>
-public class MonthFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
-    /// Name
+    /// Returns a month from dateTime
+    /// <para>Month(Now()) or Month(Now(); 'MM')</para>
     /// </summary>
-    public virtual string Name { get; } = "MONTH";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class MonthFunction : IFunction
     {
-        var wordFactory = factory.Word();
-        var dateVal = args[0].GetDateTime();
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "MONTH";
 
-        if (args.Count > 1 && args[1].IsWord)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var format = args[1].GetWord();
-            var strRes = dateVal.Month.ToString().PadLeft(format.Length, '0');
-            return wordFactory.Create(strRes);
-        }
+            var wordFactory = factory.Word();
+            var dateVal = args[0].GetDateTime();
 
-        return wordFactory.Create(dateVal.Month.ToString());
+            if (args.Count > 1 && args[1].IsWord)
+            {
+                var format = args[1].GetWord();
+                var strRes = dateVal.Month.ToString().PadLeft(format.Length, '0');
+                return wordFactory.Create(strRes);
+            }
+
+            return wordFactory.Create(dateVal.Month.ToString());
+        }
     }
 }

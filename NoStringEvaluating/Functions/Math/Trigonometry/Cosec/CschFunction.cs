@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec;
-
-/// <summary>
-/// Function - csch
-/// </summary>
-public class CschFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec
 {
     /// <summary>
-    /// Name
+    /// Function - csch
     /// </summary>
-    public virtual string Name { get; } = "CSCH";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class CschFunction : IFunction
     {
-        return 1 / System.Math.Sinh(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "CSCH";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return 1 / System.Math.Sinh(args[0]);
+        }
     }
 }

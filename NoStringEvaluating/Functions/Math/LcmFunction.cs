@@ -4,49 +4,55 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - lcm
-/// </summary>
-public class LcmFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - lcm
     /// </summary>
-    public virtual string Name { get; } = "LCM";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class LcmFunction : IFunction
     {
-        if (args.Count == 1)
-            return args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "LCM";
 
-        var res = GetLcm(args[0], args[1]);
-        for (int i = 2; i < args.Count; i++)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            res = GetLcm(res, args[i]);
+            if (args.Count == 1)
+                return args[0];
+
+            var res = GetLcm(args[0], args[1]);
+            for (int i = 2; i < args.Count; i++)
+            {
+                res = GetLcm(res, args[i]);
+            }
+
+            return Abs(res);
         }
 
-        return Abs(res);
-    }
-
-    private double GetLcm(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return (a * b) / GetGcd(a, b);
-    }
-
-    private double GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
+        private double GetLcm(InternalEvaluatorValue a, InternalEvaluatorValue b)
         {
-            var tmp = b;
-            b = a % b;
-            a = tmp;
+            return (a * b) / GetGcd(a, b);
         }
 
-        return a;
+        private double GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
+        {
+            while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
+            {
+                var tmp = b;
+                b = a % b;
+                a = tmp;
+            }
+
+            return a;
+        }
     }
 }

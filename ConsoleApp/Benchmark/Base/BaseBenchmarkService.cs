@@ -135,6 +135,8 @@ public class Func_kov : IFunction
 {
     public string Name { get; } = "kov";
 
+    public bool CanHandleNullArguments { get; } = false;
+
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         var res = 1d;
@@ -151,6 +153,8 @@ public class Func_kov : IFunction
 public class Func_kovt : IFunction
 {
     public string Name { get; } = "kovt";
+
+    public bool CanHandleNullArguments { get; } = false;
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {

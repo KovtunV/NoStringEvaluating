@@ -3,61 +3,67 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - max
-/// <para>Max(1; 2; 3) or Max(myList; 2; 3)</para>
-/// </summary>
-public class MaxFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - max
+    /// <para>Max(1; 2; 3) or Max(myList; 2; 3)</para>
     /// </summary>
-    public virtual string Name { get; } = "MAX";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class MaxFunction : IFunction
     {
-        var firstArg = args[0];
-        var max = firstArg.Number;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "MAX";
 
-        if (firstArg.IsNumberList)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            max = Max(firstArg.GetNumberList());
-        }
+            var firstArg = args[0];
+            var max = firstArg.Number;
 
-        for (int i = 1; i < args.Count; i++)
-        {
-            var arg = args[i];
-            var current = arg.Number;
-
-            if (arg.IsNumberList)
+            if (firstArg.IsNumberList)
             {
-                current = Max(arg.GetNumberList());
+                max = Max(firstArg.GetNumberList());
             }
 
-            if (current > max)
-                max = current;
+            for (int i = 1; i < args.Count; i++)
+            {
+                var arg = args[i];
+                var current = arg.Number;
+
+                if (arg.IsNumberList)
+                {
+                    current = Max(arg.GetNumberList());
+                }
+
+                if (current > max)
+                    max = current;
+            }
+
+            return max;
         }
 
-        return max;
-    }
-
-    private double Max(List<double> list)
-    {
-        var max = list[0];
-
-        for (int i = 1; i < list.Count; i++)
+        private double Max(List<double> list)
         {
-            var current = list[i];
+            var max = list[0];
 
-            if (current > max)
-                max = current;
+            for (int i = 1; i < list.Count; i++)
+            {
+                var current = list[i];
+
+                if (current > max)
+                    max = current;
+            }
+
+            return max;
         }
-
-        return max;
     }
 }

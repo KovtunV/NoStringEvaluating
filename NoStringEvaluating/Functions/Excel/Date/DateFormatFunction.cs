@@ -1,29 +1,35 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
+using System.Collections.Generic;
 
-namespace NoStringEvaluating.Functions.Excel.Date;
-
-/// <summary>
-/// DateFormat(Now(); 'yyyy MMMM')
-/// </summary>
-public class DateFormatFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Date
 {
     /// <summary>
-    /// Name
+    /// DateFormat(Now(); 'yyyy MMMM')
     /// </summary>
-    public virtual string Name { get; } = "DATEFORMAT";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class DateFormatFunction : IFunction
     {
-        var dateArg = args[0];
-        var formatArg = args[1];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "DATEFORMAT";
+      
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+     
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            var dateArg = args[0];
+            var formatArg = args[1];
 
-        var strRes = dateArg.GetDateTime().ToString(formatArg.GetWord());
-        return factory.Word().Create(strRes);
+            var strRes = dateArg.GetDateTime().ToString(formatArg.GetWord());
+            return factory.Word().Create(strRes);
+        }
     }
 }

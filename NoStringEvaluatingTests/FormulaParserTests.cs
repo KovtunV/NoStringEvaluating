@@ -59,9 +59,14 @@ public class FormulaParserTests
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
 
         var res = evaluator.CalcNumber(model.Formula, model.Arguments);
-        var roundedRes = Math.Round(res, 3);
 
-        Assert.AreEqual(model.Result, roundedRes);
+        if (res == null) Assert.IsTrue(model.Result.IsNull);
+        else if (double.IsNaN(res.Value)) Assert.IsTrue( double.IsNaN(model.Result.Number));
+        else
+        {
+            var roundedRes = Math.Round(res.Value, 3);
+            Assert.AreEqual(model.Result, roundedRes);
+        }
     }
 
     [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
@@ -144,19 +149,9 @@ public class FormulaParserTests
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
         var formula = "[my var!] + 5";
-
-        try
-        {
-            var res = evaluator.CalcNumber(formula);
-        }
-        catch (VariableNotFoundException ex)
-        {
-            // This exception is OK
-            Assert.AreEqual("my var!", ex.VariableName);
-            return;
-        }
-
-        Assert.Fail();
+        // unknown variable evaluates to null result
+        var res = evaluator.CalcNumber(formula);
+        Assert.IsTrue(res == null);
     }
 
     [TestMethod]
@@ -214,6 +209,8 @@ public class Func_kov : IFunction
 {
     public string Name { get; } = "KOV";
 
+    public bool CanHandleNullArguments { get; } = false;
+
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         var res = 1d;
@@ -231,6 +228,8 @@ public class Func_kovt : IFunction
 {
     public string Name { get; } = "KOVT";
 
+    public bool CanHandleNullArguments { get; } = false;
+
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         return args[0] - args[1];
@@ -240,6 +239,8 @@ public class Func_kovt : IFunction
 public class TestSleepFunction : IFunction
 {
     public string Name { get; } = "TestSleep";
+
+    public bool CanHandleNullArguments { get; } = false;
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {

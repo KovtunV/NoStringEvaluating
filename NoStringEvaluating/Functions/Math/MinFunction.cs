@@ -3,60 +3,66 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math;
-
-/// <summary>
-/// Function - min
-/// </summary>
-public class MinFunction : IFunction
+namespace NoStringEvaluating.Functions.Math
 {
     /// <summary>
-    /// Name
+    /// Function - min
     /// </summary>
-    public virtual string Name { get; } = "MIN";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class MinFunction : IFunction
     {
-        var firstArg = args[0];
-        var min = firstArg.Number;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "MIN";
 
-        if (firstArg.IsNumberList)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            min = Min(firstArg.GetNumberList());
-        }
+            var firstArg = args[0];
+            var min = firstArg.Number;
 
-        for (int i = 1; i < args.Count; i++)
-        {
-            var arg = args[i];
-            var current = arg.Number;
-
-            if (arg.IsNumberList)
+            if (firstArg.IsNumberList)
             {
-                current = Min(arg.GetNumberList());
+                min = Min(firstArg.GetNumberList());
             }
 
-            if (current < min)
-                min = current;
+            for (int i = 1; i < args.Count; i++)
+            {
+                var arg = args[i];
+                var current = arg.Number;
+
+                if (arg.IsNumberList)
+                {
+                    current = Min(arg.GetNumberList());
+                }
+
+                if (current < min)
+                    min = current;
+            }
+
+            return min;
         }
 
-        return min;
-    }
-
-    private double Min(List<double> list)
-    {
-        var min = list[0];
-
-        for (int i = 1; i < list.Count; i++)
+        private double Min(List<double> list)
         {
-            var current = list[i];
+            var min = list[0];
 
-            if (current < min)
-                min = current;
+            for (int i = 1; i < list.Count; i++)
+            {
+                var current = list[i];
+
+                if (current < min)
+                    min = current;
+            }
+
+            return min;
         }
-
-        return min;
     }
 }

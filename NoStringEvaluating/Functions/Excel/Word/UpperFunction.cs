@@ -4,39 +4,45 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Converts text to uppercase
-/// <para>Upper(myWord) or Upper(myWordList)</para>
-/// </summary>
-public class UpperFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Converts text to uppercase
+    /// <para>Upper(myWord) or Upper(myWordList)</para>
     /// </summary>
-    public virtual string Name { get; } = "UPPER";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class UpperFunction : IFunction
     {
-        var arg = args[0];
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "UPPER";
 
-        if (arg.IsWord)
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var res = arg.GetWord().ToUpperInvariant();
-            return factory.Word().Create(res);
-        }
+            var arg = args[0];
 
-        if (arg.IsWordList)
-        {
-            var wordList = arg.GetWordList();
-            var wordListRes = wordList.Select(s => s.ToUpperInvariant()).ToList();
-            return factory.WordList().Create(wordListRes);
-        }
+            if (arg.IsWord)
+            {
+                var res = arg.GetWord().ToUpperInvariant();
+                return factory.Word().Create(res);
+            }
 
-        return factory.Word().Empty();
+            if (arg.IsWordList)
+            {
+                var wordList = arg.GetWordList();
+                var wordListRes = wordList.Select(s => s.ToUpperInvariant()).ToList();
+                return factory.WordList().Create(wordListRes);
+            }
+
+            return factory.Word().Empty();
+        }
     }
 }

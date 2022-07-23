@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin;
-
-/// <summary>
-/// Function - arsin
-/// </summary>
-public class ArsinFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin
 {
     /// <summary>
-    /// Name
+    /// Function - arsin
     /// </summary>
-    public virtual string Name { get; } = "ARSIN";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class ArsinFunction : IFunction
     {
-        return System.Math.Asin(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ARSIN";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Asin(args[0]);
+        }
     }
 }

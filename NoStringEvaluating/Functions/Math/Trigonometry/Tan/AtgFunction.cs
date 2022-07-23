@@ -3,23 +3,29 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Tan;
-
-/// <summary>
-/// Function - atg
-/// </summary>
-public class AtgFunction : IFunction
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Tan
 {
     /// <summary>
-    /// Name
+    /// Function - atg
     /// </summary>
-    public virtual string Name { get; } = "ATG";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class AtgFunction : IFunction
     {
-        return System.Math.Atan(args[0]);
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ATG";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return System.Math.Atan(args[0]);
+        }
     }
 }

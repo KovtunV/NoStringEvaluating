@@ -3,31 +3,37 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Logic;
-
-/// <summary>
-/// Function - iff
-/// </summary>
-public class IffFunction : IFunction
+namespace NoStringEvaluating.Functions.Logic
 {
     /// <summary>
-    /// Name
+    /// Function - iff
     /// </summary>
-    public virtual string Name { get; } = "IFF";
-
-    /// <summary>
-    /// Evaluate value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class IffFunction : IFunction
     {
-        for (int i = 0; i < args.Count - 1; i += 2)
-        {
-            if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
-            {
-                return args[i + 1];
-            }
-        }
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "IFF";
 
-        return double.NaN;
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Evaluate value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            for (int i = 0; i < args.Count - 1; i += 2)
+            {
+                if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
+                {
+                    return args[i + 1];
+                }
+            }
+
+            return double.NaN;
+        }
     }
 }

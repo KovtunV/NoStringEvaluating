@@ -1,25 +1,31 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
+using System.Collections.Generic;
 
-namespace NoStringEvaluating.Functions.Excel;
-
-/// <summary>
-/// IsError(ToNumber('Text'))
-/// </summary>
-public class IsErrorFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel
 {
     /// <summary>
-    /// Name
+    /// IsError(ToNumber('Text'))
     /// </summary>
-    public virtual string Name { get; } = "ISERROR";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class IsErrorFunction : IFunction
     {
-        return double.IsNaN(args[0]) ? 1 : 0;
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "ISERROR";
+
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
+
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return double.IsNaN(args[0]) ? 1 : 0;
+        }
     }
 }

@@ -4,38 +4,44 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word;
-
-/// <summary>
-/// Unique(myList) or Unique(myList; true)
-/// <para>if second parameter is true then returns only qnique</para>
-/// <para>if second parameter is false then returns list without doubles</para>
-/// </summary>
-public class UniqueFunction : IFunction
+namespace NoStringEvaluating.Functions.Excel.Word
 {
     /// <summary>
-    /// Name
+    /// Unique(myList) or Unique(myList; true)
+    /// <para>if second parameter is true then returns only qnique</para>
+    /// <para>if second parameter is false then returns list without doubles</para>
     /// </summary>
-    public virtual string Name { get; } = "UNIQUE";
-
-    /// <summary>
-    /// Execute value
-    /// </summary>
-    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    public sealed class UniqueFunction : IFunction
     {
-        var wordListFactory = factory.WordList();
+        /// <summary>
+        /// Name
+        /// </summary>
+        public string Name { get; } = "UNIQUE";
 
-        var wordList = args[0].GetWordList();
-        var qniqueOnly = args.Count > 1 && args[^1].Number != 0;
+        /// <summary>
+        /// Can handle IsNull arguments?
+        /// </summary>
+        public bool CanHandleNullArguments { get; } = false;
 
-        var group = wordList.GroupBy(q => q);
-        if (qniqueOnly)
+        /// <summary>
+        /// Execute value
+        /// </summary>
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            var resQniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
-            return wordListFactory.Create(resQniqueOnly);
-        }
+            var wordListFactory = factory.WordList();
 
-        var resAllQnique = group.Select(s => s.First()).ToList();
-        return wordListFactory.Create(resAllQnique);
+            var wordList = args[0].GetWordList();
+            var qniqueOnly = args.Count > 1 && args[^1].Number != 0;
+
+            var group = wordList.GroupBy(q => q);
+            if (qniqueOnly)
+            {
+                var resQniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
+                return wordListFactory.Create(resQniqueOnly);
+            }
+
+            var resAllQnique = group.Select(s => s.First()).ToList();
+            return wordListFactory.Create(resAllQnique);
+        }
     }
 }
