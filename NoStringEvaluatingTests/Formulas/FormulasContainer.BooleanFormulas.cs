@@ -11,8 +11,6 @@ namespace NoStringEvaluatingTests.Formulas
     {
         public static IEnumerable<FormulaModel[]> GetBooleanFormulas()
         {
-
-
             var myTrue = true;
             var myFalse = false;
 
@@ -45,8 +43,12 @@ namespace NoStringEvaluatingTests.Formulas
             yield return CreateTestModel("nuLl == 3", false);
             yield return CreateTestModel("nuLl == abc",true); // both null
 
-
-
+            // DateTime boolean Comparison
+            yield return CreateTestModel("ToDateTime('04/18/2021') > ToDateTime('04/17/2021')", true);
+            yield return CreateTestModel("ToDateTime('04/18/2021') < ToDateTime('04/17/2021')", false);
+            yield return CreateTestModel("ToDateTime('04/17/2021')+1 > ToDateTime('04/17/2021')", true);
+            yield return CreateTestModel("ToDateTime('04/17/2021')-1 < ToDateTime('04/17/2021')", true);
+            yield return CreateTestModel("ToDateTime('04/17/2021') == ToDateTime('04/17/2021')", true);
         }
     }
 }

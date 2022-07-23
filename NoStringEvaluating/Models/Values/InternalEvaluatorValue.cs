@@ -186,6 +186,7 @@ namespace NoStringEvaluating.Models.Values
             return TypeKey == other.TypeKey &&
                 (
                 (TypeKey == ValueTypeKey.Null) ||
+                (TypeKey == ValueTypeKey.DateTime && GetDateTime()==other.GetDateTime()) ||
                 (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
                 (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
                 (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||

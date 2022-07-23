@@ -819,7 +819,7 @@ namespace NoStringEvaluating
                             default: stack.Push(default); break;
                         }
 
-                    } else // two non null number variables
+                    } else // two non null variables
                     {
                         switch (mathOperationNode.OperatorKey)
                         {
@@ -860,15 +860,43 @@ namespace NoStringEvaluating
 
                             // Logic
                             case Operator.Less:
-                                stack.Push(b < a ? 1 : 0); break;
+                                if (a.IsDateTime && b.IsDateTime)
+                                {
+                                    stack.Push(b.GetDateTime() < a.GetDateTime() ? 1 : 0);
+                                } else
+                                {
+                                    stack.Push(b < a ? 1 : 0);
+                                }
+                                break;
                             case Operator.LessEqual:
-                                stack.Push(b <= a ? 1 : 0); break;
+                                if (a.IsDateTime && b.IsDateTime)
+                                {
+                                    stack.Push(b.GetDateTime() <= a.GetDateTime() ? 1 : 0);
+                                } else
+                                {
+                                    stack.Push(b <= a ? 1 : 0);
+                                }
+                                break;
                             case Operator.More:
-                                stack.Push(b > a ? 1 : 0); break;
+                                if (a.IsDateTime && b.IsDateTime)
+                                {
+                                    stack.Push(b.GetDateTime() > a.GetDateTime() ? 1 : 0);
+                                } else
+                                {
+                                    stack.Push(b > a ? 1 : 0);
+                                }
+                                break;
                             case Operator.MoreEqual:
-                                stack.Push(b >= a ? 1 : 0); break;
+                                if (a.IsDateTime && b.IsDateTime)
+                                {
+                                    stack.Push(b.GetDateTime() >= a.GetDateTime() ? 1 : 0);
+                                } else
+                                {
+                                    stack.Push(b >= a ? 1 : 0);
+                                }
+                                break;
                             case Operator.Equal:
-                                if (a.IsNumber || b.IsNumber) stack.Push(Math.Abs(b - a) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); 
+                                if (a.IsNumber || b.IsNumber) stack.Push(Math.Abs(b - a) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0);
                                 else stack.Push(factory.Create(new EvaluatorValue(a.Equals(b))));
                                 break;
                             case Operator.NotEqual:
