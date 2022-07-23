@@ -4,44 +4,43 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word
+namespace NoStringEvaluating.Functions.Excel.Word;
+
+/// <summary>
+/// Unique(myList) or Unique(myList; true)
+/// <para>if second parameter is true then returns only qnique</para>
+/// <para>if second parameter is false then returns list without doubles</para>
+/// </summary>
+public sealed class UniqueFunction : IFunction
 {
     /// <summary>
-    /// Unique(myList) or Unique(myList; true)
-    /// <para>if second parameter is true then returns only qnique</para>
-    /// <para>if second parameter is false then returns list without doubles</para>
+    /// Name
     /// </summary>
-    public sealed class UniqueFunction : IFunction
+    public string Name { get; } = "UNIQUE";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "UNIQUE";
+        var wordListFactory = factory.WordList();
 
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
+        var wordList = args[0].GetWordList();
+        var qniqueOnly = args.Count > 1 && args[^1].Number != 0;
 
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        var group = wordList.GroupBy(q => q);
+        if (qniqueOnly)
         {
-            var wordListFactory = factory.WordList();
-
-            var wordList = args[0].GetWordList();
-            var qniqueOnly = args.Count > 1 && args[^1].Number != 0;
-
-            var group = wordList.GroupBy(q => q);
-            if (qniqueOnly)
-            {
-                var resQniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
-                return wordListFactory.Create(resQniqueOnly);
-            }
-
-            var resAllQnique = group.Select(s => s.First()).ToList();
-            return wordListFactory.Create(resAllQnique);
+            var resQniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
+            return wordListFactory.Create(resQniqueOnly);
         }
+
+        var resAllQnique = group.Select(s => s.First()).ToList();
+        return wordListFactory.Create(resAllQnique);
     }
 }

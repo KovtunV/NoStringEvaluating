@@ -3,29 +3,28 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec;
+
+/// <summary>
+/// Function - cosec
+/// </summary>
+public sealed class CosecFunction : IFunction
 {
     /// <summary>
-    /// Function - cosec
+    /// Name
     /// </summary>
-    public sealed class CosecFunction : IFunction
+    public string Name { get; } = "COSEC";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "COSEC";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return 1 / System.Math.Sin(args[0]);
-        }
+        return 1 / System.Math.Sin(args[0]);
     }
 }

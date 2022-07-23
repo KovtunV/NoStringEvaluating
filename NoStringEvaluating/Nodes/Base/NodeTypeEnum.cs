@@ -1,63 +1,62 @@
-﻿namespace NoStringEvaluating.Nodes.Base
+﻿namespace NoStringEvaluating.Nodes.Base;
+
+/// <summary>
+/// Node type matching
+/// </summary>
+public enum NodeTypeEnum : byte
 {
     /// <summary>
-    /// Node type matching
+    /// Null
     /// </summary>
-    public enum NodeTypeEnum : byte
-    {
-        /// <summary>
-        /// Null
-        /// </summary>
-        NullConst = 0, // Must be 0 for NULL so that   x = default(EvaluatorValue)  will say x = the NULL value
+    NullConst = 0, // Must be 0 for NULL so that   x = default(EvaluatorValue)  will say x = the NULL value
 
-        /// <summary>
-        /// Number
-        /// </summary>
-        Number,
+    /// <summary>
+    /// Number
+    /// </summary>
+    Number,
 
-        /// <summary>
-        /// Operator
-        /// </summary>
-        Operator,
+    /// <summary>
+    /// Operator
+    /// </summary>
+    Operator,
 
-        /// <summary>
-        /// Variable
-        /// </summary>
-        Variable,
+    /// <summary>
+    /// Variable
+    /// </summary>
+    Variable,
 
-        /// <summary>
-        /// Function wrapper
-        /// </summary>
-        FunctionWrapper,
+    /// <summary>
+    /// Function wrapper
+    /// </summary>
+    FunctionWrapper,
 
-        /// <summary>
-        /// Word
-        /// </summary>
-        Word,
+    /// <summary>
+    /// Word
+    /// </summary>
+    Word,
 
-        /// <summary>
-        /// WordList
-        /// </summary>
-        WordList,
+    /// <summary>
+    /// WordList
+    /// </summary>
+    WordList,
 
-        /// <summary>
-        /// NumberList
-        /// </summary>
-        NumberList,
+    /// <summary>
+    /// NumberList
+    /// </summary>
+    NumberList,
 
-        /// <summary>
-        /// Bracket
-        /// </summary>
-        Bracket,
+    /// <summary>
+    /// Bracket
+    /// </summary>
+    Bracket,
 
-        /// <summary>
-        /// Function char
-        /// </summary>
-        FunctionChar,
+    /// <summary>
+    /// Function char
+    /// </summary>
+    FunctionChar,
 
-        /// <summary>
-        /// Function
-        /// </summary>
-        Function
-    }
+    /// <summary>
+    /// Function
+    /// </summary>
+    Function
 }

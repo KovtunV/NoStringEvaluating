@@ -3,29 +3,28 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Logic
+namespace NoStringEvaluating.Functions.Logic;
+
+/// <summary>
+/// Function - isNaN
+/// </summary>
+public sealed class IsnanFunction : IFunction
 {
     /// <summary>
-    /// Function - isNaN
+    /// Name
     /// </summary>
-    public sealed class IsnanFunction : IFunction
+    public string Name { get; } = "ISNAN";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "ISNAN";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return double.IsNaN(args[0]) ? 1 : 0;
-        }
+        return double.IsNaN(args[0]) ? 1 : 0;
     }
 }

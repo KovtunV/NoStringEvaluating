@@ -3,29 +3,28 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos;
+
+/// <summary>
+/// Function - arcos
+/// </summary>
+public sealed class ArcosFunction : IFunction
 {
     /// <summary>
-    /// Function - arcos
+    /// Name
     /// </summary>
-    public sealed class ArcosFunction : IFunction
+    public string Name { get; } = "ARCOS";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "ARCOS";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return System.Math.Acos(args[0]);
-        }
+        return System.Math.Acos(args[0]);
     }
 }

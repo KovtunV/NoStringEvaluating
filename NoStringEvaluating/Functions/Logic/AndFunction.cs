@@ -3,35 +3,34 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Logic
+namespace NoStringEvaluating.Functions.Logic;
+
+/// <summary>
+/// Function - add
+/// </summary>
+public sealed class AndFunction : IFunction
 {
     /// <summary>
-    /// Function - add
+    /// Name
     /// </summary>
-    public sealed class AndFunction : IFunction
+    public string Name { get; } = "AND";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "AND";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        for (int i = 0; i < args.Count; i++)
         {
-            for (int i = 0; i < args.Count; i++)
-            {
-                if (System.Math.Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
-                    return 0;
-            }
-
-            return 1;
+            if (System.Math.Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
+                return 0;
         }
+
+        return 1;
     }
 }

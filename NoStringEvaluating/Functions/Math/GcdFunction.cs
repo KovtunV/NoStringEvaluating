@@ -4,64 +4,63 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
 
-namespace NoStringEvaluating.Functions.Math
+namespace NoStringEvaluating.Functions.Math;
+
+/// <summary>
+/// Function - gcd
+/// </summary>
+public sealed class GcdFunction : IFunction
 {
     /// <summary>
-    /// Function - gcd
+    /// Name
     /// </summary>
-    public sealed class GcdFunction : IFunction
+    public string Name { get; } = "GCD";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "GCD";
+        if (args.Count == 1)
+            return args[0];
 
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
+        if (HasZero(args))
+            return double.NaN;
 
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        var res = GetGcd(args[0], args[1]);
+        for (int i = 2; i < args.Count; i++)
         {
-            if (args.Count == 1)
-                return args[0];
-
-            if (HasZero(args))
-                return double.NaN;
-
-            var res = GetGcd(args[0], args[1]);
-            for (int i = 2; i < args.Count; i++)
-            {
-                res = GetGcd(res, args[i]);
-            }
-
-            return Abs(res);
+            res = GetGcd(res, args[i]);
         }
 
-        private bool HasZero(List<InternalEvaluatorValue> args)
-        {
-            for (int i = 0; i < args.Count; i++)
-            {
-                if (Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
-                    return true;
-            }
+        return Abs(res);
+    }
 
-            return false;
+    private bool HasZero(List<InternalEvaluatorValue> args)
+    {
+        for (int i = 0; i < args.Count; i++)
+        {
+            if (Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
+                return true;
         }
 
-        private InternalEvaluatorValue GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
-        {
-            while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
-            {
-                var tmp = b;
-                b = a % b;
-                a = tmp;
-            }
+        return false;
+    }
 
-            return a;
+    private InternalEvaluatorValue GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
+    {
+        while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
+        {
+            var tmp = b;
+            b = a % b;
+            a = tmp;
         }
+
+        return a;
     }
 }

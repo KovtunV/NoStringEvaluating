@@ -11,7 +11,7 @@ class Program
 {
     static void Main()
     {
-        // var eval = CreateNoString();
+        //var eval = CreateNoString();
 
         //var time1 = DateTime.Parse("01/01/2000 14:18:23", CultureInfo.InvariantCulture);
         //var time2 = DateTime.Parse("01/01/2000 18:30:10", CultureInfo.InvariantCulture);

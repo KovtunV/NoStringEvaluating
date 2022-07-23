@@ -1,25 +1,24 @@
 ﻿using NoStringEvaluating.Nodes.Base;
 
-namespace NoStringEvaluating.Nodes
+namespace NoStringEvaluating.Nodes;
+
+/// <summary>
+/// Formula node - Null
+/// </summary>
+public class NullNode : BaseFormulaNode
 {
     /// <summary>
-    /// Formula node - Null
+    /// Null Const
     /// </summary>
-    public class NullNode : BaseFormulaNode
+    public NullNode() : base(NodeTypeEnum.NullConst)
     {
-        /// <summary>
-        /// Null Const
-        /// </summary>
-        public NullNode() : base(NodeTypeEnum.NullConst)
-        {
-        }
+    }
 
-        /// <summary>
-        /// ToString
-        /// </summary>
-        public override string ToString()
-        {
-            return "NULL";
-        }
+    /// <summary>
+    /// ToString
+    /// </summary>
+    public override string ToString()
+    {
+        return "NULL";
     }
 }

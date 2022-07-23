@@ -3,29 +3,28 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math
+namespace NoStringEvaluating.Functions.Math;
+
+/// <summary>
+/// Function - sign
+/// </summary>
+public sealed class SignFunction : IFunction
 {
     /// <summary>
-    /// Function - sign
+    /// Name
     /// </summary>
-    public sealed class SignFunction : IFunction
+    public string Name { get; } = "SIGN";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "SIGN";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return System.Math.Sign(args[0]);
-        }
+        return System.Math.Sign(args[0]);
     }
 }

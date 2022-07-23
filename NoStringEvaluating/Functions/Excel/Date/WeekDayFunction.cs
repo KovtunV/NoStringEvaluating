@@ -3,31 +3,30 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Date
+namespace NoStringEvaluating.Functions.Excel.Date;
+
+/// <summary>
+/// Takes a date and returns a number between 1-7 representing the day of week
+/// <para>WeekDay(Today())</para>
+/// </summary>
+public sealed class WeekDayFunction : IFunction
 {
     /// <summary>
-    /// Takes a date and returns a number between 1-7 representing the day of week
-    /// <para>WeekDay(Today())</para>
+    /// Name
     /// </summary>
-    public sealed class WeekDayFunction : IFunction
+    public string Name { get; } = "WEEKDAY";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "WEEKDAY";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            var weekDay = (int)args[0].GetDateTime().DayOfWeek + 1;
-            return weekDay;
-        }
+        var weekDay = (int)args[0].GetDateTime().DayOfWeek + 1;
+        return weekDay;
     }
 }

@@ -3,29 +3,28 @@ using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using System.Collections.Generic;
 
-namespace NoStringEvaluating.Functions.Excel
+namespace NoStringEvaluating.Functions.Excel;
+
+/// <summary>
+/// IsError(ToNumber('Text'))
+/// </summary>
+public sealed class IsErrorFunction : IFunction
 {
     /// <summary>
-    /// IsError(ToNumber('Text'))
+    /// Name
     /// </summary>
-    public sealed class IsErrorFunction : IFunction
+    public string Name { get; } = "ISERROR";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "ISERROR";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return double.IsNaN(args[0]) ? 1 : 0;
-        }
+        return double.IsNaN(args[0]) ? 1 : 0;
     }
 }

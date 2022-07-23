@@ -4,94 +4,93 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Word
+namespace NoStringEvaluating.Functions.Excel.Word;
+
+/// <summary>
+/// Searches a string from left to right and returns the leftmost characters of the string
+/// <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; subWord) </para>
+/// </summary>
+public sealed class LeftFunction : IFunction
 {
     /// <summary>
-    /// Searches a string from left to right and returns the leftmost characters of the string
-    /// <para>Left(myWord) or Left(myWord; numberOfChars) or Left(myWord; subWord) </para>
+    /// Name
     /// </summary>
-    public sealed class LeftFunction : IFunction
+    public string Name { get; } = "LEFT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "LEFT";
+        var valArg = args[0];
 
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        if (valArg.IsWord)
         {
-            var valArg = args[0];
+            var word = valArg.GetWord();
+            var wordRes = LeftWord(args, word);
 
-            if (valArg.IsWord)
-            {
-                var word = valArg.GetWord();
-                var wordRes = LeftWord(args, word);
-
-                return factory.Word().Create(wordRes);
-            }
-
-            if (valArg.IsWordList)
-            {
-                var wordList = valArg.GetWordList().ToList();
-                for (int i = 0; i < wordList.Count; i++)
-                {
-                    wordList[i] = LeftWord(args, wordList[i]);
-                }
-
-                return factory.WordList().Create(wordList);
-            }
-
-            return double.NaN;        
+            return factory.Word().Create(wordRes);
         }
 
-        private string LeftWord(List<InternalEvaluatorValue> args, string word)
+        if (valArg.IsWordList)
         {
-            if (args.Count == 1)
+            var wordList = valArg.GetWordList().ToList();
+            for (int i = 0; i < wordList.Count; i++)
             {
-                var wordRes = word.Length > 1 ? word[..1] : string.Empty;
-                return wordRes;
+                wordList[i] = LeftWord(args, wordList[i]);
             }
 
-            var pattern = args[1];
+            return factory.WordList().Create(wordList);
+        }
 
-            // Number
-            if (pattern.IsNumber)
-            {
-                if (pattern.Number < 0)
-                {
-                    return string.Empty;
-                }
+        return double.NaN;
+    }
 
-                if (pattern.Number >= word.Length)
-                {
-                    return word;
-                }
+    private string LeftWord(List<InternalEvaluatorValue> args, string word)
+    {
+        if (args.Count == 1)
+        {
+            var wordRes = word.Length > 1 ? word[..1] : string.Empty;
+            return wordRes;
+        }
 
-                var wordRes = word[..(int)pattern.Number];
-                return wordRes;
-            }
+        var pattern = args[1];
 
-            // Word
-            var patternWord = pattern.GetWord();
-            if (patternWord.Length == 0)
+        // Number
+        if (pattern.IsNumber)
+        {
+            if (pattern.Number < 0)
             {
                 return string.Empty;
             }
 
-            var subWordIndex = word.IndexOf(patternWord);
-            if (subWordIndex == -1)
+            if (pattern.Number >= word.Length)
             {
                 return word;
             }
 
-            return word[..subWordIndex];
+            var wordRes = word[..(int)pattern.Number];
+            return wordRes;
         }
+
+        // Word
+        var patternWord = pattern.GetWord();
+        if (patternWord.Length == 0)
+        {
+            return string.Empty;
+        }
+
+        var subWordIndex = word.IndexOf(patternWord);
+        if (subWordIndex == -1)
+        {
+            return word;
+        }
+
+        return word[..subWordIndex];
     }
 }

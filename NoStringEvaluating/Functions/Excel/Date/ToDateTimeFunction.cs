@@ -5,41 +5,40 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Excel.Date
+namespace NoStringEvaluating.Functions.Excel.Date;
+
+/// <summary>
+/// Returns datetime value from string
+/// <para>ToDateTime('8/15/2002')</para>
+/// </summary>
+public sealed class ToDateTimeFunction : IFunction
 {
     /// <summary>
-    /// Returns datetime value from string
-    /// <para>ToDateTime('8/15/2002')</para>
+    /// Name
     /// </summary>
-    public sealed class ToDateTimeFunction : IFunction
+    public string Name { get; } = "TODATETIME";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Execute value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "TODATETIME";
+        var dateTimeFactory = factory.DateTime();
 
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Execute value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        var dateStr = args[0].GetWord();
+        if (!DateTime.TryParse(dateStr, CultureInfo.InvariantCulture, DateTimeStyles.None, out var res))
         {
-            var dateTimeFactory = factory.DateTime();
-  
-            var dateStr = args[0].GetWord();
-            if (!DateTime.TryParse(dateStr, CultureInfo.InvariantCulture, DateTimeStyles.None, out var res))
+            if (!DateTime.TryParse(dateStr, out res))
             {
-                if (!DateTime.TryParse(dateStr, out res))
-                {
-                    dateTimeFactory.Empty();
-                }
+                dateTimeFactory.Empty();
             }
-
-            return dateTimeFactory.Create(res);
         }
+
+        return dateTimeFactory.Create(res);
     }
 }

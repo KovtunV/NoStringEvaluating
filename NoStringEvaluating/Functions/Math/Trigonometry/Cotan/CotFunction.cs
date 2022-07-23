@@ -3,29 +3,28 @@ using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan
+namespace NoStringEvaluating.Functions.Math.Trigonometry.Cotan;
+
+/// <summary>
+/// Function - cot
+/// </summary>
+public sealed class CotFunction : IFunction
 {
     /// <summary>
-    /// Function - cot
+    /// Name
     /// </summary>
-    public sealed class CotFunction : IFunction
+    public string Name { get; } = "COT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; } = false;
+
+    /// <summary>
+    /// Evaluate value
+    /// </summary>
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        /// <summary>
-        /// Name
-        /// </summary>
-        public string Name { get; } = "COT";
-
-        /// <summary>
-        /// Can handle IsNull arguments?
-        /// </summary>
-        public bool CanHandleNullArguments { get; } = false;
-
-        /// <summary>
-        /// Evaluate value
-        /// </summary>
-        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
-        {
-            return 1 / System.Math.Tan(args[0]);
-        }
+        return 1 / System.Math.Tan(args[0]);
     }
 }
