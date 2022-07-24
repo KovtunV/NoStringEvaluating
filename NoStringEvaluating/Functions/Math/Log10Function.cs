@@ -18,7 +18,7 @@ public sealed class Log10Function : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

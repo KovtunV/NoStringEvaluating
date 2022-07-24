@@ -18,7 +18,7 @@ public sealed class FactFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
 
     /// <summary>

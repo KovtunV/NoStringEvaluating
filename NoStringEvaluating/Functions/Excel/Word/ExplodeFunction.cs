@@ -22,7 +22,7 @@ public sealed class ExplodeFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value

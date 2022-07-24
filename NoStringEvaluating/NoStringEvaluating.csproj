@@ -15,7 +15,7 @@
     <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Version>2.3.0</Version>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReadmeFile></PackageReadmeFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -31,10 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
     <None Include="logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

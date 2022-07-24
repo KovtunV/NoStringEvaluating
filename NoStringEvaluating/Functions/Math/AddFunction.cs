@@ -19,7 +19,7 @@ public sealed class AddFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value
