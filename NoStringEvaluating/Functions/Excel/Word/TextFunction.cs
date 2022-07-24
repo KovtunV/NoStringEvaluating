@@ -26,6 +26,6 @@ public sealed class TextFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.Word().Create(args[0].ToString());
+        return factory.Word.Create(args[0].ToString());
     }
 }

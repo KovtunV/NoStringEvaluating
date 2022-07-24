@@ -28,7 +28,7 @@ public sealed class UniqueFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordListFactory = factory.WordList();
+        var wordListFactory = factory.WordList;
 
         var wordList = args[0].GetWordList();
         var uniqueOnly = args.Count > 1 && args[^1];

@@ -26,7 +26,7 @@ public sealed class ReplaceFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordFactory = factory.Word();
+        var wordFactory = factory.Word;
 
         var sourseArg = args[0];
         var oldWord = args[1].GetWord();
@@ -50,9 +50,9 @@ public sealed class ReplaceFunction : IFunction
                 resList.Add(sourseList[i].Replace(oldWord, newWord));
             }
 
-            return factory.WordList().Create(resList);
+            return factory.WordList.Create(resList);
         }
 
-        return wordFactory.Empty();
+        return wordFactory.Empty;
     }
 }

@@ -27,6 +27,6 @@ public sealed class NowFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.DateTime().Create(DateTime.Now);
+        return factory.DateTime.Create(DateTime.Now);
     }
 }

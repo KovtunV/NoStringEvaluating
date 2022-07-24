@@ -578,11 +578,6 @@
             BooleanFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.BooleanFactory.Default">
-            <summary>
-            Creates default
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Factories.BooleanFactory.Create(System.Boolean)">
             <summary>
             Creates bool value
@@ -598,9 +593,9 @@
             DateTimeFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.DateTimeFactory.Empty">
+        <member name="P:NoStringEvaluating.Factories.DateTimeFactory.Empty">
             <summary>
-            Creates default
+            Default
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.DateTimeFactory.Create(System.DateTime)">
@@ -618,11 +613,6 @@
             NumberListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.NumberListFactory.Empty">
-            <summary>
-            Creates default
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Factories.NumberListFactory.Create(System.Collections.Generic.List{System.Double})">
             <summary>
             Creates double List value
@@ -633,29 +623,29 @@
             Factory fro values
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ValueFactory.Word">
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.Word">
             <summary>
-            Returns word factory
+            WordFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ValueFactory.DateTime">
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.DateTime">
             <summary>
-            Returns dateTime factory
+            DateTimeFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ValueFactory.Boolean">
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.Boolean">
             <summary>
-            Returns boolean factory
+            BooleanFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ValueFactory.WordList">
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.WordList">
             <summary>
-            Returns wordList factory
+            WordListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ValueFactory.NumberList">
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.NumberList">
             <summary>
-            Returns numberList factory
+            NumberListFactory
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Factories.WordFactory">
@@ -668,14 +658,14 @@
             WordFactory
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Factories.WordFactory.Empty">
+            <summary>
+            Creates default
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Factories.WordFactory.Concat(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
             <summary>
             Concates two values to word
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Factories.WordFactory.Empty">
-            <summary>
-            Creates default
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.WordFactory.Create(System.String)">
@@ -692,12 +682,6 @@
             <summary>
             WordListFactory
             </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Factories.WordListFactory.Empty">
-            <summary>
-            Creates default
-            </summary>
-            <returns></returns>
         </member>
         <member name="M:NoStringEvaluating.Factories.WordListFactory.Create(System.Collections.Generic.List{System.String})">
             <summary>
@@ -3542,11 +3526,6 @@
             Value
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.ToString">
-            <summary>
-            ToString
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
@@ -3595,6 +3574,11 @@
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.GetHashCode">
             <summary>
             GetHashCode
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.ToString">
+            <summary>
+            ToString
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ExtraTypeIdContainer">
@@ -3647,14 +3631,14 @@
             IsDateTime
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsWord">
-            <summary>
-            IsWord
-            </summary>
-        </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsBoolean">
             <summary>
             IsBoolean
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsWord">
+            <summary>
+            IsWord
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsWordList">
@@ -3672,11 +3656,6 @@
             IsNull
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWord">
-            <summary>
-            Returns string
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetDateTime">
             <summary>
             Returns DateTime
@@ -3685,6 +3664,11 @@
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetBoolean">
             <summary>
             Returns bool
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWord">
+            <summary>
+            Returns string
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWordList">

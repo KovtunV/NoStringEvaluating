@@ -25,6 +25,6 @@ public sealed class IsnanFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.Boolean().Create(double.IsNaN(args[0]));
+        return factory.Boolean.Create(double.IsNaN(args[0]));
     }
 }

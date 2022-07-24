@@ -21,15 +21,6 @@ public readonly struct WordListFactory
     }
 
     /// <summary>
-    /// Creates default
-    /// </summary>
-    /// <returns></returns>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(new List<string>());
-    }
-
-    /// <summary>
     /// Creates string List value
     /// </summary>
     public InternalEvaluatorValue Create(List<string> wordList)

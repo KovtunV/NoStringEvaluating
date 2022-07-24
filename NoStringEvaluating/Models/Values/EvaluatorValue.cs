@@ -114,44 +114,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 
     #endregion
 
-    /// <summary>
-    /// ToString
-    /// </summary>
-    public override string ToString()
-    {
-        if (TypeKey == ValueTypeKey.Word)
-        {
-            return Word;
-        }
-
-        if (TypeKey == ValueTypeKey.Boolean)
-        {
-            return Boolean.ToString(CultureInfo.InvariantCulture);
-        }
-
-        if (TypeKey == ValueTypeKey.DateTime)
-        {
-            return DateTime.ToString(CultureInfo.InvariantCulture);
-        }
-
-        if (TypeKey == ValueTypeKey.WordList)
-        {
-            return string.Join(", ", WordList);
-        }
-
-        if (TypeKey == ValueTypeKey.NumberList)
-        {
-            return string.Join(", ", NumberList);
-        }
-
-        if (TypeKey == ValueTypeKey.Null)
-        {
-            return "Null";
-        }
-
-        return Number.ToString(CultureInfo.InvariantCulture);
-    }
-
     #region Cast
 
     /// <summary>
@@ -183,7 +145,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public static implicit operator EvaluatorValue(string a)
     {
-        return a == null ? default : new EvaluatorValue(a);
+        return new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -191,7 +153,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public static implicit operator EvaluatorValue(List<string> a)
     {
-        return a == null ? default : new EvaluatorValue(a);
+        return new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -199,7 +161,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public static implicit operator EvaluatorValue(List<double> a)
     {
-        return a == null ? default : new EvaluatorValue(a);
+        return new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -212,14 +174,14 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return new EvaluatorValue(a.Number);
         }
 
-        if (a.IsBoolean)
-        {
-            return new EvaluatorValue(a.GetBoolean());
-        }
-
         if (a.IsDateTime)
         {
             return new EvaluatorValue(a.GetDateTime());
+        }
+
+        if (a.IsBoolean)
+        {
+            return new EvaluatorValue(a.GetBoolean());
         }
 
         if (a.IsWord)
@@ -278,4 +240,42 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     }
 
     #endregion
+
+    /// <summary>
+    /// ToString
+    /// </summary>
+    public override string ToString()
+    {
+        if (TypeKey == ValueTypeKey.Word)
+        {
+            return Word;
+        }
+
+        if (TypeKey == ValueTypeKey.Boolean)
+        {
+            return Boolean.ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (TypeKey == ValueTypeKey.DateTime)
+        {
+            return DateTime.ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (TypeKey == ValueTypeKey.WordList)
+        {
+            return string.Join(", ", WordList);
+        }
+
+        if (TypeKey == ValueTypeKey.NumberList)
+        {
+            return string.Join(", ", NumberList);
+        }
+
+        if (TypeKey == ValueTypeKey.Null)
+        {
+            return "Null";
+        }
+
+        return Number.ToString(CultureInfo.InvariantCulture);
+    }
 }

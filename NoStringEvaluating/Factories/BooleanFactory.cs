@@ -21,14 +21,6 @@ public readonly struct BooleanFactory
     }
 
     /// <summary>
-    /// Creates default
-    /// </summary>
-    public InternalEvaluatorValue Default()
-    {
-        return Create(default);
-    }
-
-    /// <summary>
     /// Creates bool value
     /// </summary>
     public InternalEvaluatorValue Create(bool value)

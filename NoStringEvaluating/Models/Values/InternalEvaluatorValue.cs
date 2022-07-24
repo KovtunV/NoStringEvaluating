@@ -43,71 +43,41 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// <summary>
     /// IsNumber
     /// </summary>
-    public bool IsNumber
-    {
-        get => TypeKey == ValueTypeKey.Number;
-    }
+    public bool IsNumber => TypeKey == ValueTypeKey.Number;
 
     /// <summary>
     /// IsDateTime
     /// </summary>
-    public bool IsDateTime
-    {
-        get => TypeKey == ValueTypeKey.DateTime;
-    }
-
-    /// <summary>
-    /// IsWord
-    /// </summary>
-    public bool IsWord
-    {
-        get => TypeKey == ValueTypeKey.Word;
-    }
+    public bool IsDateTime => TypeKey == ValueTypeKey.DateTime;
 
     /// <summary>
     /// IsBoolean
     /// </summary>
-    public bool IsBoolean
-    {
-        get => TypeKey == ValueTypeKey.Boolean;
-    }
+    public bool IsBoolean => TypeKey == ValueTypeKey.Boolean;
+
+    /// <summary>
+    /// IsWord
+    /// </summary>
+    public bool IsWord => TypeKey == ValueTypeKey.Word;
 
     /// <summary>
     /// IsWordList
     /// </summary>
-    public bool IsWordList
-    {
-        get => TypeKey == ValueTypeKey.WordList;
-    }
+    public bool IsWordList => TypeKey == ValueTypeKey.WordList;
 
     /// <summary>
     /// IsNumberList
     /// </summary>
-    public bool IsNumberList
-    {
-        get => TypeKey == ValueTypeKey.NumberList;
-    }
+    public bool IsNumberList => TypeKey == ValueTypeKey.NumberList;
 
     /// <summary>
     /// IsNull
     /// </summary>
-    public bool IsNull
-    {
-        get => TypeKey == ValueTypeKey.Null;
-    }
+    public bool IsNull => TypeKey == ValueTypeKey.Null;
 
     #endregion
 
     #region ExtraValue
-
-    /// <summary>
-    /// Returns string
-    /// </summary>
-    public string GetWord()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : default;
-    }
 
     /// <summary>
     /// Returns DateTime
@@ -125,6 +95,15 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     {
         // It has to be a method to avoid misunderstanding inside custom functions
         return IsBoolean ? BooleanKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    /// <summary>
+    /// Returns string
+    /// </summary>
+    public string GetWord()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -170,7 +149,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
             (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
             (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
             (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
-            (TypeKey == ValueTypeKey.Null && IsNull && other.IsNull)
+            (TypeKey == ValueTypeKey.Null)
             );
     }
 
@@ -367,7 +346,6 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public override string ToString()
     {
-
         if (IsDateTime)
         {
             return GetDateTime().ToString(CultureInfo.InvariantCulture);

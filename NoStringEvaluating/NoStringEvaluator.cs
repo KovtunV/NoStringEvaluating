@@ -791,22 +791,22 @@ public class NoStringEvaluator : INoStringEvaluator
             else if (node.TypeKey == NodeTypeEnum.Boolean)
             {
                 var boolNode = (BooleanNode)node;
-                stack.Push(factory.Boolean().Create(boolNode.Value));
+                stack.Push(factory.Boolean.Create(boolNode.Value));
             }
             else if (node.TypeKey == NodeTypeEnum.Word)
             {
                 var wordNode = (WordNode)node;
-                stack.Push(factory.Word().Create(wordNode.Word));
+                stack.Push(factory.Word.Create(wordNode.Word));
             }
             else if (node.TypeKey == NodeTypeEnum.WordList)
             {
                 var wordListNode = (WordListNode)node;
-                stack.Push(factory.WordList().Create(wordListNode.WordList));
+                stack.Push(factory.WordList.Create(wordListNode.WordList));
             }
             else if (node.TypeKey == NodeTypeEnum.NumberList)
             {
                 var numberListNode = (NumberListNode)node;
-                stack.Push(factory.NumberList().Create(numberListNode.NumberList));
+                stack.Push(factory.NumberList.Create(numberListNode.NumberList));
             }
             else if (node.TypeKey == NodeTypeEnum.Null)
             {

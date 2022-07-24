@@ -37,17 +37,17 @@ internal static class OperationProcessor
 
         if (a.IsWord || b.IsWord)
         {
-            return factory.Word().Concat(a, b);
+            return factory.Word.Concat(a, b);
         }
 
         if (a.IsNumber && b.IsDateTime)
         {
-            return factory.DateTime().Create(b.GetDateTime().AddDays(a.Number));
+            return factory.DateTime.Create(b.GetDateTime().AddDays(a.Number));
         }
 
         if (a.IsDateTime && b.IsNumber)
         {
-            return factory.DateTime().Create(a.GetDateTime().AddDays(b.Number));
+            return factory.DateTime.Create(a.GetDateTime().AddDays(b.Number));
         }
 
         return default;
@@ -62,7 +62,7 @@ internal static class OperationProcessor
 
         if (a.IsDateTime && b.IsNumber)
         {
-            return factory.DateTime().Create(a.GetDateTime().AddDays(-b.Number));
+            return factory.DateTime.Create(a.GetDateTime().AddDays(-b.Number));
         }
 
         if (a.IsDateTime && b.IsDateTime)
@@ -91,12 +91,12 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(a < b);
+            return factory.Boolean.Create(a < b);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return factory.Boolean().Create(a.GetDateTime() < b.GetDateTime());
+            return factory.Boolean.Create(a.GetDateTime() < b.GetDateTime());
         }
 
         return default;
@@ -106,12 +106,12 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(a <= b);
+            return factory.Boolean.Create(a <= b);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return factory.Boolean().Create(a.GetDateTime() <= b.GetDateTime());
+            return factory.Boolean.Create(a.GetDateTime() <= b.GetDateTime());
         }
 
         return default;
@@ -121,12 +121,12 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(a > b);
+            return factory.Boolean.Create(a > b);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return factory.Boolean().Create(a.GetDateTime() > b.GetDateTime());
+            return factory.Boolean.Create(a.GetDateTime() > b.GetDateTime());
         }
 
         return default;
@@ -136,12 +136,12 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(a >= b);
+            return factory.Boolean.Create(a >= b);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return factory.Boolean().Create(a.GetDateTime() >= b.GetDateTime());
+            return factory.Boolean.Create(a.GetDateTime() >= b.GetDateTime());
         }
 
         return default;
@@ -151,20 +151,20 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(Math.Abs(a - b) < NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a - b) < NoStringEvaluatorConstants.FloatingTolerance);
         }
 
-        return factory.Boolean().Create(a.Equals(b));
+        return factory.Boolean.Create(a.Equals(b));
     }
 
     public static InternalEvaluatorValue NotEqual(in ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(Math.Abs(a - b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a - b) > NoStringEvaluatorConstants.FloatingTolerance);
         }
 
-        return factory.Boolean().Create(!a.Equals(b));
+        return factory.Boolean.Create(!a.Equals(b));
     }
 
     #endregion
@@ -175,20 +175,20 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
         }
 
-        return factory.Boolean().Create(a && b);
+        return factory.Boolean.Create(a && b);
     }
 
     public static InternalEvaluatorValue Or(in ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean().Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
         }
 
-        return factory.Boolean().Create(a || b);
+        return factory.Boolean.Create(a || b);
     }
 
     #endregion

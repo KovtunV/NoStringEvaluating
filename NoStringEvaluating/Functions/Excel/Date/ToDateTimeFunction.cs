@@ -28,14 +28,14 @@ public sealed class ToDateTimeFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var dateTimeFactory = factory.DateTime();
+        var dateTimeFactory = factory.DateTime;
 
         var dateStr = args[0].GetWord();
         if (!DateTime.TryParse(dateStr, CultureInfo.InvariantCulture, DateTimeStyles.None, out var res))
         {
             if (!DateTime.TryParse(dateStr, out res))
             {
-                dateTimeFactory.Empty();
+                return dateTimeFactory.Empty;
             }
         }
 

@@ -16,44 +16,29 @@ public readonly struct ValueFactory
     }
 
     /// <summary>
-    /// Returns word factory
+    /// WordFactory
     /// </summary>
-    public WordFactory Word()
-    {
-        return new WordFactory(_idContainer.Ids);
-    }
+    public WordFactory Word => new(_idContainer.Ids);
 
     /// <summary>
-    /// Returns dateTime factory
+    /// DateTimeFactory
     /// </summary>
-    public DateTimeFactory DateTime()
-    {
-        return new DateTimeFactory(_idContainer.Ids);
-    }
+    public DateTimeFactory DateTime => new(_idContainer.Ids);
 
     /// <summary>
-    /// Returns boolean factory
+    /// BooleanFactory
     /// </summary>
-    public BooleanFactory Boolean()
-    {
-        return new BooleanFactory(_idContainer.Ids);
-    }
+    public BooleanFactory Boolean => new(_idContainer.Ids);
 
     /// <summary>
-    /// Returns wordList factory
+    /// WordListFactory
     /// </summary>
-    public WordListFactory WordList()
-    {
-        return new WordListFactory(_idContainer.Ids);
-    }
+    public WordListFactory WordList => new(_idContainer.Ids);
 
     /// <summary>
-    /// Returns numberList factory
+    /// NumberListFactory
     /// </summary>
-    public NumberListFactory NumberList()
-    {
-        return new NumberListFactory(_idContainer.Ids);
-    }
+    public NumberListFactory NumberList => new(_idContainer.Ids);
 
     internal InternalEvaluatorValue Create(EvaluatorValue val)
     {
@@ -64,27 +49,27 @@ public readonly struct ValueFactory
 
         if (val.TypeKey == ValueTypeKey.Boolean)
         {
-            return Boolean().Create(val.Boolean);
+            return Boolean.Create(val.Boolean);
         }
 
         if (val.TypeKey == ValueTypeKey.DateTime)
         {
-            return DateTime().Create(val.DateTime);
+            return DateTime.Create(val.DateTime);
         }
 
         if (val.TypeKey == ValueTypeKey.Word)
         {
-            return Word().Create(val.Word);
+            return Word.Create(val.Word);
         }
 
         if (val.TypeKey == ValueTypeKey.WordList)
         {
-            return WordList().Create(val.WordList);
+            return WordList.Create(val.WordList);
         }
 
         if (val.TypeKey == ValueTypeKey.NumberList)
         {
-            return NumberList().Create(val.NumberList);
+            return NumberList.Create(val.NumberList);
         }
 
         if (val.TypeKey == ValueTypeKey.Null)

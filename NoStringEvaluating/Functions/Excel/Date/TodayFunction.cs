@@ -27,6 +27,6 @@ public sealed class TodayFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.DateTime().Create(DateTime.Today);
+        return factory.DateTime.Create(DateTime.Today);
     }
 }

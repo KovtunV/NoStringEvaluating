@@ -37,7 +37,7 @@ public sealed class MiddleFunction : IFunction
             var word = valArg.GetWord();
             var wordRes = MiddleWord(argStart, argEnd, word);
 
-            return factory.Word().Create(wordRes);
+            return factory.Word.Create(wordRes);
         }
 
         if (valArg.IsWordList)
@@ -48,7 +48,7 @@ public sealed class MiddleFunction : IFunction
                 wordList[i] = MiddleWord(argStart, argEnd, wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
         return double.NaN;

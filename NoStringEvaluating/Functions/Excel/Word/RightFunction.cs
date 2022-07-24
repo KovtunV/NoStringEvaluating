@@ -34,7 +34,7 @@ public sealed class RightFunction : IFunction
             var word = valArg.GetWord();
             var wordRes = RightWord(args, word);
 
-            return factory.Word().Create(wordRes);
+            return factory.Word.Create(wordRes);
         }
 
         if (valArg.IsWordList)
@@ -45,7 +45,7 @@ public sealed class RightFunction : IFunction
                 wordList[i] = RightWord(args, wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
         return double.NaN;

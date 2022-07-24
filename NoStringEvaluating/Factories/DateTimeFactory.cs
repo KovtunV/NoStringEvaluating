@@ -22,12 +22,9 @@ public readonly struct DateTimeFactory
     }
 
     /// <summary>
-    /// Creates default
+    /// Default
     /// </summary>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(DateTime.MinValue);
-    }
+    public InternalEvaluatorValue Empty => Create(DateTime.MinValue);
 
     /// <summary>
     /// Creates dateTime value

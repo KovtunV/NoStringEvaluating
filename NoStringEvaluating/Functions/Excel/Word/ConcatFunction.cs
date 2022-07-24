@@ -63,6 +63,6 @@ public sealed class ConcatFunction : IFunction
             }
         }
 
-        return factory.Word().Create(res);
+        return factory.Word.Create(res);
     }
 }

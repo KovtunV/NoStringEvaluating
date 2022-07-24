@@ -21,14 +21,6 @@ public readonly struct NumberListFactory
     }
 
     /// <summary>
-    /// Creates default
-    /// </summary>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(new List<double>());
-    }
-
-    /// <summary>
     /// Creates double List value
     /// </summary>
     public InternalEvaluatorValue Create(List<double> numberList)

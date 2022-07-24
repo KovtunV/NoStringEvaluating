@@ -41,7 +41,7 @@ public sealed class SortFunction : IFunction
             else
                 wordList.Sort((a, b) => string.Compare(b, a, StringComparison.Ordinal));
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
         if (list.IsNumberList)
@@ -54,7 +54,7 @@ public sealed class SortFunction : IFunction
             else
                 numberList.Sort((a, b) => b.CompareTo(a));
 
-            return factory.NumberList().Create(numberList);
+            return factory.NumberList.Create(numberList);
         }
 
         return double.NaN;

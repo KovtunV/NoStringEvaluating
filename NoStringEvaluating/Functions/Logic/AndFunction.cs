@@ -29,10 +29,10 @@ public sealed class AndFunction : IFunction
         {
             if (!args[i])
             {
-                return factory.Boolean().Create(false);
+                return factory.Boolean.Create(false);
             }
         }
 
-        return factory.Boolean().Create(true);
+        return factory.Boolean.Create(true);
     }
 }

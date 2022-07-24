@@ -35,7 +35,7 @@ public sealed class ProperFunction : IFunction
             var word = arg.GetWord();
 
             var res = Proper(word);
-            return factory.Word().Create(res);
+            return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
@@ -47,7 +47,7 @@ public sealed class ProperFunction : IFunction
                 wordList[i] = Proper(wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
         return double.NaN;

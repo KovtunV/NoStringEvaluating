@@ -25,6 +25,6 @@ public class IsTextFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.Boolean().Create(args[0].IsWord);
+        return factory.Boolean.Create(args[0].IsWord);
     }
 }

@@ -21,20 +21,17 @@ public readonly struct WordFactory
     }
 
     /// <summary>
+    /// Creates default
+    /// </summary>
+    public InternalEvaluatorValue Empty => Create(string.Empty);
+
+    /// <summary>
     /// Concates two values to word
     /// </summary>
     public InternalEvaluatorValue Concat(InternalEvaluatorValue a, InternalEvaluatorValue b)
     {
         var word = $"{a}{b}";
         return Create(word);
-    }
-
-    /// <summary>
-    /// Creates default
-    /// </summary>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(string.Empty);
     }
 
     /// <summary>

@@ -30,7 +30,7 @@ public sealed class ImplodeFunction : IFunction
     {
         var separator = args.Count > 1 ? args[^1].GetWord() : string.Empty;
         var res = string.Join(separator, GetLoop(args));
-        return factory.Word().Create(res);
+        return factory.Word.Create(res);
     }
 
     private IEnumerable<string> GetLoop(List<InternalEvaluatorValue> args)

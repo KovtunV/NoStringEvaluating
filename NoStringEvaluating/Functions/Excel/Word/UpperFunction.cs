@@ -32,16 +32,16 @@ public sealed class UpperFunction : IFunction
         if (arg.IsWord)
         {
             var res = arg.GetWord().ToUpperInvariant();
-            return factory.Word().Create(res);
+            return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
         {
             var wordList = arg.GetWordList();
             var wordListRes = wordList.Select(s => s.ToUpperInvariant()).ToList();
-            return factory.WordList().Create(wordListRes);
+            return factory.WordList.Create(wordListRes);
         }
 
-        return factory.Word().Empty();
+        return factory.Word.Empty;
     }
 }

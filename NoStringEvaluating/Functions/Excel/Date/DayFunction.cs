@@ -26,7 +26,7 @@ public sealed class DayFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordFactory = factory.Word();
+        var wordFactory = factory.Word;
         var dateVal = args[0].GetDateTime();
 
         if (args.Count > 1 && args[1].IsWord)

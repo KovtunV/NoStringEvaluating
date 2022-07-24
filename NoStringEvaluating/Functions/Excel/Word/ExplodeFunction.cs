@@ -31,6 +31,6 @@ public sealed class ExplodeFunction : IFunction
     {
         var separator = args.Count > 1 ? args[1].GetWord() : " ";
         var res = args[0].GetWord().Split(separator, StringSplitOptions.RemoveEmptyEntries).ToList();
-        return factory.WordList().Create(res);
+        return factory.WordList.Create(res);
     }
 }

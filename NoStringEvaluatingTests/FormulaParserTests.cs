@@ -256,7 +256,7 @@ public class TestSleepFunction : IFunction
 
         var w2 = arg.GetWord();
 
-        return factory.Word().Create(w2);
+        return factory.Word.Create(w2);
     }
 }
 

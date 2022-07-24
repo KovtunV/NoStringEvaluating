@@ -188,7 +188,7 @@ public class MyFunction : IFunction
         var ageAfterDecade = age + 10;
         var result = $"Hello, {name}. After 10 years you will be {ageAfterDecade} y.o.";
 
-        return factory.Word().Create(result);
+        return factory.Word.Create(result);
     }
 }
 ```
