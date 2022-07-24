@@ -25,6 +25,6 @@ public sealed class IsNumberFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return args[0].IsNumber ? 1 : 0;
+        return factory.Boolean().Create(args[0].IsNumber);
     }
 }

@@ -25,7 +25,7 @@ public static partial class FormulasContainer
         yield return CreateTestModel("Replace(list; 'o'; '*')", new[] { "*ne", "tW*" }.ToList(), ("list", list1));
         yield return CreateTestModel("Replace({'New','York','City'}; 'New'; 'Old')", new[] { "Old", "York", "City" }.ToList());
 
-        // Qnique
+        // Unique
         yield return CreateTestModel("Unique(list; true)", new[] { "b" }.ToList(), ("list", list3));
         yield return CreateTestModel("Unique(list; false)", new[] { "a", "b", "c" }.ToList(), ("list", list3));
         yield return CreateTestModel("Unique(list)", new[] { "a", "b", "c" }.ToList(), ("list", list3));
@@ -70,11 +70,15 @@ public static partial class FormulasContainer
         yield return CreateTestModel("Count(1; 'dd'; 2; list)", 5, ("list", list1));
         yield return CreateTestModel("Count(1; 2; {1, 5, 6, 3, 7})", 7);
         yield return CreateTestModel("Count(1; 2; {'one' 'two' 'thrte'})", 5);
+    }
+
+    public static IEnumerable<FormulaModel[]> GetWordListAsBooleanFormulas()
+    {
+        var list1 = new[] { "one", "tWo" }.ToList();
 
         // IsMember
-        yield return CreateTestModel("IsMember({'printer', 'computer', 'monitor'};'computer')", 1);
-        yield return CreateTestModel("IsMember(list; 'one')", 1, ("list", list1));
-        yield return CreateTestModel("IsMember(list; 'onee')", 0, ("list", list1));
-
+        yield return CreateTestModel("IsMember({'printer', 'computer', 'monitor'};'computer')", true);
+        yield return CreateTestModel("IsMember(list; 'one')", true, ("list", list1));
+        yield return CreateTestModel("IsMember(list; 'onee')", false, ("list", list1));
     }
 }

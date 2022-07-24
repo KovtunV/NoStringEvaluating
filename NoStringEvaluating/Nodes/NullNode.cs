@@ -10,7 +10,7 @@ public class NullNode : BaseFormulaNode
     /// <summary>
     /// Null Const
     /// </summary>
-    public NullNode() : base(NodeTypeEnum.NullConst)
+    public NullNode() : base(NodeTypeEnum.Null)
     {
     }
 

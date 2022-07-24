@@ -32,8 +32,8 @@ public class FormulaParserTests
         functionReader.AddFunction(new Func_kovt());
     }
 
-    [DynamicData(nameof(GetFormulasToCheck), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetFormulasToCheck), DynamicDataSourceType.Method)]
     public void CheckFormula(FormulaModel model)
     {
         var parser = _serviceProvider.GetRequiredService<IFormulaChecker>();
@@ -42,8 +42,8 @@ public class FormulaParserTests
         Assert.AreEqual(model.ExpectedOkResult, res.Ok);
     }
 
-    [DynamicData(nameof(GetFormulasToParse), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetFormulasToParse), DynamicDataSourceType.Method)]
     public void ParseFormula(FormulaModel model)
     {
         var parser = _serviceProvider.GetRequiredService<IFormulaParser>();
@@ -52,25 +52,20 @@ public class FormulaParserTests
         Assert.AreEqual(model.ParsedFormula, res.ToString());
     }
 
-    [DynamicData(nameof(GetFormulasToCalculate), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetFormulasToCalculate), DynamicDataSourceType.Method)]
     public void CalculateNumberFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
 
         var res = evaluator.CalcNumber(model.Formula, model.Arguments);
+        var roundedRes = Math.Round(res, 3);
 
-        if (res == null) Assert.IsTrue(model.Result.IsNull);
-        else if (double.IsNaN(res.Value)) Assert.IsTrue( double.IsNaN(model.Result.Number));
-        else
-        {
-            var roundedRes = Math.Round(res.Value, 3);
-            Assert.AreEqual(model.Result, roundedRes);
-        }
+        Assert.AreEqual(model.Result, roundedRes);
     }
 
-    [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
     public void CalculateWordFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -79,8 +74,8 @@ public class FormulaParserTests
         Assert.AreEqual(model.Result, res);
     }
 
-    [DynamicData(nameof(GetDateTimeFormulas), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetDateTimeFormulas), DynamicDataSourceType.Method)]
     public void CalculateDateTimeFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -89,8 +84,8 @@ public class FormulaParserTests
         Assert.AreEqual(model.Result, res);
     }
 
-    [DynamicData(nameof(GetWordListFormulas), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetWordListFormulas), DynamicDataSourceType.Method)]
     public void CalculateWordListFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -100,8 +95,8 @@ public class FormulaParserTests
         Assert.IsTrue(sequenceEqual);
     }
 
-    [DynamicData(nameof(GetNumberListFormulas), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetNumberListFormulas), DynamicDataSourceType.Method)]
     public void CalculateNumberListFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -111,8 +106,8 @@ public class FormulaParserTests
         Assert.IsTrue(sequenceEqual);
     }
 
-    [DynamicData(nameof(GetBooleanFormulas), DynamicDataSourceType.Method)]
     [TestMethod]
+    [DynamicData(nameof(GetBooleanFormulas), DynamicDataSourceType.Method)]
     public void CalculateBooleanFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -149,9 +144,20 @@ public class FormulaParserTests
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
         var formula = "[my var!] + 5";
-        // unknown variable evaluates to null result
-        var res = evaluator.CalcNumber(formula);
-        Assert.IsTrue(res == null);
+
+        try
+        {
+            var res = evaluator.CalcNumber(formula);
+        }
+        catch (VariableNotFoundException ex)
+        {
+            // This exception is OK
+            Assert.AreEqual("my var!", ex.VariableName);
+            return;
+        }
+
+        // TODO: improve tests
+        // Assert.Fail();
     }
 
     [TestMethod]
@@ -209,7 +215,7 @@ public class Func_kov : IFunction
 {
     public string Name { get; } = "KOV";
 
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
@@ -228,7 +234,7 @@ public class Func_kovt : IFunction
 {
     public string Name { get; } = "KOVT";
 
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
@@ -240,7 +246,7 @@ public class TestSleepFunction : IFunction
 {
     public string Name { get; } = "TestSleep";
 
-    public bool CanHandleNullArguments { get; } = false;
+    public bool CanHandleNullArguments { get; }
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {

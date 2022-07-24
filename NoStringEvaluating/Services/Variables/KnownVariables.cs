@@ -5,24 +5,39 @@ namespace NoStringEvaluating.Services.Variables;
 
 internal static class KnownVariables
 {
-    private static readonly Dictionary<string, double> _variables;
+    private static readonly Dictionary<string, double> _numberVariables;
+    private static readonly Dictionary<string, bool> _booleanVariables;
 
     static KnownVariables()
     {
-        _variables = new Dictionary<string, double>
+        _numberVariables = new Dictionary<string, double>
         {
             ["PI"] = Math.PI,
             ["TAU"] = Math.PI * 2,
             ["E"] = Math.E,
-            ["TRUE"] = 1,
-            ["FALSE"] = 0,
             ["ASC"] = 1,
             ["DESC"] = 0
         };
+
+        _booleanVariables = new Dictionary<string, bool>
+        {
+            ["TRUE"] = true,
+            ["FALSE"] = false
+        };
     }
 
-    internal static bool TryGetValue(string name, out double val)
+    internal static bool TryGetNumberValue(string name, out double val)
     {
-        return _variables.TryGetValue(name.ToUpperInvariant(), out val);
+        return _numberVariables.TryGetValue(name.ToUpperInvariant(), out val);
+    }
+
+    internal static bool TryGetBooleanValue(string name, out bool val)
+    {
+        return _booleanVariables.TryGetValue(name.ToUpperInvariant(), out val);
+    }
+
+    internal static bool IsNull(string name)
+    {
+        return name.Equals("NULL", StringComparison.OrdinalIgnoreCase);
     }
 }

@@ -21,7 +21,8 @@ internal abstract class BaseValueKeeper<TModel>
     {
         lock (_locker)
         {
-            for (var i = 0; i < int.MaxValue; i++)
+            // Id starts from 1 due to default extraTypeId in InternalEvaluatorValue
+            for (var i = 1; i < int.MaxValue; i++)
             {
                 if (!_values.ContainsKey(i))
                 {

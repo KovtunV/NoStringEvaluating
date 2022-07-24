@@ -25,14 +25,10 @@ public static partial class FormulasContainer
         yield return CreateTestModel("if([var1] > 5 || [var1] != [var2]; 56+3; 1-344)", 59, ("var1", 5), ("var2", 6));
         yield return CreateTestModel("if([var1] >= 5 && [var1] + 10 == 15; 1; 0)", 1, ("var1", 5));
         yield return CreateTestModel("if(and(5; 8; 6) && [var1] < 5; 1; 0)", 0, ("var1", 5));
-        yield return CreateTestModel("15+24 != [var1] * 3", 1, ("var1", 5));
-        yield return CreateTestModel("15+24 == [var1] * 3", 1, ("var1", 13));
-        yield return CreateTestModel("15+24 == [var1] * 3", 1, ("var1", 13));
-        yield return CreateTestModel("15+24 == [var1] * 2", 0, ("var1", -3));
         yield return CreateTestModel("(5*3)-1", 14);
         yield return CreateTestModel("5*3-1", 14);
         yield return CreateTestModel("5*(3-1)", 10);
-        yield return CreateTestModel("if(-1; -6; -7)", -6);
+        yield return CreateTestModel("if(true; -6; -7)", -6);
         yield return CreateTestModel("5 - -6", 11);
         yield return CreateTestModel("if ([Arg1] > 0; - [Arg1]; 0)", -16, ("Arg1", 16));
         yield return CreateTestModel("if ([Arg1] != 0; -----Arg1; 0)", -16, ("Arg1", 16));
@@ -55,14 +51,13 @@ public static partial class FormulasContainer
         yield return CreateTestModel("-add", -3, ("add", 3));
         yield return CreateTestModel("add", 3, ("add", 3));
         yield return CreateTestModel("add + add(add(5; add))", 11, ("add", 3));
-        yield return CreateTestModel("15+24 == var1 * 2", 0, ("var1", -3));
-        yield return CreateTestModel("15+24 == var_1 * 3", 1, ("var_1", 13));
         yield return CreateTestModel("- (my_name_is / 15)", -3, ("my_name_is", 45));
         yield return CreateTestModel("[myVariable ♥]", 30, ("myVariable ♥", 30));
         yield return CreateTestModel("Pi*pI/[PI] + -pI", 0);
         yield return CreateTestModel("if([tau] > 6 == true; 5+6; -9)", 11);
         yield return CreateTestModel("if(tAu > 6 == false; 5+6; -9)", -9);
         yield return CreateTestModel("e + [E]", Math.Round(Math.E + Math.E, 3));
+        yield return CreateTestModel("ToDateTime('09/12/2002') - ToDateTime('09/7/2002')", 5);
 
         // Check functions
         foreach (var func in CheckFunctions()) yield return func;
@@ -158,25 +153,12 @@ public static partial class FormulasContainer
         yield return CreateTestModel("Cosech(3)", 0.1);
         yield return CreateTestModel("Csc(18)", -1.332);
         yield return CreateTestModel("Csch(3)", 0.1);
-        yield return CreateTestModel("and(3 > 0; true == 1)", 1);
         yield return CreateTestModel("iff(3 < 0; 3; 3 > 0; 4)", 4);
         yield return CreateTestModel("if(3 < 0; 3; -1)", -1);
-        yield return CreateTestModel("IsNaN(0 / 0)", 1);
-        yield return CreateTestModel("not(false)", 1);
-        yield return CreateTestModel("or(true; false)", 1);
-
-        // IsNumber
-        yield return CreateTestModel("IsNumber(5)", 1);
-        yield return CreateTestModel("IsNumber('5')", 0);
-        yield return CreateTestModel("IsNumber('my word')", 0);
 
         // ToNumber
         yield return CreateTestModel("ToNumber('5')", 5);
         yield return CreateTestModel("ToNumber('ghj5')", double.NaN);
-
-        // IsError
-        yield return CreateTestModel("IsError(ToNumber('Text'))", 1);
-        yield return CreateTestModel("IsError(ToNumber('3'))", 0);
 
         // Word
         foreach (var item in GetWordAsNumberFormulas())

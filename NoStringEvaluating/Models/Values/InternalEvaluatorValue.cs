@@ -8,9 +8,9 @@ namespace NoStringEvaluating.Models.Values;
 /// <summary>
 /// Value for internal processing
 /// </summary>
-public readonly struct InternalEvaluatorValue
+public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValue>
 {
-    private readonly int _extraTypeId;
+    private readonly int _extraTypeId = NullId;
 
     /// <summary>
     /// Type key 
@@ -29,18 +29,6 @@ public readonly struct InternalEvaluatorValue
     {
         TypeKey = ValueTypeKey.Number;
         Number = number;
-        _extraTypeId = NullId;
-    }
-
-    /// <summary>
-    /// NULL Instance
-    /// </summary>
-    public InternalEvaluatorValue()
-    {
-        // Everything set to 0, the same as what you get when you do  default(InternalEvaluatorValue)
-        TypeKey = ValueTypeKey.Null;
-        Number = 0;
-        _extraTypeId = NullId;
     }
 
     internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
@@ -48,41 +36,6 @@ public readonly struct InternalEvaluatorValue
         _extraTypeId = extraTypeId;
         TypeKey = typeKey;
         Number = double.NaN;
-    }
-
-    /// <summary>
-    /// ToString
-    /// </summary>
-    public override string ToString()
-    {
-        if (IsWord)
-        {
-            return GetWord();
-        }
-
-        if (IsDateTime)
-        {
-            return GetDateTime().ToString(CultureInfo.InvariantCulture);
-        }
-
-        if (IsWordList)
-        {
-            var wList = GetWordList();
-            return wList is null ? string.Empty : string.Join(", ", wList);
-        }
-
-        if (IsNumberList)
-        {
-            var nList = GetNumberList();
-            return nList is null ? string.Empty : string.Join(", ", nList);
-        }
-
-        if (IsNull)
-        {
-            return "Null";
-        }
-
-        return Number.ToString(CultureInfo.InvariantCulture);
     }
 
     #region IsProperties
@@ -96,6 +49,14 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
+    /// IsDateTime
+    /// </summary>
+    public bool IsDateTime
+    {
+        get => TypeKey == ValueTypeKey.DateTime;
+    }
+
+    /// <summary>
     /// IsWord
     /// </summary>
     public bool IsWord
@@ -104,11 +65,11 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
-    /// IsDateTime
+    /// IsBoolean
     /// </summary>
-    public bool IsDateTime
+    public bool IsBoolean
     {
-        get => TypeKey == ValueTypeKey.DateTime;
+        get => TypeKey == ValueTypeKey.Boolean;
     }
 
     /// <summary>
@@ -145,7 +106,7 @@ public readonly struct InternalEvaluatorValue
     public string GetWord()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : null;
+        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -154,7 +115,16 @@ public readonly struct InternalEvaluatorValue
     public DateTime GetDateTime()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : DateTime.MinValue;
+        return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    /// <summary>
+    /// Returns bool
+    /// </summary>
+    public bool GetBoolean()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsBoolean ? BooleanKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -163,7 +133,7 @@ public readonly struct InternalEvaluatorValue
     public List<string> GetWordList()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : null;
+        return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -172,12 +142,21 @@ public readonly struct InternalEvaluatorValue
     public List<double> GetNumberList()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : null;
+        return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     #endregion
 
     #region Equals
+
+    /// <summary>
+    /// Equals
+    /// </summary>
+    public override bool Equals(object obj)
+    {
+        return obj is InternalEvaluatorValue value && Equals(value);
+    }
+
     /// <summary>
     /// Equals
     /// </summary>
@@ -185,16 +164,55 @@ public readonly struct InternalEvaluatorValue
     {
         return TypeKey == other.TypeKey &&
             (
-            (TypeKey == ValueTypeKey.Null) ||
-            (TypeKey == ValueTypeKey.DateTime && GetDateTime() == other.GetDateTime()) ||
+            (TypeKey == ValueTypeKey.Boolean && GetBoolean() == other.GetBoolean()) ||
             (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
+            (TypeKey == ValueTypeKey.Number && Number.Equals(other.Number)) ||
+            (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
             (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
             (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
-            Number == other.Number
+            (TypeKey == ValueTypeKey.Null && IsNull && other.IsNull)
             );
     }
-    #endregion
 
+    /// <summary>
+    /// GetHashCode
+    /// </summary>
+    public override int GetHashCode()
+    {
+        if (IsNumber)
+        {
+            return HashCode.Combine(TypeKey, Number);
+        }
+
+        if (IsDateTime)
+        {
+            return HashCode.Combine(TypeKey, GetDateTime());
+        }
+
+        if (IsBoolean)
+        {
+            return HashCode.Combine(TypeKey, GetBoolean());
+        }
+
+        if (IsWord)
+        {
+            return HashCode.Combine(TypeKey, GetWord());
+        }
+
+        if (IsWordList)
+        {
+            return HashCode.Combine(TypeKey, GetWordList());
+        }
+
+        if (IsNumberList)
+        {
+            return HashCode.Combine(TypeKey, GetNumberList());
+        }
+
+        return HashCode.Combine(TypeKey);
+    }
+
+    #endregion
 
     #region MathOperators
 
@@ -266,6 +284,22 @@ public readonly struct InternalEvaluatorValue
         return a.Number <= b.Number;
     }
 
+    /// <summary>
+    /// Equal
+    /// </summary>
+    public static bool operator ==(InternalEvaluatorValue left, InternalEvaluatorValue right)
+    {
+        return left.Equals(right);
+    }
+
+    /// <summary>
+    /// Not equal
+    /// </summary>
+    public static bool operator !=(InternalEvaluatorValue left, InternalEvaluatorValue right)
+    {
+        return !(left == right);
+    }
+
     #endregion
 
     #region Cast
@@ -279,21 +313,12 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
-    /// To double?
-    /// </summary>
-    public static implicit operator double?(InternalEvaluatorValue a)
-    {
-        return a.IsNull ? null : a.Number;
-    }
-
-    /// <summary>
     /// To string
     /// </summary>
     public static implicit operator string(InternalEvaluatorValue a)
     {
-        return a.IsNull ? null : a.GetWord();
+        return a.GetWord();
     }
-
 
     /// <summary>
     /// To DateTime
@@ -304,11 +329,11 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
-    /// To DateTime?
+    /// To boolean
     /// </summary>
-    public static implicit operator DateTime?(InternalEvaluatorValue a)
+    public static implicit operator bool(InternalEvaluatorValue a)
     {
-        return a.IsNull ? null : a.GetDateTime();
+        return a.GetBoolean();
     }
 
     /// <summary>
@@ -316,7 +341,7 @@ public readonly struct InternalEvaluatorValue
     /// </summary>
     public static implicit operator List<string>(InternalEvaluatorValue a)
     {
-        return a.IsNull ? null : a.GetWordList();
+        return a.GetWordList();
     }
 
     /// <summary>
@@ -324,24 +349,7 @@ public readonly struct InternalEvaluatorValue
     /// </summary>
     public static implicit operator List<double>(InternalEvaluatorValue a)
     {
-        return a.IsNull ? null : a.GetNumberList();
-    }
-
-    /// <summary>
-    /// To boolean
-    /// </summary>
-    public static implicit operator bool(InternalEvaluatorValue a)
-    {
-        return a.IsNull ? false : Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
-    }
-
-
-    /// <summary>
-    /// To boolean?
-    /// </summary>
-    public static implicit operator bool?(InternalEvaluatorValue a)
-    {
-        return a.IsNull ? null : Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
+        return a.GetNumberList();
     }
 
     /// <summary>
@@ -355,8 +363,48 @@ public readonly struct InternalEvaluatorValue
     #endregion
 
     /// <summary>
+    /// ToString
+    /// </summary>
+    public override string ToString()
+    {
+
+        if (IsDateTime)
+        {
+            return GetDateTime().ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (IsBoolean)
+        {
+            return GetBoolean().ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (IsWord)
+        {
+            return GetWord();
+        }
+
+        if (IsWordList)
+        {
+            var wList = GetWordList();
+            return wList is null ? string.Empty : string.Join(", ", wList);
+        }
+
+        if (IsNumberList)
+        {
+            var nList = GetNumberList();
+            return nList is null ? string.Empty : string.Join(", ", nList);
+        }
+
+        if (IsNull)
+        {
+            return "Null";
+        }
+
+        return Number.ToString(CultureInfo.InvariantCulture);
+    }
+
+    /// <summary>
     /// Null Id
     /// </summary>
-    private const int NullId = -1;
+    private const int NullId = 0;
 }
-

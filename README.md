@@ -432,7 +432,7 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | Proper | Capitalizes the first letter in each word of a text | Proper(myWord) |
 | Replace | Replaces characters within text | Replace(myWord; oldPart; newPart) <br /> Replace(myList; oldPart; newPart) |
 | Text | Returns text from first argument | Text(26) |    
-| Unique | If second parameter is true then returns only qnique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
+| Unique | If second parameter is true then returns only unique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
 | IsText | Returns 1 if this is a word | IsText('my word') |    
 
 ## Options

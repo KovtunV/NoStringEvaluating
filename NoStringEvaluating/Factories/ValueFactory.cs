@@ -32,6 +32,14 @@ public readonly struct ValueFactory
     }
 
     /// <summary>
+    /// Returns boolean factory
+    /// </summary>
+    public BooleanFactory Boolean()
+    {
+        return new BooleanFactory(_idContainer.Ids);
+    }
+
+    /// <summary>
     /// Returns wordList factory
     /// </summary>
     public WordListFactory WordList()
@@ -56,8 +64,7 @@ public readonly struct ValueFactory
 
         if (val.TypeKey == ValueTypeKey.Boolean)
         {
-            // Bool represent as number in any cases
-            return val.Boolean ? 1 : 0;
+            return Boolean().Create(val.Boolean);
         }
 
         if (val.TypeKey == ValueTypeKey.DateTime)
@@ -65,16 +72,10 @@ public readonly struct ValueFactory
             return DateTime().Create(val.DateTime);
         }
 
-        if (val.TypeKey == ValueTypeKey.Null)
-        {
-            return new InternalEvaluatorValue();
-        }
-
         if (val.TypeKey == ValueTypeKey.Word)
         {
             return Word().Create(val.Word);
         }
-
 
         if (val.TypeKey == ValueTypeKey.WordList)
         {
@@ -86,8 +87,11 @@ public readonly struct ValueFactory
             return NumberList().Create(val.NumberList);
         }
 
+        if (val.TypeKey == ValueTypeKey.Null)
+        {
+            return default;
+        }
 
         throw new InvalidCastException($"Can't cast {nameof(EvaluatorValue)} with the typeKey = \"{val.TypeKey}\" to {nameof(InternalEvaluatorValue)}");
     }
 }
-

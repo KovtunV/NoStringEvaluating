@@ -27,12 +27,12 @@ public sealed class IffFunction : IFunction
     {
         for (int i = 0; i < args.Count - 1; i += 2)
         {
-            if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
+            if (args[i])
             {
                 return args[i + 1];
             }
         }
 
-        return double.NaN;
+        return default;
     }
 }

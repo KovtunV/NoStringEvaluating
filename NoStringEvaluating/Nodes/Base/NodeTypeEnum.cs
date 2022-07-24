@@ -3,12 +3,12 @@
 /// <summary>
 /// Node type matching
 /// </summary>
-public enum NodeTypeEnum : byte
+public enum NodeTypeEnum
 {
     /// <summary>
     /// Null
     /// </summary>
-    NullConst = 0, // Must be 0 for NULL so that   x = default(EvaluatorValue)  will say x = the NULL value
+    Null = 0,
 
     /// <summary>
     /// Number
@@ -29,6 +29,11 @@ public enum NodeTypeEnum : byte
     /// Function wrapper
     /// </summary>
     FunctionWrapper,
+
+    /// <summary>
+    /// Boolean
+    /// </summary>
+    Boolean,
 
     /// <summary>
     /// Word

@@ -1,7 +1,7 @@
-﻿using NoStringEvaluating.Factories;
+﻿using System.Collections.Generic;
+using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
-using System.Collections.Generic;
 
 namespace NoStringEvaluating.Functions.Excel;
 
@@ -25,6 +25,6 @@ public sealed class IsErrorFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return double.IsNaN(args[0]) ? 1 : 0;
+        return factory.Boolean().Create(double.IsNaN(args[0]));
     }
 }

@@ -6,7 +6,7 @@ using NoStringEvaluating.Models.Values;
 namespace NoStringEvaluating.Functions.Logic;
 
 /// <summary>
-/// Function - add
+/// Function - and
 /// </summary>
 public sealed class AndFunction : IFunction
 {
@@ -27,10 +27,12 @@ public sealed class AndFunction : IFunction
     {
         for (int i = 0; i < args.Count; i++)
         {
-            if (System.Math.Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
-                return 0;
+            if (!args[i])
+            {
+                return factory.Boolean().Create(false);
+            }
         }
 
-        return 1;
+        return factory.Boolean().Create(true);
     }
 }

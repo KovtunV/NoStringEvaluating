@@ -124,6 +124,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return Word;
         }
 
+        if (TypeKey == ValueTypeKey.Boolean)
+        {
+            return Boolean.ToString(CultureInfo.InvariantCulture);
+        }
+
         if (TypeKey == ValueTypeKey.DateTime)
         {
             return DateTime.ToString(CultureInfo.InvariantCulture);
@@ -137,11 +142,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         if (TypeKey == ValueTypeKey.NumberList)
         {
             return string.Join(", ", NumberList);
-        }
-
-        if (TypeKey == ValueTypeKey.Boolean)
-        {
-            return Boolean.ToString(CultureInfo.InvariantCulture);
         }
 
         if (TypeKey == ValueTypeKey.Null)
@@ -165,17 +165,9 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// <summary>
     /// To EvaluatorValue
     /// </summary>
-    public static implicit operator EvaluatorValue(double? a)
+    public static implicit operator EvaluatorValue(bool a)
     {
-        return a == null ? default : new EvaluatorValue(a.Value);
-    }
-
-    /// <summary>
-    /// To EvaluatorValue
-    /// </summary>
-    public static implicit operator EvaluatorValue(string a)
-    {
-        return a == null ? default : new EvaluatorValue(a);
+        return new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -185,12 +177,13 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         return new EvaluatorValue(a);
     }
+
     /// <summary>
     /// To EvaluatorValue
     /// </summary>
-    public static implicit operator EvaluatorValue(DateTime? a)
+    public static implicit operator EvaluatorValue(string a)
     {
-        return a == null ? default : new EvaluatorValue(a.Value);
+        return a == null ? default : new EvaluatorValue(a);
     }
 
     /// <summary>
@@ -212,22 +205,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// <summary>
     /// To EvaluatorValue
     /// </summary>
-    public static implicit operator EvaluatorValue(bool a)
-    {
-        return new EvaluatorValue(a);
-    }
-
-    /// <summary>
-    /// To EvaluatorValue
-    /// </summary>
-    public static implicit operator EvaluatorValue(bool? a)
-    {
-        return a == null ? default : new EvaluatorValue(a.Value);
-    }
-
-    /// <summary>
-    /// To EvaluatorValue
-    /// </summary>
     public static implicit operator EvaluatorValue(InternalEvaluatorValue a)
     {
         if (a.IsNumber)
@@ -235,14 +212,19 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return new EvaluatorValue(a.Number);
         }
 
-        if (a.IsWord)
+        if (a.IsBoolean)
         {
-            return new EvaluatorValue(WordFormatter.Format(a.GetWord()));
+            return new EvaluatorValue(a.GetBoolean());
         }
 
         if (a.IsDateTime)
         {
             return new EvaluatorValue(a.GetDateTime());
+        }
+
+        if (a.IsWord)
+        {
+            return new EvaluatorValue(WordFormatter.Format(a.GetWord()));
         }
 
         if (a.IsWordList)
@@ -257,7 +239,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 
         if (a.IsNull)
         {
-            return new EvaluatorValue();
+            return default;
         }
 
         throw new InvalidCastException($"Can't cast {nameof(InternalEvaluatorValue)} with the typeKey = \"{a.TypeKey}\" to {nameof(EvaluatorValue)}");
@@ -281,9 +263,9 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public bool Equals(EvaluatorValue other)
     {
         return TypeKey == other.TypeKey &&
-               Number == other.Number &&
                Boolean == other.Boolean &&
-               DateTime == other.DateTime &&
+               Number.Equals(other.Number) &&
+               DateTime.Equals(other.DateTime) &&
                EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade);
     }
 
@@ -293,18 +275,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public override int GetHashCode()
     {
         return HashCode.Combine(_referenceValueFacade, TypeKey, Number, Boolean, DateTime);
-    }
-
-    #endregion
-
-    #region Null
-
-    /// <summary>
-    /// IsNull
-    /// </summary>
-    public bool IsNull
-    {
-        get => TypeKey == ValueTypeKey.Null;
     }
 
     #endregion

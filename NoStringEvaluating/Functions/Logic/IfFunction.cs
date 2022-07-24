@@ -25,7 +25,7 @@ public sealed class IfFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        if (System.Math.Abs(args[0]) > NoStringEvaluatorConstants.FloatingTolerance)
+        if (args[0])
         {
             return args[1];
         }

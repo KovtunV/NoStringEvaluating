@@ -6,16 +6,16 @@ using NoStringEvaluating.Services.Keepers.Models;
 namespace NoStringEvaluating.Factories;
 
 /// <summary>
-/// WordListFactory
+/// BooleanFactory
 /// </summary>
-public readonly struct WordListFactory
+public readonly struct BooleanFactory
 {
     private readonly List<ValueKeeperId> _ids;
 
     /// <summary>
-    /// WordListFactory
+    /// BooleanFactory
     /// </summary>
-    public WordListFactory(List<ValueKeeperId> ids)
+    public BooleanFactory(List<ValueKeeperId> ids)
     {
         _ids = ids;
     }
@@ -23,19 +23,18 @@ public readonly struct WordListFactory
     /// <summary>
     /// Creates default
     /// </summary>
-    /// <returns></returns>
-    public InternalEvaluatorValue Empty()
+    public InternalEvaluatorValue Default()
     {
-        return Create(new List<string>());
+        return Create(default);
     }
 
     /// <summary>
-    /// Creates string List value
+    /// Creates bool value
     /// </summary>
-    public InternalEvaluatorValue Create(List<string> wordList)
+    public InternalEvaluatorValue Create(bool value)
     {
         // Save to keeper
-        var idModel = WordListKeeper.Instance.Save(wordList);
+        var idModel = BooleanKeeper.Instance.Save(value);
 
         // Save to scouped list
         _ids.Add(idModel);

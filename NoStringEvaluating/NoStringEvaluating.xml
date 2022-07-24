@@ -84,6 +84,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -92,6 +93,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -100,6 +102,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -108,6 +111,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -116,6 +120,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -124,6 +129,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -132,6 +138,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -140,6 +147,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -148,6 +156,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -156,6 +165,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -164,6 +174,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -172,6 +183,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -180,6 +192,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -188,6 +201,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -196,6 +210,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -204,6 +219,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -212,6 +228,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -220,6 +237,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -228,6 +246,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -236,6 +255,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -244,6 +264,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -252,6 +273,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -260,6 +282,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -268,6 +291,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -276,6 +300,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -284,6 +309,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -292,6 +318,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -300,6 +327,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -308,6 +336,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -316,6 +345,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -324,6 +354,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -332,6 +363,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -340,6 +372,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -348,6 +381,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -356,6 +390,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -364,6 +399,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -372,6 +408,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -380,6 +417,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -388,6 +426,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -396,6 +435,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -404,6 +444,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -412,6 +453,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -496,6 +538,56 @@
             Raises when can't find a variable
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Extensions.DebugExtensions">
+            <summary>
+            Extension for debugging
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Return list of variable values used by formula
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormulaInternal(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},NoStringEvaluating.Services.Variables.VariablesSource)">
+            <summary>
+            Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Factories.BooleanFactory">
+            <summary>
+            BooleanFactory
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.BooleanFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
+            <summary>
+            BooleanFactory
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.BooleanFactory.Default">
+            <summary>
+            Creates default
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.BooleanFactory.Create(System.Boolean)">
+            <summary>
+            Creates bool value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Factories.DateTimeFactory">
             <summary>
             DateTimeFactory
@@ -549,6 +641,11 @@
         <member name="M:NoStringEvaluating.Factories.ValueFactory.DateTime">
             <summary>
             Returns dateTime factory
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.ValueFactory.Boolean">
+            <summary>
+            Returns boolean factory
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.ValueFactory.WordList">
@@ -1214,7 +1311,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.Word.UniqueFunction">
             <summary>
             Unique(myList) or Unique(myList; true)
-            <para>if second parameter is true then returns only qnique</para>
+            <para>if second parameter is true then returns only unique</para>
             <para>if second parameter is false then returns list without doubles</para>
             </summary>
         </member>
@@ -1256,7 +1353,7 @@
         </member>
         <member name="T:NoStringEvaluating.Functions.Logic.AndFunction">
             <summary>
-            Function - add
+            Function - and
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Logic.AndFunction.Name">
@@ -3455,12 +3552,7 @@
             To EvaluatorValue
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.Double})~NoStringEvaluating.Models.Values.EvaluatorValue">
-            <summary>
-            To EvaluatorValue
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.String)~NoStringEvaluating.Models.Values.EvaluatorValue">
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Boolean)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
@@ -3470,7 +3562,7 @@
             To EvaluatorValue
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.DateTime})~NoStringEvaluating.Models.Values.EvaluatorValue">
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.String)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
@@ -3481,16 +3573,6 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Collections.Generic.List{System.Double})~NoStringEvaluating.Models.Values.EvaluatorValue">
-            <summary>
-            To EvaluatorValue
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Boolean)~NoStringEvaluating.Models.Values.EvaluatorValue">
-            <summary>
-            To EvaluatorValue
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Nullable{System.Boolean})~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
             </summary>
@@ -3513,11 +3595,6 @@
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.GetHashCode">
             <summary>
             GetHashCode
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.IsNull">
-            <summary>
-            IsNull
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ExtraTypeIdContainer">
@@ -3560,19 +3637,14 @@
             Value for internal processing
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor">
-            <summary>
-            NULL Instance
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.ToString">
-            <summary>
-            ToString
-            </summary>
-        </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsNumber">
             <summary>
             IsNumber
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsDateTime">
+            <summary>
+            IsDateTime
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsWord">
@@ -3580,9 +3652,9 @@
             IsWord
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsDateTime">
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsBoolean">
             <summary>
-            IsDateTime
+            IsBoolean
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsWordList">
@@ -3610,6 +3682,11 @@
             Returns DateTime
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetBoolean">
+            <summary>
+            Returns bool
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWordList">
             <summary>
             Returns string List
@@ -3620,9 +3697,19 @@
             Returns double List
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.Equals(NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
             <summary>
             Equals
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetHashCode">
+            <summary>
+            GetHashCode
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Addition(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
@@ -3665,14 +3752,19 @@
             Less or Equal
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Equality(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
+            <summary>
+            Equal
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Inequality(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
+            <summary>
+            Not equal
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Double">
             <summary>
             To double
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.Double}">
-            <summary>
-            To double?
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.String">
@@ -3685,9 +3777,9 @@
             To DateTime
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.DateTime}">
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Boolean">
             <summary>
-            To DateTime?
+            To boolean
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Collections.Generic.List{System.String}">
@@ -3700,19 +3792,14 @@
             To double List
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Boolean">
-            <summary>
-            To boolean
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(NoStringEvaluating.Models.Values.InternalEvaluatorValue)~System.Nullable{System.Boolean}">
-            <summary>
-            To boolean?
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.InternalEvaluatorValue">
             <summary>
             To InternalEvaluatorValue
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.ToString">
+            <summary>
+            ToString
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Values.InternalEvaluatorValue.NullId">
@@ -3727,7 +3814,7 @@
         </member>
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Null">
             <summary>
-            NULL, must be zero so that if default(EvaluatorValue) is used the typekeyis automatically null
+            Null
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Number">
@@ -3735,14 +3822,19 @@
             Number
             </summary>
         </member>
-        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Word">
+        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Boolean">
             <summary>
-            Word
+            Boolean
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.DateTime">
             <summary>
             DateTime
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Word">
+            <summary>
+            Word
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.WordList">
@@ -3753,11 +3845,6 @@
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.NumberList">
             <summary>
             Number list
-            </summary>
-        </member>
-        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Boolean">
-            <summary>
-            Boolean
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.Base.BaseFormulaNode">
@@ -3780,7 +3867,7 @@
             Node type matching
             </summary>
         </member>
-        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.NullConst">
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Null">
             <summary>
             Null
             </summary>
@@ -3803,6 +3890,11 @@
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.FunctionWrapper">
             <summary>
             Function wrapper
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Boolean">
+            <summary>
+            Boolean
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Word">
@@ -3833,6 +3925,26 @@
         <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Function">
             <summary>
             Function
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.BooleanNode">
+            <summary>
+            Formula node - Boolean
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.BooleanNode.Value">
+            <summary>
+            Boolean
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.BooleanNode.#ctor(System.Boolean)">
+            <summary>
+            Formula node - Boolean
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.BooleanNode.ToString">
+            <summary>
+            ToString
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.BracketNode">
@@ -4104,6 +4216,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4112,6 +4225,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4120,6 +4234,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4128,6 +4243,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4136,6 +4252,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4144,6 +4261,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4152,6 +4270,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4160,6 +4279,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4168,6 +4288,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4176,6 +4297,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4184,6 +4306,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4192,6 +4315,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4200,6 +4324,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4208,6 +4333,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4216,6 +4342,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4224,6 +4351,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4232,6 +4360,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4240,6 +4369,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4248,6 +4378,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4256,6 +4387,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4264,6 +4396,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4272,6 +4405,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4280,6 +4414,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4288,6 +4423,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4296,6 +4432,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4304,6 +4441,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4312,6 +4450,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4320,6 +4459,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4328,6 +4468,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4336,6 +4477,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4344,6 +4486,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4352,6 +4495,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4360,6 +4504,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4368,6 +4513,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4376,6 +4522,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4384,6 +4531,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4392,6 +4540,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4400,6 +4549,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4408,6 +4558,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4416,6 +4567,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4424,6 +4576,7 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
@@ -4432,36 +4585,10 @@
             <summary>
             Calculate formula
             </summary>
+            <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
-            <summary>
-            Return list of variable values used by formula
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
-            <summary>
-            Return list of variable values used by formula
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
-            <summary>
-            Return list of variable values used by formula
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormula(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
-            <summary>
-            Return list of variable values used by formula
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.VariableValuesUsedByFormulaInternal(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},NoStringEvaluating.Services.Variables.VariablesSource)">
-            <summary>
-            Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
-            </summary>
-            <param name="nodes"></param>
-            <param name="variables"></param>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorConstants">
             <summary>

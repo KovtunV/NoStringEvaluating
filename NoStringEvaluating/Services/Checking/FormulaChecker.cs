@@ -301,6 +301,7 @@ public class FormulaChecker : IFormulaChecker
     private bool IsOperatorableNode(BaseFormulaNode node)
     {
         return node is NumberNode
+            || node is BooleanNode
             || node is VariableNode
             || node is WordNode
             || node is FunctionNode

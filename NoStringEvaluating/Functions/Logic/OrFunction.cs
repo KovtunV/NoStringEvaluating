@@ -27,10 +27,12 @@ public sealed class OrFunction : IFunction
     {
         for (int i = 0; i < args.Count; i++)
         {
-            if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
-                return 1;
+            if (args[i])
+            {
+                return factory.Boolean().Create(true);
+            }
         }
 
-        return 0;
+        return factory.Boolean().Create(false);
     }
 }

@@ -33,7 +33,7 @@ public sealed class IsMemberFunction : IFunction
             if (!argItem.IsWord) return 0;
 
             var wordList = argList.GetWordList();
-            return wordList.Contains(argItem.GetWord()) ? 1 : 0;
+            return factory.Boolean().Create(wordList.Contains(argItem.GetWord()));
         }
 
         if (argList.IsNumberList)
@@ -41,7 +41,7 @@ public sealed class IsMemberFunction : IFunction
             if (!argItem.IsNumber) return 0;
 
             var numberList = argList.GetNumberList();
-            return numberList.Contains(argItem.Number) ? 1 : 0;
+            return factory.Boolean().Create(numberList.Contains(argItem.Number));
         }
 
         return 0;

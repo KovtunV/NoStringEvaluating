@@ -47,6 +47,7 @@ public class ExtraTypeIdContainer
     {
         WordKeeper.Instance.Clear(Ids);
         DateTimeKeeper.Instance.Clear(Ids);
+        BooleanKeeper.Instance.Clear(Ids);
         WordListKeeper.Instance.Clear(Ids);
         NumberListKeeper.Instance.Clear(Ids);
 

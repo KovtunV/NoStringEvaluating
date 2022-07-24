@@ -28,9 +28,9 @@ public class BenchmarkEvaluationPerformance : BaseBenchmarkService, IVariablesCo
         double tot = 0;
         for (int i = 0; i < N; i++)
         {
-            tot += eval.CalcNumber(f1, this) ?? 0;
-            tot += eval.CalcNumber(f2, this) ?? 0;
-            tot += eval.CalcNumber(f3, this) ?? 0;
+            tot += eval.CalcNumber(f1, this);
+            tot += eval.CalcNumber(f2, this);
+            tot += eval.CalcNumber(f3, this);
         }
     }
 

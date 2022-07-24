@@ -6,7 +6,7 @@
 public enum ValueTypeKey
 {
     /// <summary>
-    /// NULL, must be zero so that if default(EvaluatorValue) is used the typekeyis automatically null
+    /// Null
     /// </summary>
     Null = 0,
 
@@ -16,14 +16,19 @@ public enum ValueTypeKey
     Number,
 
     /// <summary>
-    /// Word
+    /// Boolean
     /// </summary>
-    Word,
+    Boolean,
 
     /// <summary>
     /// DateTime
     /// </summary>
     DateTime,
+
+    /// <summary>
+    /// Word
+    /// </summary>
+    Word,
 
     /// <summary>
     /// Word list
@@ -33,12 +38,5 @@ public enum ValueTypeKey
     /// <summary>
     /// Number list
     /// </summary>
-    NumberList,
-
-    /// <summary>
-    /// Boolean
-    /// </summary>
-    Boolean,
-
-
+    NumberList
 }

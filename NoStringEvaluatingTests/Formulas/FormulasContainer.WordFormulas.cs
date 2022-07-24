@@ -112,10 +112,5 @@ public static partial class FormulasContainer
         // Len
         yield return CreateTestModel("Len('my word')", 7);
         yield return CreateTestModel("Len('my' + 'ddd')", 5);
-
-        // IsText
-        yield return CreateTestModel("IsText(5)", 0);
-        yield return CreateTestModel("IsText('5')", 1);
-        yield return CreateTestModel("IsText('my word')", 1);
     }
 }

@@ -11,20 +11,16 @@ class Program
 {
     static void Main()
     {
-        //var eval = CreateNoString();
+        // var eval = CreateNoString();
 
-        //var time1 = DateTime.Parse("01/01/2000 14:18:23", CultureInfo.InvariantCulture);
-        //var time2 = DateTime.Parse("01/01/2000 18:30:10", CultureInfo.InvariantCulture);
         //var args = new Dictionary<string, EvaluatorValue>();
-        //args["date1"] = time1;
-        //args["date2"] = time2;
+        //args["my variable"] = true;
 
-        //var res = eval.CalcWord("5 + 'h'", args);
+        //var res = eval.Calc("ToDateTime('04/17/2021')-1 < ToDateTime('04/17/2021')");
 
-        //BenchmarkRunner.Run<BenchmarkNumberService>();
-        BenchmarkRunner.Run<BenchmarkEvaluationPerformance>();
+        BenchmarkRunner.Run<BenchmarkNumberService>();
+        //BenchmarkRunner.Run<BenchmarkEvaluationPerformance>();
     }
-
 
     static INoStringEvaluator CreateNoString()
     {
