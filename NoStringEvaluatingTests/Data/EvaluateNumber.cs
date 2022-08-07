@@ -1,18 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using NoStringEvaluatingTests.Model;
+using System.Globalization;
+using System.Linq;
+using NoStringEvaluatingTests.Models;
+using static NoStringEvaluatingTests.Helpers.FormulaModelFactory;
 
-namespace NoStringEvaluatingTests.Formulas;
+namespace NoStringEvaluatingTests.Data;
 
-public static partial class FormulasContainer
+internal static class EvaluateNumber
 {
-    public static IEnumerable<FormulaModel[]> GetFormulasToCalculate()
+    public static IEnumerable<FormulaModel> Get()
     {
-        foreach (var val in GetCommonFormulas())
-        {
-            yield return val;
-        }
+        var date1 = DateTime.Parse("02/12/2002 14:18:23", CultureInfo.InvariantCulture);
+        var date2 = DateTime.Parse("07/18/2005 18:30:10", CultureInfo.InvariantCulture);
+        var time1 = DateTime.Parse("01/01/2000 14:18:23", CultureInfo.InvariantCulture);
+        var time2 = DateTime.Parse("01/01/2000 18:30:10", CultureInfo.InvariantCulture);
+        var wordList1 = new[] { "one", "tWo" }.ToList();
+        var wordList2 = new[] { "a", "b", "c", "a", "c" }.ToList();
+        var numberList1 = new[] { 1d, 3d, 2d }.ToList();
+        var numberList2 = new[] { 1d, 3d, 2d, 14d }.ToList();
 
+        yield return CreateTestModel("5 + 6 * 13 / 2", 44);
+        yield return CreateTestModel("256 / 32 / 4 * 2 + (256.346 / (32 / 4 * 2) + 256 / (32 / 4))", 52.022);
+        yield return CreateTestModel("(5)", 5);
+        yield return CreateTestModel("(5+6)", 11);
+        yield return CreateTestModel("256 / 32 / 4 * 2 + (256.346 / (32 / 4 * 2) + 256 / (32 / 4)) * 2^4", 772.346);
+        yield return CreateTestModel("5 + aDd(78+6; 5; 6; 77+5) / 17", 15.412);
+        yield return CreateTestModel("add(ADD(5*3; 6))", 21);
+        yield return CreateTestModel("78 + if(true; [my variable] * 9 /1; 1 - 3)", 789, ("my variable", 79));
+        yield return CreateTestModel("add(add(5) - 3)", 2);
+        yield return CreateTestModel("add(Add(5) - add(5))", 0);
+        yield return CreateTestModel("add(add(5; 1) - add(5; 2; 3))", -4);
+        yield return CreateTestModel("add(add(5); add(5); if(and(true; false); 1; 0))", 10);
+        yield return CreateTestModel("if([my variable]; add(56 + 9 / 12 * 123.596; 1; 45;5); 9) *     24 + 52 -33", 4811.728, ("my variable", true));
+        yield return CreateTestModel("IfNull(thisisnull;3)", 3);
+        yield return CreateTestModel("IfNull(4;3)", 4);
         yield return CreateTestModel("2", 2);
         yield return CreateTestModel("add(5; 6; 9)", 20);
         yield return CreateTestModel("kov(1; 2; 3) - kovt(8; 9)", 7);
@@ -58,13 +80,6 @@ public static partial class FormulasContainer
         yield return CreateTestModel("if(tAu > 6 == false; 5+6; -9)", -9);
         yield return CreateTestModel("e + [E]", Math.Round(Math.E + Math.E, 3));
         yield return CreateTestModel("ToDateTime('09/12/2002') - ToDateTime('09/7/2002')", 5);
-
-        // Check functions
-        foreach (var func in CheckFunctions()) yield return func;
-    }
-
-    private static IEnumerable<FormulaModel[]> CheckFunctions()
-    {
         yield return CreateTestModel("abs(-89.7)", 89.7);
         yield return CreateTestModel("add(1; 2; 3; 7; -4)", 9);
         yield return CreateTestModel("ceil(1.6)", 2);
@@ -155,33 +170,59 @@ public static partial class FormulasContainer
         yield return CreateTestModel("Csch(3)", 0.1);
         yield return CreateTestModel("iff(3 < 0; 3; 3 > 0; 4)", 4);
         yield return CreateTestModel("if(3 < 0; 3; -1)", -1);
-
-        // ToNumber
         yield return CreateTestModel("ToNumber('5')", 5);
         yield return CreateTestModel("ToNumber('ghj5')", double.NaN);
-
-        // Word
-        foreach (var item in GetWordAsNumberFormulas())
-        {
-            yield return item;
-        }
-
-        // DateTime
-        foreach (var item in GetDateTimeAsNumberFormulas())
-        {
-            yield return item;
-        }
-
-        // WordList
-        foreach (var item in GetWordListAsNumberFormulas())
-        {
-            yield return item;
-        }
-
-        // NumberList
-        foreach (var item in GetNumberListAsNumberFormulas())
-        {
-            yield return item;
-        }
+        yield return CreateTestModel("Len('my word')", 7);
+        yield return CreateTestModel("Len('my' + 'ddd')", 5);
+        yield return CreateTestModel("DateDif(date1; date2; 'Y')", 3, ("date1", date1), ("date2", date2));
+        yield return CreateTestModel("DateDif(ToDateTime('12/02/2002'); ToDateTime('02/07/2005'); 'Y')", 2);
+        yield return CreateTestModel("DateDif(date1; date2; 'M')", 41, ("date1", date1), ("date2", date2));
+        yield return CreateTestModel("DateDif(date1; date2; 'D')", 1252, ("date1", date1), ("date2", date2));
+        yield return CreateTestModel("Round(TimeDif(date1; date2; 'H'); 0)", 4, ("date1", time1), ("date2", time2));
+        yield return CreateTestModel("Round(TimeDif(date1; date2; 'M'); 0)", 252, ("date1", time1), ("date2", time2));
+        yield return CreateTestModel("Round(TimeDif(date1; date2; 'S'); 0)", 15107, ("date1", time1), ("date2", time2));
+        yield return CreateTestModel("WeekDay(ToDateTime('04/18/2021'))", 1);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/19/2021'))", 2);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/20/2021'))", 3);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/21/2021'))", 4);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/22/2021'))", 5);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/23/2021'))", 6);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/24/2021'))", 7);
+        yield return CreateTestModel("WeekDay(ToDateTime('04/25/2021'))", 1);
+        yield return CreateTestModel("Count(list; '*')", 3, ("list", wordList1));
+        yield return CreateTestModel("Count(list1; list2)", 7, ("list1", wordList1), ("list2", wordList2));
+        yield return CreateTestModel("Count(1; 2)", 2);
+        yield return CreateTestModel("Count(1; 'dd'; 2)", 3);
+        yield return CreateTestModel("Count(1; 'dd'; 2; list)", 5, ("list", wordList1));
+        yield return CreateTestModel("Count(1; 2; {1, 5, 6, 3, 7})", 7);
+        yield return CreateTestModel("Count(1; 2; {'one' 'two' 'thrte'})", 5);
+        yield return CreateTestModel("Count(list)", 3, ("list", numberList1));
+        yield return CreateTestModel("Count(list; 1; 1)", 5, ("list", numberList1));
+        yield return CreateTestModel("Count(8; 'j'; list; 1; 1)", 7, ("list", numberList1));
+        yield return CreateTestModel("Add(list)", 6, ("list", numberList1));
+        yield return CreateTestModel("Add(10; list)", 16, ("list", numberList1));
+        yield return CreateTestModel("Add(10; list; 90)", 106, ("list", numberList1));
+        yield return CreateTestModel("Add(list; list)", 12, ("list", numberList1));
+        yield return CreateTestModel("Max(list)", 3, ("list", numberList1));
+        yield return CreateTestModel("Max(list; 300)", 300, ("list", numberList1));
+        yield return CreateTestModel("Max(2; 3; 4; 1; list)", 4, ("list", numberList1));
+        yield return CreateTestModel("Max(2; 3; -4; 1; list; 2)", 3, ("list", numberList1));
+        yield return CreateTestModel("Max(2; 3; -4; 1; list; 12)", 12, ("list", numberList1));
+        yield return CreateTestModel("Max(2; 3; -4; 1; list1; 12; list2; 10)", 14, ("list1", numberList1), ("list2", numberList2));
+        yield return CreateTestModel("Mean(list)", 2, ("list", numberList1));
+        yield return CreateTestModel("Mean(2; 3; 4; 1; list)", 2.286, ("list", numberList1));
+        yield return CreateTestModel("Mean(2; 3; -4; 1; list; 2)", 1.25, ("list", numberList1));
+        yield return CreateTestModel("Mean(2; 3; -4; 1; list; 12)", 2.5, ("list", numberList1));
+        yield return CreateTestModel("Mean(2; 3; -4; 1; list1; 12; list2; 10)", 3.846, ("list1", numberList1), ("list2", numberList2));
+        yield return CreateTestModel("Min(list)", 1, ("list", numberList1));
+        yield return CreateTestModel("Min(list; -17)", -17, ("list", numberList1));
+        yield return CreateTestModel("Min(2; 3; 4; list)", 1, ("list", numberList1));
+        yield return CreateTestModel("Min(2; 3; -4; list; 2)", -4, ("list", numberList1));
+        yield return CreateTestModel("Min(2; 3; -4; 1; list; 12)", -4, ("list", numberList1));
+        yield return CreateTestModel("Min(2; 3; -4; 1; list1; 12; list2; -10)", -10, ("list1", numberList1), ("list2", numberList2));
+        yield return CreateTestModel("Multi(list; 3)", 18, ("list", numberList1));
+        yield return CreateTestModel("Multi(10; list)", 60, ("list", numberList1));
+        yield return CreateTestModel("Multi(10; list; 90)", 5400, ("list", numberList1));
+        yield return CreateTestModel("Multi(list; list)", 36, ("list", numberList1));
     }
 }

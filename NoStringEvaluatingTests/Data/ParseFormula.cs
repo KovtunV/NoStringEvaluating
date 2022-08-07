@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
-using NoStringEvaluatingTests.Model;
+using NoStringEvaluatingTests.Models;
+using static NoStringEvaluatingTests.Helpers.FormulaModelFactory;
 
-namespace NoStringEvaluatingTests.Formulas;
+namespace NoStringEvaluatingTests.Data;
 
-public static partial class FormulasContainer
+internal static class ParseFormula
 {
-    public static IEnumerable<FormulaModel[]> GetCommonFormulas()
+    public static IEnumerable<FormulaModel> Get()
     {
         yield return CreateTestModel("5 + 6 * 13 / 2", "5 6 13 * 2 / +", 44);
         yield return CreateTestModel("256 / 32 / 4 * 2 + (256.346 / (32 / 4 * 2) + 256 / (32 / 4))", "256 32 / 4 / 2 * 256.346 32 4 / 2 * / 256 32 4 / / + +", 52.022);
@@ -23,10 +24,7 @@ public static partial class FormulasContainer
             "if([my variable]; add(56 + 9 / 12 * 123.596; 1; 45;5); 9) *     24 + 52 -33",
             "IF([my variable]; ADD(56 9 12 / 123.596 * +; 1; 45; 5); 9) 24 * 52 + 33 -",
             4811.728, ("my variable", true));
-
-        // Null Number
         yield return CreateTestModel("IfNull(thisisnull;3)", "IFNULL([thisisnull]; 3)", 3);
         yield return CreateTestModel("IfNull(4;3)", "IFNULL(4; 3)", 4);
-
     }
 }

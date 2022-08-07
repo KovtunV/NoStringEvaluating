@@ -1,14 +1,17 @@
 ﻿using System.Collections.Generic;
-using NoStringEvaluatingTests.Model;
+using System.Linq;
+using NoStringEvaluatingTests.Models;
+using static NoStringEvaluatingTests.Helpers.FormulaModelFactory;
 
-namespace NoStringEvaluatingTests.Formulas;
+namespace NoStringEvaluatingTests.Data;
 
-public static partial class FormulasContainer
+internal static class EvaluateBoolean
 {
-    public static IEnumerable<FormulaModel[]> GetBooleanFormulas()
+    public static IEnumerable<FormulaModel> Get()
     {
         var myTrue = true;
         var myFalse = false;
+        var list1 = new[] { "one", "tWo" }.ToList();
 
         yield return CreateTestModel("true == false", false);
         yield return CreateTestModel("true == true", true);
@@ -35,39 +38,27 @@ public static partial class FormulasContainer
         yield return CreateTestModel("not(false)", true);
         yield return CreateTestModel("or(true; false)", true);
         yield return CreateTestModel("or(false)", false);
-
-        // IsText
         yield return CreateTestModel("IsText(26)", false);
         yield return CreateTestModel("IsText('26')", true);
         yield return CreateTestModel("IsText('Hello!')", true);
-
-        // IsNumber
         yield return CreateTestModel("IsNumber(26)", true);
         yield return CreateTestModel("IsNumber('26')", false);
         yield return CreateTestModel("IsNumber('Hello!')", false);
-
-        // IsError
         yield return CreateTestModel("IsError(ToNumber('Text'))", true);
         yield return CreateTestModel("IsError(ToNumber('3'))", false);
-
-        // Null Boolean
         yield return CreateTestModel("NullIf(3;3) == null", true);
         yield return CreateTestModel("NullIf(4;3) == 4", true);
         yield return CreateTestModel("IfNull(thisisanullvar;'somethingelse') == 'somethingelse'", true);
         yield return CreateTestModel("IfNull('thisisnotnull';'somethingelse') == 'thisisnotnull'", true);
         yield return CreateTestModel("nuLl == 3", false);
         yield return CreateTestModel("nuLl == abc", true);
-
-        // DateTime boolean Comparison
         yield return CreateTestModel("ToDateTime('04/18/2021') > ToDateTime('04/17/2021')", true);
         yield return CreateTestModel("ToDateTime('04/18/2021') < ToDateTime('04/17/2021')", false);
         yield return CreateTestModel("ToDateTime('04/17/2021')+1 > ToDateTime('04/17/2021')", true);
         yield return CreateTestModel("ToDateTime('04/17/2021')-1 < ToDateTime('04/17/2021')", true);
         yield return CreateTestModel("ToDateTime('04/17/2021') == ToDateTime('04/17/2021')", true);
-
-        foreach (var item in GetWordListAsBooleanFormulas())
-        {
-            yield return item;
-        }
+        yield return CreateTestModel("IsMember({'printer', 'computer', 'monitor'};'computer')", true);
+        yield return CreateTestModel("IsMember(list; 'one')", true, ("list", list1));
+        yield return CreateTestModel("IsMember(list; 'onee')", false, ("list", list1));
     }
 }

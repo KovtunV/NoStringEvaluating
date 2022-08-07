@@ -11,7 +11,7 @@ using NoStringEvaluating.Services.Checking;
 using NoStringEvaluating.Services.Parsing;
 using NoStringEvaluating.Services.Parsing.NodeReaders;
 
-namespace NoStringEvaluatingTests;
+namespace NoStringEvaluatingTests.Helpers;
 
 /// <summary>
 /// NoStringEvaluator registrar
@@ -38,6 +38,7 @@ public static class NoStringEvaluatorExtensions
 
         // Evaluator
         services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
+        services.TryAddSingleton<NoStringEvaluator>();
 
         // Update constants
         if (options != null)

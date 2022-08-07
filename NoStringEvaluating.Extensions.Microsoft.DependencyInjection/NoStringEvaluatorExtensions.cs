@@ -37,6 +37,7 @@ public static class NoStringEvaluatorExtensions
 
         // Evaluator
         services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
+        services.TryAddSingleton<NoStringEvaluator>();
 
         // Update constants
         if (options != null)

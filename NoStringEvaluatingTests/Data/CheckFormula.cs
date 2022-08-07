@@ -1,17 +1,13 @@
 ﻿using System.Collections.Generic;
-using NoStringEvaluatingTests.Model;
+using NoStringEvaluatingTests.Models;
+using static NoStringEvaluatingTests.Helpers.FormulaModelFactory;
 
-namespace NoStringEvaluatingTests.Formulas;
+namespace NoStringEvaluatingTests.Data;
 
-public static partial class FormulasContainer
+internal static class CheckFormula
 {
-    public static IEnumerable<FormulaModel[]> GetFormulasToCheck()
+    public static IEnumerable<FormulaModel> Get()
     {
-        foreach (var val in GetFormulasToCalculate())
-        {
-            yield return val;
-        }
-
         yield return CreateTestModelToCheck("+5", false);
         yield return CreateTestModelToCheck("5+", false);
         yield return CreateTestModelToCheck("-5", true);
@@ -42,11 +38,5 @@ public static partial class FormulasContainer
         yield return CreateTestModelToCheck("1 + and([a]; [b])", true);
         yield return CreateTestModelToCheck("and([a]; [b]) 1", false);
         yield return CreateTestModelToCheck("and([a]; [b]) / 1", true);
-    }
-
-    private static FormulaModel[] CreateTestModelToCheck(string formula, bool expectedOkresult)
-    {
-        var model = new FormulaModel(formula, "NULL", double.NaN, expectedOkresult);
-        return new[] { model };
     }
 }

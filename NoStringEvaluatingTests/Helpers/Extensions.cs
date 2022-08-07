@@ -9,6 +9,11 @@ internal static class Extensions
         this NumericAssertions<double> parent,
         double expectedValue)
     {
+        if (double.IsNaN(expectedValue))
+        {
+            return parent.Be(expectedValue);
+        }
+
         return parent.BeApproximately(expectedValue, 0.001);
     }
 }

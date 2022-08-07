@@ -7,6 +7,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Data\CheckFormulas.cs~RF2e36dd3b.TMP" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="AutoFixture" Version="4.17.0" />
 		<PackageReference Include="FluentAssertions" Version="6.7.0" />
 		<PackageReference Include="Moq" Version="4.18.1" />
