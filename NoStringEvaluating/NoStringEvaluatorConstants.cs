@@ -28,6 +28,11 @@ public static class NoStringEvaluatorConstants
     public static bool UseWordQuotationMark { get; internal set; }
 
     /// <summary>
+    /// If set true - throws exception when variable not found, if set false - returns Null
+    /// </summary>
+    public static bool ThrowIfVariableNotFound { get; internal set; }
+
+    /// <summary>
     /// Global constants
     /// </summary>
     static NoStringEvaluatorConstants()
@@ -36,5 +41,6 @@ public static class NoStringEvaluatorConstants
         FloatingPointSymbol = FloatingPointSymbol.Dot;
         WordQuotationMark = string.Empty;
         UseWordQuotationMark = false;
+        ThrowIfVariableNotFound = true;
     }
 }

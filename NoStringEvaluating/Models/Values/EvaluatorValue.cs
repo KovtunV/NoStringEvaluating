@@ -103,15 +103,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         _referenceValueFacade = numberList;
     }
 
-    /// <summary>
-    /// Value
-    /// </summary>
-    public EvaluatorValue()
-    {
-        TypeKey = ValueTypeKey.Null;
-    }
-
-
     #endregion
 
     #region Cast

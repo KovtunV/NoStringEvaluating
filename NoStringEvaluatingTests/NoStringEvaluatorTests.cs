@@ -17,25 +17,30 @@ using NUnit.Framework;
 
 namespace NoStringEvaluatingTests;
 
+[NonParallelizable]
 internal class NoStringEvaluatorTests
 {
-    private IServiceProvider _serviceProvider;
+    private Func<IServiceProvider> _serviceProviderFactory;
 
-    private NoStringEvaluator _service;
+    private Func<Action<NoStringEvaluatorOptions>, NoStringEvaluator> _serviceFactory;
 
     [SetUp]
     public void Setup()
     {
-        _serviceProvider = ServiceProviderFactory.Create();
+        _serviceProviderFactory = () => ServiceProviderFactory.Create();
 
-        _service = _serviceProvider.GetRequiredService<NoStringEvaluator>();
+        _serviceFactory = opt =>
+        {
+            opt ??= subOpt => subOpt.SetThrowIfVariableNotFound(false);
+            return ServiceProviderFactory.Create(opt).GetRequiredService<NoStringEvaluator>();
+        };
     }
 
     [TestCaseSource(typeof(EvaluateNumber), nameof(EvaluateNumber.Get))]
     public void Should_Evaluate_Number(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcNumber(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcNumber(model.Formula, model.Arguments);
 
         // assert
         actual.Should().BeApproximatelyNumber(model.Result.Number);
@@ -45,7 +50,7 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_Word(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcWord(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcWord(model.Formula, model.Arguments);
 
         // assert
         actual.Should().Be(model.Result.Word);
@@ -55,7 +60,7 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_DateTime(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcDateTime(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcDateTime(model.Formula, model.Arguments);
 
         // assert
         actual.Should().Be(model.Result.DateTime);
@@ -65,7 +70,7 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_WordList(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcWordList(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcWordList(model.Formula, model.Arguments);
 
         // assert
         actual.Should().BeEquivalentTo(model.Result.WordList);
@@ -75,7 +80,7 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_NumberList(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcNumberList(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcNumberList(model.Formula, model.Arguments);
 
         // assert
         actual.Should().BeEquivalentTo(model.Result.NumberList);
@@ -85,13 +90,12 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_Boolean(FormulaModel model)
     {
         // arrange, act
-        var actual = _service.CalcBoolean(model.Formula, model.Arguments);
+        var actual = _serviceFactory(null).CalcBoolean(model.Formula, model.Arguments);
 
         // assert
         actual.Should().Be(model.Result.Boolean);
     }
 
-    // TODO: change
     [Test]
     public void Should_Throw_If_Variable_Not_Found()
     {
@@ -100,13 +104,26 @@ internal class NoStringEvaluatorTests
         var formula = "myVariable + 5";
 
         // act
-        var act = () => _service.CalcNumber(formula, vars);
+        var act = () => _serviceFactory(opt => opt.SetThrowIfVariableNotFound(true)).CalcNumber(formula, vars);
+
+        // assert
+        act.Should().Throw<VariableNotFoundException>();
+    }
+
+    [Test]
+    public void Should_Not_Throw_If_Variable_Not_Found()
+    {
+        // arrange
+        var vars = new Dictionary<string, EvaluatorValue> { ["myVariable1"] = 7 };
+        var formula = "myVariable + 5";
+
+        // act
+        var act = () => _serviceFactory(opt => opt.SetThrowIfVariableNotFound(false)).CalcNumber(formula, vars);
 
         // assert
         act.Should().NotThrow<VariableNotFoundException>();
     }
 
-    // TODO: change
     [Test]
     public void Should_Throw_If_Variable_Dictionary_Not_Found()
     {
@@ -114,7 +131,20 @@ internal class NoStringEvaluatorTests
         var formula = "[my var!] + 5";
 
         // act
-        var act = () => _service.CalcNumber(formula);
+        var act = () => _serviceFactory(opt => opt.SetThrowIfVariableNotFound(true)).CalcNumber(formula);
+
+        // assert
+        act.Should().Throw<VariableNotFoundException>();
+    }
+
+    [Test]
+    public void Should_Not_Throw_If_Variable_Dictionary_Not_Found()
+    {
+        // arrange
+        var formula = "[my var!] + 5";
+
+        // act
+        var act = () => _serviceFactory(opt => opt.SetThrowIfVariableNotFound(false)).CalcNumber(formula);
 
         // assert
         act.Should().NotThrow<VariableNotFoundException>();
@@ -124,14 +154,18 @@ internal class NoStringEvaluatorTests
     public async Task Should_Be_Thread_Safe_With_Extra_Type()
     {
         // arrange
-        var functionReader = _serviceProvider.GetRequiredService<IFunctionReader>();
+        var serviceProvider = _serviceProviderFactory();
+
+        var functionReader = serviceProvider.GetRequiredService<IFunctionReader>();
         functionReader.AddFunction(new TestSleepFunction());
 
+        var service = serviceProvider.GetRequiredService<NoStringEvaluator>();
+
         // act
-        var resTask = Task.Run(() => _service.CalcWord("TestSleep('sleep word')"));
+        var resTask = Task.Run(() => service.CalcWord("TestSleep('sleep word')"));
 
         // Creates extra DateTime, in another thread extra type 'sleep word' must exists
-        var preCalc = _service.Calc("Now()");
+        var preCalc = service.Calc("Now()");
         var actual = await resTask;
 
         // assert

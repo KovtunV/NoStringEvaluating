@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
+using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
@@ -11,10 +12,14 @@ namespace NoStringEvaluatingTests.Helpers;
 
 internal static class ServiceProviderFactory
 {
-    public static IServiceProvider Create()
+    public static IServiceProvider Create(Action<NoStringEvaluatorOptions> options = null)
     {
         var serviceProvider = new ServiceCollection()
-          .AddNoStringEvaluator(opt => opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma))
+          .AddNoStringEvaluator(opt =>
+          {
+              opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma);
+              options?.Invoke(opt);
+          })
           .BuildServiceProvider();
 
         var functionReader = serviceProvider.GetRequiredService<IFunctionReader>();

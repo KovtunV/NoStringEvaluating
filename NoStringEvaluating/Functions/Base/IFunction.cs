@@ -15,7 +15,7 @@ public interface IFunction
     string Name { get; }
 
     /// <summary>
-    /// Does the function allow for input arguments to be null? Return false if NULL input arguments are not supported. Your function can also return  default(InternalEvaluatorValue)  to return a NULL result
+    /// If false and any argument is null - function wont be executed and null will be returned
     /// </summary>
     bool CanHandleNullArguments { get; }
 

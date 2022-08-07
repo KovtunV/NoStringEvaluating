@@ -23,6 +23,11 @@ public class NoStringEvaluatorOptions
     public string WordQuotationMark { get; set; }
 
     /// <summary>
+    /// If set true - throws exception when variable not found, if set false - returns Null
+    /// </summary>
+    public static bool ThrowIfVariableNotFound { get; set; }
+
+    /// <summary>
     /// Options
     /// </summary>
     public NoStringEvaluatorOptions()
@@ -30,6 +35,7 @@ public class NoStringEvaluatorOptions
         FloatingTolerance = NoStringEvaluatorConstants.FloatingTolerance;
         FloatingPointSymbol = NoStringEvaluatorConstants.FloatingPointSymbol;
         WordQuotationMark = NoStringEvaluatorConstants.WordQuotationMark;
+        ThrowIfVariableNotFound = NoStringEvaluatorConstants.ThrowIfVariableNotFound;
     }
 
     /// <summary>
@@ -76,6 +82,17 @@ public class NoStringEvaluatorOptions
     }
 
     /// <summary>
+    /// Set throw if variable not found
+    /// </summary>
+    /// <param name="isThrow"></param>
+    /// <returns></returns>
+    public NoStringEvaluatorOptions SetThrowIfVariableNotFound(bool isThrow)
+    {
+        ThrowIfVariableNotFound = isThrow;
+        return this;
+    }
+
+    /// <summary>
     /// Update constants <see cref="NoStringEvaluatorConstants"/>
     /// </summary>
     public void UpdateConstants()
@@ -84,5 +101,6 @@ public class NoStringEvaluatorOptions
         NoStringEvaluatorConstants.FloatingPointSymbol = FloatingPointSymbol;
         NoStringEvaluatorConstants.WordQuotationMark = WordQuotationMark;
         NoStringEvaluatorConstants.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
+        NoStringEvaluatorConstants.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
     }
 }

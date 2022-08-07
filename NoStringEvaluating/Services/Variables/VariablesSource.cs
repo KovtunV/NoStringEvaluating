@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract.Variables;
+using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Services.Variables;
@@ -17,19 +18,41 @@ internal readonly struct VariablesSource
 
     internal EvaluatorValue GetValue(string name)
     {
-        // Check an implemented container
-        if (_variablesContainer != null) return GetValueFromContainer(name);
-        // Check a dictionary
-        if (_variablesDict != null && _variablesDict.TryGetValue(name, out var value)) return value;
-        // Not in there, return null value
-        return default(InternalEvaluatorValue);
+        if (_variablesDict is not null)
+        {
+            if (!_variablesDict.TryGetValue(name, out var variable))
+            {
+                ThrowExceptionIfConfigured(name);
+                return default;
+            }
+
+            return variable;
+        }
+
+        if (_variablesContainer is not null)
+        {
+            if (!_variablesContainer.TryGetValue(name, out var variable))
+            {
+                ThrowExceptionIfConfigured(name);
+                return default;
+            }
+
+            return variable;
+        }
+
+        ThrowExceptionIfConfigured(name);
+        return default;
     }
 
-    private EvaluatorValue GetValueFromContainer(string name)
+    private static void ThrowExceptionIfConfigured(string name)
     {
-        if (_variablesContainer.TryGetValue(name, out var value)) return value;
-        // Not in there return null value
-        return default(InternalEvaluatorValue);
+        if (!NoStringEvaluatorConstants.ThrowIfVariableNotFound)
+        {
+            return;
+        }
+
+        var msg = $"Variable \"{name}\" not found";
+        throw new VariableNotFoundException(name, msg);
     }
 
     internal static VariablesSource Create(IVariablesContainer variablesContainer)

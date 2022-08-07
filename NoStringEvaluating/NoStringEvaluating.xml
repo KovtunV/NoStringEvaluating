@@ -700,7 +700,7 @@
         </member>
         <member name="P:NoStringEvaluating.Functions.Base.IFunction.CanHandleNullArguments">
             <summary>
-            Does the function allow for input arguments to be null? Return false if NULL input arguments are not supported. Your function can also return  default(InternalEvaluatorValue)  to return a NULL result
+            If false and any argument is null - function wont be executed and null will be returned
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Base.IFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
@@ -3521,11 +3521,6 @@
             Value
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor">
-            <summary>
-            Value
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.EvaluatorValue">
             <summary>
             To EvaluatorValue
@@ -4599,6 +4594,11 @@
             Use quotation mark
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.ThrowIfVariableNotFound">
+            <summary>
+            If set true - throws exception when variable not found, if set false - returns Null
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
             <summary>
             Global constants
@@ -4622,6 +4622,11 @@
         <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.WordQuotationMark">
             <summary>
             Quotation mark
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.ThrowIfVariableNotFound">
+            <summary>
+            If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.#ctor">
@@ -4653,6 +4658,13 @@
             <summary>
             Set floating point symbol
             </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetThrowIfVariableNotFound(System.Boolean)">
+            <summary>
+            Set throw if variable not found
+            </summary>
+            <param name="isThrow"></param>
+            <returns></returns>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.UpdateConstants">
             <summary>
