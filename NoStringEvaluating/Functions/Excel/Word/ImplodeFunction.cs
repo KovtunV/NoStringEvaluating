@@ -33,7 +33,7 @@ public sealed class ImplodeFunction : IFunction
         return factory.Word.Create(res);
     }
 
-    private IEnumerable<string> GetLoop(List<InternalEvaluatorValue> args)
+    private static IEnumerable<string> GetLoop(List<InternalEvaluatorValue> args)
     {
         var n = args.Count == 1 ? 1 : args.Count - 1;
         for (int i = 0; i < n; i++)
@@ -62,6 +62,4 @@ public sealed class ImplodeFunction : IFunction
             }
         }
     }
-
-
 }

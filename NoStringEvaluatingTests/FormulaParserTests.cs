@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Factories;
@@ -13,10 +12,10 @@ using NoStringEvaluating.Models;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluatingTests.Formulas;
 using NoStringEvaluatingTests.Model;
+using NUnit.Framework;
 
 namespace NoStringEvaluatingTests;
 
-[TestClass]
 public class FormulaParserTests
 {
     private readonly IServiceProvider _serviceProvider;
@@ -32,8 +31,7 @@ public class FormulaParserTests
         functionReader.AddFunction(new Func_kovt());
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetFormulasToCheck), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetFormulasToCheck))]
     public void CheckFormula(FormulaModel model)
     {
         var parser = _serviceProvider.GetRequiredService<IFormulaChecker>();
@@ -42,8 +40,7 @@ public class FormulaParserTests
         Assert.AreEqual(model.ExpectedOkResult, res.Ok);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetFormulasToParse), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetFormulasToParse))]
     public void ParseFormula(FormulaModel model)
     {
         var parser = _serviceProvider.GetRequiredService<IFormulaParser>();
@@ -52,8 +49,7 @@ public class FormulaParserTests
         Assert.AreEqual(model.ParsedFormula, res.ToString());
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetFormulasToCalculate), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetFormulasToCalculate))]
     public void CalculateNumberFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -61,31 +57,28 @@ public class FormulaParserTests
         var res = evaluator.CalcNumber(model.Formula, model.Arguments);
         var roundedRes = Math.Round(res, 3);
 
-        Assert.AreEqual(model.Result, roundedRes);
+        Assert.AreEqual(model.Result.Number, roundedRes);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetWordFormulas), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetWordFormulas))]
     public void CalculateWordFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
         var res = evaluator.CalcWord(model.Formula, model.Arguments);
 
-        Assert.AreEqual(model.Result, res);
+        Assert.AreEqual(model.Result.Word, res);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetDateTimeFormulas), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetDateTimeFormulas))]
     public void CalculateDateTimeFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
         var res = evaluator.CalcDateTime(model.Formula, model.Arguments);
 
-        Assert.AreEqual(model.Result, res);
+        Assert.AreEqual(model.Result.DateTime, res);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetWordListFormulas), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetWordListFormulas))]
     public void CalculateWordListFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -95,8 +88,7 @@ public class FormulaParserTests
         Assert.IsTrue(sequenceEqual);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetNumberListFormulas), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetNumberListFormulas))]
     public void CalculateNumberListFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -106,17 +98,16 @@ public class FormulaParserTests
         Assert.IsTrue(sequenceEqual);
     }
 
-    [TestMethod]
-    [DynamicData(nameof(GetBooleanFormulas), DynamicDataSourceType.Method)]
+    [TestCaseSource(nameof(GetBooleanFormulas))]
     public void CalculateBooleanFormula(FormulaModel model)
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
         var res = evaluator.CalcBoolean(model.Formula, model.Arguments);
 
-        Assert.AreEqual(model.Result, res);
+        Assert.AreEqual(model.Result.Boolean, res);
     }
 
-    [TestMethod]
+    [Test]
     public void VariableNotFoundException()
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -139,7 +130,7 @@ public class FormulaParserTests
         Assert.AreEqual(12, resOk);
     }
 
-    [TestMethod]
+    [Test]
     public void VariableNotFoundExceptionNoDictionary()
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();
@@ -160,7 +151,7 @@ public class FormulaParserTests
         // Assert.Fail();
     }
 
-    [TestMethod]
+    [Test]
     public async Task ExtraTypeConcurrent()
     {
         var evaluator = _serviceProvider.GetRequiredService<INoStringEvaluator>();

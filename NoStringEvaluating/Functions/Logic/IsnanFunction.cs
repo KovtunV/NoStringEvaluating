@@ -8,7 +8,7 @@ namespace NoStringEvaluating.Functions.Logic;
 /// <summary>
 /// Function - isNaN
 /// </summary>
-public sealed class IsnanFunction : IFunction
+public sealed class IsNanFunction : IFunction
 {
     /// <summary>
     /// Name

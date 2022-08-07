@@ -26,12 +26,14 @@ public sealed class NullIfFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         // Wrong input, output Null
-        if (args.Count != 2) return default(InternalEvaluatorValue);
+        if (args.Count != 2)
+            return default;
 
         // If first argument equals second we output Null
-        if (args[0].Equals(args[1])) return default(InternalEvaluatorValue);
+        if (args[0].Equals(args[1]))
+            return default;
 
-        // different argumens, keep the first
+        // Different argumens, keep the first
         return args[0];
 
     }

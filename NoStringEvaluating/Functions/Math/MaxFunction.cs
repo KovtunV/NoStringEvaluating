@@ -51,7 +51,7 @@ public sealed class MaxFunction : IFunction
         return max;
     }
 
-    private double Max(List<double> list)
+    private static double Max(List<double> list)
     {
         var max = list[0];
 

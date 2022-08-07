@@ -48,10 +48,10 @@ public sealed class RightFunction : IFunction
             return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string RightWord(List<InternalEvaluatorValue> args, string word)
+    private static string RightWord(List<InternalEvaluatorValue> args, string word)
     {
         if (args.Count == 1)
         {
@@ -95,5 +95,4 @@ public sealed class RightFunction : IFunction
 
         return word[(subWordIndex + patternWord.Length)..];
     }
-
 }

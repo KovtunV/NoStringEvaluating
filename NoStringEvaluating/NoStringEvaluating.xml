@@ -1395,22 +1395,22 @@
             Evaluate value
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Functions.Logic.IsnanFunction">
+        <member name="T:NoStringEvaluating.Functions.Logic.IsNanFunction">
             <summary>
             Function - isNaN
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Functions.Logic.IsnanFunction.Name">
+        <member name="P:NoStringEvaluating.Functions.Logic.IsNanFunction.Name">
             <summary>
             Name
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Functions.Logic.IsnanFunction.CanHandleNullArguments">
+        <member name="P:NoStringEvaluating.Functions.Logic.IsNanFunction.CanHandleNullArguments">
             <summary>
             Can handle IsNull arguments?
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Functions.Logic.IsnanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+        <member name="M:NoStringEvaluating.Functions.Logic.IsNanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
             </summary>

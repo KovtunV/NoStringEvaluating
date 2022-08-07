@@ -50,7 +50,7 @@ public sealed class MinFunction : IFunction
         return min;
     }
 
-    private double Min(List<double> list)
+    private static double Min(List<double> list)
     {
         var min = list[0];
 

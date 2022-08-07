@@ -28,7 +28,7 @@ public readonly struct BooleanFactory
         // Save to keeper
         var idModel = BooleanKeeper.Instance.Save(value);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

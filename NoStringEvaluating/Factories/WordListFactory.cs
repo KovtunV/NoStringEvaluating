@@ -28,7 +28,7 @@ public readonly struct WordListFactory
         // Save to keeper
         var idModel = WordListKeeper.Instance.Save(wordList);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

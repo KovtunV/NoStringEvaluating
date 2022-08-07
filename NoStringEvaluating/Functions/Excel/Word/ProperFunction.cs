@@ -50,10 +50,10 @@ public sealed class ProperFunction : IFunction
             return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string Proper(string word)
+    private static string Proper(string word)
     {
         if (HasCapital(word))
         {
@@ -64,7 +64,7 @@ public sealed class ProperFunction : IFunction
         return res;
     }
 
-    private bool HasCapital(string str)
+    private static bool HasCapital(string str)
     {
         for (int i = 0; i < str.Length; i++)
         {

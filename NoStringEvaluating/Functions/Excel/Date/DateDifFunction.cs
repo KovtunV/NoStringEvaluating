@@ -32,7 +32,7 @@ public sealed class DateDifFunction : IFunction
 
         if (dateStart > dateEnd)
         {
-            return double.NaN;
+            return default;
         }
 
         if (format == "Y")
@@ -64,6 +64,6 @@ public sealed class DateDifFunction : IFunction
             return dateEnd.Subtract(dateStart).Days;
         }
 
-        return double.NaN;
+        return default;
     }
 }

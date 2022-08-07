@@ -20,7 +20,6 @@ public sealed class FactFunction : IFunction
     /// </summary>
     public bool CanHandleNullArguments { get; }
 
-
     /// <summary>
     /// Evaluate value
     /// </summary>

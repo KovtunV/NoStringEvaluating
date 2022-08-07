@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -26,43 +27,27 @@ public sealed class ConcatFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var firstArg = args[0];
-        string res;
+        var sb = new StringBuilder();
 
-        if (firstArg.IsWordList)
-        {
-            var wordList = firstArg.GetWordList();
-            res = string.Join(string.Empty, wordList);
-        }
-        else if (firstArg.IsNumberList)
-        {
-            var numberList = firstArg.GetNumberList();
-            res = string.Join(string.Empty, numberList);
-        }
-        else
-        {
-            res = firstArg.ToString();
-        }
-
-        for (int i = 1; i < args.Count; i++)
+        for (int i = 0; i < args.Count; i++)
         {
             var arg = args[i];
             if (arg.IsWordList)
             {
                 var wordList = arg.GetWordList();
-                res += string.Join(string.Empty, wordList);
+                sb.Append(string.Join(string.Empty, wordList));
             }
             else if (arg.IsNumberList)
             {
                 var numberList = arg.GetNumberList();
-                res += string.Join(string.Empty, numberList);
+                sb.Append(string.Join(string.Empty, numberList));
             }
             else
             {
-                res += arg.ToString();
+                sb.Append(arg.ToString());
             }
         }
 
-        return factory.Word.Create(res);
+        return factory.Word.Create(sb.ToString());
     }
 }

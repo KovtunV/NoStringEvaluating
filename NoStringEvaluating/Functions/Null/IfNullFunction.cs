@@ -26,13 +26,14 @@ public sealed class IfNullFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         // Wrong input, output Null
-        if (args.Count != 2) return default(InternalEvaluatorValue);
+        if (args.Count != 2)
+            return default;
 
         // If first argument is Null we output the second
-        if (args[0].IsNull) return args[1];
+        if (args[0].IsNull)
+            return args[1];
 
-        // first argument is not null, keep it
+        // First argument is not null, keep it
         return args[0];
-
     }
 }

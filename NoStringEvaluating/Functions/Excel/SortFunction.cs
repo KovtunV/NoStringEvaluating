@@ -57,6 +57,6 @@ public sealed class SortFunction : IFunction
             return factory.NumberList.Create(numberList);
         }
 
-        return double.NaN;
+        return default;
     }
 }

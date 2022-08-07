@@ -28,7 +28,7 @@ public readonly struct NumberListFactory
         // Save to keeper
         var idModel = NumberListKeeper.Instance.Save(numberList);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

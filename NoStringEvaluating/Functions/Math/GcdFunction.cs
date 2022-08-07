@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -26,24 +27,48 @@ public sealed class GcdFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        if (args.Count == 1)
-            return args[0];
+        var numbers = EnumerateNumbers(args).ToArray();
+        if (numbers.Length == 1)
+            return numbers[0];
 
-        if (HasZero(args))
+        if (HasZero(numbers))
             return double.NaN;
 
-        var res = GetGcd(args[0], args[1]);
-        for (int i = 2; i < args.Count; i++)
+        var res = GetGcd(numbers[0], numbers[1]);
+        for (int i = 2; i < numbers.Length; i++)
         {
-            res = GetGcd(res, args[i]);
+            res = GetGcd(res, numbers[i]);
         }
 
         return Abs(res);
     }
 
-    private bool HasZero(List<InternalEvaluatorValue> args)
+    private static IEnumerable<double> EnumerateNumbers(List<InternalEvaluatorValue> args)
     {
         for (int i = 0; i < args.Count; i++)
+        {
+            var arg = args[i];
+
+            if (arg.IsNumberList)
+            {
+                var numbers = arg.GetNumberList();
+
+                for (int j = 0; j < numbers.Count; j++)
+                {
+                    yield return numbers[j];
+                }
+            }
+
+            if (arg.IsNumber)
+            {
+                yield return arg.Number;
+            }
+        }
+    }
+
+    private static bool HasZero(double[] args)
+    {
+        for (int i = 0; i < args.Length; i++)
         {
             if (Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
                 return true;
@@ -52,7 +77,7 @@ public sealed class GcdFunction : IFunction
         return false;
     }
 
-    private InternalEvaluatorValue GetGcd(InternalEvaluatorValue a, InternalEvaluatorValue b)
+    private static InternalEvaluatorValue GetGcd(double a, double b)
     {
         while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
         {

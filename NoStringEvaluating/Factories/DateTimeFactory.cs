@@ -34,7 +34,7 @@ public readonly struct DateTimeFactory
         // Save to keeper
         var idModel = DateTimeKeeper.Instance.Save(date);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

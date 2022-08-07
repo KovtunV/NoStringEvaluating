@@ -42,7 +42,7 @@ public readonly struct WordFactory
         // Save to keeper
         var idModel = WordKeeper.Instance.Save(word);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

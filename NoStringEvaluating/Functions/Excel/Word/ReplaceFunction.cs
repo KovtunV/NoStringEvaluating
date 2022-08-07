@@ -53,6 +53,6 @@ public sealed class ReplaceFunction : IFunction
             return factory.WordList.Create(resList);
         }
 
-        return wordFactory.Empty;
+        return default;
     }
 }

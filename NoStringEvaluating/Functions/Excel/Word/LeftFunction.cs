@@ -48,10 +48,10 @@ public sealed class LeftFunction : IFunction
             return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string LeftWord(List<InternalEvaluatorValue> args, string word)
+    private static string LeftWord(List<InternalEvaluatorValue> args, string word)
     {
         if (args.Count == 1)
         {

@@ -32,7 +32,7 @@ public sealed class TimeDifFunction : IFunction
 
         if (dateStart > dateEnd)
         {
-            return double.NaN;
+            return default;
         }
 
         if (format == "H")
@@ -50,6 +50,6 @@ public sealed class TimeDifFunction : IFunction
             return dateEnd.Subtract(dateStart).TotalSeconds;
         }
 
-        return double.NaN;
+        return default;
     }
 }

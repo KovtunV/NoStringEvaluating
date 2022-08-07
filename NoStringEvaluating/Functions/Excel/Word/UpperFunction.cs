@@ -42,6 +42,6 @@ public sealed class UpperFunction : IFunction
             return factory.WordList.Create(wordListRes);
         }
 
-        return factory.Word.Empty;
+        return default;
     }
 }

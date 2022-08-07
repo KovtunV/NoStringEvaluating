@@ -51,10 +51,10 @@ public sealed class MiddleFunction : IFunction
             return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
+    private static string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
     {
         if (argStart.IsNumber && argEnd.IsNumber)
         {
@@ -79,7 +79,7 @@ public sealed class MiddleFunction : IFunction
         return string.Empty;
     }
 
-    private string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var wordStart = argStart.GetWord();
         var wordEnd = argEnd.GetWord();
@@ -97,7 +97,7 @@ public sealed class MiddleFunction : IFunction
         return word[wordStartIndex..wordEndIndex];
     }
 
-    private string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var wordStart = argStart.GetWord();
         var argEndInt = (int)argEnd.Number;
@@ -114,7 +114,7 @@ public sealed class MiddleFunction : IFunction
         return word[wordStartIndex..(wordStartIndex + argEndInt)];
     }
 
-    private string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var argStartInt = (int)argStart.Number;
         var wordEnd = argEnd.GetWord();
@@ -129,7 +129,7 @@ public sealed class MiddleFunction : IFunction
         return word[argStartInt..(argStartInt + wordEndIndex)];
     }
 
-    private string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var argStartInt = (int)argStart.Number;
         var argEndInt = (int)argEnd.Number;
