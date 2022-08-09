@@ -47,6 +47,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     /// </summary>
     public List<double> NumberList => _referenceValueFacade as List<double>;
 
+    /// <summary>
+    /// Object
+    /// </summary>
+    public object Object => _referenceValueFacade;
+
     #region Ctors
 
     /// <summary>
@@ -101,6 +106,15 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         TypeKey = ValueTypeKey.NumberList;
         _referenceValueFacade = numberList;
+    }
+
+    /// <summary>
+    /// Value
+    /// </summary>
+    public EvaluatorValue(object objectValue)
+    {
+        TypeKey = ValueTypeKey.Object;
+        _referenceValueFacade = objectValue;
     }
 
     #endregion
@@ -190,6 +204,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return new EvaluatorValue(a.GetNumberList());
         }
 
+        if (a.IsObject)
+        {
+            return new EvaluatorValue(a.GetObject());
+        }
+
         if (a.IsNull)
         {
             return default;
@@ -260,6 +279,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         if (TypeKey == ValueTypeKey.NumberList)
         {
             return string.Join(", ", NumberList);
+        }
+
+        if (TypeKey == ValueTypeKey.Object)
+        {
+            return _referenceValueFacade?.ToString();
         }
 
         if (TypeKey == ValueTypeKey.Null)

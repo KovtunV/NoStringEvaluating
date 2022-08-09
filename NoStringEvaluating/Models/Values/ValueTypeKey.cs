@@ -38,5 +38,10 @@ public enum ValueTypeKey
     /// <summary>
     /// Number list
     /// </summary>
-    NumberList
+    NumberList,
+
+    /// <summary>
+    /// Object
+    /// </summary>
+    Object
 }

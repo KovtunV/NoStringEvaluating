@@ -618,6 +618,21 @@
             Creates double List value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Factories.ObjectFactory">
+            <summary>
+            ObjectFactory
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.ObjectFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
+            <summary>
+            ObjectFactory
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Factories.ObjectFactory.Create(System.Object)">
+            <summary>
+            Creates object value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Factories.ValueFactory">
             <summary>
             Factory fro values
@@ -646,6 +661,11 @@
         <member name="P:NoStringEvaluating.Factories.ValueFactory.NumberList">
             <summary>
             NumberListFactory
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Factories.ValueFactory.Object">
+            <summary>
+            ObjectFactory
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Factories.WordFactory">
@@ -3491,6 +3511,11 @@
             NumberList
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Models.Values.EvaluatorValue.Object">
+            <summary>
+            Object
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Double)">
             <summary>
             Value
@@ -3517,6 +3542,11 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Collections.Generic.List{System.Double})">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Object)">
             <summary>
             Value
             </summary>
@@ -3646,6 +3676,11 @@
             IsNumberList
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsObject">
+            <summary>
+            IsObject
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsNull">
             <summary>
             IsNull
@@ -3674,6 +3709,16 @@
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetNumberList">
             <summary>
             Returns double List
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetObject``1">
+            <summary>
+            Returns object
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetObject">
+            <summary>
+            Returns object
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.Equals(System.Object)">
@@ -3781,11 +3826,6 @@
             ToString
             </summary>
         </member>
-        <member name="F:NoStringEvaluating.Models.Values.InternalEvaluatorValue.NullId">
-            <summary>
-            Null Id
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Models.Values.ValueTypeKey">
             <summary>
             Type matching
@@ -3824,6 +3864,11 @@
         <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.NumberList">
             <summary>
             Number list
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.Values.ValueTypeKey.Object">
+            <summary>
+            Object
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.Base.BaseFormulaNode">

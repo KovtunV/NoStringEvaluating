@@ -172,6 +172,30 @@ internal class NoStringEvaluatorTests
         actual.Should().Be("sleep word");
     }
 
+    [Test]
+    public void Should_Evaluate_Service()
+    {
+        // arrange
+        var serviceProvider = _serviceProviderFactory();
+
+        var functionReader = serviceProvider.GetRequiredService<IFunctionReader>();
+        functionReader.AddFunction(new ServiceFunction());
+
+        var service = serviceProvider.GetRequiredService<NoStringEvaluator>();
+        var args = new Dictionary<string, EvaluatorValue>
+        {
+            ["myService"] = new EvaluatorValue(new TestService()),
+            ["myNum"] = 10
+        };
+        var expected = 50.5;
+
+        // act
+        var actual = service.CalcNumber("TestService(myService; myNum)", args);
+
+        // assert
+        actual.Should().BeApproximatelyNumber(expected);
+    }
+
     private class TestSleepFunction : IFunction
     {
         public string Name { get; } = "TestSleep";
@@ -187,6 +211,26 @@ internal class NoStringEvaluatorTests
             var w2 = arg.GetWord();
 
             return factory.Word.Create(w2);
+        }
+    }
+
+    private class ServiceFunction : IFunction
+    {
+        public string Name { get; } = "TestService";
+
+        public bool CanHandleNullArguments { get; }
+
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return args[0].GetObject<TestService>().GetTemperature() + args[1];
+        }
+    }
+
+    private class TestService
+    {
+        public double GetTemperature()
+        {
+            return 40.5;
         }
     }
 }

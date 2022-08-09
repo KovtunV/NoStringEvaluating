@@ -10,7 +10,7 @@ namespace NoStringEvaluating.Models.Values;
 /// </summary>
 public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValue>
 {
-    private readonly int _extraTypeId = NullId;
+    private readonly int _extraTypeId = default;
 
     /// <summary>
     /// Type key 
@@ -71,6 +71,11 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     public bool IsNumberList => TypeKey == ValueTypeKey.NumberList;
 
     /// <summary>
+    /// IsObject
+    /// </summary>
+    public bool IsObject => TypeKey == ValueTypeKey.Object;
+
+    /// <summary>
     /// IsNull
     /// </summary>
     public bool IsNull => TypeKey == ValueTypeKey.Null;
@@ -124,6 +129,24 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : default;
     }
 
+    /// <summary>
+    /// Returns object
+    /// </summary>
+    public T GetObject<T>()
+        where T : class
+    {
+        return GetObject() as T;
+    }
+
+    /// <summary>
+    /// Returns object
+    /// </summary>
+    public object GetObject()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsObject ? ObjectKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
     #endregion
 
     #region Equals
@@ -149,6 +172,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
             (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
             (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
             (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
+            (TypeKey == ValueTypeKey.Object && Equals(GetObject(), other.GetObject())) ||
             (TypeKey == ValueTypeKey.Null)
             );
     }
@@ -186,6 +210,11 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         if (IsNumberList)
         {
             return HashCode.Combine(TypeKey, GetNumberList());
+        }
+
+        if (IsObject)
+        {
+            return HashCode.Combine(TypeKey, GetObject());
         }
 
         return HashCode.Combine(TypeKey);
@@ -373,6 +402,11 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
             return nList is null ? string.Empty : string.Join(", ", nList);
         }
 
+        if (IsObject)
+        {
+            return GetObject()?.ToString();
+        }
+
         if (IsNull)
         {
             return "Null";
@@ -380,9 +414,4 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         return Number.ToString(CultureInfo.InvariantCulture);
     }
-
-    /// <summary>
-    /// Null Id
-    /// </summary>
-    private const int NullId = 0;
 }

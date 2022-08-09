@@ -11,11 +11,5 @@ internal class DateTimeKeeper : BaseValueKeeper<DateTime>
 
     }
 
-    // Static 
-    internal static DateTimeKeeper Instance { get; }
-
-    static DateTimeKeeper()
-    {
-        Instance = new DateTimeKeeper();
-    }
+    internal static DateTimeKeeper Instance { get; } = new();
 }

@@ -50,6 +50,7 @@ public class ExtraTypeIdContainer
         BooleanKeeper.Instance.Clear(Ids);
         WordListKeeper.Instance.Clear(Ids);
         NumberListKeeper.Instance.Clear(Ids);
+        ObjectKeeper.Instance.Clear(Ids);
 
         Ids.Clear();
 

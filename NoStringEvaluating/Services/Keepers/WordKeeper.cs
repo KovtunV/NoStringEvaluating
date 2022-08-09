@@ -10,11 +10,5 @@ internal class WordKeeper : BaseValueKeeper<string>
 
     }
 
-    // Static 
-    internal static WordKeeper Instance { get; }
-
-    static WordKeeper()
-    {
-        Instance = new WordKeeper();
-    }
+    internal static WordKeeper Instance { get; } = new();
 }

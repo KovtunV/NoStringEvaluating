@@ -40,6 +40,11 @@ public readonly struct ValueFactory
     /// </summary>
     public NumberListFactory NumberList => new(_idContainer.Ids);
 
+    /// <summary>
+    /// ObjectFactory
+    /// </summary>
+    public ObjectFactory Object => new(_idContainer.Ids);
+
     internal InternalEvaluatorValue Create(EvaluatorValue val)
     {
         if (val.TypeKey == ValueTypeKey.Number)
@@ -70,6 +75,11 @@ public readonly struct ValueFactory
         if (val.TypeKey == ValueTypeKey.NumberList)
         {
             return NumberList.Create(val.NumberList);
+        }
+
+        if (val.TypeKey == ValueTypeKey.Object)
+        {
+            return Object.Create(val.Object);
         }
 
         if (val.TypeKey == ValueTypeKey.Null)

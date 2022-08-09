@@ -11,11 +11,5 @@ internal class NumberListKeeper : BaseValueKeeper<List<double>>
 
     }
 
-    // Static 
-    internal static NumberListKeeper Instance { get; }
-
-    static NumberListKeeper()
-    {
-        Instance = new NumberListKeeper();
-    }
+    internal static NumberListKeeper Instance { get; } = new();
 }
