@@ -22,7 +22,7 @@ public static class NoStringEvaluatorExtensions
     /// </summary>
     public static IServiceCollection AddNoStringEvaluator(this IServiceCollection services, Action<NoStringEvaluatorOptions> options = null)
     {
-        // Update constants
+        // Update options
         if (options != null)
         {
             var opt = new NoStringEvaluatorOptions();

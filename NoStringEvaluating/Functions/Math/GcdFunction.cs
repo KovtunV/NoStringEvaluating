@@ -70,7 +70,7 @@ public sealed class GcdFunction : IFunction
     {
         for (int i = 0; i < args.Length; i++)
         {
-            if (Abs(args[i]) < NoStringEvaluatorConstants.FloatingTolerance)
+            if (Abs(args[i]) < GlobalOptions.FloatingTolerance)
                 return true;
         }
 
@@ -79,7 +79,7 @@ public sealed class GcdFunction : IFunction
 
     private static InternalEvaluatorValue GetGcd(double a, double b)
     {
-        while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
+        while (Abs(b) > GlobalOptions.FloatingTolerance)
         {
             var tmp = b;
             b = a % b;

@@ -46,7 +46,7 @@ internal readonly struct VariablesSource
 
     private static void ThrowExceptionIfConfigured(string name)
     {
-        if (!NoStringEvaluatorConstants.ThrowIfVariableNotFound)
+        if (!GlobalOptions.ThrowIfVariableNotFound)
         {
             return;
         }

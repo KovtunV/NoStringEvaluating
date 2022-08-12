@@ -12,7 +12,7 @@ internal static class EvaluatorFacadeFactory
 {
     public static NoStringEvaluator.Facade Create(Action<NoStringEvaluatorOptions> options = null)
     {
-        NoStringEvaluatorConstants.Reset();
+        GlobalOptions.Reset();
 
         var evaluatorFacade = NoStringEvaluator.CreateFacade(opt =>
         {

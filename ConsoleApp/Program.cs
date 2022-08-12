@@ -19,7 +19,6 @@ class Program
         // var res = eval.Calc("Add(5; 3; 12)");
 
         BenchmarkRunner.Run<BenchmarkNumberService>();
-        //BenchmarkRunner.Run<BenchmarkEvaluationPerformance>();
     }
 
     static INoStringEvaluator CreateNoString()

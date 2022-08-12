@@ -6,9 +6,9 @@ using NoStringEvaluating.Models;
 namespace NoStringEvaluating;
 
 /// <summary>
-/// Global constants
+/// Global options
 /// </summary>
-public static class NoStringEvaluatorConstants
+public static class GlobalOptions
 {
     /// <summary>
     /// Floating tolerance for understanding Zero number
@@ -46,9 +46,9 @@ public static class NoStringEvaluatorConstants
     public static HashSet<IFunction> Functions { get; } = new();
 
     /// <summary>
-    /// Global constants
+    /// Global options
     /// </summary>
-    static NoStringEvaluatorConstants()
+    static GlobalOptions()
     {
         Reset();
     }
@@ -66,6 +66,6 @@ public static class NoStringEvaluatorConstants
 
         FunctionsAssemblies.Clear();
         Functions.Clear();
-        FunctionsAssemblies.Add(typeof(NoStringEvaluatorConstants).Assembly);
+        FunctionsAssemblies.Add(typeof(GlobalOptions).Assembly);
     }
 }

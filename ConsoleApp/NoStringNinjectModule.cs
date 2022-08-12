@@ -43,6 +43,6 @@ public class NoStringNinjectModule : NinjectModule
         NoStringEvaluatorOptions opt = new NoStringEvaluatorOptions()
             .WithFunctionsFrom(typeof(NoStringNinjectModule));
 
-        opt.UpdateConstants();
+        opt.UpdateGlobalOptions();
     }
 }

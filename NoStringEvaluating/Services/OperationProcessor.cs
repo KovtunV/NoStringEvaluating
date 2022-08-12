@@ -151,7 +151,7 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean.Create(Math.Abs(a - b) < NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a - b) < GlobalOptions.FloatingTolerance);
         }
 
         return factory.Boolean.Create(a.Equals(b));
@@ -161,7 +161,7 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean.Create(Math.Abs(a - b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a - b) > GlobalOptions.FloatingTolerance);
         }
 
         return factory.Boolean.Create(!a.Equals(b));
@@ -175,7 +175,7 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean.Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a) > GlobalOptions.FloatingTolerance && Math.Abs(b) > GlobalOptions.FloatingTolerance);
         }
 
         return factory.Boolean.Create(a && b);
@@ -185,7 +185,7 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Boolean.Create(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance);
+            return factory.Boolean.Create(Math.Abs(a) > GlobalOptions.FloatingTolerance || Math.Abs(b) > GlobalOptions.FloatingTolerance);
         }
 
         return factory.Boolean.Create(a || b);

@@ -20,18 +20,25 @@ public abstract class BaseBenchmarkService
 {
     public virtual int N { get; set; } = 1_000_000;
 
-    private IFunction[] _knownFunctions;
+    private IFunction[] _usedFunctions;
+    private Function[] _usedFunctionsMxParser;
 
     [GlobalSetup]
     public void Setup()
     {
-        _knownFunctions = new IFunction[]
+        _usedFunctions = new IFunction[]
         {
             new AddFunction(),
             new IfFunction(),
             new OrFunction(),
             new Func_kov(),
             new Func_kovt()
+        };
+
+        _usedFunctionsMxParser = new[]
+        {
+            new Function("kov", new FExtension_kov()),
+            new Function("kovt", new FExtension_kovt())
         };
     }
 
@@ -64,9 +71,7 @@ public abstract class BaseBenchmarkService
     protected INoStringEvaluator CreateNoString()
     {
         var evaluatorFacade = NoStringEvaluator
-            .CreateFacade(opt => opt
-            .WithoutDefaultFunctions()
-            .WithFunctions(_knownFunctions));
+            .CreateFacade(opt => opt.WithoutDefaultFunctions().WithFunctions(_usedFunctions));
 
         return evaluatorFacade.Evaluator;
     }
@@ -107,10 +112,7 @@ public abstract class BaseBenchmarkService
     private Expression CreateMxParser(string formula)
     {
         var expression = new Expression(formula);
-
-        var f1 = new Function("kov", new FExtension_kov());
-        var f2 = new Function("kovt", new FExtension_kovt());
-        expression.addFunctions(f1, f2);
+        expression.addFunctions(_usedFunctionsMxParser);
 
         return expression;
     }

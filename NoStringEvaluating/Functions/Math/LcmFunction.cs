@@ -70,7 +70,7 @@ public sealed class LcmFunction : IFunction
 
     private static double GetGcd(double a, double b)
     {
-        while (Abs(b) > NoStringEvaluatorConstants.FloatingTolerance)
+        while (Abs(b) > GlobalOptions.FloatingTolerance)
         {
             var tmp = b;
             b = a % b;

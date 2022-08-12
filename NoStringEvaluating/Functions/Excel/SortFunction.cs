@@ -28,7 +28,7 @@ public sealed class SortFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < NoStringEvaluatorConstants.FloatingTolerance;
+        var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < GlobalOptions.FloatingTolerance;
         var list = args[0];
 
         if (list.IsWordList)

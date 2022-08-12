@@ -23,11 +23,11 @@ public class FunctionReader : IFunctionReader
     {
         _functions = new List<IFunction>();
 
-        NoStringEvaluatorConstants.FunctionsAssemblies
+        GlobalOptions.FunctionsAssemblies
             .CreateInstances<IFunction>()
             .ForEach(x => AddFunction(x, replace: true));
 
-        NoStringEvaluatorConstants.Functions
+        GlobalOptions.Functions
             .ForEach(x => AddFunction(x, replace: true));
     }
 

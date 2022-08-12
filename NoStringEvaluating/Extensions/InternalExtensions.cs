@@ -17,7 +17,7 @@ internal static class InternalExtensions
     {
         var isDigit = ch.IsDigit();
 
-        return NoStringEvaluatorConstants.FloatingPointSymbol switch
+        return GlobalOptions.FloatingPointSymbol switch
         {
             FloatingPointSymbol.Dot => (isDigit || ch == '.'),
             FloatingPointSymbol.Comma => (isDigit || ch == ','),
