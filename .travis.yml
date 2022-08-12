@@ -8,7 +8,7 @@ install:
  - dotnet restore
 script:
  - dotnet build --configuration Release
- - dotnet test NoStringEvaluatingTests/NoStringEvaluatingTests.csproj
+ - dotnet test NoStringEvaluating.Tests/NoStringEvaluating.Tests.csproj
  - |
    if [ $TRAVIS_BRANCH == "master" ]; then
      dotnet nuget push NoStringEvaluating/bin/Release/*.nupkg -s "https://nuget.org" -k $EVALUATOR_NUGET_API_KEY --skip-duplicate

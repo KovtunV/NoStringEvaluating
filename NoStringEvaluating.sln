@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating", "NoStringEvaluating\NoStringEvaluating.csproj", "{40AB411F-6002-4A69-A73F-17C5B7FC1508}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluatingTests", "NoStringEvaluatingTests\NoStringEvaluatingTests.csproj", "{48E04BE8-5BA6-409A-964E-13206F95BC8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Tests", "NoStringEvaluating.Tests\NoStringEvaluating.Tests.csproj", "{48E04BE8-5BA6-409A-964E-13206F95BC8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{EA941063-94B8-4F97-A507-B5A7FD6A0B79}"
 EndProject

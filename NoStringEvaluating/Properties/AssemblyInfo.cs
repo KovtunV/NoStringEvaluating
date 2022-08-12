@@ -1,3 +1,3 @@
 using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("NoStringEvaluatingTests")]
+[assembly: InternalsVisibleTo("NoStringEvaluating.Tests")]
