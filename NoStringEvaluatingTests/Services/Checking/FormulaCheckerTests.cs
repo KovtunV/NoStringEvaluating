@@ -1,7 +1,5 @@
-﻿using System;
-using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
-using NoStringEvaluating.Contract;
+﻿using FluentAssertions;
+using NoStringEvaluating.Services.Checking;
 using NoStringEvaluatingTests.Data;
 using NoStringEvaluatingTests.Helpers;
 using NoStringEvaluatingTests.Models;
@@ -11,16 +9,12 @@ namespace NoStringEvaluatingTests.Services.Checking;
 
 internal class FormulaCheckerTests
 {
-    private IServiceProvider _serviceProvider;
-
-    private IFormulaChecker _service;
+    private FormulaChecker _service;
 
     [SetUp]
     public void Setup()
     {
-        _serviceProvider = ServiceProviderFactory.Create();
-
-        _service = _serviceProvider.GetRequiredService<IFormulaChecker>();
+        _service = EvaluatorFacadeFactory.Create().FormulaChecker;
     }
 
     [TestCaseSource(typeof(CheckFormula), nameof(CheckFormula.Get))]

@@ -53,7 +53,10 @@ public static class NoStringEvaluatorConstants
         Reset();
     }
 
-    internal static void Reset()
+    /// <summary>
+    /// Reset to default
+    /// </summary>
+    public static void Reset()
     {
         FloatingTolerance = 0.0001;
         FloatingPointSymbol = FloatingPointSymbol.Dot;

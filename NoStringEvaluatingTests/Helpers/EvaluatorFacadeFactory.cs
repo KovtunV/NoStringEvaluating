@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Extensions.DependencyInjection;
 using NoStringEvaluating;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
@@ -9,23 +8,21 @@ using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluatingTests.Helpers;
 
-internal static class ServiceProviderFactory
+internal static class EvaluatorFacadeFactory
 {
-    public static IServiceProvider Create(Action<NoStringEvaluatorOptions> options = null)
+    public static NoStringEvaluator.Facade Create(Action<NoStringEvaluatorOptions> options = null)
     {
         NoStringEvaluatorConstants.Reset();
 
-        var serviceProvider = new ServiceCollection()
-          .AddNoStringEvaluator(opt =>
-          {
-              opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma);
-              opt.WithFunctionsFrom(typeof(ServiceProviderFactory));
+        var evaluatorFacade = NoStringEvaluator.CreateFacade(opt =>
+        {
+            opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma);
+            opt.WithFunctionsFrom(typeof(EvaluatorFacadeFactory));
 
-              options?.Invoke(opt);
-          })
-          .BuildServiceProvider();
+            options?.Invoke(opt);
+        });
 
-        return serviceProvider;
+        return evaluatorFacade;
     }
 
     private class Func_kov : IFunction

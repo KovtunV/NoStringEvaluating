@@ -4614,6 +4614,41 @@
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.CreateFacade(System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
+            <summary>
+            Creates evaluator facade
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.NoStringEvaluator.Facade">
+            <summary>
+            Facade
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluator.Facade.Evaluator">
+            <summary>
+            Evaluator
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluator.Facade.FunctionReader">
+            <summary>
+            FunctionReader
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluator.Facade.FormulaParser">
+            <summary>
+            FormulaParser
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluator.Facade.FormulaCache">
+            <summary>
+            FormulaCache
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluator.Facade.FormulaChecker">
+            <summary>
+            FormulaChecker
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorConstants">
             <summary>
             Global constants
@@ -4657,6 +4692,11 @@
         <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
             <summary>
             Global constants
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.Reset">
+            <summary>
+            Reset to default
             </summary>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorOptions">

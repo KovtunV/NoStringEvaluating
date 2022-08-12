@@ -10,6 +10,10 @@ using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
+using NoStringEvaluating.Services.Cache;
+using NoStringEvaluating.Services.Checking;
+using NoStringEvaluating.Services.Parsing;
+using NoStringEvaluating.Services.Parsing.NodeReaders;
 using NoStringEvaluating.Services.Value;
 using NoStringEvaluating.Services.Variables;
 
@@ -878,5 +882,71 @@ public class NoStringEvaluator : INoStringEvaluator
     private static ValueFactory GetFactory(ExtraTypeIdContainer idContainer)
     {
         return new ValueFactory(idContainer);
+    }
+
+    /// <summary>
+    /// Creates evaluator facade
+    /// </summary>
+    public static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null)
+    {
+        // Update constants
+        if (options != null)
+        {
+            var opt = new NoStringEvaluatorOptions();
+            options(opt);
+            opt.UpdateConstants();
+        }
+
+        return new Facade();
+    }
+
+    /// <summary>
+    /// Facade
+    /// </summary>
+    public class Facade
+    {
+        internal Facade()
+        {
+            // Pooling
+            var stackPool = ObjectPool.Create<Stack<InternalEvaluatorValue>>();
+            var argsPool = ObjectPool.Create<List<InternalEvaluatorValue>>();
+            var extraTypeIdPool = ObjectPool.Create<ExtraTypeIdContainer>();
+
+            // Parser
+            FunctionReader = new();
+            FormulaParser = new(FunctionReader);
+            FormulaCache = new(FormulaParser);
+
+            // Checker
+            FormulaChecker = new(FormulaParser);
+
+            // Evaluator
+            Evaluator = new(stackPool, argsPool, extraTypeIdPool, FormulaCache);
+        }
+
+        /// <summary>
+        /// Evaluator
+        /// </summary>
+        public NoStringEvaluator Evaluator { get; }
+
+        /// <summary>
+        /// FunctionReader
+        /// </summary>
+        public FunctionReader FunctionReader { get; }
+
+        /// <summary>
+        /// FormulaParser
+        /// </summary>
+        public FormulaParser FormulaParser { get; }
+
+        /// <summary>
+        /// FormulaCache
+        /// </summary>
+        public FormulaCache FormulaCache { get; }
+
+        /// <summary>
+        /// FormulaChecker
+        /// </summary>
+        public FormulaChecker FormulaChecker { get; }
     }
 }

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
 using NoStringEvaluating;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Factories;
@@ -26,7 +25,7 @@ internal class NoStringEvaluatorTests
         _serviceFactory = opt =>
         {
             opt ??= subOpt => subOpt.SetThrowIfVariableNotFound(false);
-            return ServiceProviderFactory.Create(opt).GetRequiredService<NoStringEvaluator>();
+            return EvaluatorFacadeFactory.Create(opt).Evaluator;
         };
     }
 

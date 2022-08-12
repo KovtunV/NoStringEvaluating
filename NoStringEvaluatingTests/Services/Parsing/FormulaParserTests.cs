@@ -1,7 +1,5 @@
-﻿using System;
-using FluentAssertions;
-using Microsoft.Extensions.DependencyInjection;
-using NoStringEvaluating.Contract;
+﻿using FluentAssertions;
+using NoStringEvaluating.Services.Parsing;
 using NoStringEvaluatingTests.Data;
 using NoStringEvaluatingTests.Helpers;
 using NoStringEvaluatingTests.Models;
@@ -11,16 +9,12 @@ namespace NoStringEvaluatingTests.Services.Parsing;
 
 internal class FormulaParserTests
 {
-    private IServiceProvider _serviceProvider;
-
-    private IFormulaParser _service;
+    private FormulaParser _service;
 
     [SetUp]
     public void Setup()
     {
-        _serviceProvider = ServiceProviderFactory.Create();
-
-        _service = _serviceProvider.GetRequiredService<IFormulaParser>();
+        _service = EvaluatorFacadeFactory.Create().FormulaParser;
     }
 
     [TestCaseSource(typeof(ParseFormula), nameof(ParseFormula.Get))]

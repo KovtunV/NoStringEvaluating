@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using Microsoft.Extensions.DependencyInjection;
+using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
@@ -63,14 +63,12 @@ public abstract class BaseBenchmarkService
 
     protected INoStringEvaluator CreateNoString()
     {
-        var container = new ServiceCollection()
-            .AddNoStringEvaluator(opt => opt
-            //.WithoutDefaultFunctions().WithFunctions(_knownFunctions));
-            .WithFunctionsFrom(typeof(BaseBenchmarkService)));
+        var evaluatorFacade = NoStringEvaluator
+            .CreateFacade(opt => opt
+            .WithoutDefaultFunctions()
+            .WithFunctions(_knownFunctions));
 
-        var services = container.BuildServiceProvider();
-
-        return services.GetRequiredService<INoStringEvaluator>();
+        return evaluatorFacade.Evaluator;
     }
 
     #endregion
