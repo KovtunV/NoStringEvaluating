@@ -4,10 +4,11 @@ using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using Microsoft.Extensions.DependencyInjection;
-using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Functions.Logic;
+using NoStringEvaluating.Functions.Math;
 using NoStringEvaluating.Models.Values;
 using org.mariuszgromada.math.mxparser;
 
@@ -18,6 +19,21 @@ namespace ConsoleApp.Benchmark.Base;
 public abstract class BaseBenchmarkService
 {
     public virtual int N { get; set; } = 1_000_000;
+
+    private IFunction[] _knownFunctions;
+
+    [GlobalSetup]
+    public void Setup()
+    {
+        _knownFunctions = new IFunction[]
+        {
+            new AddFunction(),
+            new IfFunction(),
+            new OrFunction(),
+            new Func_kov(),
+            new Func_kovt()
+        };
+    }
 
     #region NoString
 
@@ -47,11 +63,12 @@ public abstract class BaseBenchmarkService
 
     protected INoStringEvaluator CreateNoString()
     {
-        var container = new ServiceCollection().AddNoStringEvaluator();
-        var services = container.BuildServiceProvider();
+        var container = new ServiceCollection()
+            .AddNoStringEvaluator(opt => opt
+            //.WithoutDefaultFunctions().WithFunctions(_knownFunctions));
+            .WithFunctionsFrom(typeof(BaseBenchmarkService)));
 
-        var functionReader = services.GetRequiredService<IFunctionReader>();
-        NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(BaseBenchmarkService));
+        var services = container.BuildServiceProvider();
 
         return services.GetRequiredService<INoStringEvaluator>();
     }
@@ -161,33 +178,6 @@ public class Func_kovt : IFunction
         return args[0] - args[1];
     }
 }
-
-//public class Func_kov : IFunction
-//{
-//    public string Name { get; } = "kov";
-
-//    public double Execute(List<double> args)
-//    {
-//        var res = 1d;
-
-//        for (int i = 0; i < args.Count; i++)
-//        {
-//            res *= args[i];
-//        }
-
-//        return res;
-//    }
-//}
-
-//public class Func_kovt : IFunction
-//{
-//    public string Name { get; } = "kovt";
-
-//    public double Execute(List<double> args)
-//    {
-//        return args[0] - args[1];
-//    }
-//}
 
 public class FExtension_kov : FunctionExtensionVariadic
 {

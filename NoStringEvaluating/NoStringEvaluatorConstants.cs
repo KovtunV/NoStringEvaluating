@@ -1,4 +1,7 @@
-﻿using NoStringEvaluating.Models;
+﻿using System.Collections.Generic;
+using System.Reflection;
+using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models;
 
 namespace NoStringEvaluating;
 
@@ -33,14 +36,33 @@ public static class NoStringEvaluatorConstants
     public static bool ThrowIfVariableNotFound { get; internal set; }
 
     /// <summary>
+    /// Assemblies with functions
+    /// </summary>
+    public static HashSet<Assembly> FunctionsAssemblies { get; } = new();
+
+    /// <summary>
+    /// Functions
+    /// </summary>
+    public static HashSet<IFunction> Functions { get; } = new();
+
+    /// <summary>
     /// Global constants
     /// </summary>
     static NoStringEvaluatorConstants()
+    {
+        Reset();
+    }
+
+    internal static void Reset()
     {
         FloatingTolerance = 0.0001;
         FloatingPointSymbol = FloatingPointSymbol.Dot;
         WordQuotationMark = string.Empty;
         UseWordQuotationMark = false;
         ThrowIfVariableNotFound = true;
+
+        FunctionsAssemblies.Clear();
+        Functions.Clear();
+        FunctionsAssemblies.Add(typeof(NoStringEvaluatorConstants).Assembly);
     }
 }

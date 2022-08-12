@@ -4644,6 +4644,16 @@
             If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.FunctionsAssemblies">
+            <summary>
+            Assemblies with functions
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorConstants.Functions">
+            <summary>
+            Functions
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorConstants.#cctor">
             <summary>
             Global constants
@@ -4672,6 +4682,21 @@
         <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.ThrowIfVariableNotFound">
             <summary>
             If set true - throws exception when variable not found, if set false - returns Null
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.IsWithoutDefaultFunctions">
+            <summary>
+            Don't register default functions
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.FunctionsAssemblies">
+            <summary>
+            Assemblies with functions
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.Functions">
+            <summary>
+            Functions
             </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.#ctor">
@@ -4708,22 +4733,30 @@
             <summary>
             Set throw if variable not found
             </summary>
-            <param name="isThrow"></param>
-            <returns></returns>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithFunctionsFrom(System.Type)">
+            <summary>
+            Add assembly to register functions
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithFunctionsFrom(System.Reflection.Assembly)">
+            <summary>
+            Add assembly to register functions
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithoutDefaultFunctions(System.Boolean)">
+            <summary>
+            Remove root assembly from functions registration
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithFunctions(NoStringEvaluating.Functions.Base.IFunction[])">
+            <summary>
+            Add functions
+            </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.UpdateConstants">
             <summary>
             Update constants <see cref="T:NoStringEvaluating.NoStringEvaluatorConstants"/>
-            </summary>
-        </member>
-        <member name="T:NoStringEvaluating.NoStringFunctionsInitializer">
-            <summary>
-            Add functions to reader from your assembly
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.NoStringFunctionsInitializer.InitializeFunctions(NoStringEvaluating.Contract.IFunctionReader,System.Type,System.Boolean)">
-            <summary>
-            Initialize functions from assembly
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.BorderCounter`1">

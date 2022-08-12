@@ -24,8 +24,8 @@ public static class NoStringEvaluatorExtensions
     public static IServiceCollection AddNoStringEvaluator(this IServiceCollection services, Action<NoStringEvaluatorOptions> options = null)
     {
         // Pooling
-        services.TryAddSingleton(ObjectPool.Create<List<InternalEvaluatorValue>>());
         services.TryAddSingleton(ObjectPool.Create<Stack<InternalEvaluatorValue>>());
+        services.TryAddSingleton(ObjectPool.Create<List<InternalEvaluatorValue>>());
         services.TryAddSingleton(ObjectPool.Create<ExtraTypeIdContainer>());
 
         // Parser

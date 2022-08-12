@@ -1,4 +1,9 @@
-﻿using NoStringEvaluating.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using NoStringEvaluating.Extensions;
+using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models;
 
 namespace NoStringEvaluating;
 
@@ -25,7 +30,22 @@ public class NoStringEvaluatorOptions
     /// <summary>
     /// If set true - throws exception when variable not found, if set false - returns Null
     /// </summary>
-    public static bool ThrowIfVariableNotFound { get; set; }
+    public bool ThrowIfVariableNotFound { get; set; }
+
+    /// <summary>
+    /// Don't register default functions
+    /// </summary>
+    public bool IsWithoutDefaultFunctions { get; set; }
+
+    /// <summary>
+    /// Assemblies with functions
+    /// </summary>
+    public HashSet<Assembly> FunctionsAssemblies { get; } = new();
+
+    /// <summary>
+    /// Functions
+    /// </summary>
+    public HashSet<IFunction> Functions { get; } = new();
 
     /// <summary>
     /// Options
@@ -84,11 +104,45 @@ public class NoStringEvaluatorOptions
     /// <summary>
     /// Set throw if variable not found
     /// </summary>
-    /// <param name="isThrow"></param>
-    /// <returns></returns>
     public NoStringEvaluatorOptions SetThrowIfVariableNotFound(bool isThrow)
     {
         ThrowIfVariableNotFound = isThrow;
+        return this;
+    }
+
+    /// <summary>
+    /// Add assembly to register functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctionsFrom(Type typeFromSourceAssembly)
+    {
+        return WithFunctionsFrom(typeFromSourceAssembly.Assembly);
+    }
+
+    /// <summary>
+    /// Add assembly to register functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctionsFrom(Assembly sourceAssembly)
+    {
+        FunctionsAssemblies.Add(sourceAssembly);
+        return this;
+    }
+
+    /// <summary>
+    /// Remove root assembly from functions registration
+    /// </summary>
+    public NoStringEvaluatorOptions WithoutDefaultFunctions(bool withoutDefaultFunctions = true)
+    {
+        IsWithoutDefaultFunctions = withoutDefaultFunctions;
+        return this;
+    }
+
+    /// <summary>
+    /// Add functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctions(params IFunction[] functions)
+    {
+        functions ??= Array.Empty<IFunction>();
+        functions.ForEach(x => Functions.Add(x));
         return this;
     }
 
@@ -102,5 +156,13 @@ public class NoStringEvaluatorOptions
         NoStringEvaluatorConstants.WordQuotationMark = WordQuotationMark;
         NoStringEvaluatorConstants.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
         NoStringEvaluatorConstants.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
+
+        FunctionsAssemblies.ForEach(x => NoStringEvaluatorConstants.FunctionsAssemblies.Add(x));
+        Functions.ForEach(x => NoStringEvaluatorConstants.Functions.Add(x));
+
+        if (IsWithoutDefaultFunctions)
+        {
+            NoStringEvaluatorConstants.FunctionsAssemblies.Remove(typeof(NoStringEvaluatorOptions).Assembly);
+        }
     }
 }

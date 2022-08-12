@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using NoStringEvaluating;
-using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
@@ -17,18 +16,13 @@ using NUnit.Framework;
 
 namespace NoStringEvaluatingTests;
 
-[NonParallelizable]
 internal class NoStringEvaluatorTests
 {
-    private Func<IServiceProvider> _serviceProviderFactory;
-
     private Func<Action<NoStringEvaluatorOptions>, NoStringEvaluator> _serviceFactory;
 
     [SetUp]
     public void Setup()
     {
-        _serviceProviderFactory = () => ServiceProviderFactory.Create();
-
         _serviceFactory = opt =>
         {
             opt ??= subOpt => subOpt.SetThrowIfVariableNotFound(false);
@@ -154,12 +148,7 @@ internal class NoStringEvaluatorTests
     public async Task Should_Be_Thread_Safe_With_Extra_Type()
     {
         // arrange
-        var serviceProvider = _serviceProviderFactory();
-
-        var functionReader = serviceProvider.GetRequiredService<IFunctionReader>();
-        functionReader.AddFunction(new TestSleepFunction());
-
-        var service = serviceProvider.GetRequiredService<NoStringEvaluator>();
+        var service = _serviceFactory(null);
 
         // act
         var resTask = Task.Run(() => service.CalcWord("TestSleep('sleep word')"));
@@ -176,12 +165,7 @@ internal class NoStringEvaluatorTests
     public void Should_Evaluate_Service()
     {
         // arrange
-        var serviceProvider = _serviceProviderFactory();
-
-        var functionReader = serviceProvider.GetRequiredService<IFunctionReader>();
-        functionReader.AddFunction(new ServiceFunction());
-
-        var service = serviceProvider.GetRequiredService<NoStringEvaluator>();
+        var service = _serviceFactory(null);
         var args = new Dictionary<string, EvaluatorValue>
         {
             ["myService"] = new EvaluatorValue(new TestService()),
@@ -194,6 +178,19 @@ internal class NoStringEvaluatorTests
 
         // assert
         actual.Should().BeApproximatelyNumber(expected);
+    }
+
+    [Test]
+    public void Should_Not_Add_Default_Functions()
+    {
+        // arrange
+        var service = _serviceFactory(o => o.WithoutDefaultFunctions());
+
+        // act
+        var act = () => service.CalcNumber("Add(3; 7)");
+
+        // assert
+        act.Should().Throw<Exception>();
     }
 
     private class TestSleepFunction : IFunction

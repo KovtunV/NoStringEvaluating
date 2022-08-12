@@ -17,16 +17,16 @@ class Program
         //args["my variable"] = true;
 
         //var res = eval.Calc("ToDateTime('04/17/2021')-1 < ToDateTime('04/17/2021')");
-
         BenchmarkRunner.Run<BenchmarkNumberService>();
         //BenchmarkRunner.Run<BenchmarkEvaluationPerformance>();
     }
 
     static INoStringEvaluator CreateNoString()
     {
-        var container = new ServiceCollection().AddNoStringEvaluator();
+        var container = new ServiceCollection()
+            .AddNoStringEvaluator(opt => opt.WithFunctionsFrom(typeof(Program)));
+
         var services = container.BuildServiceProvider();
-        var functionReader = services.GetRequiredService<IFunctionReader>();
 
         return services.GetRequiredService<INoStringEvaluator>();
     }

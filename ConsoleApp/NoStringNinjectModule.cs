@@ -40,16 +40,9 @@ public class NoStringNinjectModule : NinjectModule
         Bind<INoStringEvaluator>().To<NoStringEvaluator>().InSingletonScope();
 
         // Options
-        NoStringEvaluatorOptions opt = new NoStringEvaluatorOptions().SetWordQuotationMark("!");
+        NoStringEvaluatorOptions opt = new NoStringEvaluatorOptions()
+            .WithFunctionsFrom(typeof(NoStringNinjectModule));
+
         opt.UpdateConstants();
-
-        // If needed
-        InjectUserDefinedFunctions();
-    }
-
-    private void InjectUserDefinedFunctions()
-    {
-        IFunctionReader functionReader = (IFunctionReader)Kernel!.GetService(typeof(IFunctionReader));
-        NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(NoStringNinjectModule));
     }
 }
