@@ -4,7 +4,7 @@ using NoStringEvaluating.Functions.Excel.Date;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Excel.Date;
+namespace NoStringEvaluating.Tests.Functions.Excel.Date;
 
 internal class TodayFunctionTests : FunctionTests<TodayFunction>
 {

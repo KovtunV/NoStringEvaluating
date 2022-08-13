@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluatingTests.Models;
+namespace NoStringEvaluating.Tests.Models;
 
 public class FormulaModel
 {

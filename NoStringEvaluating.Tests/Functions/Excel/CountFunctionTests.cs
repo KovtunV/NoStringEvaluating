@@ -5,7 +5,7 @@ using NoStringEvaluating.Functions.Excel;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Excel;
+namespace NoStringEvaluating.Tests.Functions.Excel;
 
 internal class CountFunctionTests : FunctionTests<CountFunction>
 {

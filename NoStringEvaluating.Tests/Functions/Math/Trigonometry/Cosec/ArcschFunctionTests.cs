@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Cosec;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Cosec;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Cosec;
 
 internal class ArcschFunctionTests : FunctionTests<ArcschFunction>
 {

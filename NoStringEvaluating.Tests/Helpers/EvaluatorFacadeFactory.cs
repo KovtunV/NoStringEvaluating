@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using NoStringEvaluating;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluatingTests.Helpers;
+namespace NoStringEvaluating.Tests.Helpers;
 
 internal static class EvaluatorFacadeFactory
 {

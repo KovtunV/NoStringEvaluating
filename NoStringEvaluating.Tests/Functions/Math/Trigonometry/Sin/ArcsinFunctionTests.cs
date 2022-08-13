@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Sin;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Sin;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Sin;
 
 internal class ArcsinFunctionTests : FunctionTests<ArcsinFunction>
 {

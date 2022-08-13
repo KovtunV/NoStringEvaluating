@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Tan;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Tan;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Tan;
 
 internal class ArctgFunctionTests : FunctionTests<ArctgFunction>
 {

@@ -3,7 +3,7 @@ using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Date;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Excel.Date;
+namespace NoStringEvaluating.Tests.Functions.Excel.Date;
 
 internal class WeekDayFunctionTests : FunctionTests<WeekDayFunction>
 {

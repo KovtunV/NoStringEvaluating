@@ -3,7 +3,7 @@ using NoStringEvaluating.Functions.Null;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Null;
+namespace NoStringEvaluating.Tests.Functions.Null;
 
 internal class NullIfFunctionTests : FunctionTests<NullIfFunction>
 {

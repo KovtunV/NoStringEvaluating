@@ -5,7 +5,7 @@ using NoStringEvaluating.Functions.Excel.Word;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Excel.Word;
+namespace NoStringEvaluating.Tests.Functions.Excel.Word;
 
 internal class TextFunctionTests : FunctionTests<TextFunction>
 {

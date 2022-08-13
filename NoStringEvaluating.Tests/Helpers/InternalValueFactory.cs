@@ -3,7 +3,7 @@ using System.Linq;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluatingTests.Helpers;
+namespace NoStringEvaluating.Tests.Helpers;
 
 internal class InternalValueFactory
 {

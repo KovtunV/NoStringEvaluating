@@ -4,7 +4,7 @@ using System.Linq;
 using AutoFixture;
 using FluentAssertions;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
 namespace NoStringEvaluating.Tests;

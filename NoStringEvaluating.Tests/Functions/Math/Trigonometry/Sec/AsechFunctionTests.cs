@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Sec;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Sec;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Sec;
 
 internal class AsechFunctionTests : FunctionTests<AsechFunction>
 {

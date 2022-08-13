@@ -1,7 +1,7 @@
 ﻿using FluentAssertions;
 using FluentAssertions.Numeric;
 
-namespace NoStringEvaluatingTests.Helpers;
+namespace NoStringEvaluating.Tests.Helpers;
 
 internal static class Extensions
 {

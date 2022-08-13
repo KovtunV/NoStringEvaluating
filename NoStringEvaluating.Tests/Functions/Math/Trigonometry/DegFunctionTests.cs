@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry;
 
 internal class DegFunctionTests : FunctionTests<DegFunction>
 {

@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Cotan;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Cotan;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Cotan;
 
 internal class AcothFunctionTests : FunctionTests<AcothFunction>
 {

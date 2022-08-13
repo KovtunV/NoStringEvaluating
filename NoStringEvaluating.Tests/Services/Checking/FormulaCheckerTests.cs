@@ -1,11 +1,11 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Services.Checking;
-using NoStringEvaluatingTests.Data;
-using NoStringEvaluatingTests.Helpers;
-using NoStringEvaluatingTests.Models;
+using NoStringEvaluating.Tests.Data;
+using NoStringEvaluating.Tests.Helpers;
+using NoStringEvaluating.Tests.Models;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Services.Checking;
+namespace NoStringEvaluating.Tests.Services.Checking;
 
 internal class FormulaCheckerTests
 {

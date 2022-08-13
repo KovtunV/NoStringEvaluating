@@ -6,15 +6,14 @@ using NoStringEvaluating.Models.Values;
 namespace NoStringEvaluating.Functions.Excel.Date;
 
 /// <summary>
-/// Returns a day from dateTime
-/// <para>Day(Now()) or Day(Now(); 'DD')</para>
+/// Adds a number of hours to a datetime
 /// </summary>
-public sealed class DayFunction : IFunction
+public sealed class AddHoursFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public string Name { get; } = "DAY";
+    public string Name { get; } = "ADDHOURS";
 
     /// <summary>
     /// Can handle IsNull arguments?
@@ -26,16 +25,14 @@ public sealed class DayFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordFactory = factory.Word;
         var dateVal = args[0].GetDateTime();
 
-        if (args.Count > 1 && args[1].IsWord)
+        if (args.Count == 2 && args[1].IsNumber)
         {
-            var format = args[1].GetWord();
-            var strRes = dateVal.Day.ToString().PadLeft(format.Length, '0');
-            return wordFactory.Create(strRes);
+            return factory.DateTime.Create(dateVal.AddHours(args[1]));
         }
 
-        return wordFactory.Create(dateVal.Day.ToString());
+        // If we get weird input we just return the first argument
+        return args[0];
     }
 }

@@ -1132,6 +1132,66 @@
             Execute value
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Date.AddHoursFunction">
+            <summary>
+            Adds a number of hours to a datetime
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddHoursFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddHoursFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Date.AddHoursFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Date.AddMinutesFunction">
+            <summary>
+            Adds a number of minutes to a datetime
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddMinutesFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddMinutesFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Date.AddMinutesFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Excel.Date.AddSecondsFunction">
+            <summary>
+            Adds a number of seconds to a datetime
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddSecondsFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Excel.Date.AddSecondsFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Excel.Date.AddSecondsFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Execute value
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Excel.Date.DateDifFunction">
             <summary>
             Calculates the number of days, months, or years between two dates
@@ -1175,7 +1235,7 @@
         </member>
         <member name="T:NoStringEvaluating.Functions.Excel.Date.DayFunction">
             <summary>
-            Returnts a day from dateTime
+            Returns a day from dateTime
             <para>Day(Now()) or Day(Now(); 'DD')</para>
             </summary>
         </member>

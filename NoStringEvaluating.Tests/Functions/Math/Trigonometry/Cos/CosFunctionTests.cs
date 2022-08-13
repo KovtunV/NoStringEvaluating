@@ -1,10 +1,10 @@
 ﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math.Trigonometry.Cos;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math.Trigonometry.Cos;
+namespace NoStringEvaluating.Tests.Functions.Math.Trigonometry.Cos;
 
 internal class CosFunctionTests : FunctionTests<CosFunction>
 {

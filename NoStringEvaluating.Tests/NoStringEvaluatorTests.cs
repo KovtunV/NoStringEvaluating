@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using NoStringEvaluating;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Data;
-using NoStringEvaluatingTests.Helpers;
-using NoStringEvaluatingTests.Models;
+using NoStringEvaluating.Tests.Data;
+using NoStringEvaluating.Tests.Helpers;
+using NoStringEvaluating.Tests.Models;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests;
+namespace NoStringEvaluating.Tests;
 
 internal class NoStringEvaluatorTests
 {

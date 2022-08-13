@@ -3,7 +3,7 @@ using NoStringEvaluating.Functions.Logic;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Logic;
+namespace NoStringEvaluating.Tests.Functions.Logic;
 
 internal class OrFunctionTests : FunctionTests<OrFunction>
 {

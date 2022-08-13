@@ -2,10 +2,10 @@
 using FluentAssertions;
 using NoStringEvaluating.Functions.Math;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Math;
+namespace NoStringEvaluating.Tests.Functions.Math;
 
 internal class AddFunctionTests : FunctionTests<AddFunction>
 {

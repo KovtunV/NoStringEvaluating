@@ -2,10 +2,10 @@
 using AutoFixture;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions;
+namespace NoStringEvaluating.Tests.Functions;
 
 internal abstract class FunctionTests<TFunction>
     where TFunction : IFunction, new()

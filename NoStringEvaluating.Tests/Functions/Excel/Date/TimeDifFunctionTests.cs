@@ -3,10 +3,10 @@ using AutoFixture;
 using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Date;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Helpers;
+using NoStringEvaluating.Tests.Helpers;
 using NUnit.Framework;
 
-namespace NoStringEvaluatingTests.Functions.Excel.Date;
+namespace NoStringEvaluating.Tests.Functions.Excel.Date;
 
 internal class TimeDifFunctionTests : FunctionTests<TimeDifFunction>
 {

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using NoStringEvaluatingTests.Models;
-using static NoStringEvaluatingTests.Helpers.FormulaModelFactory;
+using NoStringEvaluating.Tests.Models;
+using static NoStringEvaluating.Tests.Helpers.FormulaModelFactory;
 
-namespace NoStringEvaluatingTests.Data;
+namespace NoStringEvaluating.Tests.Data;
 
 internal static class ParseFormula
 {

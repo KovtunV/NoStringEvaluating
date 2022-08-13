@@ -447,12 +447,15 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | TimeDif | Calculates the number of hours, minutes, or seconds between two dates. Can be: H, M, S | DateDif(time1; time2; 'H') |
 | Now | Returns Datetime.Now | Now() |
 | Today | Returns the current date | Today() |
-| Day | Returnts a day from dateTime | Day(Now())<br /> Day(Now(); 'DD') |
+| Day | Returns a day from dateTime | Day(Now())<br /> Day(Now(); 'DD') |
 | Month | Returns a month from dateTime | Month(Now())<br /> Month(Now(); 'MM') |
 | Year | Returns a year from dateTime | Year(Now())<br /> Year(Now(); 'YY') |
 | ToDateTime | Returns datetime value from string | ToDateTime('8/15/2002') |
 | WeekDay | Takes a date and returns a number between 1-7 representing the day of week | WeekDay(Today()) |
 | DateFormat | Format dateTime to string | DateFormat(Now(); 'HH:mm:ss') |
+| AddHours | Adds a number of hours to a datetime | AddHours(date; 17) |
+| AddMinutes | Adds a number of minutes to a datetime | AddMinutes(date; 17) |
+| AddSeconds | Adds a number of seconds to a datetime | AddSeconds(date; 17) |
 
 #### Word
 | Key word  |  Description | Example  |
@@ -469,7 +472,7 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | Replace | Replaces characters within text | Replace(myWord; oldPart; newPart) <br /> Replace(myList; oldPart; newPart) |
 | Text | Returns text from first argument | Text(26) |
 | Unique | If second parameter is true then returns only unique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
-| IsText | Returns 1 if this is a word | IsText('my word') |
+| IsText | Returns true if this is a word | IsText('my word') |
 
 ### Null
 | Key word  |  Description | Example  |

@@ -1,7 +1,7 @@
 ﻿using NoStringEvaluating.Models.Values;
-using NoStringEvaluatingTests.Models;
+using NoStringEvaluating.Tests.Models;
 
-namespace NoStringEvaluatingTests.Helpers;
+namespace NoStringEvaluating.Tests.Helpers;
 
 internal static class FormulaModelFactory
 {
