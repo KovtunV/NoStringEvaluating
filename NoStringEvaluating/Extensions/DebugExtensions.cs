@@ -23,10 +23,10 @@ public static class DebugExtensions
     public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         string formula,
-        IVariablesContainer variables)
+        IVariablesContainer variableContainer = null)
     {
         var formulaNodes = ExtractFormulaCache(eval).GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables);
+        var wrapper = VariablesSource.Create(variableContainer);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 
@@ -36,9 +36,9 @@ public static class DebugExtensions
     public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         FormulaNodes formulaNodes,
-        IVariablesContainer variables)
+        IVariablesContainer variableContainer = null)
     {
-        var wrapper = VariablesSource.Create(variables);
+        var wrapper = VariablesSource.Create(variableContainer);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 
@@ -48,7 +48,7 @@ public static class DebugExtensions
     public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         string formula,
-        IDictionary<string, EvaluatorValue> variables)
+        IDictionary<string, EvaluatorValue> variables = null)
     {
         var formulaNodes = ExtractFormulaCache(eval).GetFormulaNodes(formula);
         var wrapper = VariablesSource.Create(variables);
@@ -61,7 +61,7 @@ public static class DebugExtensions
     public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         FormulaNodes formulaNodes,
-        IDictionary<string, EvaluatorValue> variables)
+        IDictionary<string, EvaluatorValue> variables = null)
     {
         var wrapper = VariablesSource.Create(variables);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);

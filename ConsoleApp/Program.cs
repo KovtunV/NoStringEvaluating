@@ -11,7 +11,7 @@ class Program
 {
     static void Main()
     {
-        // var eval = CreateNoString();
+        //var eval = CreateNoString();
 
         //var args = new Dictionary<string, EvaluatorValue>();
         //args["my variable"] = true;
@@ -21,9 +21,16 @@ class Program
         BenchmarkRunner.Run<BenchmarkNumberService>();
     }
 
-    static INoStringEvaluator CreateNoString()
+    static NoStringEvaluator CreateNoString()
     {
-        return NoStringEvaluator.CreateFacade(opt => opt.WithFunctionsFrom(typeof(Program))).Evaluator;
+        void Configure(NoStringEvaluatorOptions opt)
+        {
+            opt
+                .WithFunctionsFrom(typeof(Program))
+                .SetThrowIfVariableNotFound(false);
+        }
+
+        return NoStringEvaluator.CreateFacade(Configure).Evaluator;
     }
 
     static INoStringEvaluator CreateNoStringFromNinject(out StandardKernel kernel)
