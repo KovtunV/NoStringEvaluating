@@ -8,38 +8,36 @@ namespace NoStringEvaluatingTests.Functions.Excel;
 
 internal class SortFunctionTests : FunctionTests<SortFunction>
 {
-    [TestCase(1)]
-    [TestCase(0)]
-    public void Should_Sort_WordList(int isAscAsNum)
+    [TestCase(true)]
+    [TestCase(false)]
+    public void Should_Sort_WordList(bool isAsc)
     {
         // arrange
-        var isAsc = isAscAsNum == 1;
         var wordList = new[] { "b", "c", "a" }.ToList();
         var expected = isAsc
             ? wordList.OrderBy(x => x).ToList()
             : wordList.OrderByDescending(x => x).ToList();
 
         // act
-        var actual = Execute(wordList, isAscAsNum);
+        var actual = Execute(wordList, isAsc);
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
         actual.GetWordList().Should().BeEquivalentTo(expected);
     }
 
-    [TestCase(1)]
-    [TestCase(0)]
-    public void Should_Sort_NumberList(int isAscAsNum)
+    [TestCase(true)]
+    [TestCase(false)]
+    public void Should_Sort_NumberList(bool isAsc)
     {
         // arrange
-        var isAsc = isAscAsNum == 1;
         var wordList = new[] { 2d, 3, 1 }.ToList();
         var expected = isAsc
             ? wordList.OrderBy(x => x).ToList()
             : wordList.OrderByDescending(x => x).ToList();
 
         // act
-        var actual = Execute(wordList, isAscAsNum);
+        var actual = Execute(wordList, isAsc);
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.NumberList);

@@ -10,5 +10,5 @@ internal class ObjectKeeper : BaseValueKeeper<object>
 
     }
 
-    internal static ObjectKeeper Instance { get; } = new();
+    public static ObjectKeeper Instance { get; } = new();
 }

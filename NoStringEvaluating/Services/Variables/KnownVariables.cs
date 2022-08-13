@@ -14,15 +14,15 @@ internal static class KnownVariables
         {
             ["PI"] = Math.PI,
             ["TAU"] = Math.PI * 2,
-            ["E"] = Math.E,
-            ["ASC"] = 1,
-            ["DESC"] = 0
+            ["E"] = Math.E
         };
 
         _booleanVariables = new Dictionary<string, bool>
         {
             ["TRUE"] = true,
-            ["FALSE"] = false
+            ["FALSE"] = false,
+            ["ASC"] = true,
+            ["DESC"] = false
         };
     }
 

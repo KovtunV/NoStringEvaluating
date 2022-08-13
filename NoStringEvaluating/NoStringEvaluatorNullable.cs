@@ -578,7 +578,7 @@ public class NoStringEvaluatorNullable : INoStringEvaluatorNullable
     #endregion
 
     /// <summary>
-    /// Creates evaluator facade
+    /// Create evaluator facade
     /// </summary>
     public static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null)
     {

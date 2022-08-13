@@ -9,7 +9,7 @@ namespace NoStringEvaluating.Functions.Excel;
 
 /// <summary>
 /// SORT(myList; sortType)
-/// <para>sortType: 1 - asc, not 1 - desc</para> 
+/// <para>sortType: true - asc, false - desc</para> 
 /// </summary>
 public sealed class SortFunction : IFunction
 {
@@ -28,7 +28,7 @@ public sealed class SortFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < GlobalOptions.FloatingTolerance;
+        var ascSort = args.Count <= 1 || args[1].GetBoolean();
         var list = args[0];
 
         if (list.IsWordList)

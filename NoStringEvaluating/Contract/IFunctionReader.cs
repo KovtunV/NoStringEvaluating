@@ -20,7 +20,7 @@ public interface IFunctionReader
     /// <summary>
     /// Remove function
     /// </summary>
-    public void RemoveFunction(string functionName);
+    void RemoveFunction(string functionName);
 
     /// <summary>
     /// Read function name

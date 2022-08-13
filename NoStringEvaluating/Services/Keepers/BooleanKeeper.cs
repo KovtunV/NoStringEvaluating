@@ -10,5 +10,5 @@ internal class BooleanKeeper : BaseValueKeeper<bool>
 
     }
 
-    internal static BooleanKeeper Instance { get; } = new();
+    public static BooleanKeeper Instance { get; } = new();
 }

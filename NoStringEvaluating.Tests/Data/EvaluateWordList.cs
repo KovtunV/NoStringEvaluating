@@ -28,8 +28,8 @@ internal static class EvaluateWordList
         yield return CreateTestModel("Upper(list)", new[] { "ONE", "TWO" }.ToList(), ("list", list2));
         yield return CreateTestModel("Upper({'Mumbai','London','New York'})", new[] { "MUMBAI", "LONDON", "NEW YORK" }.ToList());
         yield return CreateTestModel("Sort(list)", list3.OrderBy(x => x).ToList(), ("list", list3));
-        yield return CreateTestModel("Sort(list; 1)", list3.OrderBy(x => x).ToList(), ("list", list3));
-        yield return CreateTestModel("Sort(list; -1)", list3.OrderByDescending(x => x).ToList(), ("list", list3));
+        yield return CreateTestModel("Sort(list; asc)", list3.OrderBy(x => x).ToList(), ("list", list3));
+        yield return CreateTestModel("Sort(list; desc)", list3.OrderByDescending(x => x).ToList(), ("list", list3));
         yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" })", list3.OrderBy(x => x).ToList());
         yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; ASC)", list3.OrderBy(x => x).ToList());
         yield return CreateTestModel("Sort({ \"a\", \"b\", \"c\", \"a\", \"c\" }; DESC)", list3.OrderByDescending(x => x).ToList());

@@ -885,7 +885,7 @@ public class NoStringEvaluator : INoStringEvaluator
     }
 
     /// <summary>
-    /// Creates evaluator facade
+    /// Create evaluator facade
     /// </summary>
     public static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null)
     {

@@ -6,10 +6,10 @@ namespace NoStringEvaluating.Services.Keepers;
 
 internal class NumberListKeeper : BaseValueKeeper<List<double>>
 {
-    internal NumberListKeeper() : base(ValueTypeKey.NumberList)
+    public NumberListKeeper() : base(ValueTypeKey.NumberList)
     {
 
     }
 
-    internal static NumberListKeeper Instance { get; } = new();
+    public static NumberListKeeper Instance { get; } = new();
 }

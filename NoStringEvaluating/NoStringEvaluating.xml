@@ -1425,7 +1425,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.SortFunction">
             <summary>
             SORT(myList; sortType)
-            <para>sortType: 1 - asc, not 1 - desc</para> 
+            <para>sortType: true - asc, false - desc</para> 
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.SortFunction.Name">
@@ -5049,7 +5049,7 @@
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CreateFacade(System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
             <summary>
-            Creates evaluator facade
+            Create evaluator facade
             </summary>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluator.Facade">
@@ -5472,7 +5472,7 @@
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CreateFacade(System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
             <summary>
-            Creates evaluator facade
+            Create evaluator facade
             </summary>
         </member>
         <member name="T:NoStringEvaluating.NoStringEvaluatorNullable.Facade">
