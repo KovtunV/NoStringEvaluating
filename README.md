@@ -1,4 +1,4 @@
-Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables. <br/>
+Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover provides user defined functions and variables. <br/>
 [![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating) [![NuGet version](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating) [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Good%20expression%20evaluator,%20take%20a%20look!&url=https://github.com/KovtunV/NoStringEvaluating&hashtags=expression,evaluator,math,formula)
 <br/>
 

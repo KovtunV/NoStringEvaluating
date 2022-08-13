@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Services.Keepers;
 
 namespace NoStringEvaluating.Models.Values;
@@ -412,6 +413,6 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
             return "Null";
         }
 
-        return Number.ToString(CultureInfo.InvariantCulture);
+        return Number.ToNonScientificString();
     }
 }

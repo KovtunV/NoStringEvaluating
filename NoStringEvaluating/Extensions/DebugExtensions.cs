@@ -83,6 +83,15 @@ public static class DebugExtensions
                 var variableNode = (VariableNode)node;
                 res.Add((variableNode.Name, variables.GetValue(variableNode.Name)));
             }
+            else if (node.TypeKey == NodeTypeEnum.FunctionWrapper)
+            {
+                // add the list of variables used by the function
+                var functionWrapper = (FunctionWrapperNode)node;
+                for (int f = 0; f < functionWrapper.FunctionArgumentNodes.Count; f++)
+                {
+                    res.AddRange(VariableValuesUsedByFormulaInternal(functionWrapper.FunctionArgumentNodes[f], variables));
+                }
+            }
         }
 
         return res;

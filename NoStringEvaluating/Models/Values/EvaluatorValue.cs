@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Services.Value;
 
 namespace NoStringEvaluating.Models.Values;
@@ -291,6 +292,6 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
             return "Null";
         }
 
-        return Number.ToString(CultureInfo.InvariantCulture);
+        return Number.ToNonScientificString();
     }
 }
