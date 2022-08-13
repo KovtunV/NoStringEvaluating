@@ -47,8 +47,14 @@ internal static class InternalExtensions
     public static IEnumerable<T> CreateInstances<T>(this IEnumerable<Assembly> sourceAssemblies)
         where T : class
     {
-        var types = sourceAssemblies.SelectMany(x => x.GetTypes());
-        var filteredTypes = types
+        return sourceAssemblies.SelectMany(x => CreateInstances<T>(x));
+    }
+
+    public static IEnumerable<T> CreateInstances<T>(this Assembly sourceAssembly)
+        where T : class
+    {
+        var filteredTypes = sourceAssembly
+            .GetTypes()
             .Where(w => w.IsClass)
             .Where(w => !w.IsAbstract)
             .Where(w => typeof(T).IsAssignableFrom(w))
