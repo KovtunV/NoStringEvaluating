@@ -6,15 +6,23 @@
 		<Authors>kovtunv</Authors>
 		<Company>kovtunv</Company>
 		<Product>kovtunv</Product>
-		<Description>Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables. From v2.0 it can evaluate string, DateTime, etc...</Description>
+		<Description>Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<PackageReleaseNotes>NET6</PackageReleaseNotes>
+		<PackageReleaseNotes>1. Null type
+2. Object type
+3. Boolean type
+4. New functions
+5. Evaluator with nullable result
+6. Change function registration approach (via options)
+7. Evaluator builder with the least memory consumption (static method)
+8. DebugExtensions
+9. Prevent scientific format in EvaluatorValue and InternalEvaluatorValue ToString()</PackageReleaseNotes>
 		<PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
 		<PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>2.3.0</Version>
+		<Version>2.4.0</Version>
 		<PackageReadmeFile></PackageReadmeFile>
 	</PropertyGroup>
 
