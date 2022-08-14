@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Tan;
 /// <summary>
 /// Function - atg
 /// </summary>
-public class AtgFunction : IFunction
+public sealed class AtgFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ATG";
+    public string Name { get; } = "ATG";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

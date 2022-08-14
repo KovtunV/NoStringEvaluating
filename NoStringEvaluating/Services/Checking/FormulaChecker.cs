@@ -66,7 +66,7 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-    private int GetNextIndex(List<BaseFormulaNode> nodes, int start, int end)
+    private static int GetNextIndex(List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start; i < end; i++)
         {
@@ -147,7 +147,7 @@ public class FormulaChecker : IFormulaChecker
 
     #region Bracket
 
-    private void CheckBracketsCount(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckBracketsCount(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         var openBracketCount = 0;
         var closeBracketCount = 0;
@@ -172,7 +172,7 @@ public class FormulaChecker : IFormulaChecker
 
 
 
-    private void CheckEmptyBrackets(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckEmptyBrackets(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start + 1; i < end; i++)
         {
@@ -188,13 +188,11 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-
-
     #endregion
 
     #region Checkers
 
-    private void CheckMissedOperator(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckMissedOperator(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start; i < end; i++)
         {
@@ -220,7 +218,7 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-    private void CheckNodeBetweenNumbers(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckNodeBetweenNumbers(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start; i < end; i++)
         {
@@ -237,7 +235,7 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-    private void CheckMissedNumber(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckMissedNumber(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start; i < end; i++)
         {
@@ -263,7 +261,7 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-    private void CheckFunctionBody(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    private static void CheckFunctionBody(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         if (start + 1 != end)
             return;
@@ -278,7 +276,7 @@ public class FormulaChecker : IFormulaChecker
 
     #endregion
 
-    private FormulaCheckerModel CreateMistakeModel(FormulaCheckerMistakeType key, string message, params string[] parts)
+    private static FormulaCheckerModel CreateMistakeModel(FormulaCheckerMistakeType key, string message, params string[] parts)
     {
         if (parts != null)
         {
@@ -288,19 +286,20 @@ public class FormulaChecker : IFormulaChecker
         return new FormulaCheckerModel(key, message);
     }
 
-    private bool IsOpenBracket(BaseFormulaNode node)
+    private static bool IsOpenBracket(BaseFormulaNode node)
     {
         return node is BracketNode bracketNode && bracketNode.Bracket == Bracket.Open;
     }
 
-    private bool IsCloseBracket(BaseFormulaNode node)
+    private static bool IsCloseBracket(BaseFormulaNode node)
     {
         return node is BracketNode bracketNode && bracketNode.Bracket == Bracket.Close;
     }
 
-    private bool IsOperatorableNode(BaseFormulaNode node)
+    private static bool IsOperatorableNode(BaseFormulaNode node)
     {
         return node is NumberNode
+            || node is BooleanNode
             || node is VariableNode
             || node is WordNode
             || node is FunctionNode

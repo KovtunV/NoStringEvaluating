@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cos;
 /// <summary>
 /// Function - cos
 /// </summary>
-public class CosFunction : IFunction
+public sealed class CosFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "COS";
+    public string Name { get; } = "COS";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate va;ue

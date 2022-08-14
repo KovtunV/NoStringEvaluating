@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Excel.Date;
 /// <summary>
 /// DateFormat(Now(); 'yyyy MMMM')
 /// </summary>
-public class DateFormatFunction : IFunction
+public sealed class DateFormatFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "DATEFORMAT";
+    public string Name { get; } = "DATEFORMAT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -24,6 +29,6 @@ public class DateFormatFunction : IFunction
         var formatArg = args[1];
 
         var strRes = dateArg.GetDateTime().ToString(formatArg.GetWord());
-        return factory.Word().Create(strRes);
+        return factory.Word.Create(strRes);
     }
 }

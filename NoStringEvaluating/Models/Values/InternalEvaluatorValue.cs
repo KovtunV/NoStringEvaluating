@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Services.Keepers;
 
 namespace NoStringEvaluating.Models.Values;
@@ -8,9 +9,9 @@ namespace NoStringEvaluating.Models.Values;
 /// <summary>
 /// Value for internal processing
 /// </summary>
-public readonly struct InternalEvaluatorValue
+public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValue>
 {
-    private readonly int _extraTypeId;
+    private readonly int _extraTypeId = default;
 
     /// <summary>
     /// Type key 
@@ -29,102 +30,60 @@ public readonly struct InternalEvaluatorValue
     {
         TypeKey = ValueTypeKey.Number;
         Number = number;
-
-        _extraTypeId = NullId;
     }
 
     internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
     {
         _extraTypeId = extraTypeId;
-
         TypeKey = typeKey;
         Number = double.NaN;
     }
 
-    /// <summary>
-    /// ToString
-    /// </summary>
-    public override string ToString()
-    {
-        if (IsWord)
-        {
-            return GetWord();
-        }
-
-        if (IsDateTime)
-        {
-            return GetDateTime().ToString(CultureInfo.InvariantCulture);
-        }
-
-        if (IsWordList)
-        {
-            var wList = GetWordList();
-            return wList is null ? string.Empty : string.Join(", ", wList);
-        }
-
-        if (IsNumberList)
-        {
-            var nList = GetNumberList();
-            return nList is null ? string.Empty : string.Join(", ", nList);
-        }
-
-        return Number.ToString(CultureInfo.InvariantCulture);
-    }
-
-    #region IsProperies
+    #region IsProperties
 
     /// <summary>
     /// IsNumber
     /// </summary>
-    public bool IsNumber
-    {
-        get => TypeKey == ValueTypeKey.Number;
-    }
-
-    /// <summary>
-    /// IsWord
-    /// </summary>
-    public bool IsWord
-    {
-        get => TypeKey == ValueTypeKey.Word;
-    }
+    public bool IsNumber => TypeKey == ValueTypeKey.Number;
 
     /// <summary>
     /// IsDateTime
     /// </summary>
-    public bool IsDateTime
-    {
-        get => TypeKey == ValueTypeKey.DateTime;
-    }
+    public bool IsDateTime => TypeKey == ValueTypeKey.DateTime;
+
+    /// <summary>
+    /// IsBoolean
+    /// </summary>
+    public bool IsBoolean => TypeKey == ValueTypeKey.Boolean;
+
+    /// <summary>
+    /// IsWord
+    /// </summary>
+    public bool IsWord => TypeKey == ValueTypeKey.Word;
 
     /// <summary>
     /// IsWordList
     /// </summary>
-    public bool IsWordList
-    {
-        get => TypeKey == ValueTypeKey.WordList;
-    }
+    public bool IsWordList => TypeKey == ValueTypeKey.WordList;
 
     /// <summary>
     /// IsNumberList
     /// </summary>
-    public bool IsNumberList
-    {
-        get => TypeKey == ValueTypeKey.NumberList;
-    }
+    public bool IsNumberList => TypeKey == ValueTypeKey.NumberList;
+
+    /// <summary>
+    /// IsObject
+    /// </summary>
+    public bool IsObject => TypeKey == ValueTypeKey.Object;
+
+    /// <summary>
+    /// IsNull
+    /// </summary>
+    public bool IsNull => TypeKey == ValueTypeKey.Null;
 
     #endregion
 
     #region ExtraValue
-
-    /// <summary>
-    /// Returns string
-    /// </summary>
-    public string GetWord()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : null;
-    }
 
     /// <summary>
     /// Returns DateTime
@@ -132,7 +91,25 @@ public readonly struct InternalEvaluatorValue
     public DateTime GetDateTime()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : DateTime.MinValue;
+        return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    /// <summary>
+    /// Returns bool
+    /// </summary>
+    public bool GetBoolean()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsBoolean ? BooleanKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    /// <summary>
+    /// Returns string
+    /// </summary>
+    public string GetWord()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -141,7 +118,7 @@ public readonly struct InternalEvaluatorValue
     public List<string> GetWordList()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : null;
+        return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : default;
     }
 
     /// <summary>
@@ -150,7 +127,98 @@ public readonly struct InternalEvaluatorValue
     public List<double> GetNumberList()
     {
         // It has to be a method to avoid misunderstanding inside custom functions
-        return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : null;
+        return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    /// <summary>
+    /// Returns object
+    /// </summary>
+    public T GetObject<T>()
+        where T : class
+    {
+        return GetObject() as T;
+    }
+
+    /// <summary>
+    /// Returns object
+    /// </summary>
+    public object GetObject()
+    {
+        // It has to be a method to avoid misunderstanding inside custom functions
+        return IsObject ? ObjectKeeper.Instance.Get(_extraTypeId) : default;
+    }
+
+    #endregion
+
+    #region Equals
+
+    /// <summary>
+    /// Equals
+    /// </summary>
+    public override bool Equals(object obj)
+    {
+        return obj is InternalEvaluatorValue value && Equals(value);
+    }
+
+    /// <summary>
+    /// Equals
+    /// </summary>
+    public bool Equals(InternalEvaluatorValue other)
+    {
+        return TypeKey == other.TypeKey &&
+            (
+            (TypeKey == ValueTypeKey.Boolean && GetBoolean() == other.GetBoolean()) ||
+            (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
+            (TypeKey == ValueTypeKey.Number && Number.Equals(other.Number)) ||
+            (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
+            (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
+            (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
+            (TypeKey == ValueTypeKey.Object && Equals(GetObject(), other.GetObject())) ||
+            (TypeKey == ValueTypeKey.Null)
+            );
+    }
+
+    /// <summary>
+    /// GetHashCode
+    /// </summary>
+    public override int GetHashCode()
+    {
+        if (IsNumber)
+        {
+            return HashCode.Combine(TypeKey, Number);
+        }
+
+        if (IsDateTime)
+        {
+            return HashCode.Combine(TypeKey, GetDateTime());
+        }
+
+        if (IsBoolean)
+        {
+            return HashCode.Combine(TypeKey, GetBoolean());
+        }
+
+        if (IsWord)
+        {
+            return HashCode.Combine(TypeKey, GetWord());
+        }
+
+        if (IsWordList)
+        {
+            return HashCode.Combine(TypeKey, GetWordList());
+        }
+
+        if (IsNumberList)
+        {
+            return HashCode.Combine(TypeKey, GetNumberList());
+        }
+
+        if (IsObject)
+        {
+            return HashCode.Combine(TypeKey, GetObject());
+        }
+
+        return HashCode.Combine(TypeKey);
     }
 
     #endregion
@@ -225,6 +293,22 @@ public readonly struct InternalEvaluatorValue
         return a.Number <= b.Number;
     }
 
+    /// <summary>
+    /// Equal
+    /// </summary>
+    public static bool operator ==(InternalEvaluatorValue left, InternalEvaluatorValue right)
+    {
+        return left.Equals(right);
+    }
+
+    /// <summary>
+    /// Not equal
+    /// </summary>
+    public static bool operator !=(InternalEvaluatorValue left, InternalEvaluatorValue right)
+    {
+        return !(left == right);
+    }
+
     #endregion
 
     #region Cast
@@ -254,6 +338,14 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
+    /// To boolean
+    /// </summary>
+    public static implicit operator bool(InternalEvaluatorValue a)
+    {
+        return a.GetBoolean();
+    }
+
+    /// <summary>
     /// To string List
     /// </summary>
     public static implicit operator List<string>(InternalEvaluatorValue a)
@@ -270,14 +362,6 @@ public readonly struct InternalEvaluatorValue
     }
 
     /// <summary>
-    /// To boolean
-    /// </summary>
-    public static implicit operator bool(InternalEvaluatorValue a)
-    {
-        return Math.Abs(a.Number) > NoStringEvaluatorConstants.FloatingTolerance;
-    }
-
-    /// <summary>
     /// To InternalEvaluatorValue
     /// </summary>
     public static implicit operator InternalEvaluatorValue(double a)
@@ -288,7 +372,47 @@ public readonly struct InternalEvaluatorValue
     #endregion
 
     /// <summary>
-    /// Null Id
+    /// ToString
     /// </summary>
-    private const int NullId = -1;
+    public override string ToString()
+    {
+        if (IsDateTime)
+        {
+            return GetDateTime().ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (IsBoolean)
+        {
+            return GetBoolean().ToString(CultureInfo.InvariantCulture);
+        }
+
+        if (IsWord)
+        {
+            return GetWord();
+        }
+
+        if (IsWordList)
+        {
+            var wList = GetWordList();
+            return wList is null ? string.Empty : string.Join(", ", wList);
+        }
+
+        if (IsNumberList)
+        {
+            var nList = GetNumberList();
+            return nList is null ? string.Empty : string.Join(", ", nList);
+        }
+
+        if (IsObject)
+        {
+            return GetObject()?.ToString();
+        }
+
+        if (IsNull)
+        {
+            return "Null";
+        }
+
+        return Number.ToNonScientificString();
+    }
 }

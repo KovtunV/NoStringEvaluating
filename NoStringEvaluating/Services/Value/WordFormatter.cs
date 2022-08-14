@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using static NoStringEvaluating.NoStringEvaluatorConstants;
+
+using static NoStringEvaluating.GlobalOptions;
 
 namespace NoStringEvaluating.Services.Value;
 

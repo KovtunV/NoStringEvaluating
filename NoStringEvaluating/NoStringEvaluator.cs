@@ -10,8 +10,14 @@ using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
+using NoStringEvaluating.Services.Cache;
+using NoStringEvaluating.Services.Checking;
+using NoStringEvaluating.Services.Parsing;
+using NoStringEvaluating.Services.Parsing.NodeReaders;
 using NoStringEvaluating.Services.Value;
 using NoStringEvaluating.Services.Variables;
+
+using static NoStringEvaluating.Services.OperationProcessor;
 
 namespace NoStringEvaluating;
 
@@ -642,6 +648,7 @@ public class NoStringEvaluator : INoStringEvaluator
         // Calculate with internal struct
         string res = CalcInternal(nodes, variables, idContainer);
 
+        // Result
         return WordFormatter.Format(res);
     }
 
@@ -653,6 +660,7 @@ public class NoStringEvaluator : INoStringEvaluator
         // Calculate with internal struct
         DateTime res = CalcInternal(nodes, variables, idContainer);
 
+        // Result
         return res;
     }
 
@@ -664,6 +672,7 @@ public class NoStringEvaluator : INoStringEvaluator
         // Calculate with internal struct
         List<string> res = CalcInternal(nodes, variables, idContainer);
 
+        // Result
         return WordFormatter.Format(res);
     }
 
@@ -675,6 +684,7 @@ public class NoStringEvaluator : INoStringEvaluator
         // Calculate with internal struct
         List<double> res = CalcInternal(nodes, variables, idContainer);
 
+        // Result
         return res;
     }
 
@@ -686,6 +696,7 @@ public class NoStringEvaluator : INoStringEvaluator
         // Calculate with internal struct
         bool res = CalcInternal(nodes, variables, idContainer);
 
+        // Result
         return res;
     }
 
@@ -706,10 +717,10 @@ public class NoStringEvaluator : INoStringEvaluator
 
     private InternalEvaluatorValue CalcInternal(List<BaseFormulaNode> nodes, VariablesSource variables, ExtraTypeIdContainer idContainer)
     {
-        // If no nodes return default value
+        // If no nodes return Null
         if (nodes.Count == 0)
         {
-            return double.NaN;
+            return default;
         }
 
         // Rent stack
@@ -743,104 +754,37 @@ public class NoStringEvaluator : INoStringEvaluator
             else if (node.TypeKey == NodeTypeEnum.Operator)
             {
                 var mathOperationNode = (OperatorNode)node;
-                InternalEvaluatorValue a;
-                InternalEvaluatorValue b;
+                var b = stack.Pop();
+                var a = stack.Pop();
 
-                switch (mathOperationNode.OperatorKey)
+                var value = mathOperationNode.OperatorKey switch
                 {
                     // Math
-                    case Operator.Multiply: stack.Push(stack.Pop() * stack.Pop()); break;
-                    case Operator.Divide:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(b / a); break;
-                    case Operator.Plus:
-                        a = stack.Pop();
-                        b = stack.Pop();
-
-                        if (a.IsWord || b.IsWord)
-                        {
-                            stack.Push(factory.Word().Concat(b, a));
-                        }
-                        else if (a.IsNumber && b.IsDateTime)
-                        {
-                            stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(a.Number)));
-                        }
-                        else if (a.IsDateTime && b.IsNumber)
-                        {
-                            stack.Push(factory.DateTime().Create(a.GetDateTime().AddDays(b.Number)));
-                        }
-                        else
-                        {
-                            stack.Push(a + b);
-                        }
-
-                        break;
-                    case Operator.Minus:
-                        a = stack.Pop();
-                        b = stack.Pop();
-
-                        if (a.IsNumber && b.IsDateTime)
-                        {
-                            stack.Push(factory.DateTime().Create(b.GetDateTime().AddDays(-a.Number)));
-                        }
-                        else if (a.IsDateTime && b.IsDateTime)
-                        {
-                            stack.Push(b.GetDateTime().Subtract(a.GetDateTime()).TotalDays);
-                        }
-                        else
-                        {
-                            stack.Push(b - a);
-                        }
-
-                        break;
-                    case Operator.Power:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(Math.Pow(b, a)); break;
+                    Operator.Multiply => Multiply(a, b),
+                    Operator.Divide => Divide(a, b),
+                    Operator.Plus => Plus(factory, a, b),
+                    Operator.Minus => Minus(factory, a, b),
+                    Operator.Power => Power(a, b),
 
                     // Logic
-                    case Operator.Less:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(b < a ? 1 : 0); break;
-                    case Operator.LessEqual:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(b <= a ? 1 : 0); break;
-                    case Operator.More:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(b > a ? 1 : 0); break;
-                    case Operator.MoreEqual:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(b >= a ? 1 : 0); break;
-                    case Operator.Equal:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(Math.Abs(b - a) < NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-                    case Operator.NotEqual:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(Math.Abs(b - a) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
+                    Operator.Less => Less(factory, a, b),
+                    Operator.LessEqual => LessEqual(factory, a, b),
+                    Operator.More => More(factory, a, b),
+                    Operator.MoreEqual => MoreEqual(factory, a, b),
+                    Operator.Equal => Equal(factory, a, b),
+                    Operator.NotEqual => NotEqual(factory, a, b),
 
                     // Additional logic
-                    case Operator.And:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance && Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-                    case Operator.Or:
-                        a = stack.Pop();
-                        b = stack.Pop();
-                        stack.Push(Math.Abs(a) > NoStringEvaluatorConstants.FloatingTolerance || Math.Abs(b) > NoStringEvaluatorConstants.FloatingTolerance ? 1 : 0); break;
-                }
+                    Operator.And => And(factory, a, b),
+                    Operator.Or => Or(factory, a, b)
+                };
+
+                stack.Push(value);
             }
             else if (node.TypeKey == NodeTypeEnum.FunctionWrapper)
             {
                 var functionWrapper = (FunctionWrapperNode)node;
                 var functionVal = CalcFunction(functionWrapper, variables, idContainer);
-
                 stack.Push(functionVal);
             }
             else if (node.TypeKey == NodeTypeEnum.Number)
@@ -848,26 +792,29 @@ public class NoStringEvaluator : INoStringEvaluator
                 var valNode = (NumberNode)node;
                 stack.Push(valNode.Number);
             }
+            else if (node.TypeKey == NodeTypeEnum.Boolean)
+            {
+                var boolNode = (BooleanNode)node;
+                stack.Push(factory.Boolean.Create(boolNode.Value));
+            }
             else if (node.TypeKey == NodeTypeEnum.Word)
             {
                 var wordNode = (WordNode)node;
-                var wordItem = factory.Word().Create(wordNode.Word);
-
-                stack.Push(wordItem);
+                stack.Push(factory.Word.Create(wordNode.Word));
             }
             else if (node.TypeKey == NodeTypeEnum.WordList)
             {
                 var wordListNode = (WordListNode)node;
-                var wordListItem = factory.WordList().Create(wordListNode.WordList);
-
-                stack.Push(wordListItem);
+                stack.Push(factory.WordList.Create(wordListNode.WordList));
             }
             else if (node.TypeKey == NodeTypeEnum.NumberList)
             {
                 var numberListNode = (NumberListNode)node;
-                var numberListItem = factory.NumberList().Create(numberListNode.NumberList);
-
-                stack.Push(numberListItem);
+                stack.Push(factory.NumberList.Create(numberListNode.NumberList));
+            }
+            else if (node.TypeKey == NodeTypeEnum.Null)
+            {
+                stack.Push(default);
             }
         }
 
@@ -890,16 +837,25 @@ public class NoStringEvaluator : INoStringEvaluator
             args.Clear();
         }
 
+        var hasNullArgs = false;
         for (int i = 0; i < functionWrapper.FunctionArgumentNodes.Count; i++)
         {
             var subNodes = functionWrapper.FunctionArgumentNodes[i];
             var subRes = CalcInternal(subNodes, variables, idContainer);
             args.Add(subRes);
+
+            if (subRes.IsNull)
+            {
+                hasNullArgs = true;
+            }
         }
 
         var factory = GetFactory(idContainer);
-        var res = functionWrapper.FunctionNode.Function.Execute(args, factory);
-        if (functionWrapper.FunctionNode.IsNegative && res.IsNumber)
+        var funcNode = functionWrapper.FunctionNode;
+        var shouldExecute = funcNode.Function.CanHandleNullArguments || !hasNullArgs;
+
+        var res = shouldExecute ? funcNode.Function.Execute(args, factory) : default;
+        if (funcNode.IsNegative && res.IsNumber)
         {
             res = res.Number * -1;
         }
@@ -923,8 +879,74 @@ public class NoStringEvaluator : INoStringEvaluator
             .Clear();
     }
 
-    private ValueFactory GetFactory(ExtraTypeIdContainer idContainer)
+    private static ValueFactory GetFactory(ExtraTypeIdContainer idContainer)
     {
         return new ValueFactory(idContainer);
+    }
+
+    /// <summary>
+    /// Create evaluator facade
+    /// </summary>
+    public static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null)
+    {
+        // Update options
+        if (options != null)
+        {
+            var opt = new NoStringEvaluatorOptions();
+            options(opt);
+            opt.UpdateGlobalOptions();
+        }
+
+        return new Facade();
+    }
+
+    /// <summary>
+    /// Facade
+    /// </summary>
+    public class Facade
+    {
+        internal Facade()
+        {
+            // Pooling
+            var stackPool = ObjectPool.Create<Stack<InternalEvaluatorValue>>();
+            var argsPool = ObjectPool.Create<List<InternalEvaluatorValue>>();
+            var extraTypeIdPool = ObjectPool.Create<ExtraTypeIdContainer>();
+
+            // Parser
+            FunctionReader = new();
+            FormulaParser = new(FunctionReader);
+            FormulaCache = new(FormulaParser);
+
+            // Checker
+            FormulaChecker = new(FormulaParser);
+
+            // Evaluator
+            Evaluator = new(stackPool, argsPool, extraTypeIdPool, FormulaCache);
+        }
+
+        /// <summary>
+        /// Evaluator
+        /// </summary>
+        public NoStringEvaluator Evaluator { get; }
+
+        /// <summary>
+        /// FunctionReader
+        /// </summary>
+        public FunctionReader FunctionReader { get; }
+
+        /// <summary>
+        /// FormulaParser
+        /// </summary>
+        public FormulaParser FormulaParser { get; }
+
+        /// <summary>
+        /// FormulaCache
+        /// </summary>
+        public FormulaCache FormulaCache { get; }
+
+        /// <summary>
+        /// FormulaChecker
+        /// </summary>
+        public FormulaChecker FormulaChecker { get; }
     }
 }

@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math;
 /// <summary>
 /// Function - log
 /// </summary>
-public class LogFunction : IFunction
+public sealed class LogFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "LOG";
+    public string Name { get; } = "LOG";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

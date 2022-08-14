@@ -8,34 +8,39 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 
 /// <summary>
 /// Unique(myList) or Unique(myList; true)
-/// <para>if second parameter is true then returns only qnique</para>
+/// <para>if second parameter is true then returns only unique</para>
 /// <para>if second parameter is false then returns list without doubles</para>
 /// </summary>
-public class UniqueFunction : IFunction
+public sealed class UniqueFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "UNIQUE";
+    public string Name { get; } = "UNIQUE";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordListFactory = factory.WordList();
+        var wordListFactory = factory.WordList;
 
         var wordList = args[0].GetWordList();
-        var qniqueOnly = args.Count > 1 && args[^1].Number != 0;
+        var uniqueOnly = args.Count > 1 && args[^1];
 
         var group = wordList.GroupBy(q => q);
-        if (qniqueOnly)
+        if (uniqueOnly)
         {
-            var resQniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
-            return wordListFactory.Create(resQniqueOnly);
+            var resUniqueOnly = group.Where(w => w.Count() == 1).SelectMany(s => s).ToList();
+            return wordListFactory.Create(resUniqueOnly);
         }
 
-        var resAllQnique = group.Select(s => s.First()).ToList();
-        return wordListFactory.Create(resAllQnique);
+        var resAllUnique = group.Select(s => s.First()).ToList();
+        return wordListFactory.Create(resAllUnique);
     }
 }

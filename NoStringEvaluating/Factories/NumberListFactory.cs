@@ -21,14 +21,6 @@ public readonly struct NumberListFactory
     }
 
     /// <summary>
-    /// Creates default
-    /// </summary>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(new List<double>());
-    }
-
-    /// <summary>
     /// Creates double List value
     /// </summary>
     public InternalEvaluatorValue Create(List<double> numberList)
@@ -36,7 +28,7 @@ public readonly struct NumberListFactory
         // Save to keeper
         var idModel = NumberListKeeper.Instance.Save(numberList);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

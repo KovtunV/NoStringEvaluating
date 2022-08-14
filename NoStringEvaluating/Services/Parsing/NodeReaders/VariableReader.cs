@@ -109,15 +109,25 @@ public static class VariableReader
     private static void AddFormulaNode(List<BaseFormulaNode> nodes, string variableName, bool isNegative)
     {
         // Known variable kinda Pi, E, etc...
-        if (KnownVariables.TryGetValue(variableName, out var value))
+        if (KnownVariables.TryGetNumberValue(variableName, out var numberValue))
         {
             if (isNegative)
             {
-                value *= -1;
+                numberValue *= -1;
             }
 
-            var valNode = new NumberNode(value);
+            var valNode = new NumberNode(numberValue);
             nodes.Add(valNode);
+        }
+        else if (KnownVariables.TryGetBooleanValue(variableName, out var boolValue))
+        {
+            var valNode = new BooleanNode(boolValue);
+            nodes.Add(valNode);
+        }
+        else if (KnownVariables.IsNull(variableName))
+        {
+            var nullNode = new NullNode();
+            nodes.Add(nullNode);
         }
         else
         {

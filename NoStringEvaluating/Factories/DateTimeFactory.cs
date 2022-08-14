@@ -22,12 +22,9 @@ public readonly struct DateTimeFactory
     }
 
     /// <summary>
-    /// Creates default
+    /// Default
     /// </summary>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(DateTime.MinValue);
-    }
+    public InternalEvaluatorValue Empty => Create(DateTime.MinValue);
 
     /// <summary>
     /// Creates dateTime value
@@ -37,7 +34,7 @@ public readonly struct DateTimeFactory
         // Save to keeper
         var idModel = DateTimeKeeper.Instance.Save(date);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

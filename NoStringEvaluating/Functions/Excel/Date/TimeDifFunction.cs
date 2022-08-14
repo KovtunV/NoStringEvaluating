@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date;
 /// Calculates the number of hours, minutes, or seconds between two dates
 /// <para>TimeDif(dateTime1; dateTime2; 'H'), can be: H, M, S</para>
 /// </summary>
-public class TimeDifFunction : IFunction
+public sealed class TimeDifFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "TIMEDIF";
+    public string Name { get; } = "TIMEDIF";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -27,7 +32,7 @@ public class TimeDifFunction : IFunction
 
         if (dateStart > dateEnd)
         {
-            return double.NaN;
+            return default;
         }
 
         if (format == "H")
@@ -45,6 +50,6 @@ public class TimeDifFunction : IFunction
             return dateEnd.Subtract(dateStart).TotalSeconds;
         }
 
-        return double.NaN;
+        return default;
     }
 }

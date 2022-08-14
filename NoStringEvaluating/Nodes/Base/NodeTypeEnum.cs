@@ -6,6 +6,11 @@
 public enum NodeTypeEnum
 {
     /// <summary>
+    /// Null
+    /// </summary>
+    Null = 0,
+
+    /// <summary>
     /// Number
     /// </summary>
     Number,
@@ -24,6 +29,11 @@ public enum NodeTypeEnum
     /// Function wrapper
     /// </summary>
     FunctionWrapper,
+
+    /// <summary>
+    /// Boolean
+    /// </summary>
+    Boolean,
 
     /// <summary>
     /// Word

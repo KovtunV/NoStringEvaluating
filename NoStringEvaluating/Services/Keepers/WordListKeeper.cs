@@ -6,16 +6,10 @@ namespace NoStringEvaluating.Services.Keepers;
 
 internal class WordListKeeper : BaseValueKeeper<List<string>>
 {
-    internal WordListKeeper() : base(ValueTypeKey.WordList)
+    public WordListKeeper() : base(ValueTypeKey.WordList)
     {
 
     }
 
-    // Static 
-    internal static WordListKeeper Instance { get; }
-
-    static WordListKeeper()
-    {
-        Instance = new WordListKeeper();
-    }
+    public static WordListKeeper Instance { get; } = new();
 }

@@ -1,21 +1,13 @@
-# NoStringEvaluating
-Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables.
-From v2.0 it can evaluate string, DateTime, etc...
+Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover provides user defined functions and variables. <br/>
+[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating) [![NuGet version](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating) [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=Good%20expression%20evaluator,%20take%20a%20look!&url=https://github.com/KovtunV/NoStringEvaluating&hashtags=expression,evaluator,math,formula)
+<br/>
 
-[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating)
-[![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
-[![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating)
+Microsoft.Extensions.DependencyInjection <br/>
+[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating) [![NuGet version](https://img.shields.io/nuget/v/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection) [![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
+<br/>
 
-
-Microsoft.Extensions.DependencyInjection
-
-[![Build Status](https://travis-ci.com/KovtunV/NoStringEvaluating.svg?branch=master)](https://travis-ci.com/github/KovtunV/NoStringEvaluating)
-[![NuGet version (SimpleCAP)](https://img.shields.io/nuget/v/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
-[![NuGet Download](https://img.shields.io/nuget/dt/NoStringEvaluating.Extensions.Microsoft.DependencyInjection.svg?style=flat-square)](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection)
-
-------------
+## Quick Links
 <!--ts-->
-
    * [Features](#Features)
    * [Performance](#Performance)
       * [Testing formulas](#Testing-formulas)
@@ -23,7 +15,7 @@ Microsoft.Extensions.DependencyInjection
       * [Benchmark results](#Benchmark-results)
       * [Conclusion](#Conclusion)
    * [Quick start](#Quick-start)
-      * [Initializing](#Initializing)
+      * [Initialization](#Initialization)
       * [Usage](#Usage)
       * [User defined functions](#User-defined-functions)
    * [Extra types](#Extra-types)
@@ -41,21 +33,27 @@ Microsoft.Extensions.DependencyInjection
       * [Excel](#Excel)
           * [DateTime](#DateTime)
           * [Word](#Word)
+      * [Null](#Null)
    * [Options](#Options)
    * [Documentation](#Documentation)
       * [IFormulaParser](#IFormulaParser)
       * [IFunctionReader](#IFunctionReader)
       * [IFormulaCache](#IFormulaCache)
       * [IFormulaChecker](#IFormulaChecker)
+      * [IVariablesContainer](#IVariablesContainer)
+      * [IFunction](#IFunction)
+      * [NoStringEvaluatorOptions](#NoStringEvaluatorOptions)
       * [INoStringEvaluator](#INoStringEvaluator)
+      * [INoStringEvaluatorNullable](#INoStringEvaluatorNullable)
+      * [NoStringEvaluator](#NoStringEvaluator)
+      * [NoStringEvaluatorNullable](#NoStringEvaluatorNullable)
+   * [Thanks for contribution :octocat:](#Thanks-for-contribution)
    * [TODO](#TODO)
-
 <!--te-->
 
 ------------
 
 ## Features
-
 - Fast math evaluation
 - Zero-allocation code (object pooling)
 - User defined functions
@@ -65,7 +63,7 @@ Microsoft.Extensions.DependencyInjection
 ## Performance
 Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser "mXparser")
 
-- In general, **x7** faster!
+- In general, **x8** faster!
 
 ### Testing formulas
 |  № | Formula |
@@ -84,36 +82,32 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 | 10 | kov(1; 2; 3) - kovt(8; 9)  |
 
 ### 1 000 000 calculations
-
 Less is better
-
 ![image graph](Images/Graph.png)
 ![image table](Images/Table.png)
 
 ### Benchmark results
-
-**NoStringEvaluator**
-
-![NoString](Images/NoString.png)
-
-**MxParser**
-
-![MxParser](Images/MxParser.png)
-
-**Both**
-
 ![Both](Images/Both.png)
 
 ### Conclusion
-As you can see, this solution faster in all cases, what's more, there isn't any garbage collection.
+As you can see this solution is faster in all cases, furthermore there isn't any garbage collection.
 
-Benchmark code you can find in **ConsoleApp.Benchmark.BenchmarkNumberService**.
+Benchmark code - [ConsoleApp/Benchmark/BenchmarkNumberService.cs](ConsoleApp/Benchmark/BenchmarkNumberService.cs "ConsoleApp/Benchmark/BenchmarkNumberService.cs")
 
-Benchmark excel sheet you can find here - **BenchResults.Benchmark.xlsx**.
+Benchmark excel - [BenchResults/Benchmark.xlsx](BenchResults/Benchmark.xlsx "BenchResults/Benchmark.xlsx")
 
 ## Quick start
-### Initializing
-Basically, this solution has developed for web api projects, so you should add implementations in Startup.cs:
+### Initialization
+There are two ways to use evaluator:
+1. Static initialization
+```csharp
+public void SomeMethod()
+{
+    var facade = NoStringEvaluator.CreateFacade();
+    var evaluator = facade.Evaluator;
+}
+```
+2. DI from the [package](https://www.nuget.org/packages/NoStringEvaluating.Extensions.Microsoft.DependencyInjection "package")
 ```csharp
 public void ConfigureServices(IServiceCollection services)
 {
@@ -171,7 +165,6 @@ public class MyService
 
 ### User defined functions
 If you need your function, just implement the interface **IFunction**
-
 If you want to returnt extra type, use factory.
 
 For instance, usage function "YouAre('Vitaly'; 26)":
@@ -179,6 +172,8 @@ For instance, usage function "YouAre('Vitaly'; 26)":
 public class MyFunction : IFunction
 {
     public string Name { get; } = "YouAre";
+
+    bool CanHandleNullArguments { get; }
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
@@ -188,30 +183,77 @@ public class MyFunction : IFunction
         var ageAfterDecade = age + 10;
         var result = $"Hello, {name}. After 10 years you will be {ageAfterDecade} y.o.";
 
-        return factory.Word().Create(result);
+        return factory.Word.Create(result);
     }
 }
 ```
 
-And don't forget to add this function to **IFunctionReader**
+And don't forget to initialize your functions via options or directly in `IFunctionReader`
 ```csharp
-public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+public void SomeMethod()
 {
-    // ...
-    var functionReader = app.ApplicationServices.GetRequiredService<IFunctionReader>();
-    functionReader.AddFunction(new MyFunction());
+    // NoStringEvaluator.CreateFacade(opt => opt.WithFunctionsFrom(<type from source assembly>));
+    // NoStringEvaluator.CreateFacade(opt => opt.WithFunctionsFrom(<source assembly>));
+    // NoStringEvaluator.CreateFacade(opt => opt.WithFunctions(new MyFunction()));
 
-    // If you don't want to write the each function directly, use this:
-    // Just send type from assembly where you have functions
-    // NoStringFunctionsInitializer.InitializeFunctions(functionReader, typeof(Startup));
+    // same with CI
+    // services.AddNoStringEvaluator(opt =>  opt.WithFunctions(new MyFunction()));
 }
 ```
 
 ## Extra types
-From v2.0 you can evaluate some of types. I strongly recommend, if you know a function's result type, use method kinda **CalcNumber** or **CalcWord**. For case if you have no idea about a result's type, use Calc. It returns struct with aggregated types. Just look at property **TypeKey** and you'll know about a type.
+Apart from double calculations you can work with types:
+- Boolean
+- DateTime
+- String
+- List of string
+- List of double
+- Null
+- Object
+
+Object is a special type to allow using, for example, services inside function.
+```csharp
+public void Should_Evaluate_Service()
+{
+    // arrange
+    var service = _serviceFactory(null);
+    var args = new Dictionary<string, EvaluatorValue>
+    {
+        ["myService"] = new EvaluatorValue(new MyService()),
+        ["myNum"] = 10
+    };
+    var expected = 50.5;
+
+    // act
+    var actual = service.CalcNumber("TestService(myService; myNum)", args);
+
+    // assert
+    actual.Should().BeApproximatelyNumber(expected);
+}
+
+private class ServiceFunction : IFunction
+{
+    public string Name { get; } = "TestService";
+
+    public bool CanHandleNullArguments { get; }
+
+    public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+    {
+        return args[0].GetObject<MyService>().GetTemperature() + args[1];
+    }
+}
+
+private class MyService
+{
+    public double GetTemperature()
+    {
+        return 40.5;
+    }
+}
+```
 
 ### List description
-From v2.1 you can describe a list inside the formula
+You can describe a list inside the formula
 
 | Example  |  Result |
 | ------------ | ------------ |
@@ -220,13 +262,11 @@ From v2.1 you can describe a list inside the formula
 | Add({1, 2, 3, 10, 3}) | 19 |
 
 ## Variables
-
 You can use two types of variables:
 - Simple variable
 - Bordered variable
 
 ### Simple variable
-
 Simple variable means that it named without unique symbols and starts with a letter. Only one extra symbol is possible, it's "_"
 
 Some examples:
@@ -236,8 +276,7 @@ Some examples:
 - "25 + myArgument_newAge - 3"
 
 ### Bordered variable
-
-Bordered variable means that it has a difficult name with any symbols, except for square brackets.
+Bordered variable means that it has a tricky name with any symbols, except for square brackets.
 
 Some examples:
 - "25 + [myVariable and some words] - 1"
@@ -248,7 +287,6 @@ Some examples:
 Needless to say, you can write simple variable with brackets as well.
 
 ### Precompiled variables
-
 There are some known variables, you shouldn't send them to Calc method.
 
 | Key word  |  Description | Value  |
@@ -256,15 +294,14 @@ There are some known variables, you shouldn't send them to Calc method.
 | pi | Pi, Archimedes' constant or Ludolph's number  | 3.14159265358979323846 |
 | tau | A circle constant equal to 2π | 6.283185307179586476925  |
 | e |  Napier's constant, or Euler's number, base of Natural logarithm |  2.7182818284590452354 |
-| true | Boolean True represented as double  | 1 |
-| false | Boolean False represented as double  | 0 |
-| ASC | Boolean True represented as double  | 1 |
-| DESC | Boolean False represented as double  | 0 |
+| true | Boolean True  | True |
+| false | Boolean False  | False |
+| ASC | Boolean True  | True |
+| DESC | Boolean False | False |
 
 These variables are register independent, you can write Pi, [PI], pI, True, etc...
 
 ## Operators
-
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
 | +  | Addition | a + b  |
@@ -274,7 +311,6 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | ^|  Exponentiation |  a^b |
 
 ## Boolean operators
-
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
 | <  | Lower than | a < b  |
@@ -389,10 +425,10 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | and | Logical conjunction (AND)  |   and(a1; a2; ...; an) |
 | or | Logical disjunction (OR) |  or(a1; a2; ...; an) |
 | not | Negation function |  not(x) |
-| IsNaN | Returns true = 1 if value is a Not-a-Number (NaN), false = 0 |  isNaN(x) |
-| IsError | Returns 1 if this is a double.NaN | IsError(ToNumber('Text')) | 
+| IsNaN | Returns true if value is a Not-a-Number (NaN) |  isNaN(x) |
+| IsError | Returns true if this is a double.NaN | IsError(ToNumber('Text')) |
 | IsMember | Checks if second argument is a member of list from first | IsMember({'printer', 'computer', 'monitor'}; 'computer')  |
-| IsNumber | Returns 1 if this is a number | IsNumber(256) |  
+| IsNumber | Returns true if this is a number | IsNumber(256) |
 
 ### Excel
 I've implemented some of excel functions. If you wanna see more, just send me a message.
@@ -401,8 +437,8 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | ------------ | ------------ | ------------ |
 | Count | Returns a number of elements | Count(a; b; ...) can include List<T> |
 | Len | Returns the number of characters in a text string| Len("my word")  |
-| Sort | Sorts a List. sortType: 1 - asc, not 1 - desc| Sort(myList; sortType)  |  
-| ToNumber | Returns number from word | ToNumber('03') | 
+| Sort | Sorts a List. sortType: true - asc, false - desc| Sort(myList; sortType)  |
+| ToNumber | Returns number from word | ToNumber('03') |
 
 #### DateTime
 | Key word  |  Description | Example  |
@@ -411,12 +447,15 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | TimeDif | Calculates the number of hours, minutes, or seconds between two dates. Can be: H, M, S | DateDif(time1; time2; 'H') |
 | Now | Returns Datetime.Now | Now() |
 | Today | Returns the current date | Today() |
-| Day | Returnts a day from dateTime | Day(Now())<br /> Day(Now(); 'DD') |    
+| Day | Returns a day from dateTime | Day(Now())<br /> Day(Now(); 'DD') |
 | Month | Returns a month from dateTime | Month(Now())<br /> Month(Now(); 'MM') |
 | Year | Returns a year from dateTime | Year(Now())<br /> Year(Now(); 'YY') |
 | ToDateTime | Returns datetime value from string | ToDateTime('8/15/2002') |
 | WeekDay | Takes a date and returns a number between 1-7 representing the day of week | WeekDay(Today()) |
 | DateFormat | Format dateTime to string | DateFormat(Now(); 'HH:mm:ss') |
+| AddHours | Adds a number of hours to a datetime | AddHours(date; 17) |
+| AddMinutes | Adds a number of minutes to a datetime | AddMinutes(date; 17) |
+| AddSeconds | Adds a number of seconds to a datetime | AddSeconds(date; 17) |
 
 #### Word
 | Key word  |  Description | Example  |
@@ -431,18 +470,18 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | Upper |  Converts text to uppercase | Upper(myWord)<br /> Upper(myWordList) |
 | Proper | Capitalizes the first letter in each word of a text | Proper(myWord) |
 | Replace | Replaces characters within text | Replace(myWord; oldPart; newPart) <br /> Replace(myList; oldPart; newPart) |
-| Text | Returns text from first argument | Text(26) |    
-| Unique | If second parameter is true then returns only qnique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
-| IsText | Returns 1 if this is a word | IsText('my word') |    
+| Text | Returns text from first argument | Text(26) |
+| Unique | If second parameter is true then returns only unique  If second parameter is false then returns list without doubles | Unique(myList) <br /> Unique(myList; true) |
+| IsText | Returns true if this is a word | IsText('my word') |
+
+### Null
+| Key word  |  Description | Example  |
+| ------------ | ------------ | ------------ |
+| IfNull | Returns second argument if the first is null | IfNull(x,3) |
+| NullIf | Returns null if the first argument is equal to the second |  NullIf(x,3) |
 
 ## Options
-When you use **AddNoStringEvaluator** in **startup.cs** you can configure evaluator.
-
-There are several options:
-
-- FloatingTolerance (default is 0.0001)
-- FloatingPointSymbol (default is FloatingPointSymbol.Dot)
-- WordQuotationMark (default is null)
+When you use **AddNoStringEvaluator** or **CreateFacade** you can configure evaluator.
 
 To illustrate, I change floating point from default **dot** to **comma**:
 
@@ -455,69 +494,99 @@ public void ConfigureServices(IServiceCollection services)
 ```
 
 ## Documentation
-Solution contains five following services:
-- IFormulaParser
-- IFunctionReader
-- IFormulaCache
-- IFormulaChecker
-- INoStringEvaluator
-
-One optional interface, you can implement if IDictionary is inconvenient.
-- IVariablesContainer
-
-Furthermore, three object pools:
-- `ObjectPool.Create<Stack<InternalEvaluatorValue>>`
-- `ObjectPool.Create<List<InternalEvaluatorValue>>`
-- `ObjectPool.Create<ExtraTypeIdContainer>`
-
 ### IFormulaParser
-Performs two functions:
-- Parsing from char collection to object sequence
-- Reversing sequence as **Reverse Polish notation**
-
-Contains three methods:
-- `FormulaNodes Parse(string formula)`
-- `FormulaNodes Parse(ReadOnlySpan<char> formula)`
-- `List<IFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula)`
+| Method |  Description |
+| ------------ | ------------ |
+| FormulaNodes Parse(string formula) | Return parsed formula nodes |
+| FormulaNodes Parse(ReadOnlySpan<char> formula) | Return parsed formula nodes |
+| List<BaseFormulaNode> ParseWithoutRpn(ReadOnlySpan<char> formula) | Return parsed formula nodes without RPN |
 
 ### IFunctionReader
-Performs using user defined functions.
-
-Contains three methods:
-- `void AddFunction(IFunction func, bool replace = false)`
-- `void RemoveFunction(string functionName)`
-- `bool TryProceedFunction(List<IFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)`
+| Method |  Description |
+| ------------ | ------------ |
+| void AddFunction(IFunction func, bool replace = false) | Add function |
+| void RemoveFunction(string functionName) | Remove function |
 
 ### IFormulaCache
-Performs formula caching. It is used by default **INoStringEvaluator** implementation. It uses **IFormulaParser** which parses string formula to object sequence.
-
-Contains one method:
-- `FormulaNodes GetFormulaNodes(string formula)`
+| Method |  Description |
+| ------------ | ------------ |
+| FormulaNodes GetFormulaNodes(string formula) | Return cached formula nodes  |
 
 ### IFormulaChecker
-Performs syntax checking.
+| Method |  Description |
+| ------------ | ------------ |
+| CheckFormulaResult CheckSyntax(string formula) | Check syntax |
+| CheckFormulaResult CheckSyntax(ReadOnlySpan<char> formula) | Check syntax |
 
-Contains two methods:
-- `CheckFormulaResult CheckSyntax(string formula)`
-- `CheckFormulaResult CheckSyntax(ReadOnlySpan<char> formula)`
+### IVariablesContainer
+| Method |  Description |
+| ------------ | ------------ |
+| IVariable AddOrUpdate(string name, double value) | Add or update variable |
+| EvaluatorValue GetValue(string name) | Return variable's value |
+|  bool TryGetValue(string name, out EvaluatorValue value) | Return variable's value if possible |
+
+### IFunction
+| Method |  Description |
+| ------------ | ------------ |
+| string Name { get; } | Name of function |
+| bool CanHandleNullArguments { get; } | If false and any argument is null - function wont be executed and null will be returned |
+| InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory) | Evaluate value |
+
+### NoStringEvaluatorOptions
+| Method |  Description |
+| ------------ | ------------ |
+| SetWordQuotationSingleQuote() | Set word quotation mark - \' |
+| SetWordQuotationDoubleQuote() | Set word quotation mark - \" |
+| SetWordQuotationMark(string mark) | Set word quotation mark |
+| SetFloatingTolerance(double floatingTolerance) | Set floating tolerance |
+| SetFloatingPointSymbol(FloatingPointSymbol floatingPointSymbol) | Set floating point symbol |
+| SetThrowIfVariableNotFound(bool isThrow) | Set throw if variable not found |
+| WithFunctionsFrom(Type typeFromSourceAssembly) | Add assembly to register functions |
+| WithFunctionsFrom(Assembly sourceAssembly) | Add assembly to register functions |
+| WithoutDefaultFunctions(bool withoutDefaultFunctions = true) | Remove root assembly from functions registration |
+| WithFunctions(params IFunction[] functions) | Add functions |
 
 ### INoStringEvaluator
-Performs evaluating :relaxed:
+| Method |
+| ------------ |
+| double CalcNumber(string formula, IVariablesContainer variables) |
+| double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables) |
+| double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables) |
+| double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables) |
+| double CalcNumber(string formula) |
+| double CalcNumber(FormulaNodes formulaNodes) |
+| string CalcWord(... |
+| DateTime CalcDateTime(... |
+| List<string> CalcWordList(... |
+| List<double> CalcNumberList(... |
+| bool CalcBoolean(... |
+| EvaluatorValue Calc(... |
 
-Contains methods:
-- `double CalcNumber(string formula, IVariablesContainer variables)`
-- `double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables)`
-- `double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables)`
-- `double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)`
-- `double CalcNumber(string formula)`
-- `double CalcNumber(FormulaNodes formulaNodes)`
-- 
-- `string CalcWord(...`
-- `DateTime CalcDateTime(...`
-- `List<string> CalcWordList(...`
-- `List<double> CalcNumberList(...`
-- `bool CalcBoolean(...`
-- `EvaluatorValue Calc(...`
+### INoStringEvaluatorNullable
+Referenced methods are same as in INoStringEvaluator
+
+| Method |
+| ------------ |
+| double? CalcNumber(string formula, IVariablesContainer variables) |
+| DateTime? CalcDateTime(string formula, IVariablesContainer variables) |
+| bool? CalcBoolean(string formula, IVariablesContainer variables) |
+
+### NoStringEvaluator
+Static initialization if you don't have DI
+
+| Method |  Description |
+| ------------ | ------------ |
+| static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null) | Create evaluator facade |
+
+### NoStringEvaluatorNullable
+Static initialization if you don't have DI
+
+| Method |  Description |
+| ------------ | ------------ |
+| static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null) | Create evaluator facade |
+
+## Thanks for contribution
+[:octocat: IvoTops](https://github.com/IvoTops "https://github.com/IvoTops")
 
 ## TODO
 - Add more functions

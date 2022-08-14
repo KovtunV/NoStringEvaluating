@@ -18,49 +18,39 @@ internal readonly struct VariablesSource
 
     internal EvaluatorValue GetValue(string name)
     {
-        // Check null
-        ThrowExceptionIfSourcesAreNull(name);
-
-        // Check an implemented container
-        if (_variablesContainer != null)
+        if (_variablesDict is not null)
         {
-            return GetValueFromContainer(name);
+            if (!_variablesDict.TryGetValue(name, out var variable))
+            {
+                ThrowExceptionIfConfigured(name);
+                return default;
+            }
+
+            return variable;
         }
 
-        // Check a dictionary
-        return GetValueFromDictionary(name);
-    }
-
-    private EvaluatorValue GetValueFromContainer(string name)
-    {
-        if (!_variablesContainer.TryGetValue(name, out var value))
+        if (_variablesContainer is not null)
         {
-            ThrowException(name);
+            if (!_variablesContainer.TryGetValue(name, out var variable))
+            {
+                ThrowExceptionIfConfigured(name);
+                return default;
+            }
+
+            return variable;
         }
 
-        return value;
+        ThrowExceptionIfConfigured(name);
+        return default;
     }
 
-    private EvaluatorValue GetValueFromDictionary(string name)
+    private static void ThrowExceptionIfConfigured(string name)
     {
-        if (!_variablesDict.TryGetValue(name, out var value))
+        if (!GlobalOptions.ThrowIfVariableNotFound)
         {
-            ThrowException(name);
+            return;
         }
 
-        return value;
-    }
-
-    private void ThrowExceptionIfSourcesAreNull(string name)
-    {
-        if (_variablesDict is null && _variablesContainer is null)
-        {
-            ThrowException(name);
-        }
-    }
-
-    private void ThrowException(string name)
-    {
         var msg = $"Variable \"{name}\" not found";
         throw new VariableNotFoundException(name, msg);
     }

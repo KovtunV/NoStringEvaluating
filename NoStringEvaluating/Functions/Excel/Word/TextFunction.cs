@@ -9,18 +9,23 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Return text from first argument
 /// <para>Text(26)</para>
 /// </summary>
-public class TextFunction : IFunction
+public sealed class TextFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "TEXT";
+    public string Name { get; } = "TEXT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.Word().Create(args[0].ToString());
+        return factory.Word.Create(args[0].ToString());
     }
 }

@@ -21,15 +21,6 @@ public readonly struct WordListFactory
     }
 
     /// <summary>
-    /// Creates default
-    /// </summary>
-    /// <returns></returns>
-    public InternalEvaluatorValue Empty()
-    {
-        return Create(new List<string>());
-    }
-
-    /// <summary>
     /// Creates string List value
     /// </summary>
     public InternalEvaluatorValue Create(List<string> wordList)
@@ -37,7 +28,7 @@ public readonly struct WordListFactory
         // Save to keeper
         var idModel = WordListKeeper.Instance.Save(wordList);
 
-        // Save to scouped list
+        // Save to scoped list
         _ids.Add(idModel);
 
         // Create value

@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math;
 /// <summary>
 /// Function - mean
 /// </summary>
-public class MeanFunction : IFunction
+public sealed class MeanFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "MEAN";
+    public string Name { get; } = "MEAN";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

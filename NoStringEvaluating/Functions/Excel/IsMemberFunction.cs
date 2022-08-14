@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Excel;
 /// <summary>
 /// IsMember(myList; item)
 /// </summary>
-public class IsMemberFunction : IFunction
+public sealed class IsMemberFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ISMEMBER";
+    public string Name { get; } = "ISMEMBER";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -28,7 +33,7 @@ public class IsMemberFunction : IFunction
             if (!argItem.IsWord) return 0;
 
             var wordList = argList.GetWordList();
-            return wordList.Contains(argItem.GetWord()) ? 1 : 0;
+            return factory.Boolean.Create(wordList.Contains(argItem.GetWord()));
         }
 
         if (argList.IsNumberList)
@@ -36,7 +41,7 @@ public class IsMemberFunction : IFunction
             if (!argItem.IsNumber) return 0;
 
             var numberList = argList.GetNumberList();
-            return numberList.Contains(argItem.Number) ? 1 : 0;
+            return factory.Boolean.Create(numberList.Contains(argItem.Number));
         }
 
         return 0;

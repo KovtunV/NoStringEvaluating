@@ -16,10 +16,15 @@ public class IsTextFunction : IFunction
     public virtual string Name { get; } = "ISTEXT";
 
     /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
+
+    /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return args[0].IsWord ? 1 : 0;
+        return factory.Boolean.Create(args[0].IsWord);
     }
 }

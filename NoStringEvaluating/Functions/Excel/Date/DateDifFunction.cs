@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel.Date;
 /// Calculates the number of days, months, or years between two dates
 /// <para>DateDif(date1; date2; 'Y'), can be: Y, M, D</para>
 /// </summary>
-public class DateDifFunction : IFunction
+public sealed class DateDifFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "DATEDIF";
+    public string Name { get; } = "DATEDIF";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -27,7 +32,7 @@ public class DateDifFunction : IFunction
 
         if (dateStart > dateEnd)
         {
-            return double.NaN;
+            return default;
         }
 
         if (format == "Y")
@@ -59,6 +64,6 @@ public class DateDifFunction : IFunction
             return dateEnd.Subtract(dateStart).Days;
         }
 
-        return double.NaN;
+        return default;
     }
 }

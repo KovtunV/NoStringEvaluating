@@ -1,8 +1,8 @@
 ﻿using System.Reflection;
 using BenchmarkDotNet.Running;
 using ConsoleApp.Benchmark;
-using Microsoft.Extensions.DependencyInjection;
 using Ninject;
+using NoStringEvaluating;
 using NoStringEvaluating.Contract;
 
 namespace ConsoleApp;
@@ -11,27 +11,26 @@ class Program
 {
     static void Main()
     {
-        // var eval = CreateNoString();
+        //var eval = CreateNoString();
 
-        //var time1 = DateTime.Parse("01/01/2000 14:18:23", CultureInfo.InvariantCulture);
-        //var time2 = DateTime.Parse("01/01/2000 18:30:10", CultureInfo.InvariantCulture);
         //var args = new Dictionary<string, EvaluatorValue>();
-        //args["date1"] = time1;
-        //args["date2"] = time2;
+        //args["my variable"] = true;
 
-        //var res = eval.CalcWord("5 + 'h'", args);
+        // var res = eval.Calc("Add(5; 3; 12)");
 
         BenchmarkRunner.Run<BenchmarkNumberService>();
     }
 
-
-    static INoStringEvaluator CreateNoString()
+    static NoStringEvaluator CreateNoString()
     {
-        var container = new ServiceCollection().AddNoStringEvaluator();
-        var services = container.BuildServiceProvider();
-        var functionReader = services.GetRequiredService<IFunctionReader>();
+        void Configure(NoStringEvaluatorOptions opt)
+        {
+            opt
+                .WithFunctionsFrom(typeof(Program))
+                .SetThrowIfVariableNotFound(false);
+        }
 
-        return services.GetRequiredService<INoStringEvaluator>();
+        return NoStringEvaluator.CreateFacade(Configure).Evaluator;
     }
 
     static INoStringEvaluator CreateNoStringFromNinject(out StandardKernel kernel)

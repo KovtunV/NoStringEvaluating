@@ -8,19 +8,24 @@ namespace NoStringEvaluating.Functions.Logic;
 /// <summary>
 /// Function - if
 /// </summary>
-public class IfFunction : IFunction
+public sealed class IfFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "IF";
+    public string Name { get; } = "IF";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        if (System.Math.Abs(args[0]) > NoStringEvaluatorConstants.FloatingTolerance)
+        if (args[0])
         {
             return args[1];
         }

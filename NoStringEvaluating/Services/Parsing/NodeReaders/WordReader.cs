@@ -39,14 +39,14 @@ public static class WordReader
         // Skip start char
         localIndex++;
 
-        var variableBuilder = new IndexWatcher();
+        var wordBuilder = new IndexWatcher();
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
 
             if (_quotes.Contains(ch))
             {
-                var wordSpan = formula.Slice(variableBuilder.StartIndex.GetValueOrDefault(), variableBuilder.Length);
+                var wordSpan = formula.Slice(wordBuilder.StartIndex.GetValueOrDefault(), wordBuilder.Length);
                 var word = wordSpan.ToString();
 
                 var varNode = new WordNode(word);
@@ -56,7 +56,7 @@ public static class WordReader
                 return true;
             }
 
-            variableBuilder.Remember(i);
+            wordBuilder.Remember(i);
         }
 
         return false;

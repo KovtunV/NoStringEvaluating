@@ -1,4 +1,9 @@
-﻿using NoStringEvaluating.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using NoStringEvaluating.Extensions;
+using NoStringEvaluating.Functions.Base;
+using NoStringEvaluating.Models;
 
 namespace NoStringEvaluating;
 
@@ -23,13 +28,34 @@ public class NoStringEvaluatorOptions
     public string WordQuotationMark { get; set; }
 
     /// <summary>
+    /// If set true - throws exception when variable not found, if set false - returns Null
+    /// </summary>
+    public bool ThrowIfVariableNotFound { get; set; }
+
+    /// <summary>
+    /// Don't register default functions
+    /// </summary>
+    public bool IsWithoutDefaultFunctions { get; set; }
+
+    /// <summary>
+    /// Assemblies with functions
+    /// </summary>
+    public HashSet<Assembly> FunctionsAssemblies { get; } = new();
+
+    /// <summary>
+    /// Functions
+    /// </summary>
+    public HashSet<IFunction> Functions { get; } = new();
+
+    /// <summary>
     /// Options
     /// </summary>
     public NoStringEvaluatorOptions()
     {
-        FloatingTolerance = NoStringEvaluatorConstants.FloatingTolerance;
-        FloatingPointSymbol = NoStringEvaluatorConstants.FloatingPointSymbol;
-        WordQuotationMark = NoStringEvaluatorConstants.WordQuotationMark;
+        FloatingTolerance = GlobalOptions.FloatingTolerance;
+        FloatingPointSymbol = GlobalOptions.FloatingPointSymbol;
+        WordQuotationMark = GlobalOptions.WordQuotationMark;
+        ThrowIfVariableNotFound = GlobalOptions.ThrowIfVariableNotFound;
     }
 
     /// <summary>
@@ -76,13 +102,67 @@ public class NoStringEvaluatorOptions
     }
 
     /// <summary>
-    /// Update constants <see cref="NoStringEvaluatorConstants"/>
+    /// Set throw if variable not found
     /// </summary>
-    public void UpdateConstants()
+    public NoStringEvaluatorOptions SetThrowIfVariableNotFound(bool isThrow)
     {
-        NoStringEvaluatorConstants.FloatingTolerance = FloatingTolerance;
-        NoStringEvaluatorConstants.FloatingPointSymbol = FloatingPointSymbol;
-        NoStringEvaluatorConstants.WordQuotationMark = WordQuotationMark;
-        NoStringEvaluatorConstants.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
+        ThrowIfVariableNotFound = isThrow;
+        return this;
+    }
+
+    /// <summary>
+    /// Add assembly to register functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctionsFrom(Type typeFromSourceAssembly)
+    {
+        return WithFunctionsFrom(typeFromSourceAssembly.Assembly);
+    }
+
+    /// <summary>
+    /// Add assembly to register functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctionsFrom(Assembly sourceAssembly)
+    {
+        FunctionsAssemblies.Add(sourceAssembly);
+        return this;
+    }
+
+    /// <summary>
+    /// Remove root assembly from functions registration
+    /// </summary>
+    public NoStringEvaluatorOptions WithoutDefaultFunctions(bool withoutDefaultFunctions = true)
+    {
+        IsWithoutDefaultFunctions = withoutDefaultFunctions;
+        return this;
+    }
+
+    /// <summary>
+    /// Add functions
+    /// </summary>
+    public NoStringEvaluatorOptions WithFunctions(params IFunction[] functions)
+    {
+        functions ??= Array.Empty<IFunction>();
+        functions.ForEach(x => Functions.Add(x));
+        return this;
+    }
+
+    /// <summary>
+    /// Update global constants <see cref="GlobalOptions"/>
+    /// </summary>
+    public void UpdateGlobalOptions()
+    {
+        GlobalOptions.FloatingTolerance = FloatingTolerance;
+        GlobalOptions.FloatingPointSymbol = FloatingPointSymbol;
+        GlobalOptions.WordQuotationMark = WordQuotationMark;
+        GlobalOptions.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
+        GlobalOptions.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
+
+        FunctionsAssemblies.ForEach(x => GlobalOptions.FunctionsAssemblies.Add(x));
+        Functions.ForEach(x => GlobalOptions.Functions.Add(x));
+
+        if (IsWithoutDefaultFunctions)
+        {
+            GlobalOptions.FunctionsAssemblies.Remove(typeof(NoStringEvaluatorOptions).Assembly);
+        }
     }
 }

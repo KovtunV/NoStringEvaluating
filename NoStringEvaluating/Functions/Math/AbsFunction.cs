@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math;
 /// <summary>
 /// Function - abs
 /// </summary>
-public class AbsFunction : IFunction
+public sealed class AbsFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ABS";
+    public string Name { get; } = "ABS";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

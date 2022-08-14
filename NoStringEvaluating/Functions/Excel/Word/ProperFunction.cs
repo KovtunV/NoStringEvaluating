@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Capitalizes the first letter in each word of a text
 /// <para>Proper(myWord)</para>
 /// </summary>
-public class ProperFunction : IFunction
+public sealed class ProperFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "PROPER";
+    public string Name { get; } = "PROPER";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -30,7 +35,7 @@ public class ProperFunction : IFunction
             var word = arg.GetWord();
 
             var res = Proper(word);
-            return factory.Word().Create(res);
+            return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
@@ -42,13 +47,13 @@ public class ProperFunction : IFunction
                 wordList[i] = Proper(wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string Proper(string word)
+    private static string Proper(string word)
     {
         if (HasCapital(word))
         {
@@ -59,7 +64,7 @@ public class ProperFunction : IFunction
         return res;
     }
 
-    private bool HasCapital(string str)
+    private static bool HasCapital(string str)
     {
         for (int i = 0; i < str.Length; i++)
         {

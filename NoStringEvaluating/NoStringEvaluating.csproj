@@ -1,44 +1,48 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>kovtunv</Authors>
-    <Company>kovtunv</Company>
-    <Product>kovtunv</Product>
-    <Description>Fast and easy mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation. Moreover, provides user defined functions and variables. From v2.0 it can evaluate string, DateTime, etc...</Description>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageIcon>logo.png</PackageIcon>
-    <PackageReleaseNotes>NET6</PackageReleaseNotes>
-    <PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
-    <PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <Version>2.3.0</Version>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>kovtunv</Authors>
+		<Company>kovtunv</Company>
+		<Product>kovtunv</Product>
+		<Description>Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation.</Description>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageIcon>logo.png</PackageIcon>
+		<PackageReleaseNotes>1. Null type
+2. Object type
+3. Boolean type
+4. New functions
+5. Evaluator with nullable result
+6. Change function registration approach (via options)
+7. Evaluator builder with the least memory consumption (static method)
+8. DebugExtensions
+9. Prevent scientific format in EvaluatorValue and InternalEvaluatorValue ToString()</PackageReleaseNotes>
+		<PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
+		<PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<Version>2.4.0</Version>
+		<PackageReadmeFile></PackageReadmeFile>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>NoStringEvaluating.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<DocumentationFile>NoStringEvaluating.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>NoStringEvaluating.xml</DocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+		<DocumentationFile>NoStringEvaluating.xml</DocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.ObjectPool" Version="6.0.7" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.ObjectPool" Version="6.0.7" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Include="..\README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-    <None Include="logo.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="logo.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
 
 </Project>

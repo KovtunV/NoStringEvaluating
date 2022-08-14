@@ -6,22 +6,27 @@ using NoStringEvaluating.Models.Values;
 namespace NoStringEvaluating.Functions.Excel.Date;
 
 /// <summary>
-/// Returnts a day from dateTime
+/// Returns a day from dateTime
 /// <para>Day(Now()) or Day(Now(); 'DD')</para>
 /// </summary>
-public class DayFunction : IFunction
+public sealed class DayFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "DAY";
+    public string Name { get; } = "DAY";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordFactory = factory.Word();
+        var wordFactory = factory.Word;
         var dateVal = args[0].GetDateTime();
 
         if (args.Count > 1 && args[1].IsWord)

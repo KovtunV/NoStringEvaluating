@@ -6,16 +6,10 @@ namespace NoStringEvaluating.Services.Keepers;
 
 internal class DateTimeKeeper : BaseValueKeeper<DateTime>
 {
-    internal DateTimeKeeper() : base(ValueTypeKey.DateTime)
+    public DateTimeKeeper() : base(ValueTypeKey.DateTime)
     {
 
     }
 
-    // Static 
-    internal static DateTimeKeeper Instance { get; }
-
-    static DateTimeKeeper()
-    {
-        Instance = new DateTimeKeeper();
-    }
+    public static DateTimeKeeper Instance { get; } = new();
 }

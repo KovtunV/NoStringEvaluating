@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Sin;
 /// <summary>
 /// Function - arsinh
 /// </summary>
-public class ArsinhFunction : IFunction
+public sealed class ArsinhFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ARSINH";
+    public string Name { get; } = "ARSINH";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

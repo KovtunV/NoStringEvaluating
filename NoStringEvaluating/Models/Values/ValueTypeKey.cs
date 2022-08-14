@@ -6,19 +6,29 @@
 public enum ValueTypeKey
 {
     /// <summary>
+    /// Null
+    /// </summary>
+    Null = 0,
+
+    /// <summary>
     /// Number
     /// </summary>
     Number,
 
     /// <summary>
-    /// Word
+    /// Boolean
     /// </summary>
-    Word,
+    Boolean,
 
     /// <summary>
     /// DateTime
     /// </summary>
     DateTime,
+
+    /// <summary>
+    /// Word
+    /// </summary>
+    Word,
 
     /// <summary>
     /// Word list
@@ -31,7 +41,7 @@ public enum ValueTypeKey
     NumberList,
 
     /// <summary>
-    /// Boolean
+    /// Object
     /// </summary>
-    Boolean
+    Object
 }

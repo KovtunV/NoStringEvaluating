@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Math.Trigonometry.Cosec;
 /// <summary>
 /// Function - cosech
 /// </summary>
-public class CosechFunction : IFunction
+public sealed class CosechFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "COSECH";
+    public string Name { get; } = "COSECH";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value

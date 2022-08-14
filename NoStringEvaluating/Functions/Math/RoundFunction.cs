@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Math;
 /// Rounds the designated number to the specified decimals
 /// <para>Round(15.7865; 2)</para>
 /// </summary>
-public class RoundFunction : IFunction
+public sealed class RoundFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ROUND";
+    public string Name { get; } = "ROUND";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value

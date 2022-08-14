@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Converts text to uppercase
 /// <para>Upper(myWord) or Upper(myWordList)</para>
 /// </summary>
-public class UpperFunction : IFunction
+public sealed class UpperFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "UPPER";
+    public string Name { get; } = "UPPER";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -27,16 +32,16 @@ public class UpperFunction : IFunction
         if (arg.IsWord)
         {
             var res = arg.GetWord().ToUpperInvariant();
-            return factory.Word().Create(res);
+            return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
         {
             var wordList = arg.GetWordList();
             var wordListRes = wordList.Select(s => s.ToUpperInvariant()).ToList();
-            return factory.WordList().Create(wordListRes);
+            return factory.WordList.Create(wordListRes);
         }
 
-        return factory.Word().Empty();
+        return default;
     }
 }

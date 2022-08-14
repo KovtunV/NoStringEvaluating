@@ -22,6 +22,14 @@ public static class NoStringEvaluatorExtensions
     /// </summary>
     public static IServiceCollection AddNoStringEvaluator(this IServiceCollection services, Action<NoStringEvaluatorOptions> options = null)
     {
+        // Update options
+        if (options != null)
+        {
+            var opt = new NoStringEvaluatorOptions();
+            options(opt);
+            opt.UpdateGlobalOptions();
+        }
+
         // Pooling
         services.TryAddSingleton(ObjectPool.Create<Stack<InternalEvaluatorValue>>());
         services.TryAddSingleton(ObjectPool.Create<List<InternalEvaluatorValue>>());
@@ -37,14 +45,7 @@ public static class NoStringEvaluatorExtensions
 
         // Evaluator
         services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
-
-        // Update constants
-        if (options != null)
-        {
-            var opt = new NoStringEvaluatorOptions();
-            options(opt);
-            opt.UpdateConstants();
-        }
+        services.TryAddSingleton<INoStringEvaluatorNullable, NoStringEvaluatorNullable>();
 
         return services;
     }

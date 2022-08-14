@@ -10,12 +10,17 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Searches a string from right to left and returns the rightmost characters of the string
 /// <para>Right(myWord) or Right(myWord; numberOfChars) or Right(myWord; subWord) </para>
 /// </summary>
-public class RightFunction : IFunction
+public sealed class RightFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "RIGHT";
+    public string Name { get; } = "RIGHT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -29,7 +34,7 @@ public class RightFunction : IFunction
             var word = valArg.GetWord();
             var wordRes = RightWord(args, word);
 
-            return factory.Word().Create(wordRes);
+            return factory.Word.Create(wordRes);
         }
 
         if (valArg.IsWordList)
@@ -40,13 +45,13 @@ public class RightFunction : IFunction
                 wordList[i] = RightWord(args, wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string RightWord(List<InternalEvaluatorValue> args, string word)
+    private static string RightWord(List<InternalEvaluatorValue> args, string word)
     {
         if (args.Count == 1)
         {
@@ -90,5 +95,4 @@ public class RightFunction : IFunction
 
         return word[(subWordIndex + patternWord.Length)..];
     }
-
 }

@@ -8,18 +8,23 @@ namespace NoStringEvaluating.Functions.Logic;
 /// <summary>
 /// Function - isNaN
 /// </summary>
-public class IsnanFunction : IFunction
+public sealed class IsNanFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "ISNAN";
+    public string Name { get; } = "ISNAN";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return double.IsNaN(args[0]) ? 1 : 0;
+        return factory.Boolean.Create(double.IsNaN(args[0]));
     }
 }

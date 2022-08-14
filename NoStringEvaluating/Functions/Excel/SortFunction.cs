@@ -9,21 +9,26 @@ namespace NoStringEvaluating.Functions.Excel;
 
 /// <summary>
 /// SORT(myList; sortType)
-/// <para>sortType: 1 - asc, not 1 - desc</para> 
+/// <para>sortType: true - asc, false - desc</para> 
 /// </summary>
-public class SortFunction : IFunction
+public sealed class SortFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "SORT";
+    public string Name { get; } = "SORT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var ascSort = args.Count <= 1 || System.Math.Abs(args[1].Number - 1) < NoStringEvaluatorConstants.FloatingTolerance;
+        var ascSort = args.Count <= 1 || args[1].GetBoolean();
         var list = args[0];
 
         if (list.IsWordList)
@@ -36,7 +41,7 @@ public class SortFunction : IFunction
             else
                 wordList.Sort((a, b) => string.Compare(b, a, StringComparison.Ordinal));
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
         if (list.IsNumberList)
@@ -49,9 +54,9 @@ public class SortFunction : IFunction
             else
                 numberList.Sort((a, b) => b.CompareTo(a));
 
-            return factory.NumberList().Create(numberList);
+            return factory.NumberList.Create(numberList);
         }
 
-        return double.NaN;
+        return default;
     }
 }

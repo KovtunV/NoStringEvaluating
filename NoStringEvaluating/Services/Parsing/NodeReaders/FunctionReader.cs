@@ -6,7 +6,6 @@ using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
-using static NoStringEvaluating.NoStringFunctionsInitializer;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders;
 
@@ -24,8 +23,12 @@ public class FunctionReader : IFunctionReader
     {
         _functions = new List<IFunction>();
 
-        // Initialize functions
-        InitializeFunctions(this, typeof(FunctionReader));
+        GlobalOptions.FunctionsAssemblies
+            .CreateInstances<IFunction>()
+            .ForEach(x => AddFunction(x, replace: true));
+
+        GlobalOptions.Functions
+            .ForEach(x => AddFunction(x, replace: true));
     }
 
     /// <summary>

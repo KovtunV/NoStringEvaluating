@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel;
 /// Returns a number of elements
 /// <para>Count(1; 2; myList)</para>
 /// </summary>
-public class CountFunction : IFunction
+public sealed class CountFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "COUNT";
+    public string Name { get; } = "COUNT";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value

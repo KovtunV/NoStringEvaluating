@@ -10,18 +10,23 @@ namespace NoStringEvaluating.Functions.Excel.Date;
 /// Returns the current date
 /// <para>Today()</para>
 /// </summary>
-public class TodayFunction : IFunction
+public sealed class TodayFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "TODAY";
+    public string Name { get; } = "TODAY";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.DateTime().Create(DateTime.Today);
+        return factory.DateTime.Create(DateTime.Today);
     }
 }

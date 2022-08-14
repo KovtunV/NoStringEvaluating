@@ -8,12 +8,17 @@ namespace NoStringEvaluating.Functions.Logic;
 /// <summary>
 /// Function - iff
 /// </summary>
-public class IffFunction : IFunction
+public sealed class IffFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "IFF";
+    public string Name { get; } = "IFF";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Evaluate value
@@ -22,12 +27,12 @@ public class IffFunction : IFunction
     {
         for (int i = 0; i < args.Count - 1; i += 2)
         {
-            if (System.Math.Abs(args[i]) > NoStringEvaluatorConstants.FloatingTolerance)
+            if (args[i])
             {
                 return args[i + 1];
             }
         }
 
-        return double.NaN;
+        return default;
     }
 }

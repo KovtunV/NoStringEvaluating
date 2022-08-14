@@ -9,19 +9,24 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Replaces characters within text
 /// <para>Replace(myWord; oldPart; newPart) or Replace(myList; oldPart; newPart)</para>
 /// </summary>
-public class ReplaceFunction : IFunction
+public sealed class ReplaceFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "REPLACE";
+    public string Name { get; } = "REPLACE";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var wordFactory = factory.Word();
+        var wordFactory = factory.Word;
 
         var sourseArg = args[0];
         var oldWord = args[1].GetWord();
@@ -45,9 +50,9 @@ public class ReplaceFunction : IFunction
                 resList.Add(sourseList[i].Replace(oldWord, newWord));
             }
 
-            return factory.WordList().Create(resList);
+            return factory.WordList.Create(resList);
         }
 
-        return wordFactory.Empty();
+        return default;
     }
 }

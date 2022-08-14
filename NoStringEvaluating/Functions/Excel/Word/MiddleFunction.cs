@@ -11,12 +11,17 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// Returns any substring from the middle of a string
 /// <para>Middle(myWord; indexStart; numberChars) or Middle(myWord; indexStart; wordEnd)  or Middle(myWord; wordStart; numberChars) or Middle(myWord; wordStart; wordEnd)</para>
 /// </summary>
-public class MiddleFunction : IFunction
+public sealed class MiddleFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "MIDDLE";
+    public string Name { get; } = "MIDDLE";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -32,7 +37,7 @@ public class MiddleFunction : IFunction
             var word = valArg.GetWord();
             var wordRes = MiddleWord(argStart, argEnd, word);
 
-            return factory.Word().Create(wordRes);
+            return factory.Word.Create(wordRes);
         }
 
         if (valArg.IsWordList)
@@ -43,13 +48,13 @@ public class MiddleFunction : IFunction
                 wordList[i] = MiddleWord(argStart, argEnd, wordList[i]);
             }
 
-            return factory.WordList().Create(wordList);
+            return factory.WordList.Create(wordList);
         }
 
-        return double.NaN;
+        return default;
     }
 
-    private string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
+    private static string MiddleWord(InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd, string word)
     {
         if (argStart.IsNumber && argEnd.IsNumber)
         {
@@ -74,7 +79,7 @@ public class MiddleFunction : IFunction
         return string.Empty;
     }
 
-    private string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var wordStart = argStart.GetWord();
         var wordEnd = argEnd.GetWord();
@@ -92,7 +97,7 @@ public class MiddleFunction : IFunction
         return word[wordStartIndex..wordEndIndex];
     }
 
-    private string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var wordStart = argStart.GetWord();
         var argEndInt = (int)argEnd.Number;
@@ -109,7 +114,7 @@ public class MiddleFunction : IFunction
         return word[wordStartIndex..(wordStartIndex + argEndInt)];
     }
 
-    private string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var argStartInt = (int)argStart.Number;
         var wordEnd = argEnd.GetWord();
@@ -124,7 +129,7 @@ public class MiddleFunction : IFunction
         return word[argStartInt..(argStartInt + wordEndIndex)];
     }
 
-    private string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
+    private static string CropNumberNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var argStartInt = (int)argStart.Number;
         var argEndInt = (int)argEnd.Number;

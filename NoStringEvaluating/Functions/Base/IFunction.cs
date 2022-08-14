@@ -15,6 +15,11 @@ public interface IFunction
     string Name { get; }
 
     /// <summary>
+    /// If false and any argument is null - function wont be executed and null will be returned
+    /// </summary>
+    bool CanHandleNullArguments { get; }
+
+    /// <summary>
     /// Evaluate value
     /// </summary>
     InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory);

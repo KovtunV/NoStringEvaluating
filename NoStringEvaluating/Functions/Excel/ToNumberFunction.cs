@@ -9,12 +9,17 @@ namespace NoStringEvaluating.Functions.Excel;
 /// <summary>
 /// ToNumber('05')
 /// </summary>
-public class ToNumberFunction : IFunction
+public sealed class ToNumberFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "TONUMBER";
+    public string Name { get; } = "TONUMBER";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value

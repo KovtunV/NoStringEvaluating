@@ -12,12 +12,17 @@ namespace NoStringEvaluating.Functions.Excel.Word;
 /// <para>Explode(myWord) or Explode(myWord; separator)</para>
 /// <para>separator by default is white space " "</para>
 /// </summary>
-public class ExplodeFunction : IFunction
+public sealed class ExplodeFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public virtual string Name { get; } = "EXPLODE";
+    public string Name { get; } = "EXPLODE";
+
+    /// <summary>
+    /// Can handle IsNull arguments?
+    /// </summary>
+    public bool CanHandleNullArguments { get; }
 
     /// <summary>
     /// Execute value
@@ -26,6 +31,6 @@ public class ExplodeFunction : IFunction
     {
         var separator = args.Count > 1 ? args[1].GetWord() : " ";
         var res = args[0].GetWord().Split(separator, StringSplitOptions.RemoveEmptyEntries).ToList();
-        return factory.WordList().Create(res);
+        return factory.WordList.Create(res);
     }
 }
