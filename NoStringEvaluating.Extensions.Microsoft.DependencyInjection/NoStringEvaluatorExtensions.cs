@@ -27,7 +27,7 @@ public static class NoStringEvaluatorExtensions
         {
             var opt = new NoStringEvaluatorOptions();
             options(opt);
-            opt.UpdateConstants();
+            opt.UpdateGlobalOptions();
         }
 
         // Pooling
@@ -45,7 +45,7 @@ public static class NoStringEvaluatorExtensions
 
         // Evaluator
         services.TryAddSingleton<INoStringEvaluator, NoStringEvaluator>();
-        services.TryAddSingleton<NoStringEvaluator>();
+        services.TryAddSingleton<INoStringEvaluatorNullable, NoStringEvaluatorNullable>();
 
         return services;
     }

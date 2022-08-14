@@ -32,6 +32,21 @@ internal class NoStringEvaluatorExtensionsTests
     }
 
     [Test]
+    public void Should_Create_Nullable_Evaluator()
+    {
+        // arrange
+        var serviceProvider = new ServiceCollection()
+            .AddNoStringEvaluator()
+            .BuildServiceProvider();
+
+        // act
+        var actual = serviceProvider.GetRequiredService<INoStringEvaluatorNullable>();
+
+        // assert
+        actual.Should().NotBeNull();
+    }
+
+    [Test]
     public void Should_Apply_Options()
     {
         // arrange
