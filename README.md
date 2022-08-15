@@ -196,7 +196,7 @@ public void SomeMethod()
     // NoStringEvaluator.CreateFacade(opt => opt.WithFunctionsFrom(<source assembly>));
     // NoStringEvaluator.CreateFacade(opt => opt.WithFunctions(new MyFunction()));
 
-    // same with CI
+    // same with DI
     // services.AddNoStringEvaluator(opt =>  opt.WithFunctions(new MyFunction()));
 }
 ```
@@ -576,14 +576,14 @@ Static initialization if you don't have DI
 
 | Method |  Description |
 | ------------ | ------------ |
-| static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null) | Create evaluator facade |
+| static Facade CreateFacade(Action\<NoStringEvaluatorOptions\> options = null) | Create evaluator facade |
 
 ### NoStringEvaluatorNullable
 Static initialization if you don't have DI
 
 | Method |  Description |
 | ------------ | ------------ |
-| static Facade CreateFacade(Action<NoStringEvaluatorOptions> options = null) | Create evaluator facade |
+| static Facade CreateFacade(Action\<NoStringEvaluatorOptions\> options = null) | Create evaluator facade |
 
 ## Thanks for contribution
 [:octocat: IvoTops](https://github.com/IvoTops "https://github.com/IvoTops")
