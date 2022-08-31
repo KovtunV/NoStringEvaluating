@@ -32,6 +32,22 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         Number = number;
     }
 
+    /// <summary>
+    /// Value for internal processing
+    /// </summary>
+    public InternalEvaluatorValue(double? number)
+    {
+        if (number.HasValue)
+        {
+            TypeKey = ValueTypeKey.Number;
+            Number = number.Value;
+        } else
+        {
+            Number = default;
+            TypeKey = ValueTypeKey.Null;
+        }
+    }
+
     internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
     {
         _extraTypeId = extraTypeId;

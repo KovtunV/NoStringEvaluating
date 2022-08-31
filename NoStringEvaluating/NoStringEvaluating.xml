@@ -4014,12 +4014,27 @@
             Value
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Nullable{System.Double})">
+            <summary>
+            Value
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Boolean)">
             <summary>
             Value
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Nullable{System.Boolean})">
+            <summary>
+            Value
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.DateTime)">
+            <summary>
+            Value
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.#ctor(System.Nullable{System.DateTime})">
             <summary>
             Value
             </summary>
@@ -4135,6 +4150,11 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Double)">
+            <summary>
+            Value for internal processing
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Nullable{System.Double})">
             <summary>
             Value for internal processing
             </summary>
