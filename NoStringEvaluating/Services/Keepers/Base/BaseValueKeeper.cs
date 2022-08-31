@@ -37,10 +37,9 @@ internal abstract class BaseValueKeeper<TModel>
 
     public TModel Get(int id)
     {
-        // Dictionary is thread safe for reading
-        if (_values.TryGetValue(id, out var res))
+        lock (_locker)
         {
-            return res;
+            if (_values.TryGetValue(id, out var res)) return res;
         }
 
         throw new ExtraTypeIdNotFoundException(id, GetType().Name);
