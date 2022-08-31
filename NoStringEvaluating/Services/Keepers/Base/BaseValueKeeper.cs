@@ -39,7 +39,10 @@ internal abstract class BaseValueKeeper<TModel>
     {
         lock (_locker)
         {
-            if (_values.TryGetValue(id, out var res)) return res;
+            if (_values.TryGetValue(id, out var res))
+            {
+                return res;
+            }
         }
 
         throw new ExtraTypeIdNotFoundException(id, GetType().Name);

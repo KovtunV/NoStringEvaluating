@@ -41,7 +41,8 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         {
             TypeKey = ValueTypeKey.Number;
             Number = number.Value;
-        } else
+        }
+        else
         {
             Number = default;
             TypeKey = ValueTypeKey.Null;

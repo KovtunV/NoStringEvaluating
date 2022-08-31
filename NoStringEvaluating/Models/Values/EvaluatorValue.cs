@@ -73,7 +73,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         {
             TypeKey = ValueTypeKey.Number;
             Number = number.Value;
-        } else TypeKey = ValueTypeKey.Null;
+        }
+        else
+        {
+            TypeKey = ValueTypeKey.Null;
+        }
     }
 
     /// <summary>
@@ -94,7 +98,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         {
             TypeKey = ValueTypeKey.Boolean;
             Boolean = boolean.Value;
-        } else TypeKey = ValueTypeKey.Null;
+        }
+        else
+        {
+            TypeKey = ValueTypeKey.Null;
+        }
     }
 
     /// <summary>
@@ -114,7 +122,11 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         {
             TypeKey = ValueTypeKey.DateTime;
             DateTime = dateTime.Value;
-        } else TypeKey = ValueTypeKey.Null;
+        }
+        else
+        {
+            TypeKey = ValueTypeKey.Null;
+        }
     }
 
     /// <summary>

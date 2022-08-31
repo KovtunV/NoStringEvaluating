@@ -124,6 +124,7 @@ And just send **string** or **FormulaNodes** to evaluation:
 public class MyService
 {
     private INoStringEvaluator _noStringEvaluator;
+
     public MyService(INoStringEvaluator noStringEvaluator)
     {
         _noStringEvaluator = noStringEvaluator;
@@ -173,7 +174,7 @@ public class MyFunction : IFunction
 {
     public string Name { get; } = "YouAre";
 
-    bool CanHandleNullArguments { get; }
+    public bool CanHandleNullArguments { get; }
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
