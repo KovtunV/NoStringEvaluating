@@ -18,6 +18,6 @@ internal class OrFunctionTests : FunctionTests<OrFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 }

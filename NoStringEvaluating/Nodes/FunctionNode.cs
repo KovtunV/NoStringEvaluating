@@ -19,12 +19,19 @@ public class FunctionNode : BaseFormulaNode
     public bool IsNegative { get; }
 
     /// <summary>
+    /// Has negation in boolean
+    /// </summary>
+    public bool IsNegation { get; }
+
+    /// <summary>
     /// Formula node - Function
     /// </summary>
-    public FunctionNode(IFunction function, bool isNegative) : base(NodeTypeEnum.Function)
+    public FunctionNode(IFunction function, bool isNegative, bool isNegation)
+        : base(NodeTypeEnum.Function)
     {
         Function = function;
         IsNegative = isNegative;
+        IsNegation = isNegation;
     }
 
     /// <summary>

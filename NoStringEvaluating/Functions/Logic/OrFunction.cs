@@ -29,10 +29,10 @@ public sealed class OrFunction : IFunction
         {
             if (args[i])
             {
-                return factory.Boolean.Create(true);
+                return true;
             }
         }
 
-        return factory.Boolean.Create(false);
+        return false;
     }
 }

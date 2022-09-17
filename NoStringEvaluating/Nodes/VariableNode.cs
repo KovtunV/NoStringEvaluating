@@ -18,12 +18,19 @@ public class VariableNode : BaseFormulaNode
     public bool IsNegative { get; }
 
     /// <summary>
+    /// Has negation in boolean
+    /// </summary>
+    public bool IsNegation { get; }
+
+    /// <summary>
     /// Formula node - Variable
     /// </summary>
-    public VariableNode(string name, bool isNegative) : base(NodeTypeEnum.Variable)
+    public VariableNode(string name, bool isNegative, bool isNegation)
+        : base(NodeTypeEnum.Variable)
     {
         Name = name;
         IsNegative = isNegative;
+        IsNegation = isNegation;
     }
 
     /// <summary>

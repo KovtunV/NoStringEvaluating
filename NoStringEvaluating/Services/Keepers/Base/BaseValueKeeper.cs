@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Services.Keepers.Models;
@@ -7,9 +8,10 @@ namespace NoStringEvaluating.Services.Keepers.Base;
 
 internal abstract class BaseValueKeeper<TModel>
 {
-    private readonly object _locker = new object();
+    private readonly ReaderWriterLockSlim _locker = new();
     private readonly Dictionary<int, TModel> _values;
     private readonly ValueTypeKey _typeKey;
+    private int _id;
 
     protected BaseValueKeeper(ValueTypeKey typeKey)
     {
@@ -19,30 +21,34 @@ internal abstract class BaseValueKeeper<TModel>
 
     public ValueKeeperId Save(TModel item)
     {
-        lock (_locker)
-        {
-            // Id starts from 1 due to default extraTypeId in InternalEvaluatorValue
-            for (var i = 1; i < int.MaxValue; i++)
-            {
-                if (!_values.ContainsKey(i))
-                {
-                    _values.Add(i, item);
-                    return new ValueKeeperId(i, _typeKey);
-                }
-            }
-        }
+        _locker.EnterWriteLock();
 
-        throw new ExtraTypeNoFreeIdException(GetType().Name);
+        try
+        {
+            _id++;
+            _values.Add(_id, item);
+            return new ValueKeeperId(_id, _typeKey);
+        }
+        finally
+        {
+            _locker.ExitWriteLock();
+        }
     }
 
     public TModel Get(int id)
     {
-        lock (_locker)
+        _locker.EnterReadLock();
+
+        try
         {
             if (_values.TryGetValue(id, out var res))
             {
                 return res;
             }
+        }
+        finally
+        {
+            _locker.ExitReadLock();
         }
 
         throw new ExtraTypeIdNotFoundException(id, GetType().Name);
@@ -55,7 +61,9 @@ internal abstract class BaseValueKeeper<TModel>
             return;
         }
 
-        lock (_locker)
+        _locker.EnterWriteLock();
+
+        try
         {
             for (int i = 0; i < idModels.Count; i++)
             {
@@ -65,6 +73,10 @@ internal abstract class BaseValueKeeper<TModel>
 
                 _values.Remove(idModel.Id);
             }
+        }
+        finally
+        {
+            _locker.ExitWriteLock();
         }
     }
 }

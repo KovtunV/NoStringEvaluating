@@ -20,13 +20,14 @@ public static class NumberReader
         // Read unary minus
         var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
+        var isReadedFloatingPoint = false;
         var numberBuilder = new IndexWatcher();
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
             var isLastChar = i + 1 == formula.Length;
 
-            if (ch.IsFloatingNumber())
+            if (ch.IsDigit())
             {
                 numberBuilder.Remember(i);
 
@@ -35,6 +36,11 @@ public static class NumberReader
                     index = i;
                     return true;
                 }
+            }
+            else if (!isReadedFloatingPoint && ch.IsFloatingPointSymbol() && IsDigitNext(formula, i))
+            {
+                isReadedFloatingPoint = true;
+                numberBuilder.Remember(i);
             }
             else if (TryAddNumber(nodes, formula, numberBuilder, isNegativeLocal))
             {
@@ -80,6 +86,17 @@ public static class NumberReader
             return res;
 
         return default;
+    }
+
+    private static bool IsDigitNext(ReadOnlySpan<char> formula, int index)
+    {
+        var nextIndex = index + 1;
+        if (nextIndex == formula.Length)
+        {
+            return false;
+        }
+
+        return formula[nextIndex].IsDigit();
     }
 
     private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");

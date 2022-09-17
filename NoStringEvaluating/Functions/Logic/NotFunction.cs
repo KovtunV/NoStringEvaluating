@@ -25,6 +25,6 @@ public sealed class NotFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return factory.Boolean.Create(!args[0]);
+        return !args[0];
     }
 }

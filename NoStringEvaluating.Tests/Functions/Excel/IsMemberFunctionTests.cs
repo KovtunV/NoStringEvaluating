@@ -21,7 +21,7 @@ internal class IsMemberFunctionTests : FunctionTests<IsMemberFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 
     [Test]
@@ -37,7 +37,7 @@ internal class IsMemberFunctionTests : FunctionTests<IsMemberFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 
     [Test]
@@ -53,7 +53,7 @@ internal class IsMemberFunctionTests : FunctionTests<IsMemberFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 
     [Test]
@@ -69,6 +69,6 @@ internal class IsMemberFunctionTests : FunctionTests<IsMemberFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 }

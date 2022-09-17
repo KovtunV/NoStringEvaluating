@@ -16,7 +16,7 @@ internal class IsTextFunctionTests : FunctionTests<IsTextFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(isText);
+        actual.Boolean.Should().Be(isText);
     }
 
     private static IEnumerable<object[]> GetCases()

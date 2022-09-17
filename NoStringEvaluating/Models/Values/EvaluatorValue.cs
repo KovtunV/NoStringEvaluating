@@ -234,7 +234,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 
         if (a.IsBoolean)
         {
-            return new EvaluatorValue(a.GetBoolean());
+            return new EvaluatorValue(a.Boolean);
         }
 
         if (a.IsWord)
@@ -284,8 +284,8 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     {
         return TypeKey == other.TypeKey &&
                Boolean == other.Boolean &&
-               Number.Equals(other.Number) &&
                DateTime.Equals(other.DateTime) &&
+               Math.Abs(Number - other.Number) < GlobalOptions.FloatingTolerance &&
                EqualityComparer<object>.Default.Equals(_referenceValueFacade, other._referenceValueFacade);
     }
 

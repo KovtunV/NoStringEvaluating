@@ -4,6 +4,7 @@ using ConsoleApp.Benchmark;
 using Ninject;
 using NoStringEvaluating;
 using NoStringEvaluating.Contract;
+using NoStringEvaluating.Models;
 
 namespace ConsoleApp;
 
@@ -13,19 +14,17 @@ class Program
     {
         //var eval = CreateNoString();
 
-        //var args = new Dictionary<string, EvaluatorValue>();
-        //args["my variable"] = true;
-
-        // var res = eval.Calc("Add(5; 3; 12)");
+        //var res1 = eval.CalcBoolean("5 + 6 = 13");
 
         BenchmarkRunner.Run<BenchmarkNumberService>();
     }
 
     static NoStringEvaluator CreateNoString()
     {
-        void Configure(NoStringEvaluatorOptions opt)
+        static void Configure(NoStringEvaluatorOptions opt)
         {
             opt
+                .SetFloatingPointSymbol(FloatingPointSymbol.DotComma)
                 .WithFunctionsFrom(typeof(Program))
                 .SetThrowIfVariableNotFound(false);
         }

@@ -16,7 +16,7 @@ internal class IsNumberFunctionTests : FunctionTests<IsNumberFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(isNumber);
+        actual.Boolean.Should().Be(isNumber);
     }
 
     private static IEnumerable<object[]> GetCases()

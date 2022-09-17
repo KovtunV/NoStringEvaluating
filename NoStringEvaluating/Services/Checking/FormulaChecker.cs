@@ -127,20 +127,8 @@ public class FormulaChecker : IFormulaChecker
             }
         }
 
-        // Skip next semicolon after function
-        if (IsNextSemicolon(nodes, localIndex))
-            localIndex++;
-
         index = localIndex;
         return true;
-    }
-
-    private static bool IsNextSemicolon(List<BaseFormulaNode> nodes, int index)
-    {
-        var nextNode = index + 1 < nodes.Count ? nodes[index + 1] : null;
-        var nextFunctionChar = nextNode as FunctionCharNode;
-        var nextIsSemicolon = nextFunctionChar?.FunctionChar == FunctionChar.Semicolon;
-        return nextIsSemicolon;
     }
 
     #endregion

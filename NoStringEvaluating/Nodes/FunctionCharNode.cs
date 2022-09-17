@@ -34,6 +34,7 @@ public class FunctionCharNode : BaseFormulaNode
         return functionChar switch
         {
             FunctionChar.Semicolon => ";",
+            FunctionChar.Comma => ",",
             FunctionChar.Undefined => "ERROR",
             _ => "ERROR"
         };

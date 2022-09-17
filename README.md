@@ -168,6 +168,10 @@ public class MyService
 If you need your function, just implement the interface **IFunction**
 If you want to returnt extra type, use factory.
 
+As an argument separator can be:
+- ;
+- ,
+
 For instance, usage function "YouAre('Vitaly'; 26)":
 ```csharp
 public class MyFunction : IFunction
@@ -305,23 +309,26 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 ## Operators
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
-| +  | Addition | a + b  |
-|  - |  Subtraction |  a - b |
-|  \* | Multiplication  | a \* b  |
-|  / | Division  |  a / b |
+| + | Addition | a + b |
+| - |  Subtraction |  a - b |
+| \* | Multiplication  | a \* b |
+| / | Division  |  a / b |
 | ^|  Exponentiation |  a^b |
 
 ## Boolean operators
-| Key word  |  Description | Example  |
+| Key word  |  Description | Example |
 | ------------ | ------------ | ------------ |
-| <  | Lower than | a < b  |
-| <=  | Lower or equal| a <= b  |
-| >  | Greater than | a > b  |
-| >=  | Greater or equal | a >= b  |
-| ==  | Equality | a == b  |
-| !=  | Inequation | a != b  |
-| &&  | Logical conjunction (AND)  | a && b  |
-| \|\|  | Logical disjunction (OR)  | a \|\| b  |
+| < | Lower than | a < b |
+| <= | Lower or equal| a <= b |
+| > | Greater than | a > b |
+| >= | Greater or equal | a >= b |
+| == | Equality | a == b |
+| = | Equality | a = b  |
+| != | Inequation | a != b |
+| <> | Inequation | a <> b |
+| && | Logical conjunction (AND)  | a && b |
+| \|\| | Logical disjunction (OR)  | a \|\| b |
+| ! | Negation | !IsNull(a) |
 
 ## Functions
 
@@ -480,6 +487,7 @@ I've implemented some of excel functions. If you wanna see more, just send me a 
 | ------------ | ------------ | ------------ |
 | IfNull | Returns second argument if the first is null | IfNull(x,3) |
 | NullIf | Returns null if the first argument is equal to the second |  NullIf(x,3) |
+| IsNull | Returns null if the first argument null|  IsNull(x) |
 
 ## Options
 When you use **AddNoStringEvaluator** or **CreateFacade** you can configure evaluator.

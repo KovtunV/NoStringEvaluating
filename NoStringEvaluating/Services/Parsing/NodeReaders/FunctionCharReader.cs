@@ -15,9 +15,15 @@ public static class FunctionCharReader
     /// </summary>
     public static bool TryProceedFunctionChar(List<BaseFormulaNode> nodes, char ch)
     {
-        if (FUNCTION_SEPARATOR == ch)
+        if (FUNCTION_SEPARATOR_SEMICOLON == ch)
         {
             var node = new FunctionCharNode(FunctionChar.Semicolon);
+            nodes.Add(node);
+            return true;
+        }
+        else if (FUNCTION_SEPARATOR_COMMA == ch)
+        {
+            var node = new FunctionCharNode(FunctionChar.Comma);
             nodes.Add(node);
             return true;
         }
@@ -25,5 +31,6 @@ public static class FunctionCharReader
         return false;
     }
 
-    private const char FUNCTION_SEPARATOR = ';';
+    private const char FUNCTION_SEPARATOR_SEMICOLON = ';';
+    private const char FUNCTION_SEPARATOR_COMMA = ',';
 }

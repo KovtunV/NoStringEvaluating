@@ -11,11 +11,11 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders;
 /// </summary>
 public static class WordReader
 {
-    private static readonly HashSet<char> _quotes;
+    private static readonly HashSet<char> Quotes;
 
     static WordReader()
     {
-        _quotes = new[] { '\'', '"' }.ToHashSet();
+        Quotes = new[] { '\'', '"' }.ToHashSet();
     }
 
     /// <summary>
@@ -31,7 +31,7 @@ public static class WordReader
             return false;
 
         // Read word
-        if (!_quotes.Contains(formula[localIndex]))
+        if (!Quotes.Contains(formula[localIndex]))
         {
             return false;
         }
@@ -44,7 +44,7 @@ public static class WordReader
         {
             var ch = formula[i];
 
-            if (_quotes.Contains(ch))
+            if (Quotes.Contains(ch))
             {
                 var wordSpan = formula.Slice(wordBuilder.StartIndex.GetValueOrDefault(), wordBuilder.Length);
                 var word = wordSpan.ToString();

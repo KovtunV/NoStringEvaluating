@@ -6,14 +6,14 @@ using NoStringEvaluating.Models.Values;
 namespace NoStringEvaluating.Functions.Logic;
 
 /// <summary>
-/// Function - and
+/// Function - not
 /// </summary>
-public sealed class AndFunction : IFunction
+public sealed class NotAliasFunction : IFunction
 {
     /// <summary>
     /// Name
     /// </summary>
-    public string Name { get; } = "AND";
+    public string Name { get; } = "!";
 
     /// <summary>
     /// Can handle IsNull arguments?
@@ -25,14 +25,6 @@ public sealed class AndFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        for (int i = 0; i < args.Count; i++)
-        {
-            if (!args[i])
-            {
-                return false;
-            }
-        }
-
-        return true;
+        return !args[0];
     }
 }

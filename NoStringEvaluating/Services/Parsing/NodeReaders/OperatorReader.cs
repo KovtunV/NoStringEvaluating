@@ -16,7 +16,7 @@ public static class OperatorReader
     static OperatorReader()
     {
         // Pay attention and sort operators :)
-        _operators = new[] { "+", "-", "*", "/", "^", "<=", "<", ">=", ">", "==", "!=", "&&", "||" };
+        _operators = new[] { "+", "-", "*", "/", "^", "<>", "<=", "<", ">=", ">", "==", "=", "!=", "&&", "||" };
     }
 
     /// <summary>
@@ -72,8 +72,8 @@ public static class OperatorReader
             "<" => Operator.Less,
             ">=" => Operator.MoreEqual,
             ">" => Operator.More,
-            "==" => Operator.Equal,
-            "!=" => Operator.NotEqual,
+            "=" or "==" => Operator.Equal,
+            "<>" or "!=" => Operator.NotEqual,
             "&&" => Operator.And,
             "||" => Operator.Or,
 

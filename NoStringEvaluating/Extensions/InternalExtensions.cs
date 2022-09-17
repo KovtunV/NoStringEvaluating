@@ -13,15 +13,13 @@ internal static class InternalExtensions
         return char.IsLetterOrDigit(ch) || ch == '_' || ch == '.';
     }
 
-    public static bool IsFloatingNumber(this char ch)
+    public static bool IsFloatingPointSymbol(this char ch)
     {
-        var isDigit = ch.IsDigit();
-
         return GlobalOptions.FloatingPointSymbol switch
         {
-            FloatingPointSymbol.Dot => (isDigit || ch == '.'),
-            FloatingPointSymbol.Comma => (isDigit || ch == ','),
-            FloatingPointSymbol.DotComma => (isDigit || ch == '.' || ch == ','),
+            FloatingPointSymbol.Dot => ch == '.',
+            FloatingPointSymbol.Comma => ch == ',',
+            FloatingPointSymbol.DotComma => ch == '.' || ch == ',',
             _ => false
         };
     }

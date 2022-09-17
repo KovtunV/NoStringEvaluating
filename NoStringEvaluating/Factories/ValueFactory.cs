@@ -26,11 +26,6 @@ public readonly struct ValueFactory
     public DateTimeFactory DateTime => new(_idContainer.Ids);
 
     /// <summary>
-    /// BooleanFactory
-    /// </summary>
-    public BooleanFactory Boolean => new(_idContainer.Ids);
-
-    /// <summary>
     /// WordListFactory
     /// </summary>
     public WordListFactory WordList => new(_idContainer.Ids);
@@ -54,7 +49,7 @@ public readonly struct ValueFactory
 
         if (val.TypeKey == ValueTypeKey.Boolean)
         {
-            return Boolean.Create(val.Boolean);
+            return val.Boolean;
         }
 
         if (val.TypeKey == ValueTypeKey.DateTime)

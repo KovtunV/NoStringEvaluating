@@ -46,7 +46,7 @@ public static class UnaryMinusReader
         // Unary minus
         if (ch == MINUS_CHAR && !IsOperatorableNode(prevNode) && !(prevNode is BracketNode br && br.Bracket == Bracket.Close))
         {
-            isNegative = !(isNegative is true);
+            isNegative = !isNegative;
             return true;
         }
 

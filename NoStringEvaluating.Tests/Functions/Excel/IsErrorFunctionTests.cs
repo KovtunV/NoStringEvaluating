@@ -17,6 +17,6 @@ internal class IsErrorFunctionTests : FunctionTests<IsErrorFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
-        actual.GetBoolean().Should().Be(expected);
+        actual.Boolean.Should().Be(expected);
     }
 }

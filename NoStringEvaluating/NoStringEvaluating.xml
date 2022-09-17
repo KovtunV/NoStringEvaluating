@@ -86,7 +86,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -95,7 +94,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumber(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -104,7 +102,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -113,7 +110,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumber(System.String)">
@@ -122,7 +118,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -131,7 +126,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -140,7 +134,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -149,7 +142,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -158,7 +150,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -167,7 +158,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(System.String)">
@@ -176,7 +166,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -185,7 +174,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -194,7 +182,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -203,7 +190,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -212,7 +198,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -221,7 +206,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(System.String)">
@@ -230,7 +214,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -239,7 +222,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -248,7 +230,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -257,7 +238,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -266,7 +246,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -275,7 +254,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(System.String)">
@@ -284,7 +262,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -293,7 +270,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -302,7 +278,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -311,7 +286,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -320,7 +294,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -329,7 +302,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(System.String)">
@@ -338,7 +310,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -347,7 +318,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -356,7 +326,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -365,7 +334,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -374,7 +342,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -383,7 +350,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(System.String)">
@@ -392,7 +358,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -401,7 +366,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -410,7 +374,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -419,7 +382,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -428,7 +390,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -437,7 +398,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(System.String)">
@@ -446,7 +406,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -455,7 +414,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="T:NoStringEvaluating.Contract.INoStringEvaluatorNullable">
@@ -469,7 +427,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -478,7 +435,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumber(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -487,7 +443,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -496,7 +451,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumber(System.String)">
@@ -505,7 +459,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -514,7 +467,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -523,7 +475,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -532,7 +483,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -541,7 +491,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -550,7 +499,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(System.String)">
@@ -559,7 +507,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -568,7 +515,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -577,7 +523,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -586,7 +531,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -595,7 +539,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -604,7 +547,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(System.String)">
@@ -613,7 +555,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -622,7 +563,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -631,7 +571,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -640,7 +579,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -649,7 +587,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -658,7 +595,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(System.String)">
@@ -667,7 +603,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -676,7 +611,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -685,7 +619,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -694,7 +627,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -703,7 +635,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -712,7 +643,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(System.String)">
@@ -721,7 +651,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -730,7 +659,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -739,7 +667,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -748,7 +675,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -757,7 +683,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -766,7 +691,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(System.String)">
@@ -775,7 +699,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -784,7 +707,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -793,7 +715,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -802,7 +723,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -811,7 +731,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -820,7 +739,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(System.String)">
@@ -829,7 +747,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.Contract.INoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -838,7 +755,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="T:NoStringEvaluating.Contract.Variables.IVariable">
@@ -886,16 +802,6 @@
             Raises when can't find an id in keeper
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException">
-            <summary>
-            Raises when no free id
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException.#ctor(System.String)">
-            <summary>
-            Raises when no free id
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Exceptions.NoStringFunctionException">
             <summary>
             Raises when function exception
@@ -921,49 +827,34 @@
             Raises when can't find a variable
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Extensions.DebugExtensions">
+        <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
             <summary>
             Extension for debugging
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Return list of variable values used by formula
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Return list of variable values used by formula
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
             <summary>
             Return list of variable values used by formula
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.VariableValuesUsedByFormula(NoStringEvaluating.NoStringEvaluator,NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
             <summary>
             Return list of variable values used by formula
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Extensions.DebugExtensions.VariableValuesUsedByFormulaInternal(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},NoStringEvaluating.Services.Variables.VariablesSource)">
+        <member name="M:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions.VariableValuesUsedByFormulaInternal(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},NoStringEvaluating.Services.Variables.VariablesSource)">
             <summary>
             Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
-            </summary>
-        </member>
-        <member name="T:NoStringEvaluating.Factories.BooleanFactory">
-            <summary>
-            BooleanFactory
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Factories.BooleanFactory.#ctor(System.Collections.Generic.List{NoStringEvaluating.Services.Keepers.Models.ValueKeeperId})">
-            <summary>
-            BooleanFactory
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Factories.BooleanFactory.Create(System.Boolean)">
-            <summary>
-            Creates bool value
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Factories.DateTimeFactory">
@@ -1029,11 +920,6 @@
         <member name="P:NoStringEvaluating.Factories.ValueFactory.DateTime">
             <summary>
             DateTimeFactory
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Factories.ValueFactory.Boolean">
-            <summary>
-            BooleanFactory
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Factories.ValueFactory.WordList">
@@ -1874,6 +1760,26 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Functions.Logic.IsNanFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Evaluate value
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Functions.Logic.NotAliasFunction">
+            <summary>
+            Function - not
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.NotAliasFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Logic.NotAliasFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Logic.NotAliasFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
             <summary>
             Evaluate value
             </summary>
@@ -3644,6 +3550,26 @@
             Evaluate function
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Functions.Null.IsNullFunction">
+            <summary>
+            Function - IsNull(x) => Returns TRUE x is Null
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.IsNullFunction.Name">
+            <summary>
+            Name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Functions.Null.IsNullFunction.CanHandleNullArguments">
+            <summary>
+            Can handle IsNull arguments?
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Functions.Null.IsNullFunction.Execute(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue},NoStringEvaluating.Factories.ValueFactory)">
+            <summary>
+            Evaluate function
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Functions.Null.NullIfFunction">
             <summary>
             Function - NullIf(x,3) => Returns NULL if x == 3
@@ -3887,6 +3813,11 @@
         <member name="F:NoStringEvaluating.Models.FunctionChar.Semicolon">
             <summary>
             Semicolon
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FunctionChar.Comma">
+            <summary>
+            Comma
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Operator">
@@ -4149,12 +4080,27 @@
             Number value
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.Boolean">
+            <summary>
+            Boolean value
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Double)">
             <summary>
             Value for internal processing
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Nullable{System.Double})">
+            <summary>
+            Value for internal processing
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Boolean)">
+            <summary>
+            Value for internal processing
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Nullable{System.Boolean})">
             <summary>
             Value for internal processing
             </summary>
@@ -4202,11 +4148,6 @@
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetDateTime">
             <summary>
             Returns DateTime
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetBoolean">
-            <summary>
-            Returns bool
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.GetWord">
@@ -4330,6 +4271,11 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(System.Double)~NoStringEvaluating.Models.Values.InternalEvaluatorValue">
+            <summary>
+            To InternalEvaluatorValue
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.op_Implicit(System.Boolean)~NoStringEvaluating.Models.Values.InternalEvaluatorValue">
             <summary>
             To InternalEvaluatorValue
             </summary>
@@ -4559,7 +4505,12 @@
             Has unary minus
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Nodes.FunctionNode.#ctor(NoStringEvaluating.Functions.Base.IFunction,System.Boolean)">
+        <member name="P:NoStringEvaluating.Nodes.FunctionNode.IsNegation">
+            <summary>
+            Has negation in boolean
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionNode.#ctor(NoStringEvaluating.Functions.Base.IFunction,System.Boolean,System.Boolean)">
             <summary>
             Formula node - Function
             </summary>
@@ -4689,7 +4640,12 @@
             Has unary minus
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean)">
+        <member name="P:NoStringEvaluating.Nodes.VariableNode.IsNegation">
+            <summary>
+            Has negation in boolean
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean,System.Boolean)">
             <summary>
             Formula node - Variable
             </summary>
@@ -4755,7 +4711,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4764,7 +4719,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4773,7 +4727,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4782,7 +4735,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(System.String)">
@@ -4791,7 +4743,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -4800,7 +4751,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4809,7 +4759,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4818,7 +4767,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4827,7 +4775,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4836,7 +4783,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(System.String)">
@@ -4845,7 +4791,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -4854,7 +4799,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4863,7 +4807,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4872,7 +4815,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4881,7 +4823,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4890,7 +4831,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(System.String)">
@@ -4899,7 +4839,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -4908,7 +4847,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4917,7 +4855,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4926,7 +4863,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4935,7 +4871,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4944,7 +4879,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(System.String)">
@@ -4953,7 +4887,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -4962,7 +4895,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4971,7 +4903,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -4980,7 +4911,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4989,7 +4919,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -4998,7 +4927,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(System.String)">
@@ -5007,7 +4935,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5016,7 +4943,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5025,7 +4951,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5034,7 +4959,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5043,7 +4967,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5052,7 +4975,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(System.String)">
@@ -5061,7 +4983,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5070,7 +4991,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5079,7 +4999,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5088,7 +5007,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5097,7 +5015,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5106,7 +5023,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(System.String)">
@@ -5115,7 +5031,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5124,7 +5039,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CreateFacade(System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
@@ -5178,7 +5092,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5187,7 +5100,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumber(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5196,7 +5108,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5205,7 +5116,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumber(System.String)">
@@ -5214,7 +5124,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumber(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5223,7 +5132,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5232,7 +5140,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5241,7 +5148,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5250,7 +5156,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5259,7 +5164,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(System.String)">
@@ -5268,7 +5172,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWord(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5277,7 +5180,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5286,7 +5188,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5295,7 +5196,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5304,7 +5204,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5313,7 +5212,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(System.String)">
@@ -5322,7 +5220,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcDateTime(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5331,7 +5228,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5340,7 +5236,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5349,7 +5244,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5358,7 +5252,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5367,7 +5260,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(System.String)">
@@ -5376,7 +5268,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcWordList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5385,7 +5276,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5394,7 +5284,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5403,7 +5292,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5412,7 +5300,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5421,7 +5308,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(System.String)">
@@ -5430,7 +5316,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcNumberList(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5439,7 +5324,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5448,7 +5332,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5457,7 +5340,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5466,7 +5348,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5475,7 +5356,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(System.String)">
@@ -5484,7 +5364,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CalcBoolean(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5493,7 +5372,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5502,7 +5380,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5511,7 +5388,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(System.String,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5520,7 +5396,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes,System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
@@ -5529,7 +5404,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(System.String)">
@@ -5538,7 +5412,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.Calc(NoStringEvaluating.Nodes.Common.FormulaNodes)">
@@ -5547,7 +5420,6 @@
             </summary>
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
-            <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeNoFreeIdException"></exception>
             <exception cref="T:NoStringEvaluating.Exceptions.ExtraTypeIdNotFoundException"></exception>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorNullable.CreateFacade(System.Action{NoStringEvaluating.NoStringEvaluatorOptions})">
@@ -5955,6 +5827,16 @@
         <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.ListReader.TryProceedList(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
             <summary>
             Read list
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader">
+            <summary>
+            Negation Reader
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader.ReadNegation(System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
+            <summary>
+            Read negation
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader">

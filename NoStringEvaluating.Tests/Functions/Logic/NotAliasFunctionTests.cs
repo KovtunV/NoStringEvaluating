@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace NoStringEvaluating.Tests.Functions.Logic;
 
-internal class NotFunctionTests : FunctionTests<NotFunction>
+internal class NotAliasFunctionTests : FunctionTests<NotAliasFunction>
 {
     [TestCase(true, false)]
     [TestCase(false, true)]

@@ -69,6 +69,9 @@ public class FunctionReader : IFunctionReader
         // Read unary minus
         var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
+        // Read negation
+        localIndex = NegationReader.ReadNegation(formula, localIndex, out var isNegationLocal);
+
         // Read function
         var functionNameBuilder = new NameBuilder();
         for (int fInd = 0; fInd < _functions.Count; fInd++)
@@ -86,7 +89,7 @@ public class FunctionReader : IFunctionReader
                 {
                     if (functionNameBuilder.IsFinished && IsBracketNext(formula, i + 1))
                     {
-                        var functionNode = new FunctionNode(function, isNegativeLocal);
+                        var functionNode = new FunctionNode(function, isNegativeLocal, isNegationLocal);
                         nodes.Add(functionNode);
 
                         index = i;

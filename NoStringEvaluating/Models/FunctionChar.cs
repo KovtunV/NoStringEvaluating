@@ -13,5 +13,10 @@ public enum FunctionChar
     /// <summary>
     /// Semicolon
     /// </summary>
-    Semicolon
+    Semicolon,
+
+    /// <summary>
+    /// Comma
+    /// </summary>
+    Comma
 }

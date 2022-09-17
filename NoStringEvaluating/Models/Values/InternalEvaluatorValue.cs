@@ -24,6 +24,11 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     public double Number { get; }
 
     /// <summary>
+    /// Boolean value
+    /// </summary>
+    public bool Boolean => Number != 0.0;
+
+    /// <summary>
     /// Value for internal processing
     /// </summary>
     public InternalEvaluatorValue(double number)
@@ -41,6 +46,32 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         {
             TypeKey = ValueTypeKey.Number;
             Number = number.Value;
+        }
+        else
+        {
+            Number = default;
+            TypeKey = ValueTypeKey.Null;
+        }
+    }
+
+    /// <summary>
+    /// Value for internal processing
+    /// </summary>
+    public InternalEvaluatorValue(bool boolean)
+    {
+        TypeKey = ValueTypeKey.Boolean;
+        Number = boolean ? 1.0 : 0.0;
+    }
+
+    /// <summary>
+    /// Value for internal processing
+    /// </summary>
+    public InternalEvaluatorValue(bool? boolean)
+    {
+        if (boolean.HasValue)
+        {
+            TypeKey = ValueTypeKey.Boolean;
+            Number = boolean.Value ? 1.0 : 0.0;
         }
         else
         {
@@ -112,15 +143,6 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     }
 
     /// <summary>
-    /// Returns bool
-    /// </summary>
-    public bool GetBoolean()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsBoolean ? BooleanKeeper.Instance.Get(_extraTypeId) : default;
-    }
-
-    /// <summary>
     /// Returns string
     /// </summary>
     public string GetWord()
@@ -184,10 +206,10 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     {
         return TypeKey == other.TypeKey &&
             (
-            (TypeKey == ValueTypeKey.Boolean && GetBoolean() == other.GetBoolean()) ||
+            (TypeKey == ValueTypeKey.Boolean && Boolean == other.Boolean) ||
             (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
-            (TypeKey == ValueTypeKey.Number && Number.Equals(other.Number)) ||
             (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
+            (TypeKey == ValueTypeKey.Number && Math.Abs(Number - other.Number) < GlobalOptions.FloatingTolerance) ||
             (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
             (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
             (TypeKey == ValueTypeKey.Object && Equals(GetObject(), other.GetObject())) ||
@@ -212,7 +234,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         if (IsBoolean)
         {
-            return HashCode.Combine(TypeKey, GetBoolean());
+            return HashCode.Combine(TypeKey, Boolean);
         }
 
         if (IsWord)
@@ -359,7 +381,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public static implicit operator bool(InternalEvaluatorValue a)
     {
-        return a.GetBoolean();
+        return a.Boolean;
     }
 
     /// <summary>
@@ -386,6 +408,14 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         return new InternalEvaluatorValue(a);
     }
 
+    /// <summary>
+    /// To InternalEvaluatorValue
+    /// </summary>
+    public static implicit operator InternalEvaluatorValue(bool a)
+    {
+        return new InternalEvaluatorValue(a);
+    }
+
     #endregion
 
     /// <summary>
@@ -400,7 +430,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         if (IsBoolean)
         {
-            return GetBoolean().ToString(CultureInfo.InvariantCulture);
+            return Boolean.ToString(CultureInfo.InvariantCulture);
         }
 
         if (IsWord)

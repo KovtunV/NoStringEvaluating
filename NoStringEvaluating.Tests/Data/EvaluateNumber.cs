@@ -224,5 +224,10 @@ internal static class EvaluateNumber
         yield return CreateTestModel("Multi(10; list)", 60, ("list", numberList1));
         yield return CreateTestModel("Multi(10; list; 90)", 5400, ("list", numberList1));
         yield return CreateTestModel("Multi(list; list)", 36, ("list", numberList1));
+        yield return CreateTestModel("Add(5,12; 3,03; 10,64)", 18.79);
+        yield return CreateTestModel("Add(5,12, 3,03, 10,64)", 18.79);
+        yield return CreateTestModel("Add(5.12, 3.03, 10.64)", 18.79);
+        yield return CreateTestModel("Add(Add(Add(5, 0); Add(6)); 3)", 14);
+        yield return CreateTestModel("2,7", 2.7);
     }
 }

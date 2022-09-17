@@ -13,7 +13,7 @@ namespace NoStringEvaluating.Extensions;
 /// <summary>
 /// Extension for debugging
 /// </summary>
-public static class DebugExtensions
+public static class NoStringEvaluatorExtensions
 {
     #region VariableValuesUsed
 
