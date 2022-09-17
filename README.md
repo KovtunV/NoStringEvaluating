@@ -168,7 +168,7 @@ public class MyService
 If you need your function, just implement the interface **IFunction**
 If you want to returnt extra type, use factory.
 
-As an argument separator can be:
+As an argument's separator can be:
 - ;
 - ,
 
