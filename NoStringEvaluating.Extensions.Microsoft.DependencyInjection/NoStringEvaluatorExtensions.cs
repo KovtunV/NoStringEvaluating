@@ -33,7 +33,7 @@ public static class NoStringEvaluatorExtensions
         // Pooling
         services.TryAddSingleton(ObjectPool.Create<Stack<InternalEvaluatorValue>>());
         services.TryAddSingleton(ObjectPool.Create<List<InternalEvaluatorValue>>());
-        services.TryAddSingleton(ObjectPool.Create<ExtraTypeIdContainer>());
+        services.TryAddSingleton(ObjectPool.Create<ValueKeeperContainer>());
 
         // Parser
         services.TryAddSingleton<IFormulaCache, FormulaCache>();
