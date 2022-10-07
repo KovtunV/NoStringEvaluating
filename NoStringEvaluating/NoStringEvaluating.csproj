@@ -9,17 +9,15 @@
 		<Description>Fast low memory consuming mathematical evaluation without endless string parsing! Parses string formula once and uses its object sequence in each evaluation.</Description>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageIcon>logo.png</PackageIcon>
-		<PackageReleaseNotes>1. Boolean optimization
-2. External value id keeper optimization
-3. Add operators "=" and "&lt;&gt;"
-4. Add argument's separator in a function, it can be ";" or ","
-5. Add negation like: !(5 &gt; 1) or !IsNull(x) or !true or !myVariable
-6. Add function IsNull(x)</PackageReleaseNotes>
+		<PackageReleaseNotes>New value keeper architecture
+
+1. Parallel performance for non number evaluations
+2. Number evaluations performance in a single thread + ~15%</PackageReleaseNotes>
 		<PackageTags>Math, Mathematics, Mathematical-Expression, Expressions, Parser, Formula, Evaluator, Calculator, Solve, Calculation, Logic, Condition, Custom, Function, Math-Parser, Expression-Evaluator, Formula-Parser, Object-Pooling, NoString, RPN</PackageTags>
 		<PackageProjectUrl>https://github.com/KovtunV/NoStringEvaluating</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>2.4.2</Version>
+		<Version>2.5.0</Version>
 		<PackageReadmeFile></PackageReadmeFile>
 	</PropertyGroup>
 
