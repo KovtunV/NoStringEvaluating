@@ -25,6 +25,6 @@ public sealed class AtanFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Atan(args[0]);
+        return System.Math.Atan(args[0].Number);
     }
 }

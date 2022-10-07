@@ -26,7 +26,7 @@ public sealed class AcosechFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var x = args[0];
+        var x = args[0].Number;
         var a = Sign(x) * Sqrt(x * x + 1) + 1;
         return Log(a / x);
     }

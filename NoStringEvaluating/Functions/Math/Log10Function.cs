@@ -25,6 +25,6 @@ public sealed class Log10Function : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Log10(args[0]);
+        return System.Math.Log10(args[0].Number);
     }
 }

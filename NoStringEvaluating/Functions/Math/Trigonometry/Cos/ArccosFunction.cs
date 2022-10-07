@@ -23,11 +23,8 @@ public sealed class ArccosFunction : IFunction
     /// <summary>
     /// Evaluate value
     /// </summary>
-    /// <param name="args"></param>
-    /// <param name="factory"></param>
-    /// <returns></returns>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Acos(args[0]);
+        return System.Math.Acos(args[0].Number);
     }
 }

@@ -30,8 +30,8 @@ public sealed class UniqueFunction : IFunction
     {
         var wordListFactory = factory.WordList;
 
-        var wordList = args[0].GetWordList();
-        var uniqueOnly = args.Count > 1 && args[^1];
+        var wordList = args[0].WordList;
+        var uniqueOnly = args.Count > 1 && args[^1].Boolean;
 
         var group = wordList.GroupBy(q => q);
         if (uniqueOnly)

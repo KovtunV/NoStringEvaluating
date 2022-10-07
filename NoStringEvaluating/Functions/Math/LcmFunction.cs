@@ -48,7 +48,7 @@ public sealed class LcmFunction : IFunction
 
             if (arg.IsNumberList)
             {
-                var numbers = arg.GetNumberList();
+                var numbers = arg.NumberList;
 
                 for (int j = 0; j < numbers.Count; j++)
                 {

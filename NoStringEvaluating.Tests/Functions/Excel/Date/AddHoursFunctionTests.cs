@@ -19,6 +19,6 @@ internal class AddHoursFunctionTests : FunctionTests<AddHoursFunction>
         var actual = Execute(dateTime, hours);
 
         // assert
-        actual.GetDateTime().Should().Be(expected);
+        actual.DateTime.Should().Be(expected);
     }
 }

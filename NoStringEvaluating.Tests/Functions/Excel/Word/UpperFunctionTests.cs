@@ -20,7 +20,7 @@ internal class UpperFunctionTests : FunctionTests<UpperFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -35,7 +35,7 @@ internal class UpperFunctionTests : FunctionTests<UpperFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]

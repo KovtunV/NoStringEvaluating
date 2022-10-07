@@ -29,8 +29,8 @@ public sealed class ExplodeFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var separator = args.Count > 1 ? args[1].GetWord() : " ";
-        var res = args[0].GetWord().Split(separator, StringSplitOptions.RemoveEmptyEntries).ToList();
+        var separator = args.Count > 1 ? args[1].Word : " ";
+        var res = args[0].Word.Split(separator, StringSplitOptions.RemoveEmptyEntries).ToList();
         return factory.WordList.Create(res);
     }
 }

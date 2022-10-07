@@ -26,8 +26,7 @@ public sealed class ArcsecFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var x = args[0];
-
+        var x = args[0].Number;
         // 2 * Atan(1) == 1.5707963267948966
         return 1.5707963267948966 - Atan(Sign(x) / Sqrt(x * x - 1));
     }

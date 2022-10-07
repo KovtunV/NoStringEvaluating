@@ -25,6 +25,6 @@ public sealed class CosFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Cos(args[0]);
+        return System.Math.Cos(args[0].Number);
     }
 }

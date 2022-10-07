@@ -25,6 +25,6 @@ public sealed class ExpFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Exp(args[0]);
+        return System.Math.Exp(args[0].Number);
     }
 }

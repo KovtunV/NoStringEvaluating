@@ -27,11 +27,11 @@ public sealed class DayFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         var wordFactory = factory.Word;
-        var dateVal = args[0].GetDateTime();
+        var dateVal = args[0].DateTime;
 
         if (args.Count > 1 && args[1].IsWord)
         {
-            var format = args[1].GetWord();
+            var format = args[1].Word;
             var strRes = dateVal.Day.ToString().PadLeft(format.Length, '0');
             return wordFactory.Create(strRes);
         }

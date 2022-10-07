@@ -25,7 +25,7 @@ public sealed class ActanhFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var x = args[0];
+        var x = args[0].Number;
         return System.Math.Log((x + 1) / (x - 1)) / 2;
     }
 }

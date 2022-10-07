@@ -25,6 +25,6 @@ public sealed class CschFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return 1 / System.Math.Sinh(args[0]);
+        return 1 / System.Math.Sinh(args[0].Number);
     }
 }

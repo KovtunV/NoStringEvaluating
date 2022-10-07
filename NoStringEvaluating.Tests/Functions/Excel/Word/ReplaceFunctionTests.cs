@@ -17,7 +17,7 @@ internal class ReplaceFunctionTests : FunctionTests<ReplaceFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -34,7 +34,7 @@ internal class ReplaceFunctionTests : FunctionTests<ReplaceFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
 

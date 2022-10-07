@@ -26,7 +26,7 @@ public sealed class WeekDayFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var weekDay = (int)args[0].GetDateTime().DayOfWeek + 1;
+        var weekDay = (int)args[0].DateTime.DayOfWeek + 1;
         return weekDay;
     }
 }

@@ -21,6 +21,6 @@ internal class DateFormatFunctionTests : FunctionTests<DateFormatFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

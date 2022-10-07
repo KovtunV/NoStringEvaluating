@@ -22,7 +22,7 @@ internal class ToDateTimeFunctionTests : FunctionTests<ToDateTimeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.DateTime);
-        actual.GetDateTime().Should().Be(expected);
+        actual.DateTime.Should().Be(expected);
     }
 
     [Test]
@@ -36,6 +36,6 @@ internal class ToDateTimeFunctionTests : FunctionTests<ToDateTimeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.DateTime);
-        actual.GetDateTime().Should().Be(DateTime.MinValue);
+        actual.DateTime.Should().Be(DateTime.MinValue);
     }
 }

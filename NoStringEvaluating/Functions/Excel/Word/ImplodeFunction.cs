@@ -28,7 +28,7 @@ public sealed class ImplodeFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var separator = args.Count > 1 ? args[^1].GetWord() : string.Empty;
+        var separator = args.Count > 1 ? args[^1].Word : string.Empty;
         var res = string.Join(separator, GetLoop(args));
         return factory.Word.Create(res);
     }
@@ -42,7 +42,7 @@ public sealed class ImplodeFunction : IFunction
 
             if (arg.IsWordList)
             {
-                var wordList = arg.GetWordList();
+                var wordList = arg.WordList;
                 for (int j = 0; j < wordList.Count; j++)
                 {
                     yield return wordList[j];
@@ -50,7 +50,7 @@ public sealed class ImplodeFunction : IFunction
             }
             else if (arg.IsNumberList)
             {
-                var numberList = arg.GetNumberList();
+                var numberList = arg.NumberList;
                 for (int j = 0; j < numberList.Count; j++)
                 {
                     yield return numberList[j].ToString(CultureInfo.InvariantCulture);

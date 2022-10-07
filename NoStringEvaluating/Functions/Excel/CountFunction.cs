@@ -32,13 +32,13 @@ public sealed class CountFunction : IFunction
             var arg = args[i];
             if (arg.IsWordList)
             {
-                res += arg.GetWordList().Count;
+                res += arg.WordList.Count;
                 continue;
             }
 
             if (arg.IsNumberList)
             {
-                res += arg.GetNumberList().Count;
+                res += arg.NumberList.Count;
                 continue;
             }
 

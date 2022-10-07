@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
-using NoStringEvaluating;
-using NoStringEvaluating.Contract;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Functions.Logic;
 using NoStringEvaluating.Functions.Math;
 using NoStringEvaluating.Models.Values;
 using org.mariuszgromada.math.mxparser;
+using static NoStringEvaluating.NoStringEvaluator;
 
 namespace ConsoleApp.Benchmark.Base;
 
 [MemoryDiagnoser]
 [SimpleJob(RunStrategy.Monitoring, warmupCount: 2, invocationCount: 3, targetCount: 10)]
-public abstract class BaseBenchmarkService
+public abstract class BenchBase
 {
     public virtual int N { get; set; } = 1_000_000;
 
@@ -24,7 +23,7 @@ public abstract class BaseBenchmarkService
     private Function[] _usedFunctionsMxParser;
 
     [GlobalSetup]
-    public void Setup()
+    public virtual void Setup()
     {
         _usedFunctions = new IFunction[]
         {
@@ -46,7 +45,8 @@ public abstract class BaseBenchmarkService
 
     protected virtual void CalcNoString(string formula, params string[] argsNames)
     {
-        var eval = CreateNoString();
+        var evalFacade = CreateNoStringFacade();
+        var eval = evalFacade.Evaluator;
         var args = argsNames.ToDictionary(s => s, r => (EvaluatorValue)1.7);
 
         eval.CalcNumber(formula, args);
@@ -59,7 +59,9 @@ public abstract class BaseBenchmarkService
 
     protected virtual void CalcNoString(string formula)
     {
-        var eval = CreateNoString();
+        var evalFacade = CreateNoStringFacade();
+        var eval = evalFacade.Evaluator;
+
         eval.CalcNumber(formula);
 
         for (var i = 0; i < N; i++)
@@ -68,12 +70,9 @@ public abstract class BaseBenchmarkService
         }
     }
 
-    protected INoStringEvaluator CreateNoString()
+    protected Facade CreateNoStringFacade()
     {
-        var evaluatorFacade = NoStringEvaluator
-            .CreateFacade(opt => opt.WithoutDefaultFunctions().WithFunctions(_usedFunctions));
-
-        return evaluatorFacade.Evaluator;
+        return CreateFacade(opt => opt.WithoutDefaultFunctions().WithFunctions(_usedFunctions));
     }
 
     #endregion

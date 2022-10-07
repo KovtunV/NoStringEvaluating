@@ -30,7 +30,7 @@ public sealed class MinFunction : IFunction
 
         if (firstArg.IsNumberList)
         {
-            min = Min(firstArg.GetNumberList());
+            min = Min(firstArg.NumberList);
         }
 
         for (int i = 1; i < args.Count; i++)
@@ -40,7 +40,7 @@ public sealed class MinFunction : IFunction
 
             if (arg.IsNumberList)
             {
-                current = Min(arg.GetNumberList());
+                current = Min(arg.NumberList);
             }
 
             if (current < min)

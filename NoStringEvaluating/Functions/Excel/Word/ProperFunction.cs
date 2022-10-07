@@ -32,7 +32,7 @@ public sealed class ProperFunction : IFunction
 
         if (arg.IsWord)
         {
-            var word = arg.GetWord();
+            var word = arg.Word;
 
             var res = Proper(word);
             return factory.Word.Create(res);
@@ -41,7 +41,7 @@ public sealed class ProperFunction : IFunction
         if (arg.IsWordList)
         {
             // Copy
-            var wordList = arg.GetWordList().ToList();
+            var wordList = arg.WordList.ToList();
             for (int i = 0; i < wordList.Count; i++)
             {
                 wordList[i] = Proper(wordList[i]);

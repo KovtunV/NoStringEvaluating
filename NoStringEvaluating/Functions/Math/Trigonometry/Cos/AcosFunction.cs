@@ -25,6 +25,6 @@ public sealed class AcosFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Acos(args[0]);
+        return System.Math.Acos(args[0].Number);
     }
 }

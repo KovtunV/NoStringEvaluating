@@ -12,11 +12,19 @@ class Program
 {
     static void Main()
     {
-        //var eval = CreateNoString();
+        Run(Key.Number);
+    }
 
-        //var res1 = eval.CalcBoolean("5 + 6 = 13");
-
-        BenchmarkRunner.Run<BenchmarkNumberService>();
+    static void Run(Key key)
+    {
+        if (key == Key.Number)
+        {
+            BenchmarkRunner.Run<BenchNumbers>();
+        }
+        else if (key == Key.Parallel)
+        {
+            BenchmarkRunner.Run<BenchParallel>();
+        }
     }
 
     static NoStringEvaluator CreateNoString()
@@ -39,5 +47,11 @@ class Program
 
         var eval = kernel.Get<INoStringEvaluator>();
         return eval;
+    }
+
+    private enum Key
+    {
+        Number,
+        Parallel
     }
 }

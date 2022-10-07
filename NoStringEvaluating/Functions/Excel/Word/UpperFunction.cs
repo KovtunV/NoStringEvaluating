@@ -31,13 +31,13 @@ public sealed class UpperFunction : IFunction
 
         if (arg.IsWord)
         {
-            var res = arg.GetWord().ToUpperInvariant();
+            var res = arg.Word.ToUpperInvariant();
             return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
         {
-            var wordList = arg.GetWordList();
+            var wordList = arg.WordList;
             var wordListRes = wordList.Select(s => s.ToUpperInvariant()).ToList();
             return factory.WordList.Create(wordListRes);
         }

@@ -20,7 +20,7 @@ internal class YearFunctionTests : FunctionTests<YearFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("16.01.2022", "Y", "2022")]
@@ -35,6 +35,6 @@ internal class YearFunctionTests : FunctionTests<YearFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

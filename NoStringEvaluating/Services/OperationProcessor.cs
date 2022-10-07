@@ -12,7 +12,7 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a * b;
+            return a.Number * b.Number;
         }
 
         return default;
@@ -22,17 +22,17 @@ internal static class OperationProcessor
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a / b;
+            return a.Number / b.Number;
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue Plus(in ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Plus(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a + b;
+            return a.Number + b.Number;
         }
 
         if (a.IsWord || b.IsWord)
@@ -42,42 +42,42 @@ internal static class OperationProcessor
 
         if (a.IsNumber && b.IsDateTime)
         {
-            return factory.DateTime.Create(b.GetDateTime().AddDays(a.Number));
+            return factory.DateTime.Create(b.DateTime.AddDays(a.Number));
         }
 
         if (a.IsDateTime && b.IsNumber)
         {
-            return factory.DateTime.Create(a.GetDateTime().AddDays(b.Number));
+            return factory.DateTime.Create(a.DateTime.AddDays(b.Number));
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue Minus(in ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Minus(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a - b;
+            return a.Number - b.Number;
         }
 
         if (a.IsDateTime && b.IsNumber)
         {
-            return factory.DateTime.Create(a.GetDateTime().AddDays(-b.Number));
+            return factory.DateTime.Create(a.DateTime.AddDays(-b.Number));
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return a.GetDateTime().Subtract(b.GetDateTime()).TotalDays;
+            return a.DateTime.Subtract(b.DateTime).TotalDays;
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue Power(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Power(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return Math.Pow(a, b);
+            return factory.Create(Math.Pow(a.Number, b.Number));
         }
 
         return default;
@@ -87,108 +87,108 @@ internal static class OperationProcessor
 
     #region Logic
 
-    public static InternalEvaluatorValue Less(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Less(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a < b;
+            return factory.Boolean.Create(a.Number < b.Number);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return a.GetDateTime() < b.GetDateTime();
+            return factory.Boolean.Create(a.DateTime < b.DateTime);
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue LessEqual(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue LessEqual(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a <= b;
+            return factory.Boolean.Create(a.Number <= b.Number);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return a.GetDateTime() <= b.GetDateTime();
+            return factory.Boolean.Create(a.DateTime <= b.DateTime);
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue More(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue More(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a > b;
+            return factory.Boolean.Create(a.Number > b.Number);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return a.GetDateTime() > b.GetDateTime();
+            return factory.Boolean.Create(a.DateTime > b.DateTime);
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue MoreEqual(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue MoreEqual(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return a >= b;
+            return factory.Boolean.Create(a.Number >= b.Number);
         }
 
         if (a.IsDateTime && b.IsDateTime)
         {
-            return a.GetDateTime() >= b.GetDateTime();
+            return factory.Boolean.Create(a.DateTime >= b.DateTime);
         }
 
         return default;
     }
 
-    public static InternalEvaluatorValue Equal(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Equal(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return Math.Abs(a - b) < GlobalOptions.FloatingTolerance;
+            return factory.Boolean.Create(Math.Abs(a.Number - b.Number) < GlobalOptions.FloatingTolerance);
         }
 
-        return a.Equals(b);
+        return factory.Boolean.Create(a.Equals(b));
     }
 
-    public static InternalEvaluatorValue NotEqual(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue NotEqual(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return Math.Abs(a - b) > GlobalOptions.FloatingTolerance;
+            return factory.Boolean.Create(Math.Abs(a.Number - b.Number) > GlobalOptions.FloatingTolerance);
         }
 
-        return !a.Equals(b);
+        return factory.Boolean.Create(!a.Equals(b));
     }
 
     #endregion
 
     #region Additional logic
 
-    public static InternalEvaluatorValue And(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue And(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return Math.Abs(a) > GlobalOptions.FloatingTolerance && Math.Abs(b) > GlobalOptions.FloatingTolerance;
+            return factory.Boolean.Create(Math.Abs(a.Number) > GlobalOptions.FloatingTolerance && Math.Abs(b.Number) > GlobalOptions.FloatingTolerance);
         }
 
-        return a && b;
+        return factory.Boolean.Create(a.Boolean && b.Boolean);
     }
 
-    public static InternalEvaluatorValue Or(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Or(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return Math.Abs(a) > GlobalOptions.FloatingTolerance || Math.Abs(b) > GlobalOptions.FloatingTolerance;
+            return factory.Boolean.Create(Math.Abs(a.Number) > GlobalOptions.FloatingTolerance || Math.Abs(b.Number) > GlobalOptions.FloatingTolerance);
         }
 
-        return a || b;
+        return factory.Boolean.Create(a.Boolean || b.Boolean);
     }
 
     #endregion

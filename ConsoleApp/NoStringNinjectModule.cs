@@ -24,8 +24,8 @@ public class NoStringNinjectModule : NinjectModule
             .ToConstant(ObjectPool.Create<List<InternalEvaluatorValue>>())
             .InSingletonScope();
 
-        Bind<ObjectPool<ExtraTypeIdContainer>>()
-            .ToConstant(ObjectPool.Create<ExtraTypeIdContainer>())
+        Bind<ObjectPool<ValueKeeperContainer>>()
+            .ToConstant(ObjectPool.Create<ValueKeeperContainer>())
             .InSingletonScope();
 
         // Parser

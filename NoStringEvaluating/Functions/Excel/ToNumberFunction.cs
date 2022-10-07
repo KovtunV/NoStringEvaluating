@@ -19,7 +19,7 @@ public sealed class ToNumberFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; }
+    public bool CanHandleNullArguments { get; } = true;
 
     /// <summary>
     /// Execute value
@@ -32,7 +32,12 @@ public sealed class ToNumberFunction : IFunction
             return arg;
         }
 
-        var numberWord = arg.GetWord();
+        if (arg.IsNull)
+        {
+            return double.NaN;
+        }
+
+        var numberWord = arg.Word;
 
         if (double.TryParse(numberWord, NumberStyles.Any, RusCulture, out var res))
             return res;

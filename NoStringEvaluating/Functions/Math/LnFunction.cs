@@ -25,6 +25,6 @@ public sealed class LnFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Log(args[0]);
+        return System.Math.Log(args[0].Number);
     }
 }

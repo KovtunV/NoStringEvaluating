@@ -26,9 +26,9 @@ public sealed class TimeDifFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var dateStart = args[0].GetDateTime();
-        var dateEnd = args[1].GetDateTime();
-        var format = args[2].GetWord().ToUpperInvariant();
+        var dateStart = args[0].DateTime;
+        var dateEnd = args[1].DateTime;
+        var format = args[2].Word.ToUpperInvariant();
 
         if (dateStart > dateEnd)
         {

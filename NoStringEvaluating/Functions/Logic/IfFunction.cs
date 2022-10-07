@@ -25,7 +25,7 @@ public sealed class IfFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        if (args[0])
+        if (args[0].Boolean)
         {
             return args[1];
         }

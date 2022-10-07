@@ -7,11 +7,11 @@ namespace NoStringEvaluating.Tests.Helpers;
 
 internal class InternalValueFactory
 {
-    private readonly ExtraTypeIdContainer _extraTypeIdContainer = new();
+    private readonly ValueKeeperContainer _valueKeeperContainer = new();
 
     public InternalValueFactory()
     {
-        ValueFactory = new(_extraTypeIdContainer);
+        ValueFactory = new(_valueKeeperContainer);
     }
 
     public ValueFactory ValueFactory { get; }

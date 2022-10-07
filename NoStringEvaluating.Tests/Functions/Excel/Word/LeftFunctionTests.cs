@@ -22,7 +22,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("Hello world", 4, "Hell")]
@@ -35,7 +35,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("Hello world", "or", "Hello w")]
@@ -48,7 +48,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -63,7 +63,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]
@@ -79,7 +79,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]
@@ -95,7 +95,7 @@ internal class LeftFunctionTests : FunctionTests<LeftFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]

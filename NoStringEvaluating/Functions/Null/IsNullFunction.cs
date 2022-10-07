@@ -29,6 +29,6 @@ public sealed class IsNullFunction : IFunction
         if (args.Count != 1)
             return default;
 
-        return args[0].IsNull;
+        return factory.Boolean.Create(args[0].IsNull);
     }
 }

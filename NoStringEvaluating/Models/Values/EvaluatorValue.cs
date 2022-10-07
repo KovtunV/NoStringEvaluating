@@ -229,7 +229,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 
         if (a.IsDateTime)
         {
-            return new EvaluatorValue(a.GetDateTime());
+            return new EvaluatorValue(a.DateTime);
         }
 
         if (a.IsBoolean)
@@ -239,22 +239,22 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
 
         if (a.IsWord)
         {
-            return new EvaluatorValue(WordFormatter.Format(a.GetWord()));
+            return new EvaluatorValue(WordFormatter.Format(a.Word));
         }
 
         if (a.IsWordList)
         {
-            return new EvaluatorValue(WordFormatter.Format(a.GetWordList()));
+            return new EvaluatorValue(WordFormatter.Format(a.WordList));
         }
 
         if (a.IsNumberList)
         {
-            return new EvaluatorValue(a.GetNumberList());
+            return new EvaluatorValue(a.NumberList);
         }
 
         if (a.IsObject)
         {
-            return new EvaluatorValue(a.GetObject());
+            return new EvaluatorValue(a.Object);
         }
 
         if (a.IsNull)

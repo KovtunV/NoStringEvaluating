@@ -17,7 +17,7 @@ internal class TextFunctionTests : FunctionTests<TextFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     public static IEnumerable<object[]> GetCases()

@@ -25,6 +25,6 @@ public sealed class SinFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Sin(args[0]);
+        return System.Math.Sin(args[0].Number);
     }
 }

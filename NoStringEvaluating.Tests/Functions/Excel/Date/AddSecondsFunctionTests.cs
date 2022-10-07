@@ -19,6 +19,6 @@ internal class AddSecondsFunctionTests : FunctionTests<AddSecondsFunction>
         var actual = Execute(dateTime, seconds);
 
         // assert
-        actual.GetDateTime().Should().Be(expected);
+        actual.DateTime.Should().Be(expected);
     }
 }

@@ -182,7 +182,7 @@ public class MyFunction : IFunction
 
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var name = args[0].GetWord();
+        var name = args[0].Word;
         var age = args[1];
 
         var ageAfterDecade = age + 10;

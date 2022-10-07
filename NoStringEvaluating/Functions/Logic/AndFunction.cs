@@ -27,12 +27,12 @@ public sealed class AndFunction : IFunction
     {
         for (int i = 0; i < args.Count; i++)
         {
-            if (!args[i])
+            if (!args[i].Boolean)
             {
-                return false;
+                return factory.Boolean.Create(false);
             }
         }
 
-        return true;
+        return factory.Boolean.Create(true);
     }
 }

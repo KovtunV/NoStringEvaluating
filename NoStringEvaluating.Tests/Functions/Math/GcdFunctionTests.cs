@@ -40,7 +40,7 @@ internal class GcdFunctionTests : FunctionTests<GcdFunction>
     }
 
     [Test]
-    public void Should_Return_Nan_With_Zero()
+    public void Should_Return_Null_With_Zero()
     {
         // arrange
         var numberList = new[] { 56d, 24, 0 }.ToList();
@@ -49,7 +49,6 @@ internal class GcdFunctionTests : FunctionTests<GcdFunction>
         var actual = Execute(numberList);
 
         // assert
-        actual.TypeKey.Should().Be(ValueTypeKey.Number);
-        actual.Number.Should().Be(double.NaN);
+        actual.TypeKey.Should().Be(ValueTypeKey.Null);
     }
 }

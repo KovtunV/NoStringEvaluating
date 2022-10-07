@@ -23,7 +23,7 @@ internal class SortFunctionTests : FunctionTests<SortFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [TestCase(true)]
@@ -41,7 +41,7 @@ internal class SortFunctionTests : FunctionTests<SortFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.NumberList);
-        actual.GetNumberList().Should().BeEquivalentTo(expected);
+        actual.NumberList.Should().BeEquivalentTo(expected);
     }
 
     [Test]

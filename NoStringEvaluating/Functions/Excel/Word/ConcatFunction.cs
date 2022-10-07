@@ -34,12 +34,12 @@ public sealed class ConcatFunction : IFunction
             var arg = args[i];
             if (arg.IsWordList)
             {
-                var wordList = arg.GetWordList();
+                var wordList = arg.WordList;
                 sb.Append(string.Join(string.Empty, wordList));
             }
             else if (arg.IsNumberList)
             {
-                var numberList = arg.GetNumberList();
+                var numberList = arg.NumberList;
                 sb.Append(string.Join(string.Empty, numberList));
             }
             else

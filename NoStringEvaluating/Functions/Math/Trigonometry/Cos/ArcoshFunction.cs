@@ -25,6 +25,6 @@ public sealed class ArcoshFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Acosh(args[0]);
+        return System.Math.Acosh(args[0].Number);
     }
 }

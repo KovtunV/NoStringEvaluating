@@ -25,6 +25,6 @@ public sealed class ModFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return args[0] % args[1];
+        return args[0].Number % args[1].Number;
     }
 }

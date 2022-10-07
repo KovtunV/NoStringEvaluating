@@ -20,7 +20,7 @@ internal class ImplodeFunctionTests : FunctionTests<ImplodeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -39,6 +39,6 @@ internal class ImplodeFunctionTests : FunctionTests<ImplodeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

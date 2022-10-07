@@ -31,13 +31,13 @@ public sealed class LowerFunction : IFunction
 
         if (arg.IsWord)
         {
-            var res = arg.GetWord().ToLowerInvariant();
+            var res = arg.Word.ToLowerInvariant();
             return factory.Word.Create(res);
         }
 
         if (arg.IsWordList)
         {
-            var wordList = arg.GetWordList();
+            var wordList = arg.WordList;
             var wordListRes = wordList.Select(s => s.ToLowerInvariant()).ToList();
             return factory.WordList.Create(wordListRes);
         }

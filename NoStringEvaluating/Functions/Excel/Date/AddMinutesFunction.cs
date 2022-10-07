@@ -25,11 +25,11 @@ public sealed class AddMinutesFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        var dateVal = args[0].GetDateTime();
+        var dateVal = args[0].DateTime;
 
         if (args.Count == 2 && args[1].IsNumber)
         {
-            return factory.DateTime.Create(dateVal.AddMinutes(args[1]));
+            return factory.DateTime.Create(dateVal.AddMinutes(args[1].Number));
         }
 
         // If we get weird input we just return the first argument

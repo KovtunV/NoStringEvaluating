@@ -34,7 +34,7 @@ public sealed class MiddleFunction : IFunction
 
         if (valArg.IsWord)
         {
-            var word = valArg.GetWord();
+            var word = valArg.Word;
             var wordRes = MiddleWord(argStart, argEnd, word);
 
             return factory.Word.Create(wordRes);
@@ -42,7 +42,7 @@ public sealed class MiddleFunction : IFunction
 
         if (valArg.IsWordList)
         {
-            var wordList = valArg.GetWordList().ToList();
+            var wordList = valArg.WordList.ToList();
             for (int i = 0; i < wordList.Count; i++)
             {
                 wordList[i] = MiddleWord(argStart, argEnd, wordList[i]);
@@ -81,8 +81,8 @@ public sealed class MiddleFunction : IFunction
 
     private static string CropWordWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
-        var wordStart = argStart.GetWord();
-        var wordEnd = argEnd.GetWord();
+        var wordStart = argStart.Word;
+        var wordEnd = argEnd.Word;
 
         var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
         if (wordStartIndex == -1)
@@ -99,7 +99,7 @@ public sealed class MiddleFunction : IFunction
 
     private static string CropWordNumber(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
-        var wordStart = argStart.GetWord();
+        var wordStart = argStart.Word;
         var argEndInt = (int)argEnd.Number;
 
         var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
@@ -117,7 +117,7 @@ public sealed class MiddleFunction : IFunction
     private static string CropNumberWord(string word, InternalEvaluatorValue argStart, InternalEvaluatorValue argEnd)
     {
         var argStartInt = (int)argStart.Number;
-        var wordEnd = argEnd.GetWord();
+        var wordEnd = argEnd.Word;
 
         if (argStartInt < 0 || argStartInt > word.Length)
             return string.Empty;

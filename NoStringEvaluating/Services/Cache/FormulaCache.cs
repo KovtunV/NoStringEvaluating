@@ -1,4 +1,4 @@
-﻿using System.Collections.Concurrent;
+﻿using System.Collections.Generic;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Nodes.Common;
 
@@ -9,7 +9,8 @@ namespace NoStringEvaluating.Services.Cache;
 /// </summary>
 public class FormulaCache : IFormulaCache
 {
-    private readonly ConcurrentDictionary<string, FormulaNodes> _formulaNodes;
+    private readonly object _locker;
+    private readonly Dictionary<string, FormulaNodes> _formulaNodes;
     private readonly IFormulaParser _formulaParser;
 
     /// <summary>
@@ -17,7 +18,8 @@ public class FormulaCache : IFormulaCache
     /// </summary>
     public FormulaCache(IFormulaParser formulaParser)
     {
-        _formulaNodes = new ConcurrentDictionary<string, FormulaNodes>();
+        _formulaNodes = new();
+        _locker = new();
 
         _formulaParser = formulaParser;
     }
@@ -27,16 +29,16 @@ public class FormulaCache : IFormulaCache
     /// </summary>
     public FormulaNodes GetFormulaNodes(string formula)
     {
-        if (!_formulaNodes.TryGetValue(formula, out var formulaNodes))
+        lock (_locker)
         {
-            formulaNodes = _formulaParser.Parse(formula);
-
-            if (!_formulaNodes.TryAdd(formula, formulaNodes))
+            if (!_formulaNodes.TryGetValue(formula, out var formulaNodes))
             {
-                return GetFormulaNodes(formula);
-            }
-        }
 
-        return formulaNodes;
+                formulaNodes = _formulaParser.Parse(formula);
+                _formulaNodes.Add(formula, formulaNodes);
+            }
+
+            return formulaNodes;
+        }
     }
 }

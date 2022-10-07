@@ -27,9 +27,9 @@ public sealed class YearFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         var wordFactory = factory.Word;
-        var dateVal = args[0].GetDateTime();
+        var dateVal = args[0].DateTime;
 
-        if (args.Count > 1 && args[1].IsWord && args[1].GetWord().Length == 2)
+        if (args.Count > 1 && args[1].IsWord && args[1].Word.Length == 2)
         {
             var strRes = dateVal.ToString("yy");
             return wordFactory.Create(strRes);

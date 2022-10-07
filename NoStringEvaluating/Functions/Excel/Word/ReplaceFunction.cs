@@ -29,20 +29,20 @@ public sealed class ReplaceFunction : IFunction
         var wordFactory = factory.Word;
 
         var sourseArg = args[0];
-        var oldWord = args[1].GetWord();
-        var newWord = args[2].GetWord();
+        var oldWord = args[1].Word;
+        var newWord = args[2].Word;
 
         // Word
         if (sourseArg.IsWord)
         {
-            var word = sourseArg.GetWord();
+            var word = sourseArg.Word;
             var res = word.Replace(oldWord, newWord);
             return wordFactory.Create(res);
         }
 
         if (sourseArg.IsWordList)
         {
-            var sourseList = sourseArg.GetWordList();
+            var sourseList = sourseArg.WordList;
 
             var resList = new List<string>(sourseList.Count);
             for (int i = 0; i < sourseList.Count; i++)

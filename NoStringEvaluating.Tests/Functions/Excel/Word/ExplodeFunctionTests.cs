@@ -20,7 +20,7 @@ internal class ExplodeFunctionTests : FunctionTests<ExplodeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]
@@ -41,6 +41,6 @@ internal class ExplodeFunctionTests : FunctionTests<ExplodeFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 }

@@ -19,7 +19,7 @@ internal class MiddleFunctionTests : FunctionTests<MiddleFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("one two kovtun loves painting two", 8, "two", "kovtun loves painting ")]
@@ -30,7 +30,7 @@ internal class MiddleFunctionTests : FunctionTests<MiddleFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("one two kovtun loves painting two", "two", 7, " kovtun")]
@@ -41,7 +41,7 @@ internal class MiddleFunctionTests : FunctionTests<MiddleFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("one two kovtun loves painting two", "two ", " two", "kovtun loves painting")]
@@ -52,7 +52,7 @@ internal class MiddleFunctionTests : FunctionTests<MiddleFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -69,7 +69,7 @@ internal class MiddleFunctionTests : FunctionTests<MiddleFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]

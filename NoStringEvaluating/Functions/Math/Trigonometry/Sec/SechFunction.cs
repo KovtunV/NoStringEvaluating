@@ -25,6 +25,6 @@ public sealed class SechFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return 1 / System.Math.Cosh(args[0]);
+        return 1 / System.Math.Cosh(args[0].Number);
     }
 }

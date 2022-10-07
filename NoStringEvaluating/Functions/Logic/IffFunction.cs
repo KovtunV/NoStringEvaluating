@@ -27,7 +27,7 @@ public sealed class IffFunction : IFunction
     {
         for (int i = 0; i < args.Count - 1; i += 2)
         {
-            if (args[i])
+            if (args[i].Boolean)
             {
                 return args[i + 1];
             }

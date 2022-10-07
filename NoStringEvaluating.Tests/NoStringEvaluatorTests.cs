@@ -200,10 +200,10 @@ internal class NoStringEvaluatorTests
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var arg = args[0];
-            var w1 = arg.GetWord();
+            var w1 = arg.Word;
             Thread.Sleep(100);
 
-            var w2 = arg.GetWord();
+            var w2 = arg.Word;
 
             return factory.Word.Create(w2);
         }
@@ -217,7 +217,7 @@ internal class NoStringEvaluatorTests
 
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
-            return args[0].GetObject<TestService>().GetTemperature() + args[1];
+            return args[0].GetObject<TestService>().GetTemperature() + args[1].Number;
         }
     }
 

@@ -31,7 +31,7 @@ public sealed class MultiFunction : IFunction
             var arg = args[i];
             if (arg.IsNumberList)
             {
-                var numberList = arg.GetNumberList();
+                var numberList = arg.NumberList;
                 for (int j = 0; j < numberList.Count; j++)
                 {
                     res *= numberList[j];
@@ -40,7 +40,7 @@ public sealed class MultiFunction : IFunction
                 continue;
             }
 
-            res *= args[i];
+            res *= args[i].Number;
         }
 
         return res;

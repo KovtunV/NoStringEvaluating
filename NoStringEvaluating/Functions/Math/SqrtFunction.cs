@@ -25,6 +25,6 @@ public sealed class SqrtFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Sqrt(args[0]);
+        return System.Math.Sqrt(args[0].Number);
     }
 }

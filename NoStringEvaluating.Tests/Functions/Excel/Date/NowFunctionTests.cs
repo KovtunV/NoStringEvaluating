@@ -20,6 +20,6 @@ internal class NowFunctionTests : FunctionTests<NowFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.DateTime);
-        actual.GetDateTime().Should().BeCloseTo(now, precision);
+        actual.DateTime.Should().BeCloseTo(now, precision);
     }
 }

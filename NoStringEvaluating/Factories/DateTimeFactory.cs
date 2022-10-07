@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using NoStringEvaluating.Models.Values;
-using NoStringEvaluating.Services.Keepers;
-using NoStringEvaluating.Services.Keepers.Models;
 
 namespace NoStringEvaluating.Factories;
 
@@ -11,14 +8,11 @@ namespace NoStringEvaluating.Factories;
 /// </summary>
 public readonly struct DateTimeFactory
 {
-    private readonly List<ValueKeeperId> _ids;
+    private readonly ValueKeeperContainer _valueKeeperContainer;
 
-    /// <summary>
-    /// DateTimeFactory
-    /// </summary>
-    public DateTimeFactory(List<ValueKeeperId> ids)
+    internal DateTimeFactory(ValueKeeperContainer valueKeeperContainer)
     {
-        _ids = ids;
+        _valueKeeperContainer = valueKeeperContainer;
     }
 
     /// <summary>
@@ -27,17 +21,26 @@ public readonly struct DateTimeFactory
     public InternalEvaluatorValue Empty => Create(DateTime.MinValue);
 
     /// <summary>
-    /// Creates dateTime value
+    /// Creates DateTime value
     /// </summary>
-    public InternalEvaluatorValue Create(DateTime date)
+    public InternalEvaluatorValue Create(DateTime? dateTime)
     {
-        // Save to keeper
-        var idModel = DateTimeKeeper.Instance.Save(date);
+        if (dateTime.HasValue)
+        {
+            return Create(dateTime.Value);
+        }
 
-        // Save to scoped list
-        _ids.Add(idModel);
+        return default;
+    }
 
-        // Create value
-        return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
+    /// <summary>
+    /// Creates DateTime value
+    /// </summary>
+    public InternalEvaluatorValue Create(DateTime dateTime)
+    {
+        var valueKeeper = _valueKeeperContainer.GetValueKeeper();
+        valueKeeper.DateTime = dateTime;
+
+        return new InternalEvaluatorValue(valueKeeper.Ptr, ValueTypeKey.DateTime);
     }
 }

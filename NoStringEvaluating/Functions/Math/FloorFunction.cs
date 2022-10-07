@@ -25,6 +25,6 @@ public sealed class FloorFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Floor(args[0]);
+        return System.Math.Floor(args[0].Number);
     }
 }

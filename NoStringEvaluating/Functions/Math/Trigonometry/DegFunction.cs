@@ -26,6 +26,6 @@ public sealed class DegFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         // 180 / Math.PI == 57.295779513082323
-        return 57.295779513082323 * args[0];
+        return 57.295779513082323 * args[0].Number;
     }
 }

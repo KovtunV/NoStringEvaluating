@@ -25,6 +25,6 @@ public sealed class TanFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Tan(args[0]);
+        return System.Math.Tan(args[0].Number);
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Runtime.InteropServices;
 using NoStringEvaluating.Extensions;
-using NoStringEvaluating.Services.Keepers;
 
 namespace NoStringEvaluating.Models.Values;
 
@@ -11,22 +11,20 @@ namespace NoStringEvaluating.Models.Values;
 /// </summary>
 public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValue>
 {
-    private readonly int _extraTypeId = default;
+    private readonly IntPtr _valueKeeperPtr = default;
+
+    private ValueKeeper ValueKeeper => _valueKeeperPtr != default
+        ? (ValueKeeper)GCHandle.FromIntPtr(_valueKeeperPtr).Target
+        : ValueKeeper.Zero;
 
     /// <summary>
-    /// Type key 
+    /// Value for internal processing
     /// </summary>
-    public ValueTypeKey TypeKey { get; }
-
-    /// <summary>
-    /// Number value
-    /// </summary>
-    public double Number { get; }
-
-    /// <summary>
-    /// Boolean value
-    /// </summary>
-    public bool Boolean => Number != 0.0;
+    internal InternalEvaluatorValue(IntPtr valueKeeperPtr, ValueTypeKey typeKey)
+    {
+        TypeKey = typeKey;
+        _valueKeeperPtr = valueKeeperPtr;
+    }
 
     /// <summary>
     /// Value for internal processing
@@ -49,43 +47,14 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         }
         else
         {
-            Number = default;
             TypeKey = ValueTypeKey.Null;
         }
     }
 
     /// <summary>
-    /// Value for internal processing
+    /// Type key 
     /// </summary>
-    public InternalEvaluatorValue(bool boolean)
-    {
-        TypeKey = ValueTypeKey.Boolean;
-        Number = boolean ? 1.0 : 0.0;
-    }
-
-    /// <summary>
-    /// Value for internal processing
-    /// </summary>
-    public InternalEvaluatorValue(bool? boolean)
-    {
-        if (boolean.HasValue)
-        {
-            TypeKey = ValueTypeKey.Boolean;
-            Number = boolean.Value ? 1.0 : 0.0;
-        }
-        else
-        {
-            Number = default;
-            TypeKey = ValueTypeKey.Null;
-        }
-    }
-
-    internal InternalEvaluatorValue(int extraTypeId, ValueTypeKey typeKey)
-    {
-        _extraTypeId = extraTypeId;
-        TypeKey = typeKey;
-        Number = double.NaN;
-    }
+    public ValueTypeKey TypeKey { get; }
 
     #region IsProperties
 
@@ -131,43 +100,42 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
     #endregion
 
-    #region ExtraValue
+    #region ValueProperties
 
     /// <summary>
-    /// Returns DateTime
+    /// Number value
     /// </summary>
-    public DateTime GetDateTime()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsDateTime ? DateTimeKeeper.Instance.Get(_extraTypeId) : default;
-    }
+    public double Number { get; } = default;
 
     /// <summary>
-    /// Returns string
+    /// DateTime value
     /// </summary>
-    public string GetWord()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWord ? WordKeeper.Instance.Get(_extraTypeId) : default;
-    }
+    public DateTime DateTime => ValueKeeper.DateTime;
 
     /// <summary>
-    /// Returns string List
+    /// Boolean value
     /// </summary>
-    public List<string> GetWordList()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsWordList ? WordListKeeper.Instance.Get(_extraTypeId) : default;
-    }
+    public bool Boolean => ValueKeeper.Boolean;
 
     /// <summary>
-    /// Returns double List
+    /// Word value
     /// </summary>
-    public List<double> GetNumberList()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsNumberList ? NumberListKeeper.Instance.Get(_extraTypeId) : default;
-    }
+    public string Word => ValueKeeper.Word;
+
+    /// <summary>
+    /// WordList value
+    /// </summary>
+    public List<string> WordList => ValueKeeper.WordList;
+
+    /// <summary>
+    /// NumberList value
+    /// </summary>
+    public List<double> NumberList => ValueKeeper.NumberList;
+
+    /// <summary>
+    /// Object value
+    /// </summary>
+    public object Object => ValueKeeper.Object;
 
     /// <summary>
     /// Returns object
@@ -175,16 +143,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     public T GetObject<T>()
         where T : class
     {
-        return GetObject() as T;
-    }
-
-    /// <summary>
-    /// Returns object
-    /// </summary>
-    public object GetObject()
-    {
-        // It has to be a method to avoid misunderstanding inside custom functions
-        return IsObject ? ObjectKeeper.Instance.Get(_extraTypeId) : default;
+        return Object as T;
     }
 
     #endregion
@@ -204,17 +163,15 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public bool Equals(InternalEvaluatorValue other)
     {
-        return TypeKey == other.TypeKey &&
-            (
+        return TypeKey == other.TypeKey && (
             (TypeKey == ValueTypeKey.Boolean && Boolean == other.Boolean) ||
-            (TypeKey == ValueTypeKey.Word && GetWord() == other.GetWord()) ||
-            (TypeKey == ValueTypeKey.DateTime && GetDateTime().Equals(other.GetDateTime())) ||
+            (TypeKey == ValueTypeKey.Word && Word == other.Word) ||
+            (TypeKey == ValueTypeKey.DateTime && DateTime.Equals(other.DateTime)) ||
             (TypeKey == ValueTypeKey.Number && Math.Abs(Number - other.Number) < GlobalOptions.FloatingTolerance) ||
-            (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(GetWordList(), other.GetWordList())) ||
-            (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(GetNumberList(), other.GetNumberList())) ||
-            (TypeKey == ValueTypeKey.Object && Equals(GetObject(), other.GetObject())) ||
-            (TypeKey == ValueTypeKey.Null)
-            );
+            (TypeKey == ValueTypeKey.WordList && EqualityComparer<List<string>>.Default.Equals(WordList, other.WordList)) ||
+            (TypeKey == ValueTypeKey.NumberList && EqualityComparer<List<double>>.Default.Equals(NumberList, other.NumberList)) ||
+            (TypeKey == ValueTypeKey.Object && Equals(Object, other.Object)) ||
+            (TypeKey == ValueTypeKey.Null));
     }
 
     /// <summary>
@@ -229,7 +186,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         if (IsDateTime)
         {
-            return HashCode.Combine(TypeKey, GetDateTime());
+            return HashCode.Combine(TypeKey, DateTime);
         }
 
         if (IsBoolean)
@@ -239,97 +196,25 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         if (IsWord)
         {
-            return HashCode.Combine(TypeKey, GetWord());
+            return HashCode.Combine(TypeKey, Word);
         }
 
         if (IsWordList)
         {
-            return HashCode.Combine(TypeKey, GetWordList());
+            return HashCode.Combine(TypeKey, WordList);
         }
 
         if (IsNumberList)
         {
-            return HashCode.Combine(TypeKey, GetNumberList());
+            return HashCode.Combine(TypeKey, NumberList);
         }
 
         if (IsObject)
         {
-            return HashCode.Combine(TypeKey, GetObject());
+            return HashCode.Combine(TypeKey, Object);
         }
 
         return HashCode.Combine(TypeKey);
-    }
-
-    #endregion
-
-    #region MathOperators
-
-    /// <summary>
-    /// Plus
-    /// </summary>
-    public static InternalEvaluatorValue operator +(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number + b.Number;
-    }
-
-    /// <summary>
-    /// Minus
-    /// </summary>
-    public static InternalEvaluatorValue operator -(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number - b.Number;
-    }
-
-    /// <summary>
-    /// Multiplication
-    /// </summary>
-    public static InternalEvaluatorValue operator *(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number * b.Number;
-    }
-
-    /// <summary>
-    /// Division
-    /// </summary>
-    public static InternalEvaluatorValue operator /(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number / b.Number;
-    }
-
-    #endregion
-
-    #region LogicOperators
-
-    /// <summary>
-    /// More
-    /// </summary>
-    public static bool operator >(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number > b.Number;
-    }
-
-    /// <summary>
-    /// Less
-    /// </summary>
-    public static bool operator <(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number < b.Number;
-    }
-
-    /// <summary>
-    /// More or Equal
-    /// </summary>
-    public static bool operator >=(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number >= b.Number;
-    }
-
-    /// <summary>
-    /// Less or Equal
-    /// </summary>
-    public static bool operator <=(InternalEvaluatorValue a, InternalEvaluatorValue b)
-    {
-        return a.Number <= b.Number;
     }
 
     /// <summary>
@@ -353,7 +238,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     #region Cast
 
     /// <summary>
-    /// To double
+    /// To number
     /// </summary>
     public static implicit operator double(InternalEvaluatorValue a)
     {
@@ -365,7 +250,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public static implicit operator string(InternalEvaluatorValue a)
     {
-        return a.GetWord();
+        return a.Word;
     }
 
     /// <summary>
@@ -373,7 +258,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public static implicit operator DateTime(InternalEvaluatorValue a)
     {
-        return a.GetDateTime();
+        return a.DateTime;
     }
 
     /// <summary>
@@ -385,19 +270,19 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     }
 
     /// <summary>
-    /// To string List
+    /// To word List
     /// </summary>
     public static implicit operator List<string>(InternalEvaluatorValue a)
     {
-        return a.GetWordList();
+        return a.WordList;
     }
 
     /// <summary>
-    /// To double List
+    /// To number List
     /// </summary>
     public static implicit operator List<double>(InternalEvaluatorValue a)
     {
-        return a.GetNumberList();
+        return a.NumberList;
     }
 
     /// <summary>
@@ -405,15 +290,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// </summary>
     public static implicit operator InternalEvaluatorValue(double a)
     {
-        return new InternalEvaluatorValue(a);
-    }
-
-    /// <summary>
-    /// To InternalEvaluatorValue
-    /// </summary>
-    public static implicit operator InternalEvaluatorValue(bool a)
-    {
-        return new InternalEvaluatorValue(a);
+        return new(a);
     }
 
     #endregion
@@ -425,7 +302,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     {
         if (IsDateTime)
         {
-            return GetDateTime().ToString(CultureInfo.InvariantCulture);
+            return DateTime.ToString(CultureInfo.InvariantCulture);
         }
 
         if (IsBoolean)
@@ -435,24 +312,24 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
 
         if (IsWord)
         {
-            return GetWord();
+            return Word;
         }
 
         if (IsWordList)
         {
-            var wList = GetWordList();
+            var wList = WordList;
             return wList is null ? string.Empty : string.Join(", ", wList);
         }
 
         if (IsNumberList)
         {
-            var nList = GetNumberList();
+            var nList = NumberList;
             return nList is null ? string.Empty : string.Join(", ", nList);
         }
 
         if (IsObject)
         {
-            return GetObject()?.ToString();
+            return Object?.ToString();
         }
 
         if (IsNull)

@@ -25,6 +25,6 @@ public sealed class AsinFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Asin(args[0]);
+        return System.Math.Asin(args[0].Number);
     }
 }

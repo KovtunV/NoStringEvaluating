@@ -32,7 +32,7 @@ public sealed class GcdFunction : IFunction
             return numbers[0];
 
         if (HasZero(numbers))
-            return double.NaN;
+            return default;
 
         var res = GetGcd(numbers[0], numbers[1]);
         for (int i = 2; i < numbers.Length; i++)
@@ -51,7 +51,7 @@ public sealed class GcdFunction : IFunction
 
             if (arg.IsNumberList)
             {
-                var numbers = arg.GetNumberList();
+                var numbers = arg.NumberList;
 
                 for (int j = 0; j < numbers.Count; j++)
                 {
@@ -77,7 +77,7 @@ public sealed class GcdFunction : IFunction
         return false;
     }
 
-    private static InternalEvaluatorValue GetGcd(double a, double b)
+    private static double GetGcd(double a, double b)
     {
         while (Abs(b) > GlobalOptions.FloatingTolerance)
         {

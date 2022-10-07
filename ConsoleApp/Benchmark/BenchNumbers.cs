@@ -3,7 +3,7 @@ using ConsoleApp.Benchmark.Base;
 
 namespace ConsoleApp.Benchmark;
 
-public class BenchmarkNumberService : BaseBenchmarkService
+public class BenchNumbers : BenchBase
 {
     #region NoString
 

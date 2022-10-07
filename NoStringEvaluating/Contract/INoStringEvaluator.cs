@@ -19,7 +19,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -27,7 +26,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -35,7 +33,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -43,7 +40,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -51,7 +47,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(string formula);
 
     /// <summary>
@@ -59,7 +54,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     double CalcNumber(FormulaNodes formulaNodes);
 
     #endregion
@@ -71,7 +65,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -79,7 +72,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -87,7 +79,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -95,7 +86,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -103,7 +93,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(string formula);
 
     /// <summary>
@@ -111,7 +100,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     string CalcWord(FormulaNodes formulaNodes);
 
     #endregion
@@ -123,7 +111,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -131,7 +118,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -139,7 +125,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -147,7 +132,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -155,7 +139,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(string formula);
 
     /// <summary>
@@ -163,7 +146,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     DateTime CalcDateTime(FormulaNodes formulaNodes);
 
     #endregion
@@ -175,7 +157,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -183,7 +164,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -191,7 +171,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -199,7 +178,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -207,7 +185,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(string formula);
 
     /// <summary>
@@ -215,7 +192,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<string> CalcWordList(FormulaNodes formulaNodes);
 
     #endregion
@@ -227,7 +203,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -235,7 +210,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -243,7 +217,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -251,7 +224,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -259,7 +231,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(string formula);
 
     /// <summary>
@@ -267,7 +238,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     List<double> CalcNumberList(FormulaNodes formulaNodes);
 
     #endregion
@@ -279,7 +249,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -287,7 +256,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -295,7 +263,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -303,7 +270,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -311,7 +277,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(string formula);
 
     /// <summary>
@@ -319,7 +284,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     bool CalcBoolean(FormulaNodes formulaNodes);
 
     #endregion
@@ -331,7 +295,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(string formula, IVariablesContainer variables);
 
     /// <summary>
@@ -339,7 +302,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(FormulaNodes formulaNodes, IVariablesContainer variables);
 
     /// <summary>
@@ -347,7 +309,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(string formula, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -355,7 +316,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables);
 
     /// <summary>
@@ -363,7 +323,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(string formula);
 
     /// <summary>
@@ -371,7 +330,6 @@ public interface INoStringEvaluator
     /// </summary>
     /// <exception cref="VariableNotFoundException"></exception>
     /// <exception cref="InvalidCastException"></exception>
-    /// <exception cref="ExtraTypeIdNotFoundException"></exception>
     EvaluatorValue Calc(FormulaNodes formulaNodes);
 
     #endregion

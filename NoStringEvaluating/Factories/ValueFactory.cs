@@ -8,37 +8,42 @@ namespace NoStringEvaluating.Factories;
 /// </summary>
 public readonly struct ValueFactory
 {
-    private readonly ExtraTypeIdContainer _idContainer;
+    private readonly ValueKeeperContainer _valueKeeperContainer;
 
-    internal ValueFactory(ExtraTypeIdContainer idContainer)
+    internal ValueFactory(ValueKeeperContainer valueKeeperContainer)
     {
-        _idContainer = idContainer;
+        _valueKeeperContainer = valueKeeperContainer;
     }
-
-    /// <summary>
-    /// WordFactory
-    /// </summary>
-    public WordFactory Word => new(_idContainer.Ids);
 
     /// <summary>
     /// DateTimeFactory
     /// </summary>
-    public DateTimeFactory DateTime => new(_idContainer.Ids);
+    public DateTimeFactory DateTime => new(_valueKeeperContainer);
+
+    /// <summary>
+    /// BooleanFactory
+    /// </summary>
+    public BooleanFactory Boolean => new(_valueKeeperContainer);
+
+    /// <summary>
+    /// WordFactory
+    /// </summary>
+    public WordFactory Word => new(_valueKeeperContainer);
 
     /// <summary>
     /// WordListFactory
     /// </summary>
-    public WordListFactory WordList => new(_idContainer.Ids);
+    public WordListFactory WordList => new(_valueKeeperContainer);
 
     /// <summary>
     /// NumberListFactory
     /// </summary>
-    public NumberListFactory NumberList => new(_idContainer.Ids);
+    public NumberListFactory NumberList => new(_valueKeeperContainer);
 
     /// <summary>
     /// ObjectFactory
     /// </summary>
-    public ObjectFactory Object => new(_idContainer.Ids);
+    public ObjectFactory Object => new(_valueKeeperContainer);
 
     internal InternalEvaluatorValue Create(EvaluatorValue val)
     {
@@ -47,14 +52,14 @@ public readonly struct ValueFactory
             return val.Number;
         }
 
-        if (val.TypeKey == ValueTypeKey.Boolean)
-        {
-            return val.Boolean;
-        }
-
         if (val.TypeKey == ValueTypeKey.DateTime)
         {
             return DateTime.Create(val.DateTime);
+        }
+
+        if (val.TypeKey == ValueTypeKey.Boolean)
+        {
+            return Boolean.Create(val.Boolean);
         }
 
         if (val.TypeKey == ValueTypeKey.Word)

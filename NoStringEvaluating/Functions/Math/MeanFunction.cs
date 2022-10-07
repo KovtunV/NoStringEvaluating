@@ -32,7 +32,7 @@ public sealed class MeanFunction : IFunction
             var arg = args[i];
             if (arg.IsNumberList)
             {
-                var numberList = arg.GetNumberList();
+                var numberList = arg.NumberList;
                 for (int j = 0; j < numberList.Count; j++)
                 {
                     sum += numberList[j];
@@ -42,7 +42,7 @@ public sealed class MeanFunction : IFunction
                 continue;
             }
 
-            sum += args[i];
+            sum += args[i].Number;
             count++;
         }
 

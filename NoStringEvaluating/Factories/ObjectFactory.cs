@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Models.Values;
-using NoStringEvaluating.Services.Keepers;
-using NoStringEvaluating.Services.Keepers.Models;
+﻿using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Factories;
 
@@ -10,14 +7,14 @@ namespace NoStringEvaluating.Factories;
 /// </summary>
 public readonly struct ObjectFactory
 {
-    private readonly List<ValueKeeperId> _ids;
+    private readonly ValueKeeperContainer _valueKeeperContainer;
 
     /// <summary>
     /// ObjectFactory
     /// </summary>
-    public ObjectFactory(List<ValueKeeperId> ids)
+    internal ObjectFactory(ValueKeeperContainer valueKeeperContainer)
     {
-        _ids = ids;
+        _valueKeeperContainer = valueKeeperContainer;
     }
 
     /// <summary>
@@ -25,13 +22,9 @@ public readonly struct ObjectFactory
     /// </summary>
     public InternalEvaluatorValue Create(object objectValue)
     {
-        // Save to keeper
-        var idModel = ObjectKeeper.Instance.Save(objectValue);
+        var valueKeeper = _valueKeeperContainer.GetValueKeeper();
+        valueKeeper.Object = objectValue;
 
-        // Save to scoped list
-        _ids.Add(idModel);
-
-        // Create value
-        return new InternalEvaluatorValue(idModel.Id, idModel.TypeKey);
+        return new InternalEvaluatorValue(valueKeeper.Ptr, ValueTypeKey.Object);
     }
 }

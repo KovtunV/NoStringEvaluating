@@ -20,7 +20,7 @@ internal class UniqueFunctionTests : FunctionTests<UniqueFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]
@@ -35,7 +35,7 @@ internal class UniqueFunctionTests : FunctionTests<UniqueFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 
     [Test]
@@ -50,6 +50,6 @@ internal class UniqueFunctionTests : FunctionTests<UniqueFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
-        actual.GetWordList().Should().BeEquivalentTo(expected);
+        actual.WordList.Should().BeEquivalentTo(expected);
     }
 }

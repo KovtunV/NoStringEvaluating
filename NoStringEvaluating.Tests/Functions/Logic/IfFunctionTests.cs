@@ -16,6 +16,6 @@ internal class IfFunctionTests : FunctionTests<IfFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

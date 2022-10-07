@@ -18,7 +18,7 @@ internal class IfNullFunctionTests : FunctionTests<IfNullFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(word);
+        actual.Word.Should().Be(word);
     }
 
     [Test]

@@ -46,7 +46,7 @@ internal static class EvaluateNumber
             ("Provider(\"My test provider\").Month(-1).Price", 6), ("Consumer(\"My test consumer\").Month().Volume", 8));
         yield return CreateTestModel("if([var1] > 5 || [var1] != [var2]; 56+3; 1-344)", 59, ("var1", 5), ("var2", 6));
         yield return CreateTestModel("if([var1] >= 5 && [var1] + 10 == 15; 1; 0)", 1, ("var1", 5));
-        yield return CreateTestModel("if(and(5; 8; 6) && [var1] < 5; 1; 0)", 0, ("var1", 5));
+        yield return CreateTestModel("if(and(true; true; true) && [var1] < 5; 1; 0)", 0, ("var1", 5));
         yield return CreateTestModel("(5*3)-1", 14);
         yield return CreateTestModel("5*3-1", 14);
         yield return CreateTestModel("5*(3-1)", 10);

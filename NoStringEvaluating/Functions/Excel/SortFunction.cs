@@ -34,7 +34,7 @@ public sealed class SortFunction : IFunction
         if (list.IsWordList)
         {
             // Copy list
-            var wordList = list.GetWordList().ToList();
+            var wordList = list.WordList.ToList();
 
             if (ascSort)
                 wordList.Sort((a, b) => string.Compare(a, b, StringComparison.Ordinal));
@@ -47,7 +47,7 @@ public sealed class SortFunction : IFunction
         if (list.IsNumberList)
         {
             // Copy list
-            var numberList = list.GetNumberList().ToList();
+            var numberList = list.NumberList.ToList();
 
             if (ascSort)
                 numberList.Sort((a, b) => a.CompareTo(b));

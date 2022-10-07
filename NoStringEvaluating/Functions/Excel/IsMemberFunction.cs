@@ -30,20 +30,26 @@ public sealed class IsMemberFunction : IFunction
 
         if (argList.IsWordList)
         {
-            if (!argItem.IsWord) return 0;
+            if (!argItem.IsWord)
+            {
+                return factory.Boolean.Create(false);
+            }
 
-            var wordList = argList.GetWordList();
-            return wordList.Contains(argItem.GetWord());
+            var wordList = argList.WordList;
+            return factory.Boolean.Create(wordList.Contains(argItem.Word));
         }
 
         if (argList.IsNumberList)
         {
-            if (!argItem.IsNumber) return 0;
+            if (!argItem.IsNumber)
+            {
+                return factory.Boolean.Create(false);
+            }
 
-            var numberList = argList.GetNumberList();
-            return numberList.Contains(argItem.Number);
+            var numberList = argList.NumberList;
+            return factory.Boolean.Create(numberList.Contains(argItem.Number));
         }
 
-        return 0;
+        return factory.Boolean.Create(false);
     }
 }

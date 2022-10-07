@@ -19,6 +19,6 @@ internal class TodayFunctionTests : FunctionTests<TodayFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.DateTime);
-        actual.GetDateTime().Should().Be(today);
+        actual.DateTime.Should().Be(today);
     }
 }

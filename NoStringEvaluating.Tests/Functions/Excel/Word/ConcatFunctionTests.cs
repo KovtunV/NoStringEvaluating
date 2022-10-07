@@ -24,7 +24,7 @@ internal class ConcatFunctionTests : FunctionTests<ConcatFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [Test]
@@ -38,6 +38,6 @@ internal class ConcatFunctionTests : FunctionTests<ConcatFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

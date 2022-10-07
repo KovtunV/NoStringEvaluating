@@ -26,6 +26,6 @@ public sealed class RadFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         // Math.PI / 180 == 0.017453292519943295
-        return 0.017453292519943295 * args[0];
+        return 0.017453292519943295 * args[0].Number;
     }
 }

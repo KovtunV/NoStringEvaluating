@@ -10,6 +10,8 @@ namespace NoStringEvaluating;
 /// </summary>
 public static class GlobalOptions
 {
+    internal static object UpdateLocker { get; } = new();
+
     /// <summary>
     /// Floating tolerance for understanding Zero number
     /// </summary>

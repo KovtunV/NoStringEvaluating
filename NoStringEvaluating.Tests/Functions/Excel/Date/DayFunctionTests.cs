@@ -20,7 +20,7 @@ internal class DayFunctionTests : FunctionTests<DayFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 
     [TestCase("05.01.2001", "D", "5")]
@@ -37,6 +37,6 @@ internal class DayFunctionTests : FunctionTests<DayFunction>
 
         // assert
         actual.TypeKey.Should().Be(ValueTypeKey.Word);
-        actual.GetWord().Should().Be(expected);
+        actual.Word.Should().Be(expected);
     }
 }

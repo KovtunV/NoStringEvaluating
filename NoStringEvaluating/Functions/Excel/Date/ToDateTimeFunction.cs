@@ -30,7 +30,7 @@ public sealed class ToDateTimeFunction : IFunction
     {
         var dateTimeFactory = factory.DateTime;
 
-        var dateStr = args[0].GetWord();
+        var dateStr = args[0].Word;
         if (!DateTime.TryParse(dateStr, CultureInfo.InvariantCulture, DateTimeStyles.None, out var res))
         {
             if (!DateTime.TryParse(dateStr, out res))

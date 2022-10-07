@@ -25,6 +25,6 @@ public sealed class CtghFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return 1 / System.Math.Tanh(args[0]);
+        return 1 / System.Math.Tanh(args[0].Number);
     }
 }

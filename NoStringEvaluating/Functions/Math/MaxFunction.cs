@@ -31,7 +31,7 @@ public sealed class MaxFunction : IFunction
 
         if (firstArg.IsNumberList)
         {
-            max = Max(firstArg.GetNumberList());
+            max = Max(firstArg.NumberList);
         }
 
         for (int i = 1; i < args.Count; i++)
@@ -41,7 +41,7 @@ public sealed class MaxFunction : IFunction
 
             if (arg.IsNumberList)
             {
-                current = Max(arg.GetNumberList());
+                current = Max(arg.NumberList);
             }
 
             if (current > max)

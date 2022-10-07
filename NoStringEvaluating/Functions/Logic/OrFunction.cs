@@ -27,12 +27,12 @@ public sealed class OrFunction : IFunction
     {
         for (int i = 0; i < args.Count; i++)
         {
-            if (args[i])
+            if (args[i].Boolean)
             {
-                return true;
+                return factory.Boolean.Create(true);
             }
         }
 
-        return false;
+        return factory.Boolean.Create(false);
     }
 }

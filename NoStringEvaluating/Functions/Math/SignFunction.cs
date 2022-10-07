@@ -25,6 +25,6 @@ public sealed class SignFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Sign(args[0]);
+        return System.Math.Sign(args[0].Number);
     }
 }

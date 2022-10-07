@@ -28,7 +28,7 @@ public sealed class DateFormatFunction : IFunction
         var dateArg = args[0];
         var formatArg = args[1];
 
-        var strRes = dateArg.GetDateTime().ToString(formatArg.GetWord());
+        var strRes = dateArg.DateTime.ToString(formatArg.Word);
         return factory.Word.Create(strRes);
     }
 }

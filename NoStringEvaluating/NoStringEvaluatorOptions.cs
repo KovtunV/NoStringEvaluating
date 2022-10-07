@@ -151,18 +151,21 @@ public class NoStringEvaluatorOptions
     /// </summary>
     public void UpdateGlobalOptions()
     {
-        GlobalOptions.FloatingTolerance = FloatingTolerance;
-        GlobalOptions.FloatingPointSymbol = FloatingPointSymbol;
-        GlobalOptions.WordQuotationMark = WordQuotationMark;
-        GlobalOptions.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
-        GlobalOptions.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
-
-        FunctionsAssemblies.ForEach(x => GlobalOptions.FunctionsAssemblies.Add(x));
-        Functions.ForEach(x => GlobalOptions.Functions.Add(x));
-
-        if (IsWithoutDefaultFunctions)
+        lock (GlobalOptions.UpdateLocker)
         {
-            GlobalOptions.FunctionsAssemblies.Remove(typeof(NoStringEvaluatorOptions).Assembly);
+            GlobalOptions.FloatingTolerance = FloatingTolerance;
+            GlobalOptions.FloatingPointSymbol = FloatingPointSymbol;
+            GlobalOptions.WordQuotationMark = WordQuotationMark;
+            GlobalOptions.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
+            GlobalOptions.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
+
+            FunctionsAssemblies.ForEach(x => GlobalOptions.FunctionsAssemblies.Add(x));
+            Functions.ForEach(x => GlobalOptions.Functions.Add(x));
+
+            if (IsWithoutDefaultFunctions)
+            {
+                GlobalOptions.FunctionsAssemblies.Remove(typeof(NoStringEvaluatorOptions).Assembly);
+            }
         }
     }
 }

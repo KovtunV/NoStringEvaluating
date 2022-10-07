@@ -25,6 +25,6 @@ public sealed class AbsFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Abs(args[0]);
+        return System.Math.Abs(args[0].Number);
     }
 }

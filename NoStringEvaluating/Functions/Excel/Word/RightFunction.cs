@@ -31,7 +31,7 @@ public sealed class RightFunction : IFunction
 
         if (valArg.IsWord)
         {
-            var word = valArg.GetWord();
+            var word = valArg.Word;
             var wordRes = RightWord(args, word);
 
             return factory.Word.Create(wordRes);
@@ -39,7 +39,7 @@ public sealed class RightFunction : IFunction
 
         if (valArg.IsWordList)
         {
-            var wordList = valArg.GetWordList().ToList();
+            var wordList = valArg.WordList.ToList();
             for (int i = 0; i < wordList.Count; i++)
             {
                 wordList[i] = RightWord(args, wordList[i]);
@@ -81,7 +81,7 @@ public sealed class RightFunction : IFunction
         }
 
         // Word
-        var patternWord = pattern.GetWord();
+        var patternWord = pattern.Word;
         if (patternWord.Length == 0)
         {
             return string.Empty;

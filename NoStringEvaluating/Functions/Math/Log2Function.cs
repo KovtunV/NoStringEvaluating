@@ -25,6 +25,6 @@ public sealed class Log2Function : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Log2(args[0]);
+        return System.Math.Log2(args[0].Number);
     }
 }

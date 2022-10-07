@@ -25,6 +25,6 @@ public sealed class TanhFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return System.Math.Tanh(args[0]);
+        return System.Math.Tanh(args[0].Number);
     }
 }

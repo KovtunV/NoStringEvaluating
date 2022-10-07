@@ -26,6 +26,6 @@ public sealed class LenFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return args[0].GetWord().Length;
+        return args[0].Word.Length;
     }
 }

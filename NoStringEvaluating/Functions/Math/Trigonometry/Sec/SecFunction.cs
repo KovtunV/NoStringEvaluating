@@ -25,6 +25,6 @@ public sealed class SecFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        return 1 / System.Math.Cos(args[0]);
+        return 1 / System.Math.Cos(args[0].Number);
     }
 }
