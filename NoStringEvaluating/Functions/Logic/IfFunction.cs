@@ -18,14 +18,14 @@ public sealed class IfFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; }
+    public bool CanHandleNullArguments { get; } = true;
 
     /// <summary>
     /// Evaluate value
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
-        if (args[0].Boolean)
+        if (!args[0].IsNull && args[0].Boolean)
         {
             return args[1];
         }
