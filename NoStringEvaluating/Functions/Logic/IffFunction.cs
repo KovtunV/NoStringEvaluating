@@ -18,7 +18,7 @@ public sealed class IffFunction : IFunction
     /// <summary>
     /// Can handle IsNull arguments?
     /// </summary>
-    public bool CanHandleNullArguments { get; }
+    public bool CanHandleNullArguments { get; } = true;
 
     /// <summary>
     /// Evaluate value
@@ -27,7 +27,7 @@ public sealed class IffFunction : IFunction
     {
         for (int i = 0; i < args.Count - 1; i += 2)
         {
-            if (args[i].Boolean)
+            if (!args[i].IsNull && args[i].Boolean)
             {
                 return args[i + 1];
             }
