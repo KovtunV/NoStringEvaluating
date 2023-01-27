@@ -1,9 +1,9 @@
 language: csharp
 solution: NoStringEvaluating.sln
 mono: none
-dist: xenial
+dist: kinetic
 os: linux
-dotnet: 6.0
+dotnet: 7.0
 install:
  - dotnet restore
 script:

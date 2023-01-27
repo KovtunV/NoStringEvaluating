@@ -14,7 +14,7 @@ using static NoStringEvaluating.NoStringEvaluator;
 namespace ConsoleApp.Benchmark.Base;
 
 [MemoryDiagnoser]
-[SimpleJob(RunStrategy.Monitoring, warmupCount: 2, invocationCount: 3, targetCount: 10)]
+[SimpleJob(RunStrategy.Monitoring, warmupCount: 2, invocationCount: 3, iterationCount: 10)]
 public abstract class BenchBase
 {
     public virtual int N { get; set; } = 1_000_000;
@@ -117,7 +117,7 @@ public abstract class BenchBase
     }
 
     #endregion
-
+    
     public const string Arg1 = "arg1";
     public const string Arg2 = "arg2";
     public const string Arg3 = "arg3";
