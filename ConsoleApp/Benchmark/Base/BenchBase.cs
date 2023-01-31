@@ -39,6 +39,10 @@ public abstract class BenchBase
             new Function("kov", new FExtension_kov()),
             new Function("kovt", new FExtension_kovt())
         };
+        
+        mXparser.disableAlmostIntRounding();
+        mXparser.disableUlpRounding();
+        mXparser.disableCanonicalRounding();
     }
 
     #region NoString

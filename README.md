@@ -63,7 +63,7 @@ Microsoft.Extensions.DependencyInjection <br/>
 ## Performance
 Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser "mXparser")
 
-- In general, **x9** faster!
+- In general, **x8** faster!
 
 ### Testing formulas
 |  № | Formula |
@@ -202,7 +202,7 @@ public void SomeMethod()
     // NoStringEvaluator.CreateFacade(opt => opt.WithFunctions(new MyFunction()));
 
     // same with DI
-    // services.AddNoStringEvaluator(opt =>  opt.WithFunctions(new MyFunction()));
+    // services.AddNoStringEvaluator(opt => opt.WithFunctions(new MyFunction()));
 }
 ```
 
