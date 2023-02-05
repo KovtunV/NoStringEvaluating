@@ -78,7 +78,7 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 | 6 | Arg1 \* (Arg2 + Arg3) - Arg4 / (Arg5 - Arg6) + 45 \* Arg7 + ((Arg8 \* 56 + (12 + Arg9))) - Arg10 |
 | 7 | add(1; 2; 3) |
 | 8 | add(add(5; 1) - add(5; 2; 3)) |
-| 9 | if(Arg1; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
+| 9 | if(Arg1 > 0; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
 | 10 | kov(1; 2; 3) - kovt(8; 9)  |
 
 ### 1 000 000 calculations

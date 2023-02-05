@@ -145,7 +145,7 @@ public abstract class BenchBase
 
     public static string Formula7 = $"add(1; 2; 3)";
     public static string Formula8 = $"add(add(5; 1) - add(5; 2; 3))";
-    public static string Formula9 = $"if({Arg1}; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
+    public static string Formula9 = $"if({Arg1} > 0; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
     public static string Formula10 = $"kov(1; 2; 3) - kovt(8; 9)"; // 6 - -1 = 7
 }
 
