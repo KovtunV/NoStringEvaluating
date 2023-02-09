@@ -53,11 +53,11 @@ public abstract class BenchBase
         var eval = evalFacade.Evaluator;
         var args = argsNames.ToDictionary(s => s, r => (EvaluatorValue)1.7);
 
-        eval.CalcNumber(formula, args);
+        var formulaNodes = evalFacade.FormulaCache.GetFormulaNodes(formula);
 
         for (var i = 0; i < N; i++)
         {
-            eval.CalcNumber(formula, args);
+            eval.CalcNumber(formulaNodes, args);
         }
     }
 
@@ -66,11 +66,11 @@ public abstract class BenchBase
         var evalFacade = CreateNoStringFacade();
         var eval = evalFacade.Evaluator;
 
-        eval.CalcNumber(formula);
+        var formulaNodes = evalFacade.FormulaCache.GetFormulaNodes(formula);
 
         for (var i = 0; i < N; i++)
         {
-            eval.CalcNumber(formula);
+            eval.CalcNumber(formulaNodes);
         }
     }
 

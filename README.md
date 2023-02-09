@@ -63,7 +63,7 @@ Microsoft.Extensions.DependencyInjection <br/>
 ## Performance
 Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser "mXparser")
 
-- In general, **x4** faster!
+- In general, **x5** faster!
 
 ### Testing formulas
 |  № | Formula |
