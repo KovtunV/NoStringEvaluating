@@ -1,0 +1,23 @@
+name: Utils
+
+on:
+  workflow_run:
+    workflows: [ 'Build and Test' ]
+    branches: [ master ]
+    types: [ completed ]
+
+jobs:
+
+  publish:
+      runs-on: ubuntu-22.04  
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+      steps:
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
+
+
+
