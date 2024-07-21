@@ -1,0 +1,39 @@
+name: 'Build and Test'
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+jobs:
+
+  build-and-test:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build
+      run: dotnet build -c Release --no-restore
+
+    - name: Test
+      run: dotnet test -c Release --no-restore --no-build -v=normal
+
+    - name: Upload NoStringEvaluating nuget packages artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: service-nuget-packages
+        path: NoStringEvaluating/bin/Release/*.nupkg
+        retention-days: 1
+
+    - name: Upload NoStringEvaluating.DI nuget packages artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: service-di-nuget-packages
+        path: NoStringEvaluating.Extensions.Microsoft.DependencyInjection/bin/Release/*.nupkg
+        retention-days: 1

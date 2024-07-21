@@ -13,13 +13,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}"
 	ProjectSection(SolutionItems) = preProject
-		.travis.yml = .travis.yml
+		.github\workflows\project-build.yml = .github\workflows\project-build.yml
+		.github\workflows\project-deploy.yml = .github\workflows\project-deploy.yml
 		README.md = README.md
+		.github\workflows\scorecard.yml = .github\workflows\scorecard.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj", "{03E4E4C4-C186-4865-AC39-8E5E192D7F14}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests.csproj", "{95AC9D45-49F2-41A2-88BC-E800F932C356}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests.csproj", "{95AC9D45-49F2-41A2-88BC-E800F932C356}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

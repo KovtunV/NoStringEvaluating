@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [ 'Build and Test' ]
+    types: [ completed ]
+
+jobs:
+
+  publish:
+      runs-on: ubuntu-22.04  
+      needs: [ build-and-test ]
+      if: github.ref == 'refs/heads/master'
+
+      steps:
+      - name: Download service nuget packages artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: service-nuget-packages
+          path: service/
+
+      - name: Download service-di nuget packages artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: service-di-nuget-packages
+          path: service-di/
+    
+      - name: Push Evaluator to NuGet
+        run: dotnet nuget push service/*.nupkg -s "https://nuget.org" -k ${{ secrets.EVALUATOR_NUGET_API_KEY }} --skip-duplicate
+
+      - name: Push Evaluator.DI to NuGet
+        run: dotnet nuget push service-di/*.nupkg -s "https://nuget.org" -k ${{ secrets.MICROSOFT_DI_NUGET_API_KEY }} --skip-duplicate
+  
