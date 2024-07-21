@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  workflow_run:
+    workflows: [ 'Build and Test' ]
+    branches: [ master ]
+    types: [ completed ]
+
+jobs:
+
+  publish:
+      runs-on: ubuntu-22.04  
+      if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+      steps:
+      - name: Download service nuget packages artifacts
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          run_id: ${{ github.event.workflow_run.id }}
+          name: service-nuget-packages
+          path: service/
+
+      - name: Download service-di nuget packages artifacts
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          run_id: ${{ github.event.workflow_run.id }}
+          name: service-di-nuget-packages
+          path: service-di/
+    
+      - name: Push Evaluator to NuGet
+        run: dotnet nuget push service/*.nupkg -s "https://nuget.org" -k ${{ secrets.EVALUATOR_NUGET_API_KEY }} --skip-duplicate
+
+      - name: Push Evaluator.DI to NuGet
+        run: dotnet nuget push service-di/*.nupkg -s "https://nuget.org" -k ${{ secrets.MICROSOFT_DI_NUGET_API_KEY }} --skip-duplicate
+  
