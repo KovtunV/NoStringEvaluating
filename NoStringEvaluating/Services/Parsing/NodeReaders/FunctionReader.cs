@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Contract;
+﻿using NoStringEvaluating.Contract;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
@@ -73,7 +71,7 @@ public class FunctionReader : IFunctionReader
         localIndex = NegationReader.ReadNegation(formula, localIndex, out var isNegationLocal);
 
         // Read function
-        var functionNameBuilder = new NameBuilder();
+        var functionNameBuilder = default(NameBuilder);
         for (int fInd = 0; fInd < _functions.Count; fInd++)
         {
             var function = _functions[fInd];
@@ -113,7 +111,9 @@ public class FunctionReader : IFunctionReader
             var ch = formula[i];
 
             if (ch.IsWhiteSpace())
+            {
                 continue;
+            }
 
             return ch is OPEN_BRACKET;
         }

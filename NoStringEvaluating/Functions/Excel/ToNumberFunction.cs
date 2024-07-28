@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -40,10 +39,14 @@ public sealed class ToNumberFunction : IFunction
         var numberWord = arg.Word;
 
         if (double.TryParse(numberWord, NumberStyles.Any, RusCulture, out var res))
+        {
             return res;
+        }
 
         if (double.TryParse(numberWord, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
+        {
             return res;
+        }
 
         return double.NaN;
     }

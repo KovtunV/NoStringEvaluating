@@ -18,7 +18,7 @@ public struct IndexWatcher
     /// <summary>
     /// Has start index
     /// </summary>
-    public bool InProcess => StartIndex.HasValue;
+    public readonly bool InProcess => StartIndex.HasValue;
 
     /// <summary>
     /// Remember index
@@ -26,7 +26,9 @@ public struct IndexWatcher
     public void Remember(int index)
     {
         if (!StartIndex.HasValue)
+        {
             StartIndex = index;
+        }
 
         Length++;
     }

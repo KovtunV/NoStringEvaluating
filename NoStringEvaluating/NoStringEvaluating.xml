@@ -11,7 +11,7 @@
         </member>
         <member name="M:NoStringEvaluating.Contract.IFormulaCache.GetFormulaNodes(System.String)">
             <summary>
-            Return cached formula nodes 
+            Return cached formula nodes
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Contract.IFormulaChecker">
@@ -1302,7 +1302,7 @@
         <member name="T:NoStringEvaluating.Functions.Excel.SortFunction">
             <summary>
             SORT(myList; sortType)
-            <para>sortType: true - asc, false - desc</para> 
+            <para>sortType: true - asc, false - desc</para>
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Functions.Excel.SortFunction.Name">
@@ -3570,7 +3570,7 @@
         </member>
         <member name="T:NoStringEvaluating.Models.Bracket">
             <summary>
-            Bracket enum
+            Bracket enum.
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.Bracket.Undefined">
@@ -3968,6 +3968,16 @@
             GetHashCode
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Equality(NoStringEvaluating.Models.Values.EvaluatorValue,NoStringEvaluating.Models.Values.EvaluatorValue)">
+            <summary>
+            Equals
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.op_Inequality(NoStringEvaluating.Models.Values.EvaluatorValue,NoStringEvaluating.Models.Values.EvaluatorValue)">
+            <summary>
+            Equals
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.Models.Values.EvaluatorValue.ToString">
             <summary>
             ToString
@@ -3995,7 +4005,7 @@
         </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.TypeKey">
             <summary>
-            Type key 
+            Type key
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.IsNumber">
@@ -5473,7 +5483,7 @@
         </member>
         <member name="M:NoStringEvaluating.Services.Cache.FormulaCache.GetFormulaNodes(System.String)">
             <summary>
-            Return cached formula nodes 
+            Return cached formula nodes
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Checking.FormulaChecker">

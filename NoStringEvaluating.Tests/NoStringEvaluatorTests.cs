@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Factories;
@@ -167,7 +164,7 @@ internal class NoStringEvaluatorTests
         var args = new Dictionary<string, EvaluatorValue>
         {
             ["myService"] = new EvaluatorValue(new TestService()),
-            ["myNum"] = 10
+            ["myNum"] = 10,
         };
         var expected = 50.5;
 
@@ -200,7 +197,7 @@ internal class NoStringEvaluatorTests
         public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
         {
             var arg = args[0];
-            var w1 = arg.Word;
+            _ = arg.Word;
             Thread.Sleep(100);
 
             var w2 = arg.Word;
@@ -223,6 +220,7 @@ internal class NoStringEvaluatorTests
 
     private class TestService
     {
+        [UnconditionalSuppressMessage("Performance", "CA1822:Mark members as static")]
         public double GetTemperature()
         {
             return 40.5;

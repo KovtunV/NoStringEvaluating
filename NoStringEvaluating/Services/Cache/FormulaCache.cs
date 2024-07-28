@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Contract;
+﻿using NoStringEvaluating.Contract;
 using NoStringEvaluating.Nodes.Common;
 
 namespace NoStringEvaluating.Services.Cache;
@@ -25,7 +24,7 @@ public class FormulaCache : IFormulaCache
     }
 
     /// <summary>
-    /// Return cached formula nodes 
+    /// Return cached formula nodes
     /// </summary>
     public FormulaNodes GetFormulaNodes(string formula)
     {
@@ -33,7 +32,6 @@ public class FormulaCache : IFormulaCache
         {
             if (!_formulaNodes.TryGetValue(formula, out var formulaNodes))
             {
-
                 formulaNodes = _formulaParser.Parse(formula);
                 _formulaNodes.Add(formula, formulaNodes);
             }

@@ -21,7 +21,8 @@ public class OperatorNode : BaseFormulaNode
     /// <summary>
     /// Formula node - Operator
     /// </summary>
-    public OperatorNode(Operator operatorKey) : base(NodeTypeEnum.Operator)
+    public OperatorNode(Operator operatorKey)
+        : base(NodeTypeEnum.Operator)
     {
         OperatorKey = operatorKey;
         Priority = GetPriority();
@@ -48,7 +49,7 @@ public class OperatorNode : BaseFormulaNode
 
             Operator.And => 2,
             Operator.Or => 1,
-            _ => 0
+            _ => 0,
         };
 
         return priority;
@@ -80,7 +81,7 @@ public class OperatorNode : BaseFormulaNode
             Operator.And => "&&",
             Operator.Or => "||",
             Operator.Undefined => "ERROR",
-            _ => "ERROR"
+            _ => "ERROR",
         };
     }
 }

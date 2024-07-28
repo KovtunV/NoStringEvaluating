@@ -8,7 +8,7 @@ namespace NoStringEvaluating.Contract;
 public interface IFormulaCache
 {
     /// <summary>
-    /// Return cached formula nodes 
+    /// Return cached formula nodes
     /// </summary>
     FormulaNodes GetFormulaNodes(string formula);
 }

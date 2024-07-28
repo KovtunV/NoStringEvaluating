@@ -13,14 +13,30 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\Co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}"
 	ProjectSection(SolutionItems) = preProject
-		.github\workflows\project-build.yml = .github\workflows\project-build.yml
 		README.md = README.md
-		.github\workflows\project-publish.yml = .github\workflows\project-publish.yml
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj", "{03E4E4C4-C186-4865-AC39-8E5E192D7F14}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests.csproj", "{95AC9D45-49F2-41A2-88BC-E800F932C356}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ci", "Ci", "{F2A9F436-5A49-486D-B4E1-B1B38924F61B}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\project-build.yml = .github\workflows\project-build.yml
+		.github\workflows\project-publish.yml = .github\workflows\project-publish.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cpm", "Cpm", "{D8A099DF-55FC-4F56-B15A-D969456AB5ED}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Style", "Style", "{622175A5-34F5-4088-B32D-4BA905CE7C8C}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis.ruleset = CodeAnalysis.ruleset
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,6 +94,9 @@ Global
 		{48E04BE8-5BA6-409A-964E-13206F95BC8D} = {EA941063-94B8-4F97-A507-B5A7FD6A0B79}
 		{6A870F87-7BD9-4DB3-ACA2-0F2EFF9FB1D3} = {EA941063-94B8-4F97-A507-B5A7FD6A0B79}
 		{95AC9D45-49F2-41A2-88BC-E800F932C356} = {EA941063-94B8-4F97-A507-B5A7FD6A0B79}
+		{F2A9F436-5A49-486D-B4E1-B1B38924F61B} = {88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}
+		{D8A099DF-55FC-4F56-B15A-D969456AB5ED} = {88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}
+		{622175A5-34F5-4088-B32D-4BA905CE7C8C} = {88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DFE0D26A-3674-46D1-80F0-2AA1855DA356}

@@ -1,5 +1,4 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Date;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;

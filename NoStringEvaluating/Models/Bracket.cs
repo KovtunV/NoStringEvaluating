@@ -1,7 +1,7 @@
 ﻿namespace NoStringEvaluating.Models;
 
 /// <summary>
-/// Bracket enum
+/// Bracket enum.
 /// </summary>
 public enum Bracket
 {
@@ -18,5 +18,5 @@ public enum Bracket
     /// <summary>
     /// Close
     /// </summary>
-    Close
+    Close,
 }

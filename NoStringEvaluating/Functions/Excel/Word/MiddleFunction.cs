@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -86,12 +83,18 @@ public sealed class MiddleFunction : IFunction
 
         var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
         if (wordStartIndex == -1)
+        {
             return string.Empty;
+        }
+
         wordStartIndex += wordStart.Length;
 
-        var wordEndIndex = word.AsSpan().Slice(wordStartIndex).IndexOf(wordEnd, StringComparison.Ordinal);
+        var wordEndIndex = word.AsSpan()[wordStartIndex..].IndexOf(wordEnd, StringComparison.Ordinal);
         if (wordEndIndex == -1)
+        {
             return string.Empty;
+        }
+
         wordEndIndex += wordStartIndex;
 
         return word[wordStartIndex..wordEndIndex];
@@ -104,12 +107,16 @@ public sealed class MiddleFunction : IFunction
 
         var wordStartIndex = word.IndexOf(wordStart, StringComparison.Ordinal);
         if (wordStartIndex == -1)
+        {
             return string.Empty;
+        }
 
         wordStartIndex += wordStart.Length;
 
         if (wordStartIndex + argEndInt > word.Length)
+        {
             return word[wordStartIndex..];
+        }
 
         return word[wordStartIndex..(wordStartIndex + argEndInt)];
     }
@@ -120,11 +127,15 @@ public sealed class MiddleFunction : IFunction
         var wordEnd = argEnd.Word;
 
         if (argStartInt < 0 || argStartInt > word.Length)
+        {
             return string.Empty;
+        }
 
-        var wordEndIndex = word.AsSpan().Slice(argStartInt).IndexOf(wordEnd, StringComparison.Ordinal);
+        var wordEndIndex = word.AsSpan()[argStartInt..].IndexOf(wordEnd, StringComparison.Ordinal);
         if (wordEndIndex == -1)
+        {
             return string.Empty;
+        }
 
         return word[argStartInt..(argStartInt + wordEndIndex)];
     }
@@ -135,13 +146,19 @@ public sealed class MiddleFunction : IFunction
         var argEndInt = (int)argEnd.Number;
 
         if (argStartInt < 0 || argEndInt < 0)
+        {
             return string.Empty;
+        }
 
         if (argStartInt > word.Length)
+        {
             return string.Empty;
+        }
 
         if (argStartInt + argEndInt > word.Length)
+        {
             return word[argStartInt..];
+        }
 
         return word[argStartInt..(argStartInt + argEndInt)];
     }

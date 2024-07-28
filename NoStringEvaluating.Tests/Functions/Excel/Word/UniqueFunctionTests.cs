@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Word;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;

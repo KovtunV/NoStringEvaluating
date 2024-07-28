@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
 using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Engines;
 using NoStringEvaluating.Factories;
@@ -31,15 +29,15 @@ public abstract class BenchBase
             new IfFunction(),
             new OrFunction(),
             new Func_kov(),
-            new Func_kovt()
+            new Func_kovt(),
         };
 
         _usedFunctionsMxParser = new[]
         {
             new Function("kov", new FExtension_kov()),
-            new Function("kovt", new FExtension_kovt())
+            new Function("kovt", new FExtension_kovt()),
         };
-        
+
         mXparser.disableAlmostIntRounding();
         mXparser.disableUlpRounding();
         mXparser.disableCanonicalRounding();
@@ -121,7 +119,7 @@ public abstract class BenchBase
     }
 
     #endregion
-    
+
     public const string Arg1 = "arg1";
     public const string Arg2 = "arg2";
     public const string Arg3 = "arg3";
@@ -133,24 +131,25 @@ public abstract class BenchBase
     public const string Arg9 = "arg9";
     public const string Arg10 = "arg10";
 
-    public static string Empty = string.Empty;
-    public static string NumberOnly = "3";
-    public static string Formula1 = "3 * 9";
-    public static string Formula2 = "3 * 9 / 456 * 32 + 12 / 17 - 3";
-    public static string Formula3 = "3 * (9 / 456 * (32 + 12)) / 17 - 3";
-    public static string Formula4 = "(2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) * 345 * ((897 - 323)/ 23)";
+    public const string Empty = "";
+    public const string NumberOnly = "3";
+    public const string Formula1 = "3 * 9";
+    public const string Formula2 = "3 * 9 / 456 * 32 + 12 / 17 - 3";
+    public const string Formula3 = "3 * (9 / 456 * (32 + 12)) / 17 - 3";
+    public const string Formula4 = "(2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) * 345 * ((897 - 323)/ 23)";
 
-    public static string Formula5 = $"{Arg1} * {Arg2} + {Arg3} - {Arg4}";
-    public static string Formula6 = $"{Arg1} * ({Arg2} + {Arg3}) - {Arg4} / ({Arg5} - {Arg6}) + 45 * {Arg7} + (({Arg8} * 56 + (12 + {Arg9}))) - {Arg10}";
+    public const string Formula5 = $"{Arg1} * {Arg2} + {Arg3} - {Arg4}";
+    public const string Formula6 = $"{Arg1} * ({Arg2} + {Arg3}) - {Arg4} / ({Arg5} - {Arg6}) + 45 * {Arg7} + (({Arg8} * 56 + (12 + {Arg9}))) - {Arg10}";
 
-    public static string Formula7 = $"add(1; 2; 3)";
-    public static string Formula8 = $"add(add(5; 1) - add(5; 2; 3))";
-    public static string Formula9 = $"if({Arg1} > 0; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
-    public static string Formula10 = $"kov(1; 2; 3) - kovt(8; 9)"; // 6 - -1 = 7
+    public const string Formula7 = $"add(1; 2; 3)";
+    public const string Formula8 = $"add(add(5; 1) - add(5; 2; 3))";
+    public const string Formula9 = $"if({Arg1} > 0; add(56 + 9 / 12 * 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) *     24 + 52 -33";
+    public const string Formula10 = $"kov(1; 2; 3) - kovt(8; 9)"; // 6 - -1 = 7
 }
 
 #region CustomFunctions
 
+[UnconditionalSuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type")]
 public class Func_kov : IFunction
 {
     public string Name { get; } = "kov";
@@ -170,6 +169,7 @@ public class Func_kov : IFunction
     }
 }
 
+[UnconditionalSuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type")]
 public class Func_kovt : IFunction
 {
     public string Name { get; } = "kovt";
@@ -182,6 +182,7 @@ public class Func_kovt : IFunction
     }
 }
 
+[UnconditionalSuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type")]
 public class FExtension_kov : FunctionExtensionVariadic
 {
     public double calculate(params double[] parameters)
@@ -202,6 +203,7 @@ public class FExtension_kov : FunctionExtensionVariadic
     }
 }
 
+[UnconditionalSuppressMessage("StyleCop.CSharp.MaintainabilityRules", "SA1402:File may only contain a single type")]
 public class FExtension_kovt : FunctionExtensionVariadic
 {
     public double calculate(params double[] parameters)

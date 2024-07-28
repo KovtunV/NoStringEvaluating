@@ -16,7 +16,8 @@ public class NumberNode : BaseFormulaNode
     /// <summary>
     /// Formula node - Number
     /// </summary>
-    public NumberNode(double number) : base(NodeTypeEnum.Number)
+    public NumberNode(double number)
+        : base(NodeTypeEnum.Number)
     {
         Number = number;
     }

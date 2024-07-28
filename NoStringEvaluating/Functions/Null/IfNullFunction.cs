@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -27,11 +26,15 @@ public sealed class IfNullFunction : IFunction
     {
         // Wrong input, output Null
         if (args.Count != 2)
+        {
             return default;
+        }
 
         // If first argument is Null we output the second
         if (args[0].IsNull)
+        {
             return args[1];
+        }
 
         // First argument is not null, keep it
         return args[0];

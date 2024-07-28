@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Nodes.Base;
+﻿using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Nodes;
 
@@ -16,7 +15,8 @@ public class WordListNode : BaseFormulaNode
     /// <summary>
     /// Formula node - WordList
     /// </summary>
-    public WordListNode(List<string> wordList) : base(NodeTypeEnum.WordList)
+    public WordListNode(List<string> wordList)
+        : base(NodeTypeEnum.WordList)
     {
         WordList = wordList;
     }

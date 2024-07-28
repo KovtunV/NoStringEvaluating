@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "documentInterfaces": false,
+      "documentExposedElements": false,
+      "documentInternalElements": false
+    },
+    "layoutRules": {
+      "newlineAtEndOfFile": "allow"
+    },
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace",
+      "elementOrder": [
+        "kind",
+        "accessibility",
+        "constant",
+        "readonly"
+      ]
+    }
+  }
+}

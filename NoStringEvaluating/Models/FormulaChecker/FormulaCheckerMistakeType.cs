@@ -48,5 +48,5 @@ public enum FormulaCheckerMistakeType
     /// <summary>
     /// Empty function's body
     /// </summary>
-    EmptyFunctionBody = 8
+    EmptyFunctionBody = 8,
 }

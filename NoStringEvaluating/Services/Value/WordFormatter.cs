@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-using static NoStringEvaluating.GlobalOptions;
+﻿using static NoStringEvaluating.GlobalOptions;
 
 namespace NoStringEvaluating.Services.Value;
 

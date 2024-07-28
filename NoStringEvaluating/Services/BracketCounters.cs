@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Models;
+﻿using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 
 namespace NoStringEvaluating.Services;
@@ -34,7 +33,9 @@ public class BracketCounters
     public bool Proceed(BracketNode node)
     {
         if (_borderCounters.Count is 0)
+        {
             return false;
+        }
 
         var last = _borderCounters[^1];
         if (last.Proceed(node))

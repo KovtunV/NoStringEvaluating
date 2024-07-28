@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NoStringEvaluating.Models.FormulaChecker;
+﻿namespace NoStringEvaluating.Models.FormulaChecker;
 
 /// <summary>
 /// Syntax checking result

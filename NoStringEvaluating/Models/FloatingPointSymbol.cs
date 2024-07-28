@@ -18,5 +18,5 @@ public enum FloatingPointSymbol
     /// <summary>
     /// . or ,
     /// </summary>
-    DotComma = 2
+    DotComma = 2,
 }

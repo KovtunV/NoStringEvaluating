@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Functions.Base;

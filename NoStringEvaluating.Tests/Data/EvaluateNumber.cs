@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using NoStringEvaluating.Tests.Models;
 using static NoStringEvaluating.Tests.Helpers.FormulaModelFactory;
 
@@ -40,10 +37,15 @@ internal static class EvaluateNumber
         yield return CreateTestModel("kov(1; 2; 3) - kovt(8; 9)", 7);
         yield return CreateTestModel("1/6 + 5/12 + 3/4 * 1/6 + 5/12 + 3/4 - 1/6 + 5/12 + 3/4- 78", -75.125);
         yield return CreateTestModel("(45^6 + (12 - (34*896^2) / 325) / 80000000) / 7^13 + 1.2", 1.286);
-        yield return CreateTestModel("mean ([super power war]; 6; 6; 8; add(78;89;6;5;4;2;1;5;8;789;56;6;6)*7; 5; 2; 4; 87; 7; 89; 5; 4; 52; 3; 5; 4; 8; 78; 5; 4; 2; 3)",
-            357.739, ("super power war", 456));
-        yield return CreateTestModel("[Provider(\"My test provider\").Month(-1).Price] * [Consumer(\"My test consumer\").Month().Volume]", 48,
-            ("Provider(\"My test provider\").Month(-1).Price", 6), ("Consumer(\"My test consumer\").Month().Volume", 8));
+        yield return CreateTestModel(
+            "mean ([super power war]; 6; 6; 8; add(78;89;6;5;4;2;1;5;8;789;56;6;6)*7; 5; 2; 4; 87; 7; 89; 5; 4; 52; 3; 5; 4; 8; 78; 5; 4; 2; 3)",
+            357.739,
+            ("super power war", 456));
+        yield return CreateTestModel(
+            "[Provider(\"My test provider\").Month(-1).Price] * [Consumer(\"My test consumer\").Month().Volume]",
+            48,
+            ("Provider(\"My test provider\").Month(-1).Price", 6),
+            ("Consumer(\"My test consumer\").Month().Volume", 8));
         yield return CreateTestModel("if([var1] > 5 || [var1] != [var2]; 56+3; 1-344)", 59, ("var1", 5), ("var2", 6));
         yield return CreateTestModel("if([var1] >= 5 && [var1] + 10 == 15; 1; 0)", 1, ("var1", 5));
         yield return CreateTestModel("if(and(true; true; true) && [var1] < 5; 1; 0)", 0, ("var1", 5));

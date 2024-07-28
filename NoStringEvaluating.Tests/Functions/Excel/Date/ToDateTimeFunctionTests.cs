@@ -1,5 +1,4 @@
-﻿using System;
-using System.Globalization;
+﻿using System.Globalization;
 using AutoFixture;
 using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Date;

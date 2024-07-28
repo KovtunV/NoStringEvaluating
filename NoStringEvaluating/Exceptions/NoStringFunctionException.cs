@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NoStringEvaluating.Exceptions;
+﻿namespace NoStringEvaluating.Exceptions;
 
 /// <summary>
 /// Raises when function exception
@@ -13,6 +11,5 @@ public class NoStringFunctionException : Exception
     public NoStringFunctionException(string funcName)
         : base($"Function \"{funcName}\" has already added")
     {
-
     }
 }

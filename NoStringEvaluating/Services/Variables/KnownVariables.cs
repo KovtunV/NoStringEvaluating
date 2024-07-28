@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace NoStringEvaluating.Services.Variables;
+﻿namespace NoStringEvaluating.Services.Variables;
 
 internal static class KnownVariables
 {
@@ -14,7 +11,7 @@ internal static class KnownVariables
         {
             ["PI"] = Math.PI,
             ["TAU"] = Math.PI * 2,
-            ["E"] = Math.E
+            ["E"] = Math.E,
         };
 
         _booleanVariables = new Dictionary<string, bool>
@@ -22,7 +19,7 @@ internal static class KnownVariables
             ["TRUE"] = true,
             ["FALSE"] = false,
             ["ASC"] = true,
-            ["DESC"] = false
+            ["DESC"] = false,
         };
     }
 

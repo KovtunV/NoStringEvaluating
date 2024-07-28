@@ -1,0 +1,37 @@
+<Project>
+	<PropertyGroup>
+		<TargetFramework>net7.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+		<EnablePackageVersionOverride>false</EnablePackageVersionOverride>
+
+		<BaseOutputPath>$(SolutionDir)\bin\</BaseOutputPath>
+		<OutputPath>$(BaseOutputPath)\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
+		<OutDir>$(OutputPath)</OutDir>
+
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<EnableNETAnalyzers>true</EnableNETAnalyzers>
+		<CodeAnalysisRuleSet>$(SolutionDir)\CodeAnalysis.ruleset</CodeAnalysisRuleSet>
+		<RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+	</PropertyGroup>
+
+	<ItemGroup Condition="'$(IsTestProject)' == 'true'">
+		<PackageReference Include="Microsoft.NET.Test.Sdk"/>
+		<PackageReference Include="NUnit"/>
+		<PackageReference Include="NUnit3TestAdapter"/>
+		<PackageReference Include="coverlet.collector"/>
+
+		<PackageReference Include="FluentAssertions"/>
+		<PackageReference Include="AutoFixture"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="StyleCop.Analyzers" PrivateAssets="all" />
+		<AdditionalFiles Include="$(SolutionDir)\stylecop.json" Link="Properties\stylecop.json" />
+	</ItemGroup>
+
+</Project>

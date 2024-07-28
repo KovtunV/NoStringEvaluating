@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.Globalization;
-using System.Threading;
-using System.Threading.Tasks;
 using BenchmarkDotNet.Attributes;
 using ConsoleApp.Benchmark.Base;
 using NoStringEvaluating.Models.Values;
@@ -24,15 +20,13 @@ public class BenchParallel : BenchBase
 
         _variables = new()
         {
-            { "A_bool", true},
-            { "B_bool", true},
-            { "C_bool", true},
-            { "D_bool", false},
-
-            { "A_number", 83},
-            { "B_number", 10},
-
-            { "A_datetime", DateTime.Parse("07/18/2005", CultureInfo.InvariantCulture)}
+            { "A_bool", true },
+            { "B_bool", true },
+            { "C_bool", true },
+            { "D_bool", false },
+            { "A_number", 83 },
+            { "B_number", 10 },
+            { "A_datetime", DateTime.Parse("07/18/2005", CultureInfo.InvariantCulture) },
         };
     }
 

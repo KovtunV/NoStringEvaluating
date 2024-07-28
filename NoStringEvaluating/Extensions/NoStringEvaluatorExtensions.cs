@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
@@ -20,7 +20,7 @@ public static class NoStringEvaluatorExtensions
     /// <summary>
     /// Return list of variable values used by formula
     /// </summary>
-    public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
+    public static List<(string Name, EvaluatorValue Value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         string formula,
         IVariablesContainer variableContainer = null)
@@ -33,7 +33,8 @@ public static class NoStringEvaluatorExtensions
     /// <summary>
     /// Return list of variable values used by formula
     /// </summary>
-    public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
+    [UnconditionalSuppressMessage("Style", "IDE0060:Remove unused parameter")]
+    public static List<(string Name, EvaluatorValue Value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         FormulaNodes formulaNodes,
         IVariablesContainer variableContainer = null)
@@ -45,7 +46,7 @@ public static class NoStringEvaluatorExtensions
     /// <summary>
     /// Return list of variable values used by formula
     /// </summary>
-    public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
+    public static List<(string Name, EvaluatorValue Value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         string formula,
         IDictionary<string, EvaluatorValue> variables = null)
@@ -58,7 +59,8 @@ public static class NoStringEvaluatorExtensions
     /// <summary>
     /// Return list of variable values used by formula
     /// </summary>
-    public static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormula(
+    [UnconditionalSuppressMessage("Style", "IDE0060:Remove unused parameter")]
+    public static List<(string Name, EvaluatorValue Value)> VariableValuesUsedByFormula(
         this NoStringEvaluator eval,
         FormulaNodes formulaNodes,
         IDictionary<string, EvaluatorValue> variables = null)
@@ -70,7 +72,7 @@ public static class NoStringEvaluatorExtensions
     /// <summary>
     /// Routine to check what variables the calculation actually receives and uses. Without doing the actual calculation. Usefull for debugging and logging
     /// </summary>
-    private static List<(string name, EvaluatorValue value)> VariableValuesUsedByFormulaInternal(List<BaseFormulaNode> nodes, VariablesSource variables)
+    private static List<(string Name, EvaluatorValue Value)> VariableValuesUsedByFormulaInternal(List<BaseFormulaNode> nodes, VariablesSource variables)
     {
         var res = new List<(string, EvaluatorValue)>();
 

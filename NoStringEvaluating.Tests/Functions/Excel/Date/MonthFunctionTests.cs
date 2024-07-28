@@ -1,11 +1,9 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Date;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
 
 namespace NoStringEvaluating.Tests.Functions.Excel.Date;
-
 
 internal class MonthFunctionTests : FunctionTests<MonthFunction>
 {

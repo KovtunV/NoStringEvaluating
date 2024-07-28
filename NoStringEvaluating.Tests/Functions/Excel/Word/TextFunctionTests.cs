@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Word;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
@@ -24,7 +22,7 @@ internal class TextFunctionTests : FunctionTests<TextFunction>
     {
         yield return new object[] { new EvaluatorValue(5), "5" };
         yield return new object[] { new EvaluatorValue("hello world"), "hello world" };
-        yield return new object[] { new EvaluatorValue(), "Null" };
+        yield return new object[] { default(EvaluatorValue), "Null" };
         yield return new object[] { new EvaluatorValue(true), "True" };
         yield return new object[] { new EvaluatorValue(new[] { 1d, 2 }.ToList()), "1, 2" };
         yield return new object[] { new EvaluatorValue(new[] { "one", "two" }.ToList()), "one, two" };

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Extensions;
+﻿using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Services.Variables;
@@ -25,7 +23,9 @@ public static class VariableReader
 
         // Check out of range
         if (localIndex >= formula.Length)
+        {
             return false;
+        }
 
         // Read variable
         if (formula[localIndex] != START_CHAR)
@@ -36,7 +36,7 @@ public static class VariableReader
         // Skip start char
         localIndex++;
 
-        var variableBuilder = new IndexWatcher();
+        var variableBuilder = default(IndexWatcher);
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
@@ -68,7 +68,7 @@ public static class VariableReader
         // Read negation
         localIndex = NegationReader.ReadNegation(formula, localIndex, out var isNegationLocal);
 
-        var numberBuilder = new IndexWatcher();
+        var numberBuilder = default(IndexWatcher);
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];

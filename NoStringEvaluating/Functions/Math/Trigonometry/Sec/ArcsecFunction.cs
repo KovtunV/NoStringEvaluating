@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
@@ -27,6 +26,7 @@ public sealed class ArcsecFunction : IFunction
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
         var x = args[0].Number;
+
         // 2 * Atan(1) == 1.5707963267948966
         return 1.5707963267948966 - Atan(Sign(x) / Sqrt(x * x - 1));
     }

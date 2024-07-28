@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using NoStringEvaluating.Models;
 
 namespace NoStringEvaluating.Extensions;
@@ -20,7 +17,7 @@ internal static class InternalExtensions
             FloatingPointSymbol.Dot => ch == '.',
             FloatingPointSymbol.Comma => ch == ',',
             FloatingPointSymbol.DotComma => ch == '.' || ch == ',',
-            _ => false
+            _ => false,
         };
     }
 

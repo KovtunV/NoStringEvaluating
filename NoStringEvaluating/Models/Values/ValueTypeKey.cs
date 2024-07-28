@@ -43,5 +43,5 @@ public enum ValueTypeKey
     /// <summary>
     /// Object
     /// </summary>
-    Object
+    Object,
 }

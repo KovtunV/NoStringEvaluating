@@ -16,7 +16,8 @@ public class BracketNode : BaseFormulaNode
     /// <summary>
     /// Formula node - bracket
     /// </summary>
-    public BracketNode(Bracket bracket) : base(NodeTypeEnum.Bracket)
+    public BracketNode(Bracket bracket)
+        : base(NodeTypeEnum.Bracket)
     {
         Bracket = bracket;
     }
@@ -36,7 +37,7 @@ public class BracketNode : BaseFormulaNode
             Bracket.Open => "(",
             Bracket.Close => ")",
             Bracket.Undefined => "ERROR",
-            _ => "ERROR"
+            _ => "ERROR",
         };
     }
 }

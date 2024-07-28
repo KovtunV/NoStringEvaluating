@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Functions.Base;
 using NUnit.Framework;

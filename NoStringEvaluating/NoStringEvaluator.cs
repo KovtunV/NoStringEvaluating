@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.Extensions.ObjectPool;
+﻿using Microsoft.Extensions.ObjectPool;
 using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
@@ -702,7 +700,7 @@ public class NoStringEvaluator : INoStringEvaluator
                     Operator.And => And(factory, a, b),
                     Operator.Or => Or(factory, a, b),
 
-                    _ => throw new InvalidOperationException()
+                    _ => throw new InvalidOperationException(),
                 };
 
                 stack.Push(value);

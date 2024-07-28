@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -27,7 +26,9 @@ public sealed class IsNullFunction : IFunction
     {
         // Wrong input, output Null
         if (args.Count != 1)
+        {
             return default;
+        }
 
         return factory.Boolean.Create(args[0].IsNull);
     }

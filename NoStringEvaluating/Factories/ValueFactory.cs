@@ -1,5 +1,4 @@
-﻿using System;
-using NoStringEvaluating.Models.Values;
+﻿using NoStringEvaluating.Models.Values;
 
 namespace NoStringEvaluating.Factories;
 
