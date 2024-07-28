@@ -1,4 +1,5 @@
-﻿using NoStringEvaluating.Contract;
+﻿using System.Diagnostics.CodeAnalysis;
+using NoStringEvaluating.Contract;
 using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
@@ -13,6 +14,7 @@ namespace NoStringEvaluating;
 /// <summary>
 /// Expression evaluator with nullable result
 /// </summary>
+[ExcludeFromCodeCoverage]
 public class NoStringEvaluatorNullable : INoStringEvaluatorNullable
 {
     private readonly INoStringEvaluator _evaluator;
