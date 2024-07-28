@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Exceptions;
+﻿using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Nodes.Base;
 

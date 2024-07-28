@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System.Globalization;
 using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
@@ -69,7 +67,9 @@ public sealed class ProperFunction : IFunction
         for (int i = 0; i < str.Length; i++)
         {
             if (char.IsUpper(str[i]))
+            {
                 return true;
+            }
         }
 
         return false;

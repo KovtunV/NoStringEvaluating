@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Models;
+﻿using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
@@ -27,7 +25,9 @@ public static class PolishNotationService
         for (int i = 0; i < nodes.Length; i++)
         {
             if (TryProceedFunction(outExpression, nodes, ref i))
+            {
                 continue;
+            }
 
             var node = nodes[i];
 
@@ -69,10 +69,14 @@ public static class PolishNotationService
                 while (stack.Count > 0)
                 {
                     if (bracketNode != null && bracketNode.Bracket == Bracket.Open)
+                    {
                         break;
+                    }
 
                     if (stack.Peek() is OperatorNode peekedOperation && peekedOperation.Priority >= operationNode.Priority)
+                    {
                         outExpression.Add(stack.Pop());
+                    }
                     else
                     {
                         break;
@@ -84,7 +88,9 @@ public static class PolishNotationService
         }
 
         while (stack.Count > 0)
+        {
             outExpression.Add(stack.Pop());
+        }
 
         return outExpression;
     }
@@ -93,7 +99,7 @@ public static class PolishNotationService
     {
         var localIndex = index;
 
-        if (!(nodes[localIndex] is FunctionNode funcNode))
+        if (nodes[localIndex] is not FunctionNode funcNode)
         {
             return false;
         }
@@ -128,11 +134,12 @@ public static class PolishNotationService
                 funcWrapperNode.FunctionArgumentNodes.Add(subPolish);
                 partIndexStart = localIndex + 1;
             }
-
             else if (node is BracketNode bracketNode && bracketCounter.Proceed(bracketNode))
             {
                 if (!canReadPart)
+                {
                     break;
+                }
 
                 var part = nodes[partIndexStart..localIndex];
                 var subPolish = GetReversedNodes(part);

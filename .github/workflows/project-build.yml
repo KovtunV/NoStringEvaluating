@@ -1,6 +1,6 @@
 name: 'Build and Test'
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
 
@@ -29,13 +29,13 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: service-nuget-packages
-        path: NoStringEvaluating/bin/Release/*.nupkg
+        path: bin/NoStringEvaluating/Release/*.nupkg
         retention-days: 1
 
     - name: Upload NoStringEvaluating.DI nuget packages artifacts
       uses: actions/upload-artifact@v4
       with:
         name: service-di-nuget-packages
-        path: NoStringEvaluating.Extensions.Microsoft.DependencyInjection/bin/Release/*.nupkg
+        path: bin/NoStringEvaluating.Extensions.Microsoft.DependencyInjection/Release/*.nupkg
         retention-days: 1
 

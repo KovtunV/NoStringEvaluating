@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Models;
+﻿using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
@@ -15,13 +14,13 @@ public static class FunctionCharReader
     /// </summary>
     public static bool TryProceedFunctionChar(List<BaseFormulaNode> nodes, char ch)
     {
-        if (FUNCTION_SEPARATOR_SEMICOLON == ch)
+        if (ch == FUNCTION_SEPARATOR_SEMICOLON)
         {
             var node = new FunctionCharNode(FunctionChar.Semicolon);
             nodes.Add(node);
             return true;
         }
-        else if (FUNCTION_SEPARATOR_COMMA == ch)
+        else if (ch == FUNCTION_SEPARATOR_COMMA)
         {
             var node = new FunctionCharNode(FunctionChar.Comma);
             nodes.Add(node);

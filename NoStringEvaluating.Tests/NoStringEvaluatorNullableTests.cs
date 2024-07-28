@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AutoFixture;
+﻿using AutoFixture;
 using FluentAssertions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Tests.Helpers;

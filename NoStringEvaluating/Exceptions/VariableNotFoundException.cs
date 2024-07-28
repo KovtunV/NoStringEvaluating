@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NoStringEvaluating.Exceptions;
+﻿namespace NoStringEvaluating.Exceptions;
 
 /// <summary>
 /// Raises when can't find a variable

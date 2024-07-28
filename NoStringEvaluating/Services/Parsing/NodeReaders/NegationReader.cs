@@ -1,5 +1,4 @@
-﻿using System;
-using NoStringEvaluating.Extensions;
+﻿using NoStringEvaluating.Extensions;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders;
 
@@ -21,7 +20,9 @@ public static class NegationReader
             var ch = formula[localIndex];
 
             if (ch.IsWhiteSpace())
+            {
                 continue;
+            }
 
             if (IsOpenBracketNext(formula, localIndex))
             {
@@ -29,7 +30,7 @@ public static class NegationReader
                 return localIndex;
             }
 
-            if (NEGATION_CHAR == ch)
+            if (ch == NEGATION_CHAR)
             {
                 isNegationedLocal = !isNegationedLocal;
             }
@@ -45,7 +46,7 @@ public static class NegationReader
 
     private static bool IsOpenBracketNext(ReadOnlySpan<char> formula, int index)
     {
-        return '(' == (index + 1 < formula.Length ? formula[index + 1] : ' ');
+        return (index + 1 < formula.Length ? formula[index + 1] : ' ') == '(';
     }
 
     private const char NEGATION_CHAR = '!';

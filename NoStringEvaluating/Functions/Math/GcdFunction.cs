@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
@@ -29,10 +27,14 @@ public sealed class GcdFunction : IFunction
     {
         var numbers = EnumerateNumbers(args).ToArray();
         if (numbers.Length == 1)
+        {
             return numbers[0];
+        }
 
         if (HasZero(numbers))
+        {
             return default;
+        }
 
         var res = GetGcd(numbers[0], numbers[1]);
         for (int i = 2; i < numbers.Length; i++)
@@ -71,7 +73,9 @@ public sealed class GcdFunction : IFunction
         for (int i = 0; i < args.Length; i++)
         {
             if (Abs(args[i]) < GlobalOptions.FloatingTolerance)
+            {
                 return true;
+            }
         }
 
         return false;

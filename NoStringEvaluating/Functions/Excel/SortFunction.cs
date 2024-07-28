@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -9,7 +6,7 @@ namespace NoStringEvaluating.Functions.Excel;
 
 /// <summary>
 /// SORT(myList; sortType)
-/// <para>sortType: true - asc, false - desc</para> 
+/// <para>sortType: true - asc, false - desc</para>
 /// </summary>
 public sealed class SortFunction : IFunction
 {
@@ -37,9 +34,13 @@ public sealed class SortFunction : IFunction
             var wordList = list.WordList.ToList();
 
             if (ascSort)
+            {
                 wordList.Sort((a, b) => string.Compare(a, b, StringComparison.Ordinal));
+            }
             else
+            {
                 wordList.Sort((a, b) => string.Compare(b, a, StringComparison.Ordinal));
+            }
 
             return factory.WordList.Create(wordList);
         }
@@ -50,9 +51,13 @@ public sealed class SortFunction : IFunction
             var numberList = list.NumberList.ToList();
 
             if (ascSort)
+            {
                 numberList.Sort((a, b) => a.CompareTo(b));
+            }
             else
+            {
                 numberList.Sort((a, b) => b.CompareTo(a));
+            }
 
             return factory.NumberList.Create(numberList);
         }

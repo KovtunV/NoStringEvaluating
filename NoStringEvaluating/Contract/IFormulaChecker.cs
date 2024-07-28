@@ -1,5 +1,4 @@
-﻿using System;
-using NoStringEvaluating.Models.FormulaChecker;
+﻿using NoStringEvaluating.Models.FormulaChecker;
 
 namespace NoStringEvaluating.Contract;
 

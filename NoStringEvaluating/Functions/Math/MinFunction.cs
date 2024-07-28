@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -44,7 +43,9 @@ public sealed class MinFunction : IFunction
             }
 
             if (current < min)
+            {
                 min = current;
+            }
         }
 
         return min;
@@ -59,7 +60,9 @@ public sealed class MinFunction : IFunction
             var current = list[i];
 
             if (current < min)
+            {
                 min = current;
+            }
         }
 
         return min;

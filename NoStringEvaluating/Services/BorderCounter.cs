@@ -1,12 +1,12 @@
-﻿using System;
-using NoStringEvaluating.Nodes.Base;
+﻿using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Services;
 
 /// <summary>
 /// Border counter
 /// </summary>
-public class BorderCounter<TNode> where TNode : BaseFormulaNode
+public class BorderCounter<TNode>
+    where TNode : BaseFormulaNode
 {
     private readonly Func<TNode, bool> _countFunc;
 

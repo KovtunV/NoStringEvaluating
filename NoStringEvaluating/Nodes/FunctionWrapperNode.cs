@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Nodes.Base;
+﻿using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Nodes;
 
@@ -22,7 +20,8 @@ public class FunctionWrapperNode : BaseFormulaNode
     /// <summary>
     /// Formula node - Function wrapper
     /// </summary>
-    public FunctionWrapperNode(FunctionNode functionNode) : base(NodeTypeEnum.FunctionWrapper)
+    public FunctionWrapperNode(FunctionNode functionNode)
+        : base(NodeTypeEnum.FunctionWrapper)
     {
         FunctionNode = functionNode;
         FunctionArgumentNodes = new List<List<BaseFormulaNode>>();

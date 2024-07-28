@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 using static System.Math;
@@ -29,7 +27,9 @@ public sealed class LcmFunction : IFunction
     {
         var numbers = EnumerateNumbers(args).ToArray();
         if (numbers.Length == 1)
+        {
             return numbers[0];
+        }
 
         var res = GetLcm(numbers[0], numbers[1]);
         for (int i = 2; i < numbers.Length; i++)

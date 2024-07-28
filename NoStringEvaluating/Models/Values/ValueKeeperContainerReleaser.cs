@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NoStringEvaluating.Models.Values;
+﻿namespace NoStringEvaluating.Models.Values;
 
 internal readonly struct ValueKeeperContainerReleaser : IDisposable
 {

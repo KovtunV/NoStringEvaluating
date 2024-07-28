@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Word;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
@@ -33,7 +32,7 @@ internal class ExplodeFunctionTests : FunctionTests<ExplodeFunction>
         {
             "I took one ",
             " and ate that ",
-            ", that's why I was over the moon"
+            ", that's why I was over the moon",
         }.ToList();
 
         // act

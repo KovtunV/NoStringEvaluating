@@ -18,5 +18,5 @@ public enum FunctionChar
     /// <summary>
     /// Comma
     /// </summary>
-    Comma
+    Comma,
 }

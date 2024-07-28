@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -39,7 +38,7 @@ public sealed class DateDifFunction : IFunction
         {
             var yearDiff = dateEnd.Year - dateStart.Year;
 
-            if (dateStart.Month == dateEnd.Month && dateEnd.Day < dateStart.Day || dateEnd.Month < dateStart.Month)
+            if ((dateStart.Month == dateEnd.Month && dateEnd.Day < dateStart.Day) || dateEnd.Month < dateStart.Month)
             {
                 yearDiff--;
             }

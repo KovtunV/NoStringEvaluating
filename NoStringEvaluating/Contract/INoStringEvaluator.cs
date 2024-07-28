@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Contract.Variables;
+﻿using NoStringEvaluating.Contract.Variables;
 using NoStringEvaluating.Exceptions;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Nodes.Common;

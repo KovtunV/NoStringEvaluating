@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Services.Value;
 
@@ -113,6 +111,7 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
         TypeKey = ValueTypeKey.DateTime;
         DateTime = dateTime;
     }
+
     /// <summary>
     /// Value
     /// </summary>
@@ -295,6 +294,22 @@ public readonly struct EvaluatorValue : IEquatable<EvaluatorValue>
     public override int GetHashCode()
     {
         return HashCode.Combine(_referenceValueFacade, TypeKey, Number, Boolean, DateTime);
+    }
+
+    /// <summary>
+    /// Equals
+    /// </summary>
+    public static bool operator ==(EvaluatorValue left, EvaluatorValue right)
+    {
+        return left.Equals(right);
+    }
+
+    /// <summary>
+    /// Equals
+    /// </summary>
+    public static bool operator !=(EvaluatorValue left, EvaluatorValue right)
+    {
+        return !(left == right);
     }
 
     #endregion

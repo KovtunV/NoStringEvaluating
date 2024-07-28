@@ -16,7 +16,8 @@ public class FunctionCharNode : BaseFormulaNode
     /// <summary>
     /// Formula node - FunctionChar
     /// </summary>
-    public FunctionCharNode(FunctionChar functionChar) : base(NodeTypeEnum.FunctionChar)
+    public FunctionCharNode(FunctionChar functionChar)
+        : base(NodeTypeEnum.FunctionChar)
     {
         FunctionChar = functionChar;
     }
@@ -36,7 +37,7 @@ public class FunctionCharNode : BaseFormulaNode
             FunctionChar.Semicolon => ";",
             FunctionChar.Comma => ",",
             FunctionChar.Undefined => "ERROR",
-            _ => "ERROR"
+            _ => "ERROR",
         };
     }
 }

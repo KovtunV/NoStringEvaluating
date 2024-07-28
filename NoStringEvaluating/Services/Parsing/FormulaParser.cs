@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Contract;
+﻿using NoStringEvaluating.Contract;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes.Base;
 using NoStringEvaluating.Nodes.Common;
@@ -57,37 +55,59 @@ public class FormulaParser : IFormulaParser
             var ch = formula[i];
 
             if (ch.IsWhiteSpace())
+            {
                 continue;
+            }
 
             if (FunctionCharReader.TryProceedFunctionChar(nodes, ch))
+            {
                 continue;
+            }
 
             if (BracketReader.TryProceedOpenBracket(nodes, formula, negativeBracketCounters, ref i))
+            {
                 continue;
+            }
 
             if (BracketReader.TryProceedCloseBracket(nodes, formula, negativeBracketCounters, ref i))
+            {
                 continue;
+            }
 
             if (VariableReader.TryProceedBorderedVariable(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (NumberReader.TryProceedNumber(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (FunctionsReader.TryProceedFunction(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (VariableReader.TryProceedSimpleVariable(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (WordReader.TryProceedWord(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (ListReader.TryProceedList(nodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (OperatorReader.TryProceedOperator(nodes, formula, ref i))
+            {
                 continue;
+            }
         }
 
         return nodes;

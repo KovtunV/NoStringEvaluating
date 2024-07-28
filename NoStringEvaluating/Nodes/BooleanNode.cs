@@ -16,7 +16,8 @@ public class BooleanNode : BaseFormulaNode
     /// <summary>
     /// Formula node - Boolean
     /// </summary>
-    public BooleanNode(bool value) : base(NodeTypeEnum.Boolean)
+    public BooleanNode(bool value)
+        : base(NodeTypeEnum.Boolean)
     {
         Value = value;
     }

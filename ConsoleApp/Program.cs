@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
 using BenchmarkDotNet.Running;
 using ConsoleApp.Benchmark;
 using Ninject;
@@ -8,14 +9,14 @@ using NoStringEvaluating.Models;
 
 namespace ConsoleApp;
 
-class Program
+internal class Program
 {
-    static void Main()
+    public static void Main()
     {
         Run(Key.Number);
     }
 
-    static void Run(Key key)
+    private static void Run(Key key)
     {
         if (key == Key.Number)
         {
@@ -27,7 +28,8 @@ class Program
         }
     }
 
-    static NoStringEvaluator CreateNoString()
+    [UnconditionalSuppressMessage("CodeQuality", "IDE0051:Remove unused private members")]
+    private static NoStringEvaluator CreateNoString()
     {
         static void Configure(NoStringEvaluatorOptions opt)
         {
@@ -40,7 +42,8 @@ class Program
         return NoStringEvaluator.CreateFacade(Configure).Evaluator;
     }
 
-    static INoStringEvaluator CreateNoStringFromNinject(out StandardKernel kernel)
+    [UnconditionalSuppressMessage("CodeQuality", "IDE0051:Remove unused private members")]
+    private static INoStringEvaluator CreateNoStringFromNinject(out StandardKernel kernel)
     {
         kernel = new StandardKernel();
         kernel.Load(Assembly.GetExecutingAssembly());
@@ -52,6 +55,6 @@ class Program
     private enum Key
     {
         Number,
-        Parallel
+        Parallel,
     }
 }

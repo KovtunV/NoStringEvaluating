@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Runtime.InteropServices;
 using NoStringEvaluating.Extensions;
 
@@ -52,7 +50,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     }
 
     /// <summary>
-    /// Type key 
+    /// Type key
     /// </summary>
     public ValueTypeKey TypeKey { get; }
 

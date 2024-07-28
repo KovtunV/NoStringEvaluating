@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Nodes;
+﻿using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders;
@@ -21,7 +18,9 @@ public static class ListReader
 
         // Check out of range
         if (localIndex >= formula.Length)
+        {
             return false;
+        }
 
         // Read list
         if (formula[localIndex] != OPEN_BRACKET)
@@ -68,11 +67,14 @@ public static class ListReader
             }
 
             if (NumberReader.TryProceedNumber(listNodes, formula, ref i))
+            {
                 continue;
+            }
 
             if (WordReader.TryProceedWord(listNodes, formula, ref i))
+            {
                 continue;
-
+            }
         }
 
         return false;

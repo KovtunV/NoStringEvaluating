@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Contract;
+﻿using NoStringEvaluating.Contract;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Models.FormulaChecker;
 using NoStringEvaluating.Nodes;
@@ -54,7 +52,9 @@ public class FormulaChecker : IFormulaChecker
         for (int i = start; i < end; i++)
         {
             if (TryCheckFunction(mistakes, nodes, ref i))
+            {
                 continue;
+            }
 
             var nextIndex = GetNextIndex(nodes, i, end);
             CheckMissedOperator(mistakes, nodes, i, nextIndex);
@@ -71,7 +71,9 @@ public class FormulaChecker : IFormulaChecker
         for (int i = start; i < end; i++)
         {
             if (nodes[i] is FunctionNode)
+            {
                 return i;
+            }
         }
 
         return end;
@@ -83,7 +85,7 @@ public class FormulaChecker : IFormulaChecker
     {
         var localIndex = index;
 
-        if (!(nodes[localIndex] is FunctionNode))
+        if (nodes[localIndex] is not FunctionNode)
         {
             return false;
         }
@@ -114,11 +116,12 @@ public class FormulaChecker : IFormulaChecker
 
                 partIndexStart = localIndex + 1;
             }
-
             else if (node is BracketNode bracketNode && bracketCounter.Proceed(bracketNode))
             {
                 if (!canReadPart)
+                {
                     break;
+                }
 
                 CheckSyntaxInternal(mistakes, nodes, partIndexStart, localIndex);
 
@@ -142,13 +145,19 @@ public class FormulaChecker : IFormulaChecker
 
         for (int i = start; i < end; i++)
         {
-            if (!(nodes[i] is BracketNode bracketNode))
+            if (nodes[i] is not BracketNode bracketNode)
+            {
                 continue;
+            }
 
             if (bracketNode.Bracket == Bracket.Open)
+            {
                 openBracketCount++;
+            }
             else if (bracketNode.Bracket == Bracket.Close)
+            {
                 closeBracketCount++;
+            }
         }
 
         if (openBracketCount != closeBracketCount)
@@ -158,8 +167,6 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
-
-
     private static void CheckEmptyBrackets(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         for (int i = start + 1; i < end; i++)
@@ -168,7 +175,7 @@ public class FormulaChecker : IFormulaChecker
             var node = nodes[i];
             var nextNode = i + 1 < nodes.Count ? nodes[i + 1] : null;
 
-            if (!(prevNode is FunctionNode) && IsOpenBracket(node) && IsCloseBracket(nextNode))
+            if (prevNode is not FunctionNode && IsOpenBracket(node) && IsCloseBracket(nextNode))
             {
                 var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.EmptyBrackets, "Empty brackets");
                 mistakes.Add(mistakeItem);
@@ -214,7 +221,7 @@ public class FormulaChecker : IFormulaChecker
             var node = nodes[i];
             var nextNode = i + 1 < nodes.Count ? nodes[i + 1] : null;
 
-            if (IsOperatorableNode(prevNode) && IsOperatorableNode(nextNode) && !(node is OperatorNode))
+            if (IsOperatorableNode(prevNode) && IsOperatorableNode(nextNode) && node is not OperatorNode)
             {
                 var msg = $"Between \"{prevNode}\" and \"{nextNode}\" must be an operator, not \"{node}\"";
                 var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.OperatorBetweenPrevAndNextNode, msg, prevNode.ToString(), nextNode.ToString(), node.ToString());
@@ -252,7 +259,9 @@ public class FormulaChecker : IFormulaChecker
     private static void CheckFunctionBody(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
     {
         if (start + 1 != end)
+        {
             return;
+        }
 
         var node = nodes[start];
         if (node is FunctionCharNode)

@@ -63,5 +63,5 @@ public enum NodeTypeEnum
     /// <summary>
     /// Function
     /// </summary>
-    Function
+    Function,
 }

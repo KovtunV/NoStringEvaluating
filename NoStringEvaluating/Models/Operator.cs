@@ -73,5 +73,5 @@ public enum Operator
     /// <summary>
     /// Or
     /// </summary>
-    Or
+    Or,
 }

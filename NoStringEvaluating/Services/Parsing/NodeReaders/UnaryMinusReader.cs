@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Extensions;
+﻿using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
@@ -24,7 +22,9 @@ public static class UnaryMinusReader
             var ch = formula[localIndex];
 
             if (ch.IsWhiteSpace())
+            {
                 continue;
+            }
 
             if (!TryProceedUnaryMinus(nodes, ch, ref isNegativeLocal))
             {

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
@@ -24,7 +22,7 @@ internal class ToNumberFunctionTests : FunctionTests<ToNumberFunction>
     {
         yield return new object[] { new EvaluatorValue(5), 5 };
         yield return new object[] { new EvaluatorValue("16"), 16 };
-        yield return new object[] { new EvaluatorValue(), double.NaN };
+        yield return new object[] { default(EvaluatorValue), double.NaN };
         yield return new object[] { new EvaluatorValue(true), double.NaN };
         yield return new object[] { new EvaluatorValue(new[] { 1d, 2 }.ToList()), double.NaN };
         yield return new object[] { new EvaluatorValue(new[] { "one", "two" }.ToList()), double.NaN };

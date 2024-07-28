@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.Extensions.ObjectPool;
+﻿using Microsoft.Extensions.ObjectPool;
 using Ninject.Modules;
 using NoStringEvaluating;
 using NoStringEvaluating.Contract;

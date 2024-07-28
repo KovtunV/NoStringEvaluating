@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Globalization;
 using NoStringEvaluating.Extensions;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
@@ -21,7 +19,7 @@ public static class NumberReader
         var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
         var isReadedFloatingPoint = false;
-        var numberBuilder = new IndexWatcher();
+        var numberBuilder = default(IndexWatcher);
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
@@ -80,10 +78,14 @@ public static class NumberReader
     private static double GetDouble(ReadOnlySpan<char> value)
     {
         if (double.TryParse(value, NumberStyles.Any, RusCulture, out var res))
+        {
             return res;
+        }
 
         if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out res))
+        {
             return res;
+        }
 
         return default;
     }

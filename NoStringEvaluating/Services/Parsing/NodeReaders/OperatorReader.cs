@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using NoStringEvaluating.Models;
+﻿using NoStringEvaluating.Models;
 using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
@@ -24,7 +22,7 @@ public static class OperatorReader
     /// </summary>
     public static bool TryProceedOperator(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, ref int index)
     {
-        var operatorNameBuilder = new NameBuilder();
+        var operatorNameBuilder = default(NameBuilder);
 
         for (int operInd = 0; operInd < _operators.Length; operInd++)
         {
@@ -77,7 +75,7 @@ public static class OperatorReader
             "&&" => Operator.And,
             "||" => Operator.Or,
 
-            _ => Operator.Undefined
+            _ => Operator.Undefined,
         };
     }
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using NoStringEvaluating.Nodes;
+﻿using NoStringEvaluating.Nodes;
 using NoStringEvaluating.Nodes.Base;
 
 namespace NoStringEvaluating.Services.Parsing.NodeReaders;
@@ -28,7 +25,9 @@ public static class WordReader
 
         // Check out of range
         if (localIndex >= formula.Length)
+        {
             return false;
+        }
 
         // Read word
         if (!Quotes.Contains(formula[localIndex]))
@@ -39,7 +38,7 @@ public static class WordReader
         // Skip start char
         localIndex++;
 
-        var wordBuilder = new IndexWatcher();
+        var wordBuilder = default(IndexWatcher);
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using AutoFixture;
+﻿using AutoFixture;
 using FluentAssertions;
 using NoStringEvaluating.Functions.Math;
 using NoStringEvaluating.Models.Values;

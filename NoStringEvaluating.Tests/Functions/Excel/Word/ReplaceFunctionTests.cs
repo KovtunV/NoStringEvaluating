@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel.Word;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
@@ -36,7 +35,6 @@ internal class ReplaceFunctionTests : FunctionTests<ReplaceFunction>
         actual.TypeKey.Should().Be(ValueTypeKey.WordList);
         actual.WordList.Should().BeEquivalentTo(expected);
     }
-
 
     [Test]
     public void Shoult_Return_Null_On_Wrong_Value()

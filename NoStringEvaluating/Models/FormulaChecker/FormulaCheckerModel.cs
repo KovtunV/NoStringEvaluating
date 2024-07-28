@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace NoStringEvaluating.Models.FormulaChecker;
+﻿namespace NoStringEvaluating.Models.FormulaChecker;
 
 /// <summary>
 /// Formula checker result item
@@ -38,7 +36,6 @@ public class FormulaCheckerModel
     public FormulaCheckerModel(FormulaCheckerMistakeType type, string message)
         : this(type, message, Array.Empty<string>())
     {
-
     }
 
     /// <summary>

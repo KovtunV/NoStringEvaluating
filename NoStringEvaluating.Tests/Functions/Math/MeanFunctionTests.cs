@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Math;
 using NoStringEvaluating.Models.Values;
 using NoStringEvaluating.Tests.Helpers;

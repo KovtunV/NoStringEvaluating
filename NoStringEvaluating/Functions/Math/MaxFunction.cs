@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -45,7 +44,9 @@ public sealed class MaxFunction : IFunction
             }
 
             if (current > max)
+            {
                 max = current;
+            }
         }
 
         return max;
@@ -60,7 +61,9 @@ public sealed class MaxFunction : IFunction
             var current = list[i];
 
             if (current > max)
+            {
                 max = current;
+            }
         }
 
         return max;

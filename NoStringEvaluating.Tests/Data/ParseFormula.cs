@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Tests.Models;
+﻿using NoStringEvaluating.Tests.Models;
 using static NoStringEvaluating.Tests.Helpers.FormulaModelFactory;
 
 namespace NoStringEvaluating.Tests.Data;
@@ -23,7 +22,8 @@ internal static class ParseFormula
         yield return CreateTestModel(
             "if([my variable]; add(56 + 9 / 12 * 123.596; 1; 45;5); 9) *     24 + 52 -33",
             "IF([my variable]; ADD(56 9 12 / 123.596 * +; 1; 45; 5); 9) 24 * 52 + 33 -",
-            4811.728, ("my variable", true));
+            4811.728,
+            ("my variable", true));
         yield return CreateTestModel("IfNull(thisisnull;3)", "IFNULL([thisisnull]; 3)", 3);
         yield return CreateTestModel("IfNull(4;3)", "IFNULL(4; 3)", 4);
     }

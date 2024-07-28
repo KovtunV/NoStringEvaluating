@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NoStringEvaluating.Functions.Excel;
 using NoStringEvaluating.Models.Values;
 using NUnit.Framework;
@@ -26,6 +25,6 @@ internal class IsNumberFunctionTests : FunctionTests<IsNumberFunction>
         yield return new object[] { new EvaluatorValue(new List<double>()), false };
         yield return new object[] { new EvaluatorValue(new List<string>()), false };
         yield return new object[] { new EvaluatorValue(true), false };
-        yield return new object[] { new EvaluatorValue(), false };
+        yield return new object[] { default(EvaluatorValue), false };
     }
 }

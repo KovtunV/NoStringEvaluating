@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using NoStringEvaluating.Factories;
+﻿using NoStringEvaluating.Factories;
 using NoStringEvaluating.Functions.Base;
 using NoStringEvaluating.Models.Values;
 
@@ -27,14 +26,17 @@ public sealed class NullIfFunction : IFunction
     {
         // Wrong input, output Null
         if (args.Count != 2)
+        {
             return default;
+        }
 
         // If first argument equals second we output Null
         if (args[0].Equals(args[1]))
+        {
             return default;
+        }
 
         // Different argumens, keep the first
         return args[0];
-
     }
 }
