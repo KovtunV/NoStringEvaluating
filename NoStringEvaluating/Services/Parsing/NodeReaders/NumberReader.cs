@@ -19,7 +19,10 @@ public static class NumberReader
         var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
         var isReadedFloatingPoint = false;
-        var numberBuilder = default(IndexWatcher);
+        var isScientificNotation = false;
+        var isExponentPositive = false;
+        var numberBuilderNumber = default(IndexWatcher);
+        var numberBuilderExponent = default(IndexWatcher);
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
@@ -27,9 +30,16 @@ public static class NumberReader
 
             if (ch.IsDigit())
             {
-                numberBuilder.Remember(i);
+                if (isScientificNotation)
+                {
+                    numberBuilderExponent.Remember(i);
+                }
+                else
+                {
+                    numberBuilderNumber.Remember(i);
+                }
 
-                if (isLastChar && TryAddNumber(nodes, formula, numberBuilder, isNegativeLocal))
+                if (isLastChar && TryAddNumber(nodes, formula, numberBuilderNumber, numberBuilderExponent, isNegativeLocal, isScientificNotation, isExponentPositive))
                 {
                     index = i;
                     return true;
@@ -38,9 +48,19 @@ public static class NumberReader
             else if (!isReadedFloatingPoint && ch.IsFloatingPointSymbol() && IsDigitNext(formula, i))
             {
                 isReadedFloatingPoint = true;
-                numberBuilder.Remember(i);
+                numberBuilderNumber.Remember(i);
             }
-            else if (TryAddNumber(nodes, formula, numberBuilder, isNegativeLocal))
+            else if (!isScientificNotation && ch.IsScientificNotationSymbol())
+            {
+                isScientificNotation = true;
+                isExponentPositive = IsExponentPositive(formula, i);
+
+                if (!IsDigitNext(formula, i))
+                {
+                    i++;
+                }
+            }
+            else if (TryAddNumber(nodes, formula, numberBuilderNumber, numberBuilderExponent, isNegativeLocal, isScientificNotation, isExponentPositive))
             {
                 index = i - 1;
                 return true;
@@ -54,7 +74,7 @@ public static class NumberReader
         return false;
     }
 
-    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
+    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, IndexWatcher numberBuilderScientificNotation, bool isNegative, bool isScientificNotation, bool isExponentPositive)
     {
         if (nodeBuilder.InProcess)
         {
@@ -64,6 +84,21 @@ public static class NumberReader
             if (isNegative)
             {
                 value *= -1;
+            }
+
+            if (isScientificNotation)
+            {
+                var valueSpanScientificNotation = formula.Slice(numberBuilderScientificNotation.StartIndex.GetValueOrDefault(), numberBuilderScientificNotation.Length);
+                var valueScientificNotation = GetDouble(valueSpanScientificNotation);
+
+                if (isExponentPositive)
+                {
+                    value *= Math.Pow(10, valueScientificNotation);
+                }
+                else
+                {
+                    value /= Math.Pow(10, valueScientificNotation);
+                }
             }
 
             var valNode = new NumberNode(value);
@@ -99,6 +134,17 @@ public static class NumberReader
         }
 
         return formula[nextIndex].IsDigit();
+    }
+
+    private static bool IsScientificNotationSymbol(this char ch)
+    {
+        return ch == 'e' || ch == 'E';
+    }
+
+    private static bool IsExponentPositive(ReadOnlySpan<char> formula, int index)
+    {
+        var nextIndex = index + 1;
+        return nextIndex == formula.Length || formula[nextIndex].IsDigit();
     }
 
     private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");
