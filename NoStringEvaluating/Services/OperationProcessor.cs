@@ -72,11 +72,11 @@ internal static class OperationProcessor
         return default;
     }
 
-    public static InternalEvaluatorValue Power(ValueFactory factory, in InternalEvaluatorValue a, in InternalEvaluatorValue b)
+    public static InternalEvaluatorValue Power(in InternalEvaluatorValue a, in InternalEvaluatorValue b)
     {
         if (a.IsNumber && b.IsNumber)
         {
-            return factory.Create(Math.Pow(a.Number, b.Number));
+            return Math.Pow(a.Number, b.Number);
         }
 
         return default;

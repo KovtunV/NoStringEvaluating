@@ -24,6 +24,6 @@ internal class FormulaCheckerTests
         var actual = _service.CheckSyntax(model.Formula);
 
         // assert
-        actual.Ok.Should().Be(model.ExpectedOkResult);
+        actual.Ok.Should().Be(model.ExpectedOkResult, $"Formula: \"{model.Formula}\"");
     }
 }

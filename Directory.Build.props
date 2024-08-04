@@ -29,7 +29,7 @@
 		<PackageReference Include="AutoFixture"/>
 	</ItemGroup>
 
-	<ItemGroup>
+	<ItemGroup Condition="'$(MSBuildProjectName)' != 'ConsoleApp'">
 		<PackageReference Include="StyleCop.Analyzers" PrivateAssets="all" />
 		<AdditionalFiles Include="$(SolutionDir)\stylecop.json" Link="Properties\stylecop.json" />
 	</ItemGroup>

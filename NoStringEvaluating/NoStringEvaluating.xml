@@ -693,7 +693,7 @@
             Container with variables
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Contract.Variables.IVariablesContainer.AddOrUpdate(System.String,System.Double)">
+        <member name="M:NoStringEvaluating.Contract.Variables.IVariablesContainer.AddOrUpdate(System.String,NoStringEvaluating.Models.Values.EvaluatorValue)">
             <summary>
             Add or update variable
             </summary>
@@ -3686,6 +3686,11 @@
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyFunctionBody">
             <summary>
             Empty function's body
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.DoubledFunctionCharNodes">
+            <summary>
+            Two or more function chars in a sequence
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel">

@@ -686,7 +686,7 @@ public class NoStringEvaluator : INoStringEvaluator
                     Operator.Divide => Divide(a, b),
                     Operator.Plus => Plus(factory, a, b),
                     Operator.Minus => Minus(factory, a, b),
-                    Operator.Power => Power(factory, a, b),
+                    Operator.Power => Power(a, b),
 
                     // Logic
                     Operator.Less => Less(factory, a, b),
