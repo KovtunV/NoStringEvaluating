@@ -10,7 +10,7 @@ public interface IVariablesContainer
     /// <summary>
     /// Add or update variable
     /// </summary>
-    IVariable AddOrUpdate(string name, double value);
+    IVariable AddOrUpdate(string name, EvaluatorValue value);
 
     /// <summary>
     /// Return variable's value

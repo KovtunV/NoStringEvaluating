@@ -18,4 +18,14 @@ internal class NotAliasFunctionTests : FunctionTests<NotAliasFunction>
         actual.TypeKey.Should().Be(ValueTypeKey.Boolean);
         actual.Boolean.Should().Be(expected);
     }
+
+    [Test]
+    public void Should_Return_Null()
+    {
+        // arrange, act
+        var actual = Execute();
+
+        // assert
+        actual.IsNull.Should().BeTrue();
+    }
 }

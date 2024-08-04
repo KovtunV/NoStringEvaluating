@@ -37,9 +37,9 @@ public class FormulaChecker : IFormulaChecker
         var mistakes = new List<FormulaCheckerModel>();
         var nodes = _formulaParser.ParseWithoutRpn(formula);
 
-        // Check brackets for whole formula
         CheckBracketsCount(mistakes, nodes, 0, nodes.Count);
         CheckEmptyBrackets(mistakes, nodes, 0, nodes.Count);
+        CheckNotOperatorableNodes(mistakes, nodes, 0, nodes.Count);
 
         // Check
         CheckSyntaxInternal(mistakes, nodes, 0, nodes.Count);
@@ -175,7 +175,10 @@ public class FormulaChecker : IFormulaChecker
             var node = nodes[i];
             var nextNode = i + 1 < nodes.Count ? nodes[i + 1] : null;
 
-            if (prevNode is not FunctionNode && IsOpenBracket(node) && IsCloseBracket(nextNode))
+            var whenPrevNodeIsNotFunction = prevNode is not FunctionNode && IsOpenBracket(node) && IsCloseBracket(nextNode);
+            var whenStartFormula = i == 1 && IsOpenBracket(prevNode) && IsCloseBracket(node);
+
+            if (whenPrevNodeIsNotFunction || whenStartFormula)
             {
                 var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.EmptyBrackets, "Empty brackets");
                 mistakes.Add(mistakeItem);
@@ -271,16 +274,27 @@ public class FormulaChecker : IFormulaChecker
         }
     }
 
+    private static void CheckNotOperatorableNodes(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes, int start, int end)
+    {
+        for (int i = start + 1; i < end; i++)
+        {
+            var prevNode = nodes[i - 1];
+            var node = nodes[i];
+
+            if (prevNode is FunctionCharNode && node is FunctionCharNode)
+            {
+                var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.DoubledFunctionCharNodes, "Two or more function chars in a sequence");
+                mistakes.Add(mistakeItem);
+                break;
+            }
+        }
+    }
+
     #endregion
 
     private static FormulaCheckerModel CreateMistakeModel(FormulaCheckerMistakeType key, string message, params string[] parts)
     {
-        if (parts != null)
-        {
-            return new FormulaCheckerModel(key, message, parts);
-        }
-
-        return new FormulaCheckerModel(key, message);
+        return new FormulaCheckerModel(key, message, parts);
     }
 
     private static bool IsOpenBracket(BaseFormulaNode node)

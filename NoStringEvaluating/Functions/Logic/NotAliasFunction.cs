@@ -24,6 +24,11 @@ public sealed class NotAliasFunction : IFunction
     /// </summary>
     public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
     {
+        if (args.Count == 0)
+        {
+            return default;
+        }
+
         return factory.Boolean.Create(!args[0].Boolean);
     }
 }

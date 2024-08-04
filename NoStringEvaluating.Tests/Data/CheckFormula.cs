@@ -37,5 +37,14 @@ internal static class CheckFormula
         yield return CreateTestModelToCheck("1 + and([a]; [b])", true);
         yield return CreateTestModelToCheck("and([a]; [b]) 1", false);
         yield return CreateTestModelToCheck("and([a]; [b]) / 1", true);
+        yield return CreateTestModelToCheck("()", false);
+        yield return CreateTestModelToCheck("5 + ()", false);
+        yield return CreateTestModelToCheck("!()", true);
+        yield return CreateTestModelToCheck("5^!()", true);
+        yield return CreateTestModelToCheck(";", false);
+        yield return CreateTestModelToCheck(";;", false);
+        yield return CreateTestModelToCheck(";;;", false);
+        yield return CreateTestModelToCheck(",", false);
+        yield return CreateTestModelToCheck(",,", false);
     }
 }

@@ -49,4 +49,9 @@ public enum FormulaCheckerMistakeType
     /// Empty function's body
     /// </summary>
     EmptyFunctionBody = 8,
+
+    /// <summary>
+    /// Two or more function chars in a sequence
+    /// </summary>
+    DoubledFunctionCharNodes = 9,
 }
