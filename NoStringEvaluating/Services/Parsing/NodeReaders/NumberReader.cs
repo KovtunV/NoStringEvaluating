@@ -19,7 +19,11 @@ public static class NumberReader
         var localIndex = UnaryMinusReader.ReadUnaryMinus(nodes, formula, index, out var isNegativeLocal);
 
         var isReadedFloatingPoint = false;
+        var isScientificNotation = false;
+        var isExponentPositive = false;
         var numberBuilder = default(IndexWatcher);
+        var numberExponentBuilder = default(IndexWatcher);
+
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
@@ -27,9 +31,16 @@ public static class NumberReader
 
             if (ch.IsDigit())
             {
-                numberBuilder.Remember(i);
+                if (isScientificNotation)
+                {
+                    numberExponentBuilder.Remember(i);
+                }
+                else
+                {
+                    numberBuilder.Remember(i);
+                }
 
-                if (isLastChar && TryAddNumber(nodes, formula, numberBuilder, isNegativeLocal))
+                if (isLastChar && TryAddNumber(nodes, formula, numberBuilder, numberExponentBuilder, isNegativeLocal, isScientificNotation, isExponentPositive))
                 {
                     index = i;
                     return true;
@@ -40,7 +51,17 @@ public static class NumberReader
                 isReadedFloatingPoint = true;
                 numberBuilder.Remember(i);
             }
-            else if (TryAddNumber(nodes, formula, numberBuilder, isNegativeLocal))
+            else if (!isScientificNotation && ch.IsScientificNotationSymbol())
+            {
+                isScientificNotation = true;
+                isExponentPositive = IsExponentPositive(formula, i);
+
+                if (!IsDigitNext(formula, i))
+                {
+                    i++;
+                }
+            }
+            else if (TryAddNumber(nodes, formula, numberBuilder, numberExponentBuilder, isNegativeLocal, isScientificNotation, isExponentPositive))
             {
                 index = i - 1;
                 return true;
@@ -54,16 +75,31 @@ public static class NumberReader
         return false;
     }
 
-    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, bool isNegative)
+    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher numberBuilder, IndexWatcher numberExponentBuilder, bool isNegative, bool isScientificNotation, bool isExponentPositive)
     {
-        if (nodeBuilder.InProcess)
+        if (numberBuilder.InProcess)
         {
-            var valueSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
+            var valueSpan = formula.Slice(numberBuilder.StartIndex.GetValueOrDefault(), numberBuilder.Length);
             var value = GetDouble(valueSpan);
 
             if (isNegative)
             {
                 value *= -1;
+            }
+
+            if (isScientificNotation)
+            {
+                var valueExponentSpan = formula.Slice(numberExponentBuilder.StartIndex.GetValueOrDefault(), numberExponentBuilder.Length);
+                var valueExponent = GetDouble(valueExponentSpan);
+
+                if (isExponentPositive)
+                {
+                    value *= Math.Pow(10, valueExponent);
+                }
+                else
+                {
+                    value /= Math.Pow(10, valueExponent);
+                }
             }
 
             var valNode = new NumberNode(value);
@@ -99,6 +135,17 @@ public static class NumberReader
         }
 
         return formula[nextIndex].IsDigit();
+    }
+
+    private static bool IsScientificNotationSymbol(this char ch)
+    {
+        return ch == 'e' || ch == 'E';
+    }
+
+    private static bool IsExponentPositive(ReadOnlySpan<char> formula, int index)
+    {
+        var nextIndex = index + 1;
+        return nextIndex == formula.Length || formula[nextIndex].IsDigit();
     }
 
     private static CultureInfo RusCulture { get; } = CultureInfo.GetCultureInfo("ru-RU");
