@@ -233,5 +233,10 @@ internal static class EvaluateNumber
         yield return CreateTestModel("2,7", 2.7);
         yield return CreateTestModel("4.2687556958921E-08", 0.000000042687556958921);
         yield return CreateTestModel("4.2687556958921E08", 426875569.58921);
+        yield return CreateTestModel("-4.2687556958921E08", -426875569.58921);
+        yield return CreateTestModel("abs(-4.2687556958921E08)", 426875569.58921);
+        yield return CreateTestModel("E", 2.7182);
+        yield return CreateTestModel("123 + E", 125.7182);
+        yield return CreateTestModel("123 + -E", 120.2817);
     }
 }

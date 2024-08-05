@@ -21,8 +21,9 @@ public static class NumberReader
         var isReadedFloatingPoint = false;
         var isScientificNotation = false;
         var isExponentPositive = false;
-        var numberBuilderNumber = default(IndexWatcher);
-        var numberBuilderExponent = default(IndexWatcher);
+        var numberBuilder = default(IndexWatcher);
+        var numberExponentBuilder = default(IndexWatcher);
+
         for (int i = localIndex; i < formula.Length; i++)
         {
             var ch = formula[i];
@@ -32,14 +33,14 @@ public static class NumberReader
             {
                 if (isScientificNotation)
                 {
-                    numberBuilderExponent.Remember(i);
+                    numberExponentBuilder.Remember(i);
                 }
                 else
                 {
-                    numberBuilderNumber.Remember(i);
+                    numberBuilder.Remember(i);
                 }
 
-                if (isLastChar && TryAddNumber(nodes, formula, numberBuilderNumber, numberBuilderExponent, isNegativeLocal, isScientificNotation, isExponentPositive))
+                if (isLastChar && TryAddNumber(nodes, formula, numberBuilder, numberExponentBuilder, isNegativeLocal, isScientificNotation, isExponentPositive))
                 {
                     index = i;
                     return true;
@@ -48,7 +49,7 @@ public static class NumberReader
             else if (!isReadedFloatingPoint && ch.IsFloatingPointSymbol() && IsDigitNext(formula, i))
             {
                 isReadedFloatingPoint = true;
-                numberBuilderNumber.Remember(i);
+                numberBuilder.Remember(i);
             }
             else if (!isScientificNotation && ch.IsScientificNotationSymbol())
             {
@@ -60,7 +61,7 @@ public static class NumberReader
                     i++;
                 }
             }
-            else if (TryAddNumber(nodes, formula, numberBuilderNumber, numberBuilderExponent, isNegativeLocal, isScientificNotation, isExponentPositive))
+            else if (TryAddNumber(nodes, formula, numberBuilder, numberExponentBuilder, isNegativeLocal, isScientificNotation, isExponentPositive))
             {
                 index = i - 1;
                 return true;
@@ -74,11 +75,11 @@ public static class NumberReader
         return false;
     }
 
-    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher nodeBuilder, IndexWatcher numberBuilderScientificNotation, bool isNegative, bool isScientificNotation, bool isExponentPositive)
+    private static bool TryAddNumber(List<BaseFormulaNode> nodes, ReadOnlySpan<char> formula, IndexWatcher numberBuilder, IndexWatcher numberExponentBuilder, bool isNegative, bool isScientificNotation, bool isExponentPositive)
     {
-        if (nodeBuilder.InProcess)
+        if (numberBuilder.InProcess)
         {
-            var valueSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
+            var valueSpan = formula.Slice(numberBuilder.StartIndex.GetValueOrDefault(), numberBuilder.Length);
             var value = GetDouble(valueSpan);
 
             if (isNegative)
@@ -88,16 +89,16 @@ public static class NumberReader
 
             if (isScientificNotation)
             {
-                var valueSpanScientificNotation = formula.Slice(numberBuilderScientificNotation.StartIndex.GetValueOrDefault(), numberBuilderScientificNotation.Length);
-                var valueScientificNotation = GetDouble(valueSpanScientificNotation);
+                var valueExponentSpan = formula.Slice(numberExponentBuilder.StartIndex.GetValueOrDefault(), numberExponentBuilder.Length);
+                var valueExponent = GetDouble(valueExponentSpan);
 
                 if (isExponentPositive)
                 {
-                    value *= Math.Pow(10, valueScientificNotation);
+                    value *= Math.Pow(10, valueExponent);
                 }
                 else
                 {
-                    value /= Math.Pow(10, valueScientificNotation);
+                    value /= Math.Pow(10, valueExponent);
                 }
             }
 
