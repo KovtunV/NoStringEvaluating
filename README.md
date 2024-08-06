@@ -59,6 +59,7 @@ Microsoft.Extensions.DependencyInjection <br/>
 - User defined functions
 - User defined variables with any chars
 - Mixed result type
+- Scientific notation
 
 ## Performance
 Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathParser.org-mXparser "mXparser")
