@@ -598,6 +598,8 @@ Static initialization if you don't have DI
 ## Thanks for contribution
 [:octocat: IvoTops](https://github.com/IvoTops "https://github.com/IvoTops")
 
+[:octocat: sebgerber](https://github.com/sebgerber "https://github.com/sebgerber")
+
 ## TODO
 - Add more functions
 - Any idea?
