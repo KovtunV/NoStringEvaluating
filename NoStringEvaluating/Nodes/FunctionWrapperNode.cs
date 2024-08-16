@@ -5,27 +5,17 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - Function wrapper
 /// </summary>
-public class FunctionWrapperNode : BaseFormulaNode
+public class FunctionWrapperNode(FunctionNode functionNode) : BaseFormulaNode(NodeTypeEnum.FunctionWrapper)
 {
     /// <summary>
     /// Function node
     /// </summary>
-    public FunctionNode FunctionNode { get; }
+    public FunctionNode FunctionNode { get; } = functionNode;
 
     /// <summary>
     /// Function arguments
     /// </summary>
-    public List<List<BaseFormulaNode>> FunctionArgumentNodes { get; }
-
-    /// <summary>
-    /// Formula node - Function wrapper
-    /// </summary>
-    public FunctionWrapperNode(FunctionNode functionNode)
-        : base(NodeTypeEnum.FunctionWrapper)
-    {
-        FunctionNode = functionNode;
-        FunctionArgumentNodes = new List<List<BaseFormulaNode>>();
-    }
+    public List<List<BaseFormulaNode>> FunctionArgumentNodes { get; } = [];
 
     /// <summary>
     /// ToString

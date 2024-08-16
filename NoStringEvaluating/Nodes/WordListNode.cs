@@ -5,21 +5,12 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - WordList
 /// </summary>
-public class WordListNode : BaseFormulaNode
+public class WordListNode(List<string> wordList) : BaseFormulaNode(NodeTypeEnum.WordList)
 {
     /// <summary>
     /// WordList
     /// </summary>
-    public List<string> WordList { get; }
-
-    /// <summary>
-    /// Formula node - WordList
-    /// </summary>
-    public WordListNode(List<string> wordList)
-        : base(NodeTypeEnum.WordList)
-    {
-        WordList = wordList;
-    }
+    public List<string> WordList { get; } = wordList;
 
     /// <summary>
     /// ToString

@@ -12,15 +12,13 @@ namespace NoStringEvaluating.Services.Parsing.NodeReaders;
 /// </summary>
 public class FunctionReader : IFunctionReader
 {
-    private readonly List<IFunction> _functions;
+    private readonly List<IFunction> _functions = [];
 
     /// <summary>
     /// Function reader
     /// </summary>
     public FunctionReader()
     {
-        _functions = new List<IFunction>();
-
         GlobalOptions.FunctionsAssemblies
             .CreateInstances<IFunction>()
             .ForEach(x => AddFunction(x, replace: true));

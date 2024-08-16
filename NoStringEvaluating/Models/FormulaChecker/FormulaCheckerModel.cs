@@ -3,38 +3,28 @@
 /// <summary>
 /// Formula checker result item
 /// </summary>
-public class FormulaCheckerModel
+public class FormulaCheckerModel(FormulaCheckerMistakeType type, string message, string[] messageParts)
 {
     /// <summary>
     /// Mistake's type
     /// </summary>
-    public FormulaCheckerMistakeType MistakeType { get; }
+    public FormulaCheckerMistakeType MistakeType { get; } = type;
 
     /// <summary>
     /// Message
     /// </summary>
-    public string Message { get; }
+    public string Message { get; } = message;
 
     /// <summary>
     /// Important message parts
     /// </summary>
-    public string[] MessageParts { get; }
-
-    /// <summary>
-    /// Formula checker result item
-    /// </summary>
-    public FormulaCheckerModel(FormulaCheckerMistakeType type, string message, string[] messageParts)
-    {
-        MistakeType = type;
-        Message = message;
-        MessageParts = messageParts;
-    }
+    public string[] MessageParts { get; } = messageParts;
 
     /// <summary>
     /// Formula checker result item
     /// </summary>
     public FormulaCheckerModel(FormulaCheckerMistakeType type, string message)
-        : this(type, message, Array.Empty<string>())
+        : this(type, message, [])
     {
     }
 

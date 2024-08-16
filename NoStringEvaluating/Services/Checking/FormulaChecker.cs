@@ -9,17 +9,9 @@ namespace NoStringEvaluating.Services.Checking;
 /// <summary>
 /// Syntax checker
 /// </summary>
-public class FormulaChecker : IFormulaChecker
+public class FormulaChecker(IFormulaParser formulaParser) : IFormulaChecker
 {
-    private readonly IFormulaParser _formulaParser;
-
-    /// <summary>
-    /// Syntax checker
-    /// </summary>
-    public FormulaChecker(IFormulaParser formulaParser)
-    {
-        _formulaParser = formulaParser;
-    }
+    private readonly IFormulaParser _formulaParser = formulaParser;
 
     /// <summary>
     /// Check syntax

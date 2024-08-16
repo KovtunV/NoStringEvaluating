@@ -23,20 +23,20 @@ public abstract class BenchBase
     [GlobalSetup]
     public virtual void Setup()
     {
-        _usedFunctions = new IFunction[]
-        {
+        _usedFunctions =
+        [
             new AddFunction(),
             new IfFunction(),
             new OrFunction(),
             new Func_kov(),
             new Func_kovt(),
-        };
+        ];
 
-        _usedFunctionsMxParser = new[]
-        {
+        _usedFunctionsMxParser =
+        [
             new Function("kov", new FExtension_kov()),
             new Function("kovt", new FExtension_kovt()),
-        };
+        ];
 
         mXparser.disableAlmostIntRounding();
         mXparser.disableUlpRounding();

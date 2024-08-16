@@ -3,13 +3,6 @@
 /// <summary>
 /// Raises when function exception
 /// </summary>
-public class NoStringFunctionException : Exception
+public class NoStringFunctionException(string funcName) : Exception($"Function \"{funcName}\" has already added")
 {
-    /// <summary>
-    /// Raises when function exception
-    /// </summary>
-    public NoStringFunctionException(string funcName)
-        : base($"Function \"{funcName}\" has already added")
-    {
-    }
 }

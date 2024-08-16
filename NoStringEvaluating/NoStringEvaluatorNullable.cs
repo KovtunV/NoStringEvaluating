@@ -15,17 +15,9 @@ namespace NoStringEvaluating;
 /// Expression evaluator with nullable result
 /// </summary>
 [ExcludeFromCodeCoverage]
-public class NoStringEvaluatorNullable : INoStringEvaluatorNullable
+public class NoStringEvaluatorNullable(INoStringEvaluator evaluator) : INoStringEvaluatorNullable
 {
-    private readonly INoStringEvaluator _evaluator;
-
-    /// <summary>
-    /// Expression evaluator with nullable result
-    /// </summary>
-    public NoStringEvaluatorNullable(INoStringEvaluator evaluator)
-    {
-        _evaluator = evaluator;
-    }
+    private readonly INoStringEvaluator _evaluator = evaluator;
 
     #region NumberEndpoints
 
@@ -505,44 +497,31 @@ public class NoStringEvaluatorNullable : INoStringEvaluatorNullable
     /// <summary>
     /// Facade
     /// </summary>
-    public class Facade
+    public class Facade(NoStringEvaluator.Facade facade)
     {
-        /// <summary>
-        /// Facade
-        /// </summary>
-        public Facade(NoStringEvaluator.Facade facade)
-        {
-            Evaluator = new(facade.Evaluator);
-
-            FunctionReader = facade.FunctionReader;
-            FormulaParser = facade.FormulaParser;
-            FormulaCache = facade.FormulaCache;
-            FormulaChecker = facade.FormulaChecker;
-        }
-
         /// <summary>
         /// Evaluator
         /// </summary>
-        public NoStringEvaluatorNullable Evaluator { get; }
+        public NoStringEvaluatorNullable Evaluator { get; } = new(facade.Evaluator);
 
         /// <summary>
         /// FunctionReader
         /// </summary>
-        public FunctionReader FunctionReader { get; }
+        public FunctionReader FunctionReader { get; } = facade.FunctionReader;
 
         /// <summary>
         /// FormulaParser
         /// </summary>
-        public FormulaParser FormulaParser { get; }
+        public FormulaParser FormulaParser { get; } = facade.FormulaParser;
 
         /// <summary>
         /// FormulaCache
         /// </summary>
-        public FormulaCache FormulaCache { get; }
+        public FormulaCache FormulaCache { get; } = facade.FormulaCache;
 
         /// <summary>
         /// FormulaChecker
         /// </summary>
-        public FormulaChecker FormulaChecker { get; }
+        public FormulaChecker FormulaChecker { get; } = facade.FormulaChecker;
     }
 }

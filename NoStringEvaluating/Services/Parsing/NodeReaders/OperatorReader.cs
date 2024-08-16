@@ -14,7 +14,7 @@ public static class OperatorReader
     static OperatorReader()
     {
         // Pay attention and sort operators :)
-        _operators = new[] { "+", "-", "*", "/", "^", "<>", "<=", "<", ">=", ">", "==", "=", "!=", "&&", "||" };
+        _operators = ["+", "-", "*", "/", "^", "<>", "<=", "<", ">=", ">", "==", "=", "!=", "&&", "||"];
     }
 
     /// <summary>

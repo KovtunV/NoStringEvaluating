@@ -6,21 +6,12 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - Bracket
 /// </summary>
-public class BracketNode : BaseFormulaNode
+public class BracketNode(Bracket bracket) : BaseFormulaNode(NodeTypeEnum.Bracket)
 {
     /// <summary>
     /// Bracket
     /// </summary>
-    public Bracket Bracket { get; }
-
-    /// <summary>
-    /// Formula node - bracket
-    /// </summary>
-    public BracketNode(Bracket bracket)
-        : base(NodeTypeEnum.Bracket)
-    {
-        Bracket = bracket;
-    }
+    public Bracket Bracket { get; } = bracket;
 
     /// <summary>
     /// ToString

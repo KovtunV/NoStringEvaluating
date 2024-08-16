@@ -15,7 +15,7 @@ public class BracketCounters
     /// </summary>
     public BracketCounters()
     {
-        _borderCounters = new List<BorderCounter<BracketNode>>();
+        _borderCounters = [];
     }
 
     /// <summary>

@@ -3,31 +3,22 @@
 /// <summary>
 /// Name builder
 /// </summary>
-public struct NameBuilder
+public struct NameBuilder(string expectedName)
 {
     /// <summary>
     /// Expected name
     /// </summary>
-    public string ExpectedName { get; private set; }
+    public string ExpectedName { get; private set; } = expectedName;
 
     /// <summary>
     /// Length
     /// </summary>
-    public int Length { get; private set; }
+    public int Length { get; private set; } = 0;
 
     /// <summary>
     /// Is finished
     /// </summary>
-    public bool IsFinished => Length == ExpectedName.Length;
-
-    /// <summary>
-    /// Name builder
-    /// </summary>
-    public NameBuilder(string expectedName)
-    {
-        ExpectedName = expectedName;
-        Length = 0;
-    }
+    public readonly bool IsFinished => Length == ExpectedName.Length;
 
     /// <summary>
     /// Try remembed char

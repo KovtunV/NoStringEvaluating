@@ -6,21 +6,12 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - Boolean
 /// </summary>
-public class BooleanNode : BaseFormulaNode
+public class BooleanNode(bool value) : BaseFormulaNode(NodeTypeEnum.Boolean)
 {
     /// <summary>
     /// Boolean
     /// </summary>
-    public bool Value { get; }
-
-    /// <summary>
-    /// Formula node - Boolean
-    /// </summary>
-    public BooleanNode(bool value)
-        : base(NodeTypeEnum.Boolean)
-    {
-        Value = value;
-    }
+    public bool Value { get; } = value;
 
     /// <summary>
     /// ToString

@@ -6,21 +6,12 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - Number
 /// </summary>
-public class NumberNode : BaseFormulaNode
+public class NumberNode(double number) : BaseFormulaNode(NodeTypeEnum.Number)
 {
     /// <summary>
     /// Number
     /// </summary>
-    public double Number { get; }
-
-    /// <summary>
-    /// Formula node - Number
-    /// </summary>
-    public NumberNode(double number)
-        : base(NodeTypeEnum.Number)
-    {
-        Number = number;
-    }
+    public double Number { get; } = number;
 
     /// <summary>
     /// ToString

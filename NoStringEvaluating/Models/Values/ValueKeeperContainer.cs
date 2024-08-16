@@ -7,7 +7,7 @@ namespace NoStringEvaluating.Models.Values;
 /// </summary>
 public sealed class ValueKeeperContainer : IDisposable
 {
-    private readonly List<ValueKeeper> _valueKeeperList = new();
+    private readonly List<ValueKeeper> _valueKeeperList = [];
     private ObjectPool<ValueKeeperContainer> _pool;
     private int _index;
 

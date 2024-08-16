@@ -6,21 +6,12 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - FunctionChar
 /// </summary>
-public class FunctionCharNode : BaseFormulaNode
+public class FunctionCharNode(FunctionChar functionChar) : BaseFormulaNode(NodeTypeEnum.FunctionChar)
 {
     /// <summary>
     /// FunctionChar
     /// </summary>
-    public FunctionChar FunctionChar { get; }
-
-    /// <summary>
-    /// Formula node - FunctionChar
-    /// </summary>
-    public FunctionCharNode(FunctionChar functionChar)
-        : base(NodeTypeEnum.FunctionChar)
-    {
-        FunctionChar = functionChar;
-    }
+    public FunctionChar FunctionChar { get; } = functionChar;
 
     /// <summary>
     /// ToString

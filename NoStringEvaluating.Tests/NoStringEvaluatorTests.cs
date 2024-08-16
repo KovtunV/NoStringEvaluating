@@ -13,6 +13,7 @@ using NUnit.Framework;
 
 namespace NoStringEvaluating.Tests;
 
+[UnconditionalSuppressMessage("Style", "IDE0059:Unnecessary assignment of a value")]
 internal class NoStringEvaluatorTests
 {
     [TestCaseSource(typeof(EvaluateNumber), nameof(EvaluateNumber.Get))]
@@ -248,6 +249,7 @@ internal class NoStringEvaluatorTests
     }
 
     [Test]
+    [UnconditionalSuppressMessage("Performance", "CA1861:Avoid constant arrays as arguments")]
     public void Should_Return_WordList()
     {
         // arrange
@@ -451,7 +453,7 @@ internal class NoStringEvaluatorTests
         res.TypeKey.Should().Be(expectedValueType);
     }
 
-    private static IVariablesContainer CreateVariablesContainer(params (string, EvaluatorValue)[] variables)
+    private static VariablesContainer CreateVariablesContainer(params (string, EvaluatorValue)[] variables)
     {
         var variableContainer = new VariablesContainer();
 
@@ -463,7 +465,7 @@ internal class NoStringEvaluatorTests
         return variableContainer;
     }
 
-    private static IDictionary<string, EvaluatorValue> CreateVariablesDictionary(params (string, EvaluatorValue)[] variables)
+    private static Dictionary<string, EvaluatorValue> CreateVariablesDictionary(params (string, EvaluatorValue)[] variables)
     {
         return variables.ToDictionary(key => key.Item1, val => val.Item2);
     }

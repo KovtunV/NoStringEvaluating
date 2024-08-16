@@ -6,22 +6,11 @@ namespace NoStringEvaluating.Services.Cache;
 /// <summary>
 /// Parsed formula cache
 /// </summary>
-public class FormulaCache : IFormulaCache
+public class FormulaCache(IFormulaParser formulaParser) : IFormulaCache
 {
-    private readonly object _locker;
-    private readonly Dictionary<string, FormulaNodes> _formulaNodes;
-    private readonly IFormulaParser _formulaParser;
-
-    /// <summary>
-    /// Parsed formula cache
-    /// </summary>
-    public FormulaCache(IFormulaParser formulaParser)
-    {
-        _formulaNodes = new();
-        _locker = new();
-
-        _formulaParser = formulaParser;
-    }
+    private readonly object _locker = new();
+    private readonly Dictionary<string, FormulaNodes> _formulaNodes = [];
+    private readonly IFormulaParser _formulaParser = formulaParser;
 
     /// <summary>
     /// Return cached formula nodes

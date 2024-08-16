@@ -39,12 +39,12 @@ public static class GlobalOptions
     /// <summary>
     /// Assemblies with functions
     /// </summary>
-    public static HashSet<Assembly> FunctionsAssemblies { get; } = new();
+    public static HashSet<Assembly> FunctionsAssemblies { get; } = [];
 
     /// <summary>
     /// Functions
     /// </summary>
-    public static HashSet<IFunction> Functions { get; } = new();
+    public static HashSet<IFunction> Functions { get; } = [];
 
     /// <summary>
     /// Global options

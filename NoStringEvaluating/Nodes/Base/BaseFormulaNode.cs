@@ -3,18 +3,10 @@
 /// <summary>
 /// Formula node
 /// </summary>
-public abstract class BaseFormulaNode
+public abstract class BaseFormulaNode(NodeTypeEnum typeKey)
 {
     /// <summary>
     /// Type key
     /// </summary>
-    public NodeTypeEnum TypeKey { get; }
-
-    /// <summary>
-    /// Formula node
-    /// </summary>
-    protected BaseFormulaNode(NodeTypeEnum typeKey)
-    {
-        TypeKey = typeKey;
-    }
+    public NodeTypeEnum TypeKey { get; } = typeKey;
 }

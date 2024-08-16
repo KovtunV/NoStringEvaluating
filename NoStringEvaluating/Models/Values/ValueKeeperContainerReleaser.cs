@@ -1,13 +1,8 @@
 ﻿namespace NoStringEvaluating.Models.Values;
 
-internal readonly struct ValueKeeperContainerReleaser : IDisposable
+internal readonly struct ValueKeeperContainerReleaser(ValueKeeperContainer container) : IDisposable
 {
-    public ValueKeeperContainer Container { get; }
-
-    public ValueKeeperContainerReleaser(ValueKeeperContainer container)
-    {
-        Container = container;
-    }
+    public ValueKeeperContainer Container { get; } = container;
 
     public void Dispose()
     {

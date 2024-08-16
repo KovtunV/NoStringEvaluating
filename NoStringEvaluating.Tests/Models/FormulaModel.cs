@@ -2,26 +2,17 @@
 
 namespace NoStringEvaluating.Tests.Models;
 
-public class FormulaModel
+public class FormulaModel(string formula, string parsedFormula, EvaluatorValue result, bool expectedOkResult = true)
 {
-    public string Formula { get; }
+    public string Formula { get; } = formula;
 
-    public string ParsedFormula { get; }
+    public string ParsedFormula { get; } = parsedFormula;
 
-    public EvaluatorValue Result { get; }
+    public EvaluatorValue Result { get; } = result;
 
-    public bool ExpectedOkResult { get; }
+    public bool ExpectedOkResult { get; } = expectedOkResult;
 
-    public Dictionary<string, EvaluatorValue> Arguments { get; }
-
-    public FormulaModel(string formula, string parsedFormula, EvaluatorValue result, bool expectedOkResult = true)
-    {
-        Formula = formula;
-        ParsedFormula = parsedFormula;
-        Result = result;
-        ExpectedOkResult = expectedOkResult;
-        Arguments = new Dictionary<string, EvaluatorValue>();
-    }
+    public Dictionary<string, EvaluatorValue> Arguments { get; } = [];
 
     public override string ToString()
     {

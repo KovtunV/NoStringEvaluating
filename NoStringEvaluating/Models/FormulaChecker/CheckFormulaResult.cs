@@ -3,28 +3,17 @@
 /// <summary>
 /// Syntax checking result
 /// </summary>
-public class CheckFormulaResult
+public class CheckFormulaResult(List<FormulaCheckerModel> mistakes)
 {
     /// <summary>
     /// Mistakes
     /// </summary>
-    public List<FormulaCheckerModel> Mistakes { get; }
+    public List<FormulaCheckerModel> Mistakes { get; } = mistakes;
 
     /// <summary>
     /// Is checking OK
     /// </summary>
-    public bool Ok
-    {
-        get => Mistakes.Count is 0;
-    }
-
-    /// <summary>
-    /// Syntax checking result
-    /// </summary>
-    public CheckFormulaResult(List<FormulaCheckerModel> mistakes)
-    {
-        Mistakes = mistakes;
-    }
+    public bool Ok => Mistakes.Count is 0;
 
     /// <summary>
     /// ToString

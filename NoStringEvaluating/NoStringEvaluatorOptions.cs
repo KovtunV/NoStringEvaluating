@@ -38,12 +38,12 @@ public class NoStringEvaluatorOptions
     /// <summary>
     /// Assemblies with functions
     /// </summary>
-    public HashSet<Assembly> FunctionsAssemblies { get; } = new();
+    public HashSet<Assembly> FunctionsAssemblies { get; } = [];
 
     /// <summary>
     /// Functions
     /// </summary>
-    public HashSet<IFunction> Functions { get; } = new();
+    public HashSet<IFunction> Functions { get; } = [];
 
     /// <summary>
     /// Options
@@ -139,7 +139,7 @@ public class NoStringEvaluatorOptions
     /// </summary>
     public NoStringEvaluatorOptions WithFunctions(params IFunction[] functions)
     {
-        functions ??= Array.Empty<IFunction>();
+        functions ??= [];
         functions.ForEach(x => Functions.Add(x));
         return this;
     }

@@ -12,7 +12,7 @@ public static class WordReader
 
     static WordReader()
     {
-        Quotes = new[] { '\'', '"' }.ToHashSet();
+        Quotes = ['\'', '"'];
     }
 
     /// <summary>

@@ -6,33 +6,22 @@ namespace NoStringEvaluating.Nodes;
 /// <summary>
 /// Formula node - Function
 /// </summary>
-public class FunctionNode : BaseFormulaNode
+public class FunctionNode(IFunction function, bool isNegative, bool isNegation) : BaseFormulaNode(NodeTypeEnum.Function)
 {
     /// <summary>
     /// Function
     /// </summary>
-    public IFunction Function { get; }
+    public IFunction Function { get; } = function;
 
     /// <summary>
     /// Has unary minus
     /// </summary>
-    public bool IsNegative { get; }
+    public bool IsNegative { get; } = isNegative;
 
     /// <summary>
     /// Has negation in boolean
     /// </summary>
-    public bool IsNegation { get; }
-
-    /// <summary>
-    /// Formula node - Function
-    /// </summary>
-    public FunctionNode(IFunction function, bool isNegative, bool isNegation)
-        : base(NodeTypeEnum.Function)
-    {
-        Function = function;
-        IsNegative = isNegative;
-        IsNegation = isNegation;
-    }
+    public bool IsNegation { get; } = isNegation;
 
     /// <summary>
     /// ToString

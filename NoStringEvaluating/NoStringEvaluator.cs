@@ -22,27 +22,16 @@ namespace NoStringEvaluating;
 /// <summary>
 /// Expression evaluator
 /// </summary>
-public class NoStringEvaluator : INoStringEvaluator
+public class NoStringEvaluator(
+    ObjectPool<Stack<InternalEvaluatorValue>> stackPool,
+    ObjectPool<List<InternalEvaluatorValue>> argsPool,
+    ObjectPool<ValueKeeperContainer> valueKeeperContainerPool,
+    IFormulaCache formulaCache) : INoStringEvaluator
 {
-    private readonly ObjectPool<Stack<InternalEvaluatorValue>> _stackPool;
-    private readonly ObjectPool<List<InternalEvaluatorValue>> _argsPool;
-    private readonly ObjectPool<ValueKeeperContainer> _valueKeeperContainerPool;
-    private readonly IFormulaCache _formulaCache;
-
-    /// <summary>
-    /// Expression evaluator
-    /// </summary>
-    public NoStringEvaluator(
-        ObjectPool<Stack<InternalEvaluatorValue>> stackPool,
-        ObjectPool<List<InternalEvaluatorValue>> argsPool,
-        ObjectPool<ValueKeeperContainer> valueKeeperContainerPool,
-        IFormulaCache formulaCache)
-    {
-        _stackPool = stackPool;
-        _argsPool = argsPool;
-        _valueKeeperContainerPool = valueKeeperContainerPool;
-        _formulaCache = formulaCache;
-    }
+    private readonly ObjectPool<Stack<InternalEvaluatorValue>> _stackPool = stackPool;
+    private readonly ObjectPool<List<InternalEvaluatorValue>> _argsPool = argsPool;
+    private readonly ObjectPool<ValueKeeperContainer> _valueKeeperContainerPool = valueKeeperContainerPool;
+    private readonly IFormulaCache _formulaCache = formulaCache;
 
     #region Endpoints
 

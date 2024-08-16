@@ -9,20 +9,12 @@ namespace NoStringEvaluating.Services.Parsing;
 /// <summary>
 /// Parser from string to object sequence
 /// </summary>
-public class FormulaParser : IFormulaParser
+public class FormulaParser(IFunctionReader functionReader) : IFormulaParser
 {
     /// <summary>
     /// Function reader
     /// </summary>
-    public IFunctionReader FunctionsReader { get; }
-
-    /// <summary>
-    /// Parser from string to object sequence
-    /// </summary>
-    public FormulaParser(IFunctionReader functionReader)
-    {
-        FunctionsReader = functionReader;
-    }
+    public IFunctionReader FunctionsReader { get; } = functionReader;
 
     /// <summary>
     /// Return parsed formula nodes

@@ -723,14 +723,14 @@
             Raises when can't find a variable
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Exceptions.VariableNotFoundException.VariableName">
-            <summary>
-            VariableName
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Exceptions.VariableNotFoundException.#ctor(System.String,System.String)">
             <summary>
             Raises when can't find a variable
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Exceptions.VariableNotFoundException.VariableName">
+            <summary>
+            VariableName
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
@@ -3613,6 +3613,11 @@
             Syntax checking result
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.#ctor(System.Collections.Generic.List{NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel})">
+            <summary>
+            Syntax checking result
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.Mistakes">
             <summary>
             Mistakes
@@ -3621,11 +3626,6 @@
         <member name="P:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.Ok">
             <summary>
             Is checking OK
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.#ctor(System.Collections.Generic.List{NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel})">
-            <summary>
-            Syntax checking result
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.FormulaChecker.CheckFormulaResult.ToString">
@@ -3698,6 +3698,11 @@
             Formula checker result item
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.#ctor(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType,System.String,System.String[])">
+            <summary>
+            Formula checker result item
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.MistakeType">
             <summary>
             Mistake's type
@@ -3711,11 +3716,6 @@
         <member name="P:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.MessageParts">
             <summary>
             Important message parts
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.#ctor(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType,System.String,System.String[])">
-            <summary>
-            Formula checker result item
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel.#ctor(NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType,System.String)">
@@ -4293,14 +4293,14 @@
             Formula node
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.Base.BaseFormulaNode.TypeKey">
-            <summary>
-            Type key
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.Base.BaseFormulaNode.#ctor(NoStringEvaluating.Nodes.Base.NodeTypeEnum)">
             <summary>
             Formula node
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.Base.BaseFormulaNode.TypeKey">
+            <summary>
+            Type key
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.Base.NodeTypeEnum">
@@ -4373,14 +4373,14 @@
             Formula node - Boolean
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.BooleanNode.Value">
-            <summary>
-            Boolean
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.BooleanNode.#ctor(System.Boolean)">
             <summary>
             Formula node - Boolean
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.BooleanNode.Value">
+            <summary>
+            Boolean
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.BooleanNode.ToString">
@@ -4393,14 +4393,14 @@
             Formula node - Bracket
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Nodes.BracketNode.#ctor(NoStringEvaluating.Models.Bracket)">
+            <summary>
+            Formula node - Bracket
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Nodes.BracketNode.Bracket">
             <summary>
             Bracket
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Nodes.BracketNode.#ctor(NoStringEvaluating.Models.Bracket)">
-            <summary>
-            Formula node - bracket
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.BracketNode.ToString">
@@ -4413,14 +4413,14 @@
             Formula nodes
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.Common.FormulaNodes.Nodes">
-            <summary>
-            Nodes
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.#ctor(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode})">
             <summary>
             Formula nodes
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.Common.FormulaNodes.Nodes">
+            <summary>
+            Nodes
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.ToString">
@@ -4433,14 +4433,14 @@
             Formula node - FunctionChar
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.FunctionCharNode.FunctionChar">
-            <summary>
-            FunctionChar
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionCharNode.#ctor(NoStringEvaluating.Models.FunctionChar)">
             <summary>
             Formula node - FunctionChar
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.FunctionCharNode.FunctionChar">
+            <summary>
+            FunctionChar
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionCharNode.ToString">
@@ -4449,6 +4449,11 @@
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.FunctionNode">
+            <summary>
+            Formula node - Function
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionNode.#ctor(NoStringEvaluating.Functions.Base.IFunction,System.Boolean,System.Boolean)">
             <summary>
             Formula node - Function
             </summary>
@@ -4468,17 +4473,17 @@
             Has negation in boolean
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Nodes.FunctionNode.#ctor(NoStringEvaluating.Functions.Base.IFunction,System.Boolean,System.Boolean)">
-            <summary>
-            Formula node - Function
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionNode.ToString">
             <summary>
             ToString
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Nodes.FunctionWrapperNode">
+            <summary>
+            Formula node - Function wrapper
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.#ctor(NoStringEvaluating.Nodes.FunctionNode)">
             <summary>
             Formula node - Function wrapper
             </summary>
@@ -4491,11 +4496,6 @@
         <member name="P:NoStringEvaluating.Nodes.FunctionWrapperNode.FunctionArgumentNodes">
             <summary>
             Function arguments
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.#ctor(NoStringEvaluating.Nodes.FunctionNode)">
-            <summary>
-            Formula node - Function wrapper
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
@@ -4523,14 +4523,14 @@
             Formula node - NumberList
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.NumberListNode.NumberList">
-            <summary>
-            NumberList
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.NumberListNode.#ctor(System.Collections.Generic.List{System.Double})">
             <summary>
             Formula node - NumberList
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.NumberListNode.NumberList">
+            <summary>
+            NumberList
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.NumberListNode.ToString">
@@ -4543,14 +4543,14 @@
             Formula node - Number
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.NumberNode.Number">
-            <summary>
-            Number
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.NumberNode.#ctor(System.Double)">
             <summary>
             Formula node - Number
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.NumberNode.Number">
+            <summary>
+            Number
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.NumberNode.ToString">
@@ -4588,6 +4588,11 @@
             Formula node - Variable
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Formula node - Variable
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Nodes.VariableNode.Name">
             <summary>
             Name
@@ -4603,11 +4608,6 @@
             Has negation in boolean
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean,System.Boolean)">
-            <summary>
-            Formula node - Variable
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.VariableNode.ToString">
             <summary>
             ToString
@@ -4618,14 +4618,14 @@
             Formula node - WordList
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.WordListNode.WordList">
-            <summary>
-            WordList
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.WordListNode.#ctor(System.Collections.Generic.List{System.String})">
             <summary>
             Formula node - WordList
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.WordListNode.WordList">
+            <summary>
+            WordList
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.WordListNode.ToString">
@@ -4638,14 +4638,14 @@
             Formula node - Word
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Nodes.WordNode.Word">
-            <summary>
-            Word
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Nodes.WordNode.#ctor(System.String)">
             <summary>
             Formula node - Word
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.WordNode.Word">
+            <summary>
+            Word
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.WordNode.ToString">
@@ -5441,14 +5441,14 @@
             Border counter
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Services.BorderCounter`1.Count">
-            <summary>
-            Border count
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Services.BorderCounter`1.#ctor(System.Func{`0,System.Boolean})">
             <summary>
             Border counter
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.BorderCounter`1.Count">
+            <summary>
+            Border count
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Services.BorderCounter`1.Proceed(`0)">
@@ -5541,6 +5541,11 @@
             Name builder
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Services.NameBuilder.#ctor(System.String)">
+            <summary>
+            Name builder
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Services.NameBuilder.ExpectedName">
             <summary>
             Expected name
@@ -5554,11 +5559,6 @@
         <member name="P:NoStringEvaluating.Services.NameBuilder.IsFinished">
             <summary>
             Is finished
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Services.NameBuilder.#ctor(System.String)">
-            <summary>
-            Name builder
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Services.NameBuilder.TryRemember(System.Char)">
@@ -5576,14 +5576,14 @@
             Parser from string to object sequence
             </summary>
         </member>
-        <member name="P:NoStringEvaluating.Services.Parsing.FormulaParser.FunctionsReader">
-            <summary>
-            Function reader
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.#ctor(NoStringEvaluating.Contract.IFunctionReader)">
             <summary>
             Parser from string to object sequence
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.Parsing.FormulaParser.FunctionsReader">
+            <summary>
+            Function reader
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Services.Parsing.FormulaParser.Parse(System.String)">
