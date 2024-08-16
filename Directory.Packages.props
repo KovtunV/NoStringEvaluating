@@ -1,6 +1,6 @@
 <Project>
   <ItemGroup>
-    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="8.0.7" />
+    <PackageVersion Include="Microsoft.Extensions.ObjectPool" Version="8.0.8" />
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageVersion Include="NoStringEvaluating" Version="2.5.3" />
     <PackageVersion Include="StyleCop.Analyzers" Version="1.2.0-beta.556" />
@@ -10,7 +10,7 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
     <PackageVersion Include="AutoFixture" Version="4.18.1" />
     <PackageVersion Include="FluentAssertions" Version="6.12.0" />
-    <PackageVersion Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageVersion Include="BenchmarkDotNet" Version="0.14.0" />
     <PackageVersion Include="MathParser.org-mXparser" Version="6.0.0" />
     <PackageVersion Include="Ninject" Version="3.3.6" />
   </ItemGroup>
