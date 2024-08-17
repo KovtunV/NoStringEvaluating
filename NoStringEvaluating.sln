@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32611.2
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating", "NoStringEvaluating\NoStringEvaluating.csproj", "{40AB411F-6002-4A69-A73F-17C5B7FC1508}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating", "src\NoStringEvaluating\NoStringEvaluating.csproj", "{40AB411F-6002-4A69-A73F-17C5B7FC1508}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Tests", "NoStringEvaluating.Tests\NoStringEvaluating.Tests.csproj", "{48E04BE8-5BA6-409A-964E-13206F95BC8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Tests", "src\NoStringEvaluating.Tests\NoStringEvaluating.Tests.csproj", "{48E04BE8-5BA6-409A-964E-13206F95BC8D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{EA941063-94B8-4F97-A507-B5A7FD6A0B79}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{6A870F87-7BD9-4DB3-ACA2-0F2EFF9FB1D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "src\ConsoleApp\ConsoleApp.csproj", "{6A870F87-7BD9-4DB3-ACA2-0F2EFF9FB1D3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{88F0773E-1AA1-4C00-A8D8-F09B76A70BE9}"
 	ProjectSection(SolutionItems) = preProject
@@ -17,9 +17,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj", "{03E4E4C4-C186-4865-AC39-8E5E192D7F14}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection", "src\NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj", "{03E4E4C4-C186-4865-AC39-8E5E192D7F14}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests", "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests.csproj", "{95AC9D45-49F2-41A2-88BC-E800F932C356}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests", "src\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.Tests.csproj", "{95AC9D45-49F2-41A2-88BC-E800F932C356}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ci", "Ci", "{F2A9F436-5A49-486D-B4E1-B1B38924F61B}"
 	ProjectSection(SolutionItems) = preProject

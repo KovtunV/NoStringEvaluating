@@ -84,18 +84,18 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 
 ### 1 000 000 calculations
 Less is better
-![image graph](Images/Graph.png)
-![image table](Images/Table.png)
+![image graph](images/Graph.png)
+![image table](images/Table.png)
 
 ### Benchmark results
-![Both](Images/Both.png)
+![Both](images/Both.png)
 
 ### Conclusion
 As you can see this solution is faster in all cases, furthermore there isn't any garbage collection.
 
 Benchmark code - [ConsoleApp/Benchmark/BenchNumbers.cs](ConsoleApp/Benchmark/BenchNumbers.cs "ConsoleApp/Benchmark/BenchNumbers.cs")
 
-Benchmark excel - [BenchResults/Benchmark.xlsx](BenchResults/Benchmark.xlsx "BenchResults/Benchmark.xlsx")
+Benchmark excel - [benchResults/Benchmark.xlsx](BenchResults/Benchmark.xlsx "BenchResults/Benchmark.xlsx")
 
 ## Quick start
 ### Initialization
