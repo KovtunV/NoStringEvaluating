@@ -93,9 +93,9 @@ Less is better
 ### Conclusion
 As you can see this solution is faster in all cases, furthermore there isn't any garbage collection.
 
-Benchmark code - [ConsoleApp/Benchmark/BenchNumbers.cs](ConsoleApp/Benchmark/BenchNumbers.cs "ConsoleApp/Benchmark/BenchNumbers.cs")
+Benchmark code - [src/ConsoleApp/Benchmark/BenchNumbers.cs](src/ConsoleApp/Benchmark/BenchNumbers.cs "src/ConsoleApp/Benchmark/BenchNumbers.cs")
 
-Benchmark excel - [benchResults/Benchmark.xlsx](BenchResults/Benchmark.xlsx "BenchResults/Benchmark.xlsx")
+Benchmark excel - [benchResults/Benchmark.xlsx](benchResults/Benchmark.xlsx "benchResults/Benchmark.xlsx")
 
 ## Quick start
 ### Initialization
