@@ -139,7 +139,7 @@ public abstract class BenchBase
     public const string Formula4 = "(2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 * 24 + 5 / (123 - 364 + 23))) * 345 * ((897 - 323)/ 23)";
 
     public const string Formula5 = $"{Arg1} * {Arg2} + {Arg3} - {Arg4}";
-    public const string Formula6 = $"{Arg1} * ({Arg2} + {Arg3}) - {Arg4} / ({Arg5} - {Arg6}) + 45 * {Arg7} + (({Arg8} * 56 + (12 + {Arg9}))) - {Arg10}";
+    public const string Formula6 = $"{Arg1} * ({Arg2} + {Arg3}) - {Arg4} / ({Arg5} - {Arg6} + 1) + 45 * {Arg7} + (({Arg8} * 56 + (12 + {Arg9}))) - {Arg10}";
 
     public const string Formula7 = $"add(1; 2; 3)";
     public const string Formula8 = $"add(add(5; 1) - add(5; 2; 3))";

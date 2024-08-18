@@ -9,4 +9,8 @@
 		<ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Spectre.Console" />
+	</ItemGroup>
+
 </Project>
