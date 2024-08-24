@@ -76,7 +76,7 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 | 3 | 3 \* (9 / 456 \* (32 + 12)) / 17 - 3  |
 | 4 | (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) - (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) + (2 + 6 - (13 \* 24 + 5 / (123 - 364 + 23))) \* 345 \* ((897 - 323)/ 23)  |
 | 5 | Arg1 \* Arg2 + Arg3 - Arg4 |
-| 6 | Arg1 \* (Arg2 + Arg3) - Arg4 / (Arg5 - Arg6) + 45 \* Arg7 + ((Arg8 \* 56 + (12 + Arg9))) - Arg10 |
+| 6 | Arg1 \* (Arg2 + Arg3) - Arg4 / (Arg5 - Arg6 + 1) + 45 \* Arg7 + ((Arg8 \* 56 + (12 + Arg9))) - Arg10 |
 | 7 | add(1; 2; 3) |
 | 8 | add(add(5; 1) - add(5; 2; 3)) |
 | 9 | if(Arg1 > 0; add(56 + 9 / 12 \* 123.596; or(78; 9; 5; 2; 4; 5; 8; 7); 45;5); 9) \*     24 + 52 -33 |
@@ -84,18 +84,18 @@ Compared with a good solution [mXparser](https://github.com/mariuszgromada/MathP
 
 ### 1 000 000 calculations
 Less is better
-![image graph](Images/Graph.png)
-![image table](Images/Table.png)
+![image graph](images/Graph.png)
+![image table](images/Table.png)
 
 ### Benchmark results
-![Both](Images/Both.png)
+![Both](images/Both.png)
 
 ### Conclusion
 As you can see this solution is faster in all cases, furthermore there isn't any garbage collection.
 
-Benchmark code - [ConsoleApp/Benchmark/BenchmarkNumberService.cs](ConsoleApp/Benchmark/BenchmarkNumberService.cs "ConsoleApp/Benchmark/BenchmarkNumberService.cs")
+Benchmark code - [src/ConsoleApp/Benchmark/BenchNumbers.cs](src/ConsoleApp/Benchmark/BenchNumbers.cs "src/ConsoleApp/Benchmark/BenchNumbers.cs")
 
-Benchmark excel - [BenchResults/Benchmark.xlsx](BenchResults/Benchmark.xlsx "BenchResults/Benchmark.xlsx")
+Benchmark excel - [benchResults/Benchmark.xlsx](benchResults/Benchmark.xlsx "benchResults/Benchmark.xlsx")
 
 ## Quick start
 ### Initialization
