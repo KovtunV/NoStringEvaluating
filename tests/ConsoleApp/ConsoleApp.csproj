@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NoStringEvaluating\NoStringEvaluating.csproj" />
+    <ProjectReference Include="..\..\src\NoStringEvaluating\NoStringEvaluating.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.ObjectPool;
+using NoStringEvaluating.Models.Values;
 
-namespace NoStringEvaluating.Models.Values;
+namespace NoStringEvaluating.Services.Value;
 
 /// <summary>
 /// Contains list of ids for extra types

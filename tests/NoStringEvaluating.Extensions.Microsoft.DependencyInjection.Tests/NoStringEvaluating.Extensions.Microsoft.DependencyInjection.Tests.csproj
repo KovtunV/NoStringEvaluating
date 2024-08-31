@@ -1,0 +1,7 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\NoStringEvaluating.Extensions.Microsoft.DependencyInjection\NoStringEvaluating.Extensions.Microsoft.DependencyInjection.csproj" />
+	</ItemGroup>
+
+</Project>
