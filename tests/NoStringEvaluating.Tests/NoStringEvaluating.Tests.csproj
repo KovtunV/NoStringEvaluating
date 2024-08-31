@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\NoStringEvaluating\NoStringEvaluating.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Spectre.Console" />
+	</ItemGroup>
+
+</Project>
