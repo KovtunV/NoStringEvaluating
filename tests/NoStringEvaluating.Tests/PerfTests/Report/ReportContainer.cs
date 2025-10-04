@@ -4,8 +4,8 @@ internal class ReportContainer
 {
     public List<ReportItem> Items = [];
 
-    public void Append(string formula, double result, long elapsedMilliseconds, long targetElapsedMilliseconds)
+    public void Append(string formula, double result, long elapsedMilliseconds, long thresholdMilliseconds)
     {
-        Items.Add(new ReportItem(formula, result, elapsedMilliseconds, targetElapsedMilliseconds));
+        Items.Add(new ReportItem(formula, result, elapsedMilliseconds, thresholdMilliseconds));
     }
 }
