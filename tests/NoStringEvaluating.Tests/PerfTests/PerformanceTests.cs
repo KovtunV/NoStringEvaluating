@@ -45,7 +45,7 @@ internal class PerformanceTests
     }
 
     [TestCaseSource(nameof(RunSource))]
-    public void RunFormula(string formulaName, string formula, IDictionary<string, EvaluatorValue> args, long targetElapsedMilliseconds)
+    public void RunFormula(string formulaName, string formula, IDictionary<string, EvaluatorValue> args, long thresholdMilliseconds)
     {
         // arrange
         var n = 1_000_000;
@@ -63,7 +63,7 @@ internal class PerformanceTests
 
         ela.Stop();
 
-        _report.Append(formulaName, res, ela.ElapsedMilliseconds, targetElapsedMilliseconds);
+        _report.Append(formulaName, res, ela.ElapsedMilliseconds, thresholdMilliseconds);
     }
 
     private static IEnumerable<object[]> RunSource()

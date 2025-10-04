@@ -768,7 +768,7 @@
             BooleanFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.BooleanFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
+        <member name="M:NoStringEvaluating.Factories.BooleanFactory.#ctor(NoStringEvaluating.Services.Value.ValueKeeperContainer)">
             <summary>
             BooleanFactory
             </summary>
@@ -808,7 +808,7 @@
             NumberListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.NumberListFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
+        <member name="M:NoStringEvaluating.Factories.NumberListFactory.#ctor(NoStringEvaluating.Services.Value.ValueKeeperContainer)">
             <summary>
             NumberListFactory
             </summary>
@@ -823,7 +823,7 @@
             ObjectFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.ObjectFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
+        <member name="M:NoStringEvaluating.Factories.ObjectFactory.#ctor(NoStringEvaluating.Services.Value.ValueKeeperContainer)">
             <summary>
             ObjectFactory
             </summary>
@@ -873,7 +873,7 @@
             WordFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.WordFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
+        <member name="M:NoStringEvaluating.Factories.WordFactory.#ctor(NoStringEvaluating.Services.Value.ValueKeeperContainer)">
             <summary>
             WordFactory
             </summary>
@@ -898,7 +898,7 @@
             WordListFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.WordListFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
+        <member name="M:NoStringEvaluating.Factories.WordListFactory.#ctor(NoStringEvaluating.Services.Value.ValueKeeperContainer)">
             <summary>
             WordListFactory
             </summary>
@@ -4213,36 +4213,6 @@
             Zero keeper
             </summary>
         </member>
-        <member name="T:NoStringEvaluating.Models.Values.ValueKeeperContainer">
-            <summary>
-            Contains list of ids for extra types
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.SetPool(Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer})">
-            <summary>
-            Set pool to release
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.ResetIndex">
-            <summary>
-            Reset keepers index
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.GetValueKeeper">
-            <summary>
-            Return valueKeeper
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.Release">
-            <summary>
-            Release container
-            </summary>
-        </member>
-        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.Dispose">
-            <summary>
-            Dispose
-            </summary>
-        </member>
         <member name="T:NoStringEvaluating.Models.Values.ValueTypeKey">
             <summary>
             Type matching
@@ -4658,7 +4628,7 @@
             Expression evaluator
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
+        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Services.Value.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
             <summary>
             Expression evaluator
             </summary>
@@ -5740,6 +5710,36 @@
         <member name="M:NoStringEvaluating.Services.Parsing.PolishNotationService.GetReversedNodes(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode})">
             <summary>
             Return reversed nodes
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Value.ValueKeeperContainer">
+            <summary>
+            Contains list of ids for extra types
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Value.ValueKeeperContainer.SetPool(Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Services.Value.ValueKeeperContainer})">
+            <summary>
+            Set pool to release
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Value.ValueKeeperContainer.ResetIndex">
+            <summary>
+            Reset keepers index
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Value.ValueKeeperContainer.GetValueKeeper">
+            <summary>
+            Return valueKeeper
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Value.ValueKeeperContainer.Release">
+            <summary>
+            Release container
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Value.ValueKeeperContainer.Dispose">
+            <summary>
+            Dispose
             </summary>
         </member>
     </members>
