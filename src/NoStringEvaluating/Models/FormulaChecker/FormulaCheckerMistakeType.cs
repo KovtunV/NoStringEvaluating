@@ -31,17 +31,17 @@ public enum FormulaCheckerMistakeType
     OperatorBetweenCurrentAndNextNode = 4,
 
     /// <summary>
-    /// Between prevNode and nextNode must be an operator, not node"
+    /// Between prevNode and nextNode must be an operator, not node
     /// </summary>
     OperatorBetweenPrevAndNextNode = 5,
 
     /// <summary>
-    /// Before node must be a number or a closed bracket, not prevNodeName"
+    /// Before node must be a number or a closed bracket, not prevNodeName
     /// </summary>
     NumberBeforeNode = 6,
 
     /// <summary>
-    /// After node must be a number or an opened bracket, not nextNodeName"
+    /// After node must be a number or an opened bracket, not nextNodeName
     /// </summary>
     NumberAfterNode = 7,
 
@@ -54,4 +54,9 @@ public enum FormulaCheckerMistakeType
     /// Two or more function chars in a sequence
     /// </summary>
     DoubledFunctionCharNodes = 9,
+
+    /// <summary>
+    /// Empty or wrong formula
+    /// </summary>
+    EmptyOrWrongFormula = 10,
 }

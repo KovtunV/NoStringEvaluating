@@ -3670,17 +3670,17 @@
         </member>
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.OperatorBetweenPrevAndNextNode">
             <summary>
-            Between prevNode and nextNode must be an operator, not node"
+            Between prevNode and nextNode must be an operator, not node
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.NumberBeforeNode">
             <summary>
-            Before node must be a number or a closed bracket, not prevNodeName"
+            Before node must be a number or a closed bracket, not prevNodeName
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.NumberAfterNode">
             <summary>
-            After node must be a number or an opened bracket, not nextNodeName"
+            After node must be a number or an opened bracket, not nextNodeName
             </summary>
         </member>
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyFunctionBody">
@@ -3691,6 +3691,11 @@
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.DoubledFunctionCharNodes">
             <summary>
             Two or more function chars in a sequence
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyOrWrongFormula">
+            <summary>
+            Empty or wrong formula
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel">

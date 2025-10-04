@@ -29,6 +29,7 @@ public class FormulaChecker(IFormulaParser formulaParser) : IFormulaChecker
         var mistakes = new List<FormulaCheckerModel>();
         var nodes = _formulaParser.ParseWithoutRpn(formula);
 
+        CheckEmpty(mistakes, nodes);
         CheckBracketsCount(mistakes, nodes, 0, nodes.Count);
         CheckEmptyBrackets(mistakes, nodes, 0, nodes.Count);
         CheckNotOperatorableNodes(mistakes, nodes, 0, nodes.Count);
@@ -69,6 +70,15 @@ public class FormulaChecker(IFormulaParser formulaParser) : IFormulaChecker
         }
 
         return end;
+    }
+
+    private static void CheckEmpty(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes)
+    {
+        if (nodes.Count is 0)
+        {
+            var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.EmptyOrWrongFormula, "Formula doesn't contain any meaningful characters");
+            mistakes.Add(mistakeItem);
+        }
     }
 
     #region Function

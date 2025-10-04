@@ -46,5 +46,10 @@ internal static class CheckFormula
         yield return CreateTestModelToCheck(";;;", false);
         yield return CreateTestModelToCheck(",", false);
         yield return CreateTestModelToCheck(",,", false);
+        yield return CreateTestModelToCheck("?", false);
+        yield return CreateTestModelToCheck("#", false);
+        yield return CreateTestModelToCheck("?!!", false);
+        yield return CreateTestModelToCheck(string.Empty, false);
+        yield return CreateTestModelToCheck("   ", false);
     }
 }
