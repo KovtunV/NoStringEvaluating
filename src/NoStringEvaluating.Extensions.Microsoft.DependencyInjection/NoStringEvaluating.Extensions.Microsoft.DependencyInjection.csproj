@@ -11,7 +11,7 @@
 		<PackageIconUrl />
 		<RepositoryUrl>https://github.com/KovtunV/NoStringEvaluating</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<Version>1.1.0</Version>
+		<Version>1.1.1</Version>
 		<PackageReleaseNotes>Package update</PackageReleaseNotes>
 		<PackageReadmeFile></PackageReadmeFile>
 	</PropertyGroup>
