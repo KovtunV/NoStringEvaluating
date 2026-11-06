@@ -179,6 +179,43 @@ internal class NoStringEvaluatorTests
     }
 
     [Test]
+    public void Should_Evaluate_A_Nested_Call_From_A_Function()
+    {
+        // arrange: the function calls the evaluator while its own evaluation holds the thread's context
+        var service = CreateService(opt => opt.WithFunctions(new NestedFunction()));
+        NestedFunction.Evaluator = service;
+
+        // act: Nested(x) = x + (1 + 2)
+        var actual = service.CalcNumber("Nested(10) + Nested(Nested(1))");
+
+        // assert
+        actual.Should().BeApproximatelyNumber(13 + 7);
+    }
+
+    [Test]
+    public void Should_Evaluate_On_Many_Threads_At_Once()
+    {
+        // arrange: every thread its own variables, words included
+        var service = CreateService();
+        var nodes = CreateParser().Parse("add(a; 2) * 3 = b && Len(w) = 5");
+        var failures = 0;
+
+        // act
+        Parallel.For(0, 5000, i =>
+        {
+            var variables = new Dictionary<string, EvaluatorValue> { ["a"] = i, ["b"] = (i + 2) * 3, ["w"] = "hello" };
+
+            if (!service.CalcBoolean(nodes, variables))
+            {
+                Interlocked.Increment(ref failures);
+            }
+        });
+
+        // assert
+        failures.Should().Be(0);
+    }
+
+    [Test]
     public void Should_Return_Number()
     {
         // arrange
@@ -479,6 +516,20 @@ internal class NoStringEvaluatorTests
     {
         opt ??= subOpt => subOpt.SetThrowIfVariableNotFound(false);
         return EvaluatorFacadeFactory.Create(opt).FormulaParser;
+    }
+
+    private class NestedFunction : IFunction
+    {
+        public static NoStringEvaluator Evaluator { get; set; }
+
+        public string Name { get; } = "Nested";
+
+        public bool CanHandleNullArguments { get; }
+
+        public InternalEvaluatorValue Execute(List<InternalEvaluatorValue> args, ValueFactory factory)
+        {
+            return args[0].Number + Evaluator.CalcNumber("1 + 2");
+        }
     }
 
     private class TestSleepFunction : IFunction

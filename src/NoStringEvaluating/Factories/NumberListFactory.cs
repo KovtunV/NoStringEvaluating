@@ -18,7 +18,7 @@ public readonly struct NumberListFactory
     }
 
     /// <summary>
-    /// Creates NumberList value
+    /// Creates number list value
     /// </summary>
     public InternalEvaluatorValue Create(List<double> numberList)
     {

@@ -31,6 +31,11 @@ public class NoStringEvaluatorOptions
     public bool ThrowIfVariableNotFound { get; set; }
 
     /// <summary>
+    /// If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+    /// </summary>
+    public bool UseKeywordOperators { get; set; }
+
+    /// <summary>
     /// Don't register default functions
     /// </summary>
     public bool IsWithoutDefaultFunctions { get; set; }
@@ -54,6 +59,7 @@ public class NoStringEvaluatorOptions
         FloatingPointSymbol = GlobalOptions.FloatingPointSymbol;
         WordQuotationMark = GlobalOptions.WordQuotationMark;
         ThrowIfVariableNotFound = GlobalOptions.ThrowIfVariableNotFound;
+        UseKeywordOperators = GlobalOptions.UseKeywordOperators;
     }
 
     /// <summary>
@@ -109,6 +115,15 @@ public class NoStringEvaluatorOptions
     }
 
     /// <summary>
+    /// Set and, or and not as operators: `a and b`, `a or b`, `not a` (case insensitive), next to &amp;&amp;, || and !. Off by default, as the three words are then no variable names
+    /// </summary>
+    public NoStringEvaluatorOptions WithKeywordOperators(bool useKeywordOperators = true)
+    {
+        UseKeywordOperators = useKeywordOperators;
+        return this;
+    }
+
+    /// <summary>
     /// Add assembly to register functions
     /// </summary>
     public NoStringEvaluatorOptions WithFunctionsFrom(Type typeFromSourceAssembly)
@@ -156,6 +171,7 @@ public class NoStringEvaluatorOptions
             GlobalOptions.WordQuotationMark = WordQuotationMark;
             GlobalOptions.UseWordQuotationMark = !string.IsNullOrEmpty(WordQuotationMark);
             GlobalOptions.ThrowIfVariableNotFound = ThrowIfVariableNotFound;
+            GlobalOptions.UseKeywordOperators = UseKeywordOperators;
 
             FunctionsAssemblies.ForEach(x => GlobalOptions.FunctionsAssemblies.Add(x));
             Functions.ForEach(x => GlobalOptions.Functions.Add(x));

@@ -9,11 +9,14 @@ namespace NoStringEvaluating.Models.Values;
 /// </summary>
 public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValue>
 {
-    private readonly IntPtr _valueKeeperPtr = default;
+    // Ticks take the low 62 bits of a packed DateTime, the kind the top 2
+    private const int KindShift = 62;
+    private const long TicksMask = (1L << KindShift) - 1;
 
-    private ValueKeeper ValueKeeper => _valueKeeperPtr != default
-        ? (ValueKeeper)GCHandle.FromIntPtr(_valueKeeperPtr).Target
-        : ValueKeeper.Zero;
+    // The keeper handle for Word, WordList, NumberList and Object; the value itself for Boolean (0 or 1) and DateTime (packed ticks and kind).
+    // A long, not an IntPtr: the packed DateTime needs 64 bits in a 32-bit process too. No object reference in the struct: a struct with one
+    // costs a GC write barrier on every push on the evaluation stack, which was measured at 30-50% of the evaluation time
+    private readonly long _data = default;
 
     /// <summary>
     /// Value for internal processing
@@ -21,7 +24,7 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     internal InternalEvaluatorValue(IntPtr valueKeeperPtr, ValueTypeKey typeKey)
     {
         TypeKey = typeKey;
-        _valueKeeperPtr = valueKeeperPtr;
+        _data = (long)valueKeeperPtr;
     }
 
     /// <summary>
@@ -47,6 +50,24 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
         {
             TypeKey = ValueTypeKey.Null;
         }
+    }
+
+    /// <summary>
+    /// Value for internal processing
+    /// </summary>
+    public InternalEvaluatorValue(bool boolean)
+    {
+        TypeKey = ValueTypeKey.Boolean;
+        _data = boolean ? 1 : 0;
+    }
+
+    /// <summary>
+    /// Value for internal processing
+    /// </summary>
+    public InternalEvaluatorValue(DateTime dateTime)
+    {
+        TypeKey = ValueTypeKey.DateTime;
+        _data = dateTime.Ticks | ((long)dateTime.Kind << KindShift);
     }
 
     /// <summary>
@@ -108,12 +129,12 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// <summary>
     /// DateTime value
     /// </summary>
-    public DateTime DateTime => ValueKeeper.DateTime;
+    public DateTime DateTime => IsDateTime ? new DateTime(_data & TicksMask, (DateTimeKind)(int)((ulong)_data >> KindShift)) : default;
 
     /// <summary>
     /// Boolean value
     /// </summary>
-    public bool Boolean => ValueKeeper.Boolean;
+    public bool Boolean => IsBoolean && _data != 0;
 
     /// <summary>
     /// Word value
@@ -134,6 +155,13 @@ public readonly struct InternalEvaluatorValue : IEquatable<InternalEvaluatorValu
     /// Object value
     /// </summary>
     public object Object => ValueKeeper.Object;
+
+    // The keeper of a reference value; the zero keeper for every other type, so that the inline data is never taken for a handle
+    private ValueKeeper ValueKeeper => HasKeeper && _data != 0
+        ? (ValueKeeper)GCHandle.FromIntPtr((IntPtr)_data).Target
+        : ValueKeeper.Zero;
+
+    private bool HasKeeper => TypeKey is ValueTypeKey.Word or ValueTypeKey.WordList or ValueTypeKey.NumberList or ValueTypeKey.Object;
 
     /// <summary>
     /// Returns object

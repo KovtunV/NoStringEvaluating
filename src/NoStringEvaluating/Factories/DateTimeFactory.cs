@@ -7,15 +7,8 @@ namespace NoStringEvaluating.Factories;
 /// </summary>
 public readonly struct DateTimeFactory
 {
-    private readonly ValueKeeperContainer _valueKeeperContainer;
-
-    internal DateTimeFactory(ValueKeeperContainer valueKeeperContainer)
-    {
-        _valueKeeperContainer = valueKeeperContainer;
-    }
-
     /// <summary>
-    /// Default
+    /// Empty DateTime value
     /// </summary>
     public InternalEvaluatorValue Empty => Create(DateTime.MinValue);
 
@@ -37,9 +30,6 @@ public readonly struct DateTimeFactory
     /// </summary>
     public InternalEvaluatorValue Create(DateTime dateTime)
     {
-        var valueKeeper = _valueKeeperContainer.GetValueKeeper();
-        valueKeeper.DateTime = dateTime;
-
-        return new InternalEvaluatorValue(valueKeeper.Ptr, ValueTypeKey.DateTime);
+        return new InternalEvaluatorValue(dateTime);
     }
 }

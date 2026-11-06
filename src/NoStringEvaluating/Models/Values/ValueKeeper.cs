@@ -3,7 +3,8 @@
 namespace NoStringEvaluating.Models.Values;
 
 /// <summary>
-/// Keeper for values
+/// Keeper for reference values (Word, WordList, NumberList, Object): an <see cref="InternalEvaluatorValue"/> holds its handle, so that the value struct
+/// has no object reference of its own and goes on and off the evaluation stack without GC write barriers
 /// </summary>
 public sealed class ValueKeeper : IDisposable
 {
@@ -20,16 +21,6 @@ public sealed class ValueKeeper : IDisposable
     /// Pointer to this object
     /// </summary>
     public IntPtr Ptr { get; }
-
-    /// <summary>
-    /// DateTime value
-    /// </summary>
-    public DateTime DateTime { get; set; }
-
-    /// <summary>
-    /// Boolean value
-    /// </summary>
-    public bool Boolean { get; set; }
 
     /// <summary>
     /// Word value

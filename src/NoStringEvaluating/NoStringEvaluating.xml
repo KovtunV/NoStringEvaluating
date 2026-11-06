@@ -673,6 +673,27 @@
             <exception cref="T:NoStringEvaluating.Exceptions.VariableNotFoundException"></exception>
             <exception cref="T:System.InvalidCastException"></exception>
         </member>
+        <member name="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer">
+            <summary>
+            Container whose variables have a fixed index, so that a formula bound to it (<see cref="T:NoStringEvaluating.Services.Binding.FormulaBinder"/>) reads them by index instead of by name
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer.BindingKey">
+            <summary>
+            What the indexes belong to. A bound formula reads by index only from a container with the same key (reference equality), by name from any other.
+            By default the container itself; containers that share one index layout can return one shared key
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer.IndexOf(System.String)">
+            <summary>
+            The index of a variable, or -1 when the container has no index for the name: a bound formula reads that variable by name
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer.TryGetValue(System.Int32,NoStringEvaluating.Models.Values.EvaluatorValue@)">
+            <summary>
+            Return variable's value by index if possible
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Contract.Variables.IVariable">
             <summary>
             Variable model
@@ -733,6 +754,11 @@
             VariableName
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Extensions.InternalExtensions.IsWholeWordAt(System.ReadOnlySpan{System.Char},System.Int32,System.String)">
+            <summary>
+            Is the word at index, case insensitive and whole: not followed by a simple variable char
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
             <summary>
             Extension for debugging
@@ -768,11 +794,6 @@
             BooleanFactory
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.Factories.BooleanFactory.#ctor(NoStringEvaluating.Models.Values.ValueKeeperContainer)">
-            <summary>
-            BooleanFactory
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.Factories.BooleanFactory.Create(System.Nullable{System.Boolean})">
             <summary>
             Creates boolean value
@@ -790,7 +811,7 @@
         </member>
         <member name="P:NoStringEvaluating.Factories.DateTimeFactory.Empty">
             <summary>
-            Default
+            Empty DateTime value
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.DateTimeFactory.Create(System.Nullable{System.DateTime})">
@@ -815,7 +836,7 @@
         </member>
         <member name="M:NoStringEvaluating.Factories.NumberListFactory.Create(System.Collections.Generic.List{System.Double})">
             <summary>
-            Creates NumberList value
+            Creates number list value
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Factories.ObjectFactory">
@@ -835,7 +856,7 @@
         </member>
         <member name="T:NoStringEvaluating.Factories.ValueFactory">
             <summary>
-            Factory fro values
+            Factory for values
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Factories.ValueFactory.DateTime">
@@ -880,12 +901,12 @@
         </member>
         <member name="P:NoStringEvaluating.Factories.WordFactory.Empty">
             <summary>
-            Creates default
+            Empty word
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.WordFactory.Concat(NoStringEvaluating.Models.Values.InternalEvaluatorValue,NoStringEvaluating.Models.Values.InternalEvaluatorValue)">
             <summary>
-            Concates two values to word
+            Concat values
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Factories.WordFactory.Create(System.String)">
@@ -905,7 +926,7 @@
         </member>
         <member name="M:NoStringEvaluating.Factories.WordListFactory.Create(System.Collections.Generic.List{System.String})">
             <summary>
-            Creates WordList value
+            Creates word list value
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Functions.Base.IFunction">
@@ -3548,6 +3569,11 @@
             If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.GlobalOptions.UseKeywordOperators">
+            <summary>
+            If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.GlobalOptions.FunctionsAssemblies">
             <summary>
             Assemblies with functions
@@ -3696,6 +3722,11 @@
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyOrWrongFormula">
             <summary>
             Empty or wrong formula
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.KeywordWithoutOperand">
+            <summary>
+            A keyword (and, or, not) without the operand it needs
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel">
@@ -4013,6 +4044,16 @@
             Value for internal processing
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.Boolean)">
+            <summary>
+            Value for internal processing
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.InternalEvaluatorValue.#ctor(System.DateTime)">
+            <summary>
+            Value for internal processing
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Models.Values.InternalEvaluatorValue.TypeKey">
             <summary>
             Type key
@@ -4165,7 +4206,8 @@
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ValueKeeper">
             <summary>
-            Keeper for values
+            Keeper for reference values (Word, WordList, NumberList, Object): an <see cref="T:NoStringEvaluating.Models.Values.InternalEvaluatorValue"/> holds its handle, so that the value struct
+            has no object reference of its own and goes on and off the evaluation stack without GC write barriers
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ValueKeeper.#ctor">
@@ -4176,16 +4218,6 @@
         <member name="P:NoStringEvaluating.Models.Values.ValueKeeper.Ptr">
             <summary>
             Pointer to this object
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.ValueKeeper.DateTime">
-            <summary>
-            DateTime value
-            </summary>
-        </member>
-        <member name="P:NoStringEvaluating.Models.Values.ValueKeeper.Boolean">
-            <summary>
-            Boolean value
             </summary>
         </member>
         <member name="P:NoStringEvaluating.Models.Values.ValueKeeper.Word">
@@ -4220,7 +4252,17 @@
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ValueKeeperContainer">
             <summary>
-            Contains list of ids for extra types
+            The state of one evaluation: the keepers of its reference values, its stack and the argument lists of its function calls. Rented from a pool once per evaluation
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.ValueKeeperContainer.Stack">
+            <summary>
+            Evaluation stack
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Models.Values.ValueKeeperContainer.InUse">
+            <summary>
+            An evaluation holds the container (the thread's own one): a nested evaluation on the thread takes another
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.SetPool(Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer})">
@@ -4240,12 +4282,27 @@
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.Release">
             <summary>
-            Release container
+            Release container: back to its pool, or free for the thread's next evaluation
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.Dispose">
             <summary>
             Dispose
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.Reset">
+            <summary>
+            Ready for a new evaluation: keepers index, stack and argument lists back to the start (an evaluation that threw leaves them dirty)
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.RentArgs">
+            <summary>
+            An empty argument list for a function call; one per nesting depth, so that the arguments of an outer call stay while an inner call runs
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Models.Values.ValueKeeperContainer.ReturnArgs(System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue})">
+            <summary>
+            The function call is done with its argument list
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.Values.ValueTypeKey">
@@ -4373,6 +4430,11 @@
             Function
             </summary>
         </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Keyword">
+            <summary>
+            Keyword where it is no operator (a wrong formula)
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Nodes.BooleanNode">
             <summary>
             Formula node - Boolean
@@ -4423,9 +4485,19 @@
             Formula nodes
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.#ctor(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.Object)">
+            <summary>
+            Formula nodes whose variables are bound to the indexes of an <see cref="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer"/> with this BindingKey
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Nodes.Common.FormulaNodes.Nodes">
             <summary>
             Nodes
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.Common.FormulaNodes.BindingKey">
+            <summary>
+            The BindingKey of the <see cref="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer"/> the variables are bound to (<see cref="T:NoStringEvaluating.Services.Binding.FormulaBinder"/>), null when they are read by name
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.Common.FormulaNodes.ToString">
@@ -4504,6 +4576,26 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.KeywordNode">
+            <summary>
+            Formula node - a keyword (and, or, not) where it is no operator, so the formula is wrong: the checker reports it, the evaluator throws on it
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.KeywordNode.#ctor(System.String)">
+            <summary>
+            Formula node - a keyword (and, or, not) where it is no operator, so the formula is wrong: the checker reports it, the evaluator throws on it
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.KeywordNode.Keyword">
+            <summary>
+            Keyword
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.KeywordNode.ToString">
             <summary>
             ToString
             </summary>
@@ -4598,6 +4690,11 @@
             Formula node - Variable
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Nodes.VariableNode.#ctor(System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Formula node - Variable bound to an index of an <see cref="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer"/>
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.Nodes.VariableNode.Name">
             <summary>
             Name
@@ -4611,6 +4708,11 @@
         <member name="P:NoStringEvaluating.Nodes.VariableNode.IsNegation">
             <summary>
             Has negation in boolean
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.VariableNode.Index">
+            <summary>
+            The index the variable is bound to in an <see cref="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer"/>, -1 when it is read by name
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.VariableNode.ToString">
@@ -4663,9 +4765,14 @@
             Expression evaluator
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
+        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
             <summary>
             Expression evaluator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
+            <summary>
+            Expression evaluator. The stack and argument list pools are not used any more: the <see cref="T:NoStringEvaluating.Models.Values.ValueKeeperContainer"/> rented per evaluation holds them
             </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
@@ -5366,6 +5473,11 @@
             If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.UseKeywordOperators">
+            <summary>
+            If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.IsWithoutDefaultFunctions">
             <summary>
             Don't register default functions
@@ -5416,6 +5528,11 @@
             Set throw if variable not found
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithKeywordOperators(System.Boolean)">
+            <summary>
+            Set and, or and not as operators: `a and b`, `a or b`, `not a` (case insensitive), next to &amp;&amp;, || and !. Off by default, as the three words are then no variable names
+            </summary>
+        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithFunctionsFrom(System.Type)">
             <summary>
             Add assembly to register functions
@@ -5439,6 +5556,17 @@
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.UpdateGlobalOptions">
             <summary>
             Update global constants <see cref="T:NoStringEvaluating.GlobalOptions"/>
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Binding.FormulaBinder">
+            <summary>
+            Binds the variables of parsed formula nodes to the indexes of an <see cref="T:NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer"/>: a copy of the nodes that reads those variables by index
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Binding.FormulaBinder.Bind(NoStringEvaluating.Nodes.Common.FormulaNodes,NoStringEvaluating.Contract.Variables.IIndexedVariablesContainer)">
+            <summary>
+            A copy of the formula nodes in which every variable the container indexes is bound to its index, keyed by the container's BindingKey. Evaluated with a
+            container of that key the bound variables are read by index; with any other container, or a dictionary, every variable is read by name as before
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.BorderCounter`1">
@@ -5657,6 +5785,21 @@
             Read function name
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader">
+            <summary>
+            Keyword operator reader: and, or (case insensitive) between two operands
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader.TryProceedKeywordOperator(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read keyword operator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader.IsReservedWord(System.String)">
+            <summary>
+            A keyword (and, or, not), which is no name of a simple variable while the keyword operators are on
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.ListReader">
             <summary>
             List reader
@@ -5675,6 +5818,12 @@
         <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader.ReadNegation(System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
             <summary>
             Read negation
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader.IsNegationKeyword(System.ReadOnlySpan{System.Char},System.Int32)">
+            <summary>
+            The keyword not (case insensitive) before an operand it can negate: a variable, a function, another negation. Before an opening bracket it is the
+            function: not(x), not (x). Before anything else, or at the end, it is no negation: the variable reader then makes it a KeywordNode, a wrong formula
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader">

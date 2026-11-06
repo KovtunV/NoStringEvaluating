@@ -3,7 +3,7 @@
 namespace NoStringEvaluating.Factories;
 
 /// <summary>
-/// Factory fro values
+/// Factory for values
 /// </summary>
 public readonly struct ValueFactory
 {
@@ -17,12 +17,12 @@ public readonly struct ValueFactory
     /// <summary>
     /// DateTimeFactory
     /// </summary>
-    public DateTimeFactory DateTime => new(_valueKeeperContainer);
+    public DateTimeFactory DateTime => default;
 
     /// <summary>
     /// BooleanFactory
     /// </summary>
-    public BooleanFactory Boolean => new(_valueKeeperContainer);
+    public BooleanFactory Boolean => default;
 
     /// <summary>
     /// WordFactory
