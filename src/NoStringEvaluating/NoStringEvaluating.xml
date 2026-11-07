@@ -733,6 +733,11 @@
             VariableName
             </summary>
         </member>
+        <member name="M:NoStringEvaluating.Extensions.InternalExtensions.IsWholeWordAt(System.ReadOnlySpan{System.Char},System.Int32,System.String)">
+            <summary>
+            Is the word at index, case insensitive and whole: not followed by a simple variable char
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Extensions.NoStringEvaluatorExtensions">
             <summary>
             Extension for debugging
@@ -3548,6 +3553,11 @@
             If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.GlobalOptions.UseKeywordOperators">
+            <summary>
+            If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.GlobalOptions.FunctionsAssemblies">
             <summary>
             Assemblies with functions
@@ -3696,6 +3706,11 @@
         <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.EmptyOrWrongFormula">
             <summary>
             Empty or wrong formula
+            </summary>
+        </member>
+        <member name="F:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerMistakeType.KeywordWithoutOperand">
+            <summary>
+            A keyword (and, or, not) without the operand it needs
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Models.FormulaChecker.FormulaCheckerModel">
@@ -4373,6 +4388,11 @@
             Function
             </summary>
         </member>
+        <member name="F:NoStringEvaluating.Nodes.Base.NodeTypeEnum.Keyword">
+            <summary>
+            Keyword where it is no operator (a wrong formula)
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Nodes.BooleanNode">
             <summary>
             Formula node - Boolean
@@ -4504,6 +4524,26 @@
             </summary>
         </member>
         <member name="M:NoStringEvaluating.Nodes.FunctionWrapperNode.ToString">
+            <summary>
+            ToString
+            </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Nodes.KeywordNode">
+            <summary>
+            Formula node - a keyword (and, or, not) where it is no operator, so the formula is wrong: the checker reports it, the evaluator throws on it
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.KeywordNode.#ctor(System.String)">
+            <summary>
+            Formula node - a keyword (and, or, not) where it is no operator, so the formula is wrong: the checker reports it, the evaluator throws on it
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Nodes.KeywordNode.Keyword">
+            <summary>
+            Keyword
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Nodes.KeywordNode.ToString">
             <summary>
             ToString
             </summary>
@@ -5366,6 +5406,11 @@
             If set true - throws exception when variable not found, if set false - returns Null
             </summary>
         </member>
+        <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.UseKeywordOperators">
+            <summary>
+            If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+            </summary>
+        </member>
         <member name="P:NoStringEvaluating.NoStringEvaluatorOptions.IsWithoutDefaultFunctions">
             <summary>
             Don't register default functions
@@ -5414,6 +5459,11 @@
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.SetThrowIfVariableNotFound(System.Boolean)">
             <summary>
             Set throw if variable not found
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithKeywordOperators(System.Boolean)">
+            <summary>
+            Set and, or and not as operators: `a and b`, `a or b`, `not a` (case insensitive), next to &amp;&amp;, || and !. Off by default, as the three words are then no variable names
             </summary>
         </member>
         <member name="M:NoStringEvaluating.NoStringEvaluatorOptions.WithFunctionsFrom(System.Type)">
@@ -5657,6 +5707,21 @@
             Read function name
             </summary>
         </member>
+        <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader">
+            <summary>
+            Keyword operator reader: and, or (case insensitive) between two operands
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader.TryProceedKeywordOperator(System.Collections.Generic.List{NoStringEvaluating.Nodes.Base.BaseFormulaNode},System.ReadOnlySpan{System.Char},System.Int32@)">
+            <summary>
+            Read keyword operator
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.KeywordOperatorReader.IsReservedWord(System.String)">
+            <summary>
+            A keyword (and, or, not), which is no name of a simple variable while the keyword operators are on
+            </summary>
+        </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.ListReader">
             <summary>
             List reader
@@ -5675,6 +5740,12 @@
         <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader.ReadNegation(System.ReadOnlySpan{System.Char},System.Int32,System.Boolean@)">
             <summary>
             Read negation
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Parsing.NodeReaders.NegationReader.IsNegationKeyword(System.ReadOnlySpan{System.Char},System.Int32)">
+            <summary>
+            The keyword not (case insensitive) before an operand it can negate: a variable, a function, another negation. Before an opening bracket it is the
+            function: not(x), not (x). Before anything else, or at the end, it is no negation: the variable reader then makes it a KeywordNode, a wrong formula
             </summary>
         </member>
         <member name="T:NoStringEvaluating.Services.Parsing.NodeReaders.NumberReader">

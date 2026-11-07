@@ -109,6 +109,14 @@ public static class VariableReader
         {
             var variableSpan = formula.Slice(nodeBuilder.StartIndex.GetValueOrDefault(), nodeBuilder.Length);
             var variableName = variableSpan.ToString();
+
+            // a keyword that the keyword readers did not take (no operand before and/or, none after not) is a wrong formula, not a variable
+            if (KeywordOperatorReader.IsReservedWord(variableName))
+            {
+                nodes.Add(new KeywordNode(variableName));
+                return true;
+            }
+
             AddFormulaNode(nodes, variableName, isNegative, isNegation);
 
             return true;

@@ -37,6 +37,11 @@ public static class GlobalOptions
     public static bool ThrowIfVariableNotFound { get; internal set; }
 
     /// <summary>
+    /// If set true - and, or and not are operators (keywords, case insensitive) and no variable names; if set false (default) - plain names
+    /// </summary>
+    public static bool UseKeywordOperators { get; internal set; }
+
+    /// <summary>
     /// Assemblies with functions
     /// </summary>
     public static HashSet<Assembly> FunctionsAssemblies { get; } = [];
@@ -64,6 +69,7 @@ public static class GlobalOptions
         WordQuotationMark = string.Empty;
         UseWordQuotationMark = false;
         ThrowIfVariableNotFound = true;
+        UseKeywordOperators = false;
 
         FunctionsAssemblies.Clear();
         Functions.Clear();
