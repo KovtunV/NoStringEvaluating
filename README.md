@@ -24,6 +24,7 @@ Microsoft.Extensions.DependencyInjection <br/>
       * [Simple variable](#Simple-variable)
       * [Bordered variable](#Bordered-variable)
       * [Precompiled variables](#Precompiled-variables)
+      * [Bound variables](#Bound-variables)
    * [Operators](#Operators)
    * [Boolean operators](#Boolean-operators)
    * [Functions](#Functions)
@@ -41,6 +42,7 @@ Microsoft.Extensions.DependencyInjection <br/>
       * [IFormulaCache](#IFormulaCache)
       * [IFormulaChecker](#IFormulaChecker)
       * [IVariablesContainer](#IVariablesContainer)
+      * [IIndexedVariablesContainer](#IIndexedVariablesContainer)
       * [IFunction](#IFunction)
       * [NoStringEvaluatorOptions](#NoStringEvaluatorOptions)
       * [INoStringEvaluator](#INoStringEvaluator)
@@ -307,6 +309,15 @@ There are some known variables, you shouldn't send them to Calc method.
 
 These variables are register independent, you can write Pi, [PI], pI, True, etc...
 
+### Bound variables
+A formula that is evaluated many times against the same variables can read them by index instead of by name. Implement **IIndexedVariablesContainer** (an **IVariablesContainer** that also gives every name an index, and a value by index), bind the parsed formula once and evaluate the bound nodes with that container:
+```csharp
+var nodes = facade.FormulaParser.Parse("myArg * 2 + price");
+var bound = FormulaBinder.Bind(nodes, myIndexedContainer);    // a copy of the nodes, its variables bound to the container's indexes
+var result = evaluator.CalcNumber(bound, myIndexedContainer); // reads by index: no name lookups, no allocations
+```
+A name the container has no index for (IndexOf returns -1) is read by name as before. The bound nodes read by index only from a container with the same `BindingKey` (by default the container itself; containers that share one index layout can return one shared key); with any other container, or with a dictionary, every variable is read by name.
+
 ## Operators
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
@@ -534,6 +545,15 @@ public void ConfigureServices(IServiceCollection services)
 | IVariable AddOrUpdate(string name, double value) | Add or update variable |
 | EvaluatorValue GetValue(string name) | Return variable's value |
 |  bool TryGetValue(string name, out EvaluatorValue value) | Return variable's value if possible |
+
+### IIndexedVariablesContainer
+An IVariablesContainer for [bound variables](#Bound-variables).
+
+| Method |  Description |
+| ------------ | ------------ |
+| object BindingKey | What the indexes belong to: a bound formula reads by index from a container with the same key only. By default the container itself |
+| int IndexOf(string name) | The index of a variable, -1 when the container has no index for the name |
+| bool TryGetValue(int index, out EvaluatorValue value) | Return variable's value by index if possible |
 
 ### IFunction
 | Method |  Description |

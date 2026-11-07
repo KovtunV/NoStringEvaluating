@@ -15,14 +15,6 @@ public class NoStringNinjectModule : NinjectModule
     public override void Load()
     {
         // Pooling
-        Bind<ObjectPool<Stack<InternalEvaluatorValue>>>()
-            .ToConstant(ObjectPool.Create<Stack<InternalEvaluatorValue>>())
-            .InSingletonScope();
-
-        Bind<ObjectPool<List<InternalEvaluatorValue>>>()
-            .ToConstant(ObjectPool.Create<List<InternalEvaluatorValue>>())
-            .InSingletonScope();
-
         Bind<ObjectPool<ValueKeeperContainer>>()
             .ToConstant(ObjectPool.Create<ValueKeeperContainer>())
             .InSingletonScope();

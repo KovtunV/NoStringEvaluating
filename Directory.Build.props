@@ -1,6 +1,7 @@
 <Project>
 	<PropertyGroup>
 		<TargetFramework>net8</TargetFramework>
+		<RollForward>Major</RollForward>
 		<ImplicitUsings>enable</ImplicitUsings>
 		<SolutionDir>$(MSBuildThisFileDirectory)</SolutionDir>
 	</PropertyGroup>
