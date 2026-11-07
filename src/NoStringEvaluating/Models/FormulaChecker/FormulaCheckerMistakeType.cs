@@ -59,4 +59,9 @@ public enum FormulaCheckerMistakeType
     /// Empty or wrong formula
     /// </summary>
     EmptyOrWrongFormula = 10,
+
+    /// <summary>
+    /// A keyword (and, or, not) without the operand it needs
+    /// </summary>
+    KeywordWithoutOperand = 11,
 }

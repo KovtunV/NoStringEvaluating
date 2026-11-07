@@ -729,6 +729,10 @@ public class NoStringEvaluator(
             {
                 stack.Push(default);
             }
+            else if (node.TypeKey == NodeTypeEnum.Keyword)
+            {
+                throw new InvalidOperationException($"The keyword \"{node}\" is no operator here: the formula is wrong (see IFormulaChecker)");
+            }
         }
 
         // Result

@@ -64,4 +64,9 @@ public enum NodeTypeEnum
     /// Function
     /// </summary>
     Function,
+
+    /// <summary>
+    /// Keyword where it is no operator (a wrong formula)
+    /// </summary>
+    Keyword,
 }

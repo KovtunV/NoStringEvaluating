@@ -14,6 +14,7 @@ internal static class EvaluatorFacadeFactory
         var evaluatorFacade = NoStringEvaluator.CreateFacade(opt =>
         {
             opt.SetFloatingPointSymbol(FloatingPointSymbol.DotComma);
+            opt.WithKeywordOperators();
             opt.WithFunctionsFrom(typeof(EvaluatorFacadeFactory));
 
             options?.Invoke(opt);

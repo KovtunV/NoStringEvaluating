@@ -76,6 +76,11 @@ public class FormulaParser(IFunctionReader functionReader) : IFormulaParser
                 continue;
             }
 
+            if (KeywordOperatorReader.TryProceedKeywordOperator(nodes, formula, ref i))
+            {
+                continue;
+            }
+
             if (FunctionsReader.TryProceedFunction(nodes, formula, ref i))
             {
                 continue;

@@ -78,5 +78,34 @@ internal static class EvaluateBoolean
         yield return CreateTestModel("!!(5 > 2)", true);
         yield return CreateTestModel("!!!(5 > 2)", false);
         yield return CreateTestModel("!(5 > 2) || !(5 + 6 = 13)", true);
+
+        // keyword operators and, or, not: case insensitive, the same as &&, || and !
+        yield return CreateTestModel("true and false", false);
+        yield return CreateTestModel("true AND true", true);
+        yield return CreateTestModel("true Or false", true);
+        yield return CreateTestModel("false or false", false);
+        yield return CreateTestModel("1 > 0 and 2 > 1", true);
+        yield return CreateTestModel("1 > 0 and 2 > 3 or 5 = 5", true);
+        yield return CreateTestModel("1 > 0 or 2 > 3 and 5 = 4", true);
+        yield return CreateTestModel("(1 > 0) and (2 > 3)", false);
+        yield return CreateTestModel("myVar and (3 > 2)", true, ("myVar", true));
+        yield return CreateTestModel("[my var] or (3 > 2)", true, ("my var", false));
+        yield return CreateTestModel("add(1; 2) > 2 and 1 < 2", true);
+        yield return CreateTestModel("and(true; false) or true", true);
+        yield return CreateTestModel("or(false; false) and true", false);
+        yield return CreateTestModel("not true", false);
+        yield return CreateTestModel("NOT false", true);
+        yield return CreateTestModel("not not true", true);
+        yield return CreateTestModel("not myVar", false, ("myVar", true));
+        yield return CreateTestModel("not [my var]", true, ("my var", false));
+        yield return CreateTestModel("not myVar and true", true, ("myVar", false));
+        yield return CreateTestModel("true and not myVar", true, ("myVar", false));
+        yield return CreateTestModel("not (5 > 2)", false);
+        yield return CreateTestModel("not(5 > 2) or not !true", true);
+        yield return CreateTestModel("not IsNull(5)", true);
+        yield return CreateTestModel("android and orange", true, ("android", true), ("orange", true));
+        yield return CreateTestModel("nothing", true, ("nothing", true));
+        yield return CreateTestModel("not_flag or or_flag", true, ("not_flag", false), ("or_flag", true));
+        yield return CreateTestModel("[and] or [not]", true, ("and", false), ("not", true));
     }
 }

@@ -330,6 +330,11 @@ These variables are register independent, you can write Pi, [PI], pI, True, etc.
 | && | Logical conjunction (AND)  | a && b |
 | \|\| | Logical disjunction (OR)  | a \|\| b |
 | ! | Negation | !IsNull(a) |
+| and | Logical conjunction (AND), keyword | a and b |
+| or | Logical disjunction (OR), keyword | a or b |
+| not | Negation, keyword | not a |
+
+The keywords are an option, off by default, because with them on the three words are no longer variable names: `NoStringEvaluator.CreateFacade(opt => opt.WithKeywordOperators())`, or `services.AddNoStringEvaluator(opt => opt.WithKeywordOperators())`. On, they are case insensitive. `and` and `or` are operators between two operands; where an operand is expected, `and(...)` and `or(...)` are the [functions](#Logic). `not` negates the operand after it, like `!`; `not(...)` and `not (...)` are the function. A name that starts with a keyword (android, order, nothing) is a plain variable; a variable called and, or or not needs brackets: `[and]`.
 
 ## Functions
 
@@ -551,6 +556,7 @@ public void ConfigureServices(IServiceCollection services)
 | SetFloatingTolerance(double floatingTolerance) | Set floating tolerance |
 | SetFloatingPointSymbol(FloatingPointSymbol floatingPointSymbol) | Set floating point symbol |
 | SetThrowIfVariableNotFound(bool isThrow) | Set throw if variable not found |
+| WithKeywordOperators(bool useKeywordOperators = true) | and, or and not as operators (off by default, see [Boolean operators](#Boolean-operators)) |
 | WithFunctionsFrom(Type typeFromSourceAssembly) | Add assembly to register functions |
 | WithFunctionsFrom(Assembly sourceAssembly) | Add assembly to register functions |
 | WithoutDefaultFunctions(bool withoutDefaultFunctions = true) | Remove root assembly from functions registration |

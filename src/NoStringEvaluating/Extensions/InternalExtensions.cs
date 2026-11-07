@@ -31,6 +31,25 @@ internal static class InternalExtensions
         return char.IsWhiteSpace(ch);
     }
 
+    /// <summary>
+    /// Is the word at index, case insensitive and whole: not followed by a simple variable char
+    /// </summary>
+    public static bool IsWholeWordAt(this ReadOnlySpan<char> formula, int index, string word)
+    {
+        if (index + word.Length > formula.Length)
+        {
+            return false;
+        }
+
+        if (!formula.Slice(index, word.Length).Equals(word, StringComparison.OrdinalIgnoreCase))
+        {
+            return false;
+        }
+
+        var endIndex = index + word.Length;
+        return endIndex == formula.Length || !formula[endIndex].IsSimpleVariable();
+    }
+
     public static void ForEach<T>(this IEnumerable<T> source, Action<T> action)
     {
         foreach (var item in source)

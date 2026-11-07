@@ -30,6 +30,7 @@ public class FormulaChecker(IFormulaParser formulaParser) : IFormulaChecker
         var nodes = _formulaParser.ParseWithoutRpn(formula);
 
         CheckEmpty(mistakes, nodes);
+        CheckKeywords(mistakes, nodes);
         CheckBracketsCount(mistakes, nodes, 0, nodes.Count);
         CheckEmptyBrackets(mistakes, nodes, 0, nodes.Count);
         CheckNotOperatorableNodes(mistakes, nodes, 0, nodes.Count);
@@ -77,6 +78,23 @@ public class FormulaChecker(IFormulaParser formulaParser) : IFormulaChecker
         if (nodes.Count is 0)
         {
             var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.EmptyOrWrongFormula, "Formula doesn't contain any meaningful characters");
+            mistakes.Add(mistakeItem);
+        }
+    }
+
+    private static void CheckKeywords(List<FormulaCheckerModel> mistakes, List<BaseFormulaNode> nodes)
+    {
+        for (int i = 0; i < nodes.Count; i++)
+        {
+            if (nodes[i] is not KeywordNode keywordNode)
+            {
+                continue;
+            }
+
+            var msg = keywordNode.Keyword.Equals("not", StringComparison.OrdinalIgnoreCase)
+                ? $"The keyword \"{keywordNode}\" needs an operand after it"
+                : $"The keyword \"{keywordNode}\" needs an operand on both sides";
+            var mistakeItem = CreateMistakeModel(FormulaCheckerMistakeType.KeywordWithoutOperand, msg, keywordNode.ToString());
             mistakes.Add(mistakeItem);
         }
     }

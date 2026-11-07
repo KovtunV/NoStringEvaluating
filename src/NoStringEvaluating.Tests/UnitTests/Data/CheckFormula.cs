@@ -51,5 +51,21 @@ internal static class CheckFormula
         yield return CreateTestModelToCheck("?!!", false);
         yield return CreateTestModelToCheck(string.Empty, false);
         yield return CreateTestModelToCheck("   ", false);
+        yield return CreateTestModelToCheck("1 > 0 and 2 > 1", true);
+        yield return CreateTestModelToCheck("(1 > 0) or (2 > 1)", true);
+        yield return CreateTestModelToCheck("not a and not (b)", true);
+        yield return CreateTestModelToCheck("1 and", false);
+        yield return CreateTestModelToCheck("and 1", false);
+        yield return CreateTestModelToCheck("1 or or 2", false);
+        yield return CreateTestModelToCheck("1 and and(2; 3)", true);
+        yield return CreateTestModelToCheck("not", false);
+        yield return CreateTestModelToCheck("true and not", false);
+        yield return CreateTestModelToCheck("not not", false);
+        yield return CreateTestModelToCheck("not +", false);
+        yield return CreateTestModelToCheck("not -1", false);
+        yield return CreateTestModelToCheck("1 + and", false);
+        yield return CreateTestModelToCheck("or", false);
+        yield return CreateTestModelToCheck("true and not(false)", true);
+        yield return CreateTestModelToCheck("true and not (false)", true);
     }
 }

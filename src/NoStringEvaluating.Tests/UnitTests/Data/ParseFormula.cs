@@ -26,5 +26,8 @@ internal static class ParseFormula
             ("my variable", true));
         yield return CreateTestModel("IfNull(thisisnull;3)", "IFNULL([thisisnull]; 3)", 3);
         yield return CreateTestModel("IfNull(4;3)", "IFNULL(4; 3)", 4);
+        yield return CreateTestModel("1 > 0 and 2 > 1 or 3 > 4", "1 0 > 2 1 > && 3 4 > ||", 1);
+        yield return CreateTestModel("not a and (b or not c)", "[a] [b] [c] || &&", 1, ("a", false), ("b", true), ("c", true));
+        yield return CreateTestModel("and(a; b) or not (c)", "AND([a]; [b]) NOT([c]) ||", 1, ("a", true), ("b", true), ("c", true));
     }
 }
