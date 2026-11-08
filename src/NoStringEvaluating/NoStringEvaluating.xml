@@ -4730,11 +4730,6 @@
             Expression evaluator
             </summary>
         </member>
-        <member name="M:NoStringEvaluating.NoStringEvaluator.#ctor(Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.Stack{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{System.Collections.Generic.List{NoStringEvaluating.Models.Values.InternalEvaluatorValue}},Microsoft.Extensions.ObjectPool.ObjectPool{NoStringEvaluating.Models.Values.ValueKeeperContainer},NoStringEvaluating.Contract.IFormulaCache)">
-            <summary>
-            Expression evaluator. The stack and argument list pools are not used any more: the <see cref="T:NoStringEvaluating.Models.Values.ValueKeeperContainer"/> rented per evaluation holds them
-            </summary>
-        </member>
         <member name="M:NoStringEvaluating.NoStringEvaluator.CalcNumber(System.String,NoStringEvaluating.Contract.Variables.IVariablesContainer)">
             <summary>
             Calculate formula
@@ -5824,6 +5819,45 @@
             <summary>
             Return reversed nodes
             </summary>
+        </member>
+        <member name="T:NoStringEvaluating.Services.Variables.IndexedVariablesContainer">
+            <summary>
+            Variables with stable, zero-based indexes assigned in insertion order. Names are case-sensitive
+            </summary>
+            <remarks>
+            Bind a formula once with <see cref="T:NoStringEvaluating.Services.Binding.FormulaBinder"/>, then update values with <see cref="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.AddOrUpdate(System.String,NoStringEvaluating.Models.Values.EvaluatorValue)"/>.
+            Adding or updating variables preserves existing indexes. Concurrent reads are supported only while the container is not being modified
+            </remarks>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.#ctor(System.Collections.Generic.IDictionary{System.String,NoStringEvaluating.Models.Values.EvaluatorValue})">
+            <summary>
+            Creates a container, optionally copying initial variables in their enumeration order
+            </summary>
+        </member>
+        <member name="P:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.BindingKey">
+            <summary>
+            Indexes belong to this container; another container is read by name even if its names are the same
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.IndexOf(System.String)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.TryGetValue(System.Int32,NoStringEvaluating.Models.Values.EvaluatorValue@)">
+            <inheritdoc/>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.AddOrUpdate(System.String,NoStringEvaluating.Models.Values.EvaluatorValue)">
+            <summary>
+            Adds or updates a value without changing existing indexes. Returns a snapshot of the variable;
+            use this method to make subsequent updates to the container
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.GetValue(System.String)">
+            <summary>
+            Returns the value, or a null evaluator value when the name is not present
+            </summary>
+        </member>
+        <member name="M:NoStringEvaluating.Services.Variables.IndexedVariablesContainer.TryGetValue(System.String,NoStringEvaluating.Models.Values.EvaluatorValue@)">
+            <inheritdoc/>
         </member>
     </members>
 </doc>

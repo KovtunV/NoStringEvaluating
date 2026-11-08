@@ -179,6 +179,18 @@ internal class NoStringEvaluatorTests
     }
 
     [Test]
+    public void Should_Recover_Stack_And_Nested_Arguments_After_A_Failed_Evaluation()
+    {
+        var service = CreateService(opt => opt.SetThrowIfVariableNotFound(true));
+        var fail = () => service.CalcNumber("10 + add(1; add(2; missing))");
+
+        fail.Should().Throw<VariableNotFoundException>();
+
+        service.CalcNumber("20 + add(3; add(4; 5))").Should().Be(32);
+        service.CalcNumber("add(6; 7)").Should().Be(13);
+    }
+
+    [Test]
     public void Should_Evaluate_A_Nested_Call_From_A_Function()
     {
         // arrange: the function calls the evaluator while its own evaluation holds the thread's context

@@ -82,7 +82,7 @@ internal readonly struct VariablesSource
         return new VariablesSource(variablesContainer, variablesDict: null, bindingKey);
     }
 
-    internal static VariablesSource Create(IDictionary<string, EvaluatorValue> variablesDict, object bindingKey)
+    internal static VariablesSource Create(IDictionary<string, EvaluatorValue> variablesDict)
     {
         return new VariablesSource(variablesContainer: null, variablesDict, bindingKey: null);
     }

@@ -53,7 +53,7 @@ public static class NoStringEvaluatorExtensions
         IDictionary<string, EvaluatorValue> variables = null)
     {
         var formulaNodes = ExtractFormulaCache(eval).GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 
@@ -66,7 +66,7 @@ public static class NoStringEvaluatorExtensions
         FormulaNodes formulaNodes,
         IDictionary<string, EvaluatorValue> variables = null)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 

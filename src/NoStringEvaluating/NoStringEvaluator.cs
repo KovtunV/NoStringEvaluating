@@ -34,18 +34,6 @@ public class NoStringEvaluator(
     [ThreadStatic]
     private static ValueKeeperContainer _threadContext;
 
-    /// <summary>
-    /// Expression evaluator. The stack and argument list pools are not used any more: the <see cref="ValueKeeperContainer"/> rented per evaluation holds them
-    /// </summary>
-    public NoStringEvaluator(
-        ObjectPool<Stack<InternalEvaluatorValue>> stackPool,
-        ObjectPool<List<InternalEvaluatorValue>> argsPool,
-        ObjectPool<ValueKeeperContainer> valueKeeperContainerPool,
-        IFormulaCache formulaCache)
-        : this(valueKeeperContainerPool, formulaCache)
-    {
-    }
-
     #region Endpoints
 
     #region NumberEndpoints
@@ -81,7 +69,7 @@ public class NoStringEvaluator(
     public double CalcNumber(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcNumber(formulaNodes.Nodes, wrapper);
     }
 
@@ -92,7 +80,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public double CalcNumber(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcNumber(formulaNodes.Nodes, wrapper);
     }
 
@@ -152,7 +140,7 @@ public class NoStringEvaluator(
     public string CalcWord(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcWord(formulaNodes.Nodes, wrapper);
     }
 
@@ -163,7 +151,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public string CalcWord(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcWord(formulaNodes.Nodes, wrapper);
     }
 
@@ -223,7 +211,7 @@ public class NoStringEvaluator(
     public DateTime CalcDateTime(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcDateTime(formulaNodes.Nodes, wrapper);
     }
 
@@ -234,7 +222,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public DateTime CalcDateTime(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcDateTime(formulaNodes.Nodes, wrapper);
     }
 
@@ -294,7 +282,7 @@ public class NoStringEvaluator(
     public List<string> CalcWordList(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcWordList(formulaNodes.Nodes, wrapper);
     }
 
@@ -305,7 +293,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public List<string> CalcWordList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcWordList(formulaNodes.Nodes, wrapper);
     }
 
@@ -365,7 +353,7 @@ public class NoStringEvaluator(
     public List<double> CalcNumberList(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcNumberList(formulaNodes.Nodes, wrapper);
     }
 
@@ -376,7 +364,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public List<double> CalcNumberList(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcNumberList(formulaNodes.Nodes, wrapper);
     }
 
@@ -436,7 +424,7 @@ public class NoStringEvaluator(
     public bool CalcBoolean(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcBoolean(formulaNodes.Nodes, wrapper);
     }
 
@@ -447,7 +435,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public bool CalcBoolean(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcBoolean(formulaNodes.Nodes, wrapper);
     }
 
@@ -507,7 +495,7 @@ public class NoStringEvaluator(
     public EvaluatorValue Calc(string formula, IDictionary<string, EvaluatorValue> variables)
     {
         var formulaNodes = _formulaCache.GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcAggregated(formulaNodes.Nodes, wrapper);
     }
 
@@ -518,7 +506,7 @@ public class NoStringEvaluator(
     /// <exception cref="InvalidCastException"></exception>
     public EvaluatorValue Calc(FormulaNodes formulaNodes, IDictionary<string, EvaluatorValue> variables)
     {
-        var wrapper = VariablesSource.Create(variables, formulaNodes.BindingKey);
+        var wrapper = VariablesSource.Create(variables);
         return OnCalcAggregated(formulaNodes.Nodes, wrapper);
     }
 

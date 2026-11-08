@@ -7,6 +7,19 @@ namespace NoStringEvaluating.Tests.UnitTests.Models.Values;
 internal class InternalEvaluatorValueTests
 {
     [Test]
+    public void Should_Return_Defaults_For_Unrelated_Inline_Value_Types()
+    {
+        var number = new InternalEvaluatorValue(1d);
+        var boolean = new InternalEvaluatorValue(true);
+        var dateTime = new InternalEvaluatorValue(DateTime.MaxValue);
+
+        number.Boolean.Should().BeFalse();
+        number.DateTime.Should().Be(default);
+        boolean.DateTime.Should().Be(default);
+        dateTime.Boolean.Should().BeFalse();
+    }
+
+    [Test]
     public void Should_Return_Non_Scientific_Notation()
     {
         // arrange

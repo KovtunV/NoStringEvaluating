@@ -1,5 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
 using ConsoleApp.Benchmark.Base;
+using NoStringEvaluating.Models.Values;
+using NoStringEvaluating.Services.Binding;
+using NoStringEvaluating.Services.Variables;
 
 namespace ConsoleApp.Benchmark;
 
@@ -53,6 +56,20 @@ public class BenchNumbers : BenchBase
     public void Formula6_NoString()
     {
         CalcNoString(Formula6, Arg1, Arg2, Arg3, Arg4, Arg5, Arg6, Arg7, Arg8, Arg9, Arg10);
+    }
+
+    [Benchmark]
+    public void Formula6_NoString_Indexed()
+    {
+        var facade = CreateNoStringFacade();
+        var args = Enumerable.Range(1, 10).ToDictionary(i => $"arg{i}", _ => (EvaluatorValue)1.7);
+        var container = new IndexedVariablesContainer(args);
+        var bound = FormulaBinder.Bind(facade.FormulaCache.GetFormulaNodes(Formula6), container);
+
+        for (var i = 0; i < N; i++)
+        {
+            facade.Evaluator.CalcNumber(bound, container);
+        }
     }
 
     [Benchmark]
