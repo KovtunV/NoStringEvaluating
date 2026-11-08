@@ -27,7 +27,7 @@ public static class NoStringEvaluatorExtensions
         IVariablesContainer variableContainer = null)
     {
         var formulaNodes = ExtractFormulaCache(eval).GetFormulaNodes(formula);
-        var wrapper = VariablesSource.Create(variableContainer);
+        var wrapper = VariablesSource.Create(variableContainer, formulaNodes.BindingKey);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 
@@ -40,7 +40,7 @@ public static class NoStringEvaluatorExtensions
         FormulaNodes formulaNodes,
         IVariablesContainer variableContainer = null)
     {
-        var wrapper = VariablesSource.Create(variableContainer);
+        var wrapper = VariablesSource.Create(variableContainer, formulaNodes.BindingKey);
         return VariableValuesUsedByFormulaInternal(formulaNodes.Nodes, wrapper);
     }
 

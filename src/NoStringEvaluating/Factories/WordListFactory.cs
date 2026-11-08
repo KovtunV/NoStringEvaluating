@@ -18,7 +18,7 @@ public readonly struct WordListFactory
     }
 
     /// <summary>
-    /// Creates WordList value
+    /// Creates word list value
     /// </summary>
     public InternalEvaluatorValue Create(List<string> wordList)
     {

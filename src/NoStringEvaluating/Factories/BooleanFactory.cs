@@ -7,16 +7,6 @@ namespace NoStringEvaluating.Factories;
 /// </summary>
 public readonly struct BooleanFactory
 {
-    private readonly ValueKeeperContainer _valueKeeperContainer;
-
-    /// <summary>
-    /// BooleanFactory
-    /// </summary>
-    internal BooleanFactory(ValueKeeperContainer valueKeeperContainer)
-    {
-        _valueKeeperContainer = valueKeeperContainer;
-    }
-
     /// <summary>
     /// Creates boolean value
     /// </summary>
@@ -35,9 +25,6 @@ public readonly struct BooleanFactory
     /// </summary>
     public InternalEvaluatorValue Create(bool boolean)
     {
-        var valueKeeper = _valueKeeperContainer.GetValueKeeper();
-        valueKeeper.Boolean = boolean;
-
-        return new InternalEvaluatorValue(valueKeeper.Ptr, ValueTypeKey.Boolean);
+        return new InternalEvaluatorValue(boolean);
     }
 }

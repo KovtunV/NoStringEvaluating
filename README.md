@@ -24,6 +24,7 @@ Microsoft.Extensions.DependencyInjection <br/>
       * [Simple variable](#Simple-variable)
       * [Bordered variable](#Bordered-variable)
       * [Precompiled variables](#Precompiled-variables)
+      * [Bound variables](#Bound-variables)
    * [Operators](#Operators)
    * [Boolean operators](#Boolean-operators)
    * [Functions](#Functions)
@@ -41,6 +42,7 @@ Microsoft.Extensions.DependencyInjection <br/>
       * [IFormulaCache](#IFormulaCache)
       * [IFormulaChecker](#IFormulaChecker)
       * [IVariablesContainer](#IVariablesContainer)
+      * [IIndexedVariablesContainer](#IIndexedVariablesContainer)
       * [IFunction](#IFunction)
       * [NoStringEvaluatorOptions](#NoStringEvaluatorOptions)
       * [INoStringEvaluator](#INoStringEvaluator)
@@ -307,6 +309,42 @@ There are some known variables, you shouldn't send them to Calc method.
 
 These variables are register independent, you can write Pi, [PI], pI, True, etc...
 
+### Bound variables
+A formula that is evaluated many times against the same variables can read them by index instead of by name. Use the built-in **IndexedVariablesContainer**, bind the parsed formula once and reuse the bound nodes as values change. This complete example uses the ten-variable Formula 6 from the performance tests:
+```csharp
+using System;
+using NoStringEvaluating;
+using NoStringEvaluating.Services.Binding;
+using NoStringEvaluating.Services.Variables;
+
+var facade = NoStringEvaluator.CreateFacade();
+var variables = new IndexedVariablesContainer();
+for (var i = 1; i <= 10; i++)
+{
+    variables.AddOrUpdate($"Arg{i}", 1.7);
+}
+
+const string formula = "Arg1 * (Arg2 + Arg3) - Arg4 / (Arg5 - Arg6 + 1)"
+    + " + 45 * Arg7 + ((Arg8 * 56 + (12 + Arg9))) - Arg10";
+var nodes = facade.FormulaParser.Parse(formula);
+var bound = FormulaBinder.Bind(nodes, variables);
+
+Console.WriteLine(facade.Evaluator.CalcNumber(bound, variables)); // approximately 187.78
+
+// Existing indexes stay valid after updates or additions; no need to parse or bind again.
+variables.AddOrUpdate("Arg1", 2.7);
+Console.WriteLine(facade.Evaluator.CalcNumber(bound, variables)); // approximately 191.18
+```
+The container copies optional initial values from an `IDictionary<string, EvaluatorValue>`. Names are case-sensitive and indexes follow insertion order. `AddOrUpdate` returns a snapshot; call it again to update the stored value. `GetValue` returns a null evaluator value for a missing name; `TryGetValue` distinguishes missing names/indexes from stored null values. Do not modify a container while it is being read by another thread.
+
+You can also implement **IIndexedVariablesContainer** for custom storage or a shared index layout.
+A name the container has no index for (IndexOf returns -1) is read by name as before. The bound nodes read by index only from a container with the same `BindingKey` (by default the container itself; containers that share one index layout can return one shared key); with any other container, or with a dictionary, every variable is read by name.
+
+`PerformanceTests.RunFormula6Indexed` measures one million evaluations alongside the existing dictionary-based Formula 6 test. `BenchNumbers.Formula6_NoString_Indexed` provides the corresponding BenchmarkDotNet case.
+
+### Evaluator constructor migration
+The evaluator now takes only `ObjectPool<ValueKeeperContainer>` and `IFormulaCache`. The old four-parameter constructor has been removed: callers constructing `NoStringEvaluator` directly must drop the stack and argument-list pools. `NoStringEvaluator.CreateFacade()` and `services.AddNoStringEvaluator()` already use the new constructor.
+
 ## Operators
 | Key word  |  Description | Example  |
 | ------------ | ------------ | ------------ |
@@ -534,6 +572,15 @@ public void ConfigureServices(IServiceCollection services)
 | IVariable AddOrUpdate(string name, double value) | Add or update variable |
 | EvaluatorValue GetValue(string name) | Return variable's value |
 |  bool TryGetValue(string name, out EvaluatorValue value) | Return variable's value if possible |
+
+### IIndexedVariablesContainer
+An IVariablesContainer for [bound variables](#Bound-variables).
+
+| Method |  Description |
+| ------------ | ------------ |
+| object BindingKey | What the indexes belong to: a bound formula reads by index from a container with the same key only. By default the container itself |
+| int IndexOf(string name) | The index of a variable, -1 when the container has no index for the name |
+| bool TryGetValue(int index, out EvaluatorValue value) | Return variable's value by index if possible |
 
 ### IFunction
 | Method |  Description |

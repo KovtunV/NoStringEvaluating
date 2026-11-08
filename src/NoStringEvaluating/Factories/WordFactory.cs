@@ -18,12 +18,12 @@ public readonly struct WordFactory
     }
 
     /// <summary>
-    /// Creates default
+    /// Empty word
     /// </summary>
     public InternalEvaluatorValue Empty => Create(string.Empty);
 
     /// <summary>
-    /// Concates two values to word
+    /// Concat values
     /// </summary>
     public InternalEvaluatorValue Concat(InternalEvaluatorValue a, InternalEvaluatorValue b)
     {
